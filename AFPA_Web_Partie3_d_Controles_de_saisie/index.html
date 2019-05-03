@@ -27,18 +27,21 @@
   // Handlers
   for (i=0; i<document.querySelectorAll('input').length; i++) {
     
-    /*DEBUG*/console.log('1 • nombre de champs: '+document.querySelectorAll('input').length);
-    /*DEBUG*/console.log('2 • index: '+i);
     id = document.querySelectorAll('input')[i].placeholder;
-    /*DEBUG*/console.log('3 • id: '+id);
-    var element = document.querySelectorAll('input[placeholder="' +id+ '"]')[i];
-    /*DEBUG*/console.log('4 • element: '+element);
+    id = `input[placeholder="${id}"]`;
+    var element = document.querySelectorAll(id)[0];
+    
+    /*DEBUG*/console.log(`1 • nombre de champs: ${document.querySelectorAll('input').length}`);
+    /*DEBUG*/console.log(`2 • index: ${i}`);
+    /*DEBUG*/console.log(`3 • id: ${id}`);
+    /*DEBUG*/console.log(`3 • document.querySelectorAll(${id})[${i}]: ${document.querySelectorAll(id)[0]}`);
+    /*DEBUG*/console.log(`4 • element: ${element}`);
     
     element.onblur = function() 
     {
-      /*DEBUG*/console.log('5 • Blur occured!');
+      /*DEBUG*/console.log(`5 • Blur occured!`);
       element.className=='requis'? requis=true: requis=false;
-      /*DEBUG*/console.log('6 • element.className'+element.className);
+      /*DEBUG*/console.log(`6 • element.className: ${element.className}`);
       champsValide(this, requis);
     }
   }
