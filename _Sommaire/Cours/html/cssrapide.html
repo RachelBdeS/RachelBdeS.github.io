@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>HTML en deux heures</title>
+<meta name="author" content="G. Chagnon">
+<meta name="keywords" content="HTML, accessibilit&eacute;, w3c, xhtml">
+<meta name="description" content="Apr&egrave;s un cours d'introduction, les &eacute;tapes n&eacute;cessaires pour la cr&eacute;ation et la mise en ligne d'un site Web.">
+<link type="text/html" href="index.html" rel="contents">
+<link type="text/html" href="index.html" rel="up">
+<link type="text/html" href="intro.html" rel="first">
+<link type="text/html" href="modeles.html" rel="last">
+<link href="forme2.css" type="text/css" rel="stylesheet">
+<link media="screen" href="forme2screen.css" type="text/css" rel="stylesheet">
+<link media="print" href="forme2print.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="entete">
+<h1>HTML en deux heures</h1>
+<p>Derni&egrave;re <a href="#listemaj">mise &agrave; jour</a> le 21/10/2004.</p>
+</div>
+<div id="tablemat">
+<p>
+<a href="index.html">Accueil du cours</a>
+</p>
+<hr>
+<ol>
+<li>
+<h3 class="tablematieres">
+<a title="Cr&eacute;ation d'un site" href="#creation">Cr&eacute;ation d'un site</a>
+</h3>
+<ol>
+<li>
+<h4 class="tablematieres">
+<a title="Les &eacute;tapes initiales" href="#etapes">Les &eacute;tapes initiales</a>
+</h4>
+</li>
+<li>
+<h4 class="tablematieres">
+<a title="Outils de production de pages Web" href="#outils">Outils de production de pages Web</a>
+</h4>
+<ol>
+<li>
+<h5 class="tablematieres">
+<a title="Introduction" href="#outilsintro">Introduction</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Editeurs" href="#outilsediteurs">Editeurs</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Les Weblogs" href="#outilsweblogs">Les Weblogs</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Outils de publication de contenu" href="#outilspubli">Outils de publication de contenu</a>
+</h5>
+</li>
+</ol>
+</li>
+<li>
+<h4 class="tablematieres">
+<a title="Quel format choisir?" href="#format">Quel format choisir?</a>
+</h4>
+<ol>
+<li>
+<h5 class="tablematieres">
+<a title="Format de document" href="#formatdocument">Format de document</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Format de caract&egrave;res" href="#formatcarac">Format de caract&egrave;res</a>
+</h5>
+</li>
+</ol>
+</li>
+<li>
+<h4 class="tablematieres">
+<a title="Validit&eacute;" href="#validite">Validit&eacute;</a>
+</h4>
+</li>
+<li>
+<h4 class="tablematieres">
+<a title="Accessibilit&eacute;" href="#accessibilite">Accessibilit&eacute;</a>
+</h4>
+</li>
+</ol>
+</li>
+<li>
+<h3 class="tablematieres">
+<a title="Le corps d'un document" href="#corps">Le corps d'un document</a>
+</h3>
+<ol>
+<li>
+<h4 class="tablematieres">
+<a title="Structure" href="#structure">Structure</a>
+</h4>
+<ol>
+<li>
+<h5 class="tablematieres">
+<a title="Titres et paragraphes" href="#titpara">Titres et paragraphes</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Listes" href="#listes">Listes</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Tableaux" href="#tableaux">Tableaux</a>
+</h5>
+</li>
+</ol>
+</li>
+<li>
+<h4 class="tablematieres">
+<a title="El&eacute;ments 'enligne' " href="#enligne">El&eacute;ments 'enligne' </a>
+</h4>
+<ol>
+<li>
+<h5 class="tablematieres">
+<a title="Liens" href="#liens">Liens</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="A l'int&eacute;rieur du texte" href="#danstexte">A l'int&eacute;rieur du texte</a>
+</h5>
+</li>
+<li>
+<h5 class="tablematieres">
+<a title="Images" href="#images">Images</a>
+</h5>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p>Auteur: <a href="mailto:Gilles.Chagnon@upmc.fr">G. Chagnon</a>
+</p>
+</div>
+<div id="main">
+<div id="navigation1">
+<p>Copyright (c) 2004 Gilles Chagnon, selon les termes de la <a href="license.html">Licence de Documentation Libre GNU</a>.</p>
+<p></p>
+</div>
+<div id="corpus">
+<h3>
+<a name="creation"></a>I. Cr&eacute;ation d'un site</h3>
+<h4>
+<a name="etapes"></a>1. Les &eacute;tapes initiales</h4>
+<p>Avant de cr&eacute;er un site, il faut choisir un <em>h&eacute;bergeur</em>. Il s'agira d'un <em>serveur</em>, "quelque part" dans le monde, sur lequel seront h&eacute;berg&eacute;s les fichiers que vos proposerez &agrave; la communaut&eacute;. il en existe de multiples (il suffit de faire une recherche Internet <a href="http://www.google.com/search?hl=fr&q=hebergeur&btnG=Rechercher&lr=">sur le sujet</a> pour s'en rendre compte!).</p>
+<p>Une fois cela fait, selon l'h&eacute;bergeur choisi, vous disposerez d'un certain nombre d'outils pour <em>mettre en ligne</em> votre site. en g&eacute;n&eacute;ral, la fonction de base est le serveur FTP. Vous allez pouvoir d&eacute;poser sur le serveur les fichiers que vous d&eacute;sirez mettre en ligne. Mais il existe plusieurs outils qui permettent de faciliter cette op&eacute;ration.</p>
+<br>
+<h4>
+<a name="outils"></a>2. Outils de production de pages Web</h4>
+<h5 id="outilsintro">a. Introduction</h5>
+<p>Ainsi que vous le constaterez, il est possible de cr&eacute;er un site Web entier &agrave; l'aide d'un simple &eacute;diteur de texte, et d'un client FTP. Fort heureusement, si cette solution reste encore possible pour un d&eacute;pannage ponctuel sur un fichier, il existe des outils d&eacute;di&eacute;s, qui permettent d'automatiser bon nombre des op&eacute;rations fastidieuses.</p>
+<br>
+<h5 id="outilsediteurs">b. Editeurs</h5>
+<p>Les &eacute;diteurs HTML sont des logiciels qui aident &agrave; la saisie des balises <code class="langage">HTML</code>. Il en existe de deux types:</p>
+<ul>
+<li>
+<p>les &eacute;diteurs de code proprement dits, similaires &agrave; un "environnement int&eacute;gr&eacute; de d&eacute;veloppement" (EDI) pour un langage de programmation, qui permettent de coder les balises directement. Ils permettent de garder un contr&ocirc;le plus fin et pr&eacute;cis sur le code que...</p>
+</li>
+<li>
+<p>les &eacute;diteurs dits WYSIWYG, qui offrent un environnement ressemblant plus &agrave; celui d'un logiciel de traitement de texte.</p>
+</li>
+</ul>
+<p>Ces &eacute;diteurs modernes offrent de plus des facilit&eacute;s de gestion de site (notion de mod&egrave;le de document, de projet, gestion efficace des liens internes aux documents, int&eacute;gration de langages de scripts comme PHP, etc.).</p>
+<br>
+<h5 id="outilsweblogs">c. Les Weblogs</h5>
+<p>Ces outils, comme <a href="http://www.dotclear.net/"><code class="logiciel">DotClear</code></a> ou <a href="http://www.blogger.com"><code class="logiciel">Blogger</code></a>, par exemple, permettent la saisie, la mise en forme et la mise en ligne automatis&eacute;e de "journaux" personnels. Con&ccedil;us &agrave; l'origine comme des outils de publication rapide, &agrave; destination de quelques internautes d&eacute;sireux de mettre en vrac leurs impressions quotidiennes, ils ont &eacute;volu&eacute; en interfaces complexes, mais toujours sur le m&ecirc;me principe:</p>
+<ol>
+<li>
+<p>Un auteur initial &eacute;crit un article &agrave; l'aide de l'outil, qu'il met en ligne;</p>
+</li>
+<li>
+<p>Les visiteurs du journal peuvent soit ajouter des commentaires, soit placer des <span lang="en" class="autrelangue">trackbacks</span> sur l'article, afin de cr&eacute;er un lien entre un article qu'ils &eacute;crivent sur leur propre <span lang="en" class="autrelangue">blog</span>, et l'article qu'ils sont en train de lire.</p>
+</li>
+</ol>
+<p>Ces fonctions de base peuvent &ecirc;tre &eacute;tendues, mais on aborde l&agrave; une autre cat&eacute;gorie de ces outils: les outils de publication de contenu proprement dits.</p>
+<br>
+<h5 id="outilspubli">d. Outils de publication de contenu</h5>
+<p>On rencontre principalement deux types de tels outils:</p>
+<ol>
+<li>
+<p>les outils enti&egrave;rement ouverts, comme le format Wiki. n'importe quel internaute peut modifier la page qu'il est en train de lire. Voir par exemple la <a href="http://fr.wikipedia.org/wiki/Accueil">Wikipedia</a>, une encyclop&eacute;die en ligne maintenue et modifi&eacute;e uniquement par ses lecteurs.</p>
+</li>
+<li>
+<p>les outils de publication de contenu proprement dits, tels que le populaire <a href="http://www.spip.net/">SPIP</a>, <a href="http://ez.no/ez_publish">eZPublish</a>, <a href="http://phpnuke.org/">PHPNuke</a>. Ces outils proposent des interfaces utilisateurs plus ou moins complexes, permettant &agrave; des personnes ne connaissant pas le format HTML de publier du contenu sur le Web, sous un forme param&eacute;trable.</p>
+</li>
+</ol>
+<p>Ces outils, cependant, sont loin d'offrir les m&ecirc;mes fonctionnalit&eacute;s que ce que peut produire un webmestre exp&eacute;riment&eacute;; il s'agit de contenu facilement publiable, pr&eacute;formatt&eacute;. Pour aller plus loin, il est n&eacute;cessaire de faire appel &agrave; un d&eacute;veloppeur sp&eacute;cialis&eacute;.</p>
+<br>
+<h4>
+<a name="format"></a>3. Quel format choisir?</h4>
+<h5 id="formatdocument">a. Format de document</h5>
+<p>La question peut sembler &eacute;trange. N&eacute;anmoins, si vous d&eacute;cidez de cr&eacute;er votre site sans passer par un outil de publication de contenu, et que vous soyez donc amen&eacute; &agrave; utiliser un &eacute;diteur HTML, il va vous falloir opter pour un (ou plusieurs) formats de fichiers.</p>
+<p>Vous pouvez choisir de r&eacute;aliser un site enti&egrave;rement sous Flash. Cela n'est cependant pas recommand&eacute; dans le cas g&eacute;n&eacute;ral, dans la mesure o&ugrave; cela emp&ecirc;che notamment le r&eacute;f&eacute;rencement correct de votre site.</p>
+<p>L'autre alternative est d'opter pour un format <code class="langage">HTML</code> ou d&eacute;riv&eacute; (certains d'entre vous ont peut-&ecirc;tre entendu parler du langage de script PHP; mais ce langage, en fait, produit du <code class="langage">HTML</code>). En fait, quatre choix sont possibles, articul&eacute;s autour du couple <code class="langage">HTML</code>/<code class="langage">XHTML</code>:</p>
+<ol>
+<li>
+<p>
+<code class="langage">HTML Transitionnel</code>: il se d&eacute;clare avec le prologue <code class="code">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</code>. Cela permet d'avoir acc&egrave;s aux balises d'apparence.</p>
+</li>
+<li>
+<p>
+<code class="langage">HTML Strict</code>, d&eacute;clar&eacute; avec le prologue <code class="code">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</code>. Il oblige &agrave; s&eacute;parer "strictement" contenu et mise en forme.</p>
+</li>
+<li>
+<p>
+<code class="langage">XHTML Transitionnel</code>: il se d&eacute;clare avec le prologue <code class="code">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&gt;</code>. Cela permet d'avoir acc&egrave;s aux balises d'apparence, tout en respectant une syntaxe plus adapt&eacute;e &agrave; un traitement et une proc&eacute;dure de mise &agrave; jour plus automatis&eacute;e.</p>
+</li>
+<li>
+<p>
+<code class="langage">XHTML Strict</code>, d&eacute;clar&eacute; avec le prologue <code class="code">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</code>. Il oblige &agrave; s&eacute;parer "strictement" contenu et mise en forme, tout en respectant une syntaxe plus adapt&eacute;e &agrave; un traitement et une proc&eacute;dure de mise &agrave; jour plus automatis&eacute;e.</p>
+</li>
+</ol>
+<p>La diff&eacute;rence entre <code class="langage">HTML</code> et <code class="langage">XHTML</code> r&eacute;side essentiellement, lors de la phase d'&eacute;criture, dans une l&eacute;g&egrave;re modification de la mani&egrave;re d'utiliser les balises <code class="langage">HTML</code>. Par exemple, au lieu d'&eacute;crire une balise de saut de ligne &lt;br&gt; en <code class="langage">HTML</code>, on &eacute;crira &lt;br/&gt; en <code class="langage">XHTML</code>. Du point de vue de la maintenance du code, cependant, utiliser le format <code class="langage">XHTML</code> permet d'anticiper sur de possibles mises &agrave; jour du contenu, et &agrave; terme, lorsque l'ensemble des navigateurs en supportera toutes les propri&eacute;t&eacute;s, de faciliter l'insertion de documents d'origines diverses dans la page Web.</p>
+<p>Indiquer un "doctype" pour un document facilite notamment le "travail" des navigateurs charg&eacute;s d'interpr&eacute;ter le code <code class="langage">HTML</code>. Avant de lire un document en entier, ils "savent" &agrave; quoi s'attendre, ce qui leur permet de passer, &eacute;ventuellement, d'un mode d'affichage &agrave; un autre (nous y reviendrons quand nous parlerons du langage <code class="langage">CSS</code>).</p>
+<br>
+<h5 id="formatcarac">b. Format de caract&egrave;res</h5>
+<p>En interne, sur son disque dur, un ordinateur stocke un fichier sous la forme d'une succession de 1 et de 0. Le nombre de 0 et de 1 autoris&eacute;s pour le stockage d'un caract&egrave;re est limit&eacute;, et il se trouve que le nombre total de combinaisons de 1 et 0 possibles est bien inf&eacute;rieur au nombre total de caract&egrave;res et de glyphes existant dans les alphabets du monde. L'ordinateur peut donc ne pas "reconna&icirc;tre" un caract&egrave;re 'a' latin, d'un caract&egrave;re cyrillique ou h&eacute;breu. Pour le lui permettre, il est n&eacute;cessaire d'indiquer un <em>encodage</em> de caract&egrave;res pour l'ensemble du document. Cela se fait gr&acirc;ce &agrave; la balise <code class="code">&lt;meta&gt;</code> dans l'ent&ecirc;te du document <code class="typefichier">(X)HTML</code>. Par exemple, <code class="code">&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;</code> indique un codage de caract&egrave;res ISO-8859-1, permettant de taper au clavier et d'enregistrer comme tels les caract&egrave;res latins occidentaux (par exemple ceux adapt&eacute;s au fran&ccedil;ais). Un codage de caract&egrave;re <code class="code">&lt;META http-equiv="Content-Type" content="text/html; charset=CP-936"&gt;</code> code le chinois simplifi&eacute;, etc.</p>
+<br>
+<h4>
+<a name="validite"></a>4. Validit&eacute;</h4>
+<p>Sp&eacute;cifier un "doctype" pour un document offre un avantage suppl&eacute;mentaire, un atout dans les mains du d&eacute;veloppeur qui a appris &agrave; s'en servir.</p>
+<p>Beaucoup de temps est perdu, parfois, dans la correction d'un fichier <code class="typefichier">HTML</code>, en raison d'une faute de frappe ou d'une balise non ferm&eacute;e. Cela arrive m&ecirc;me aux &eacute;diteurs WYSIWYG. Indiquer un "doctype" et un encodage de caract&egrave;res permet d'avoir acc&egrave;s &agrave; un outil en ligne, &eacute;galement t&eacute;l&eacute;chargeable, le <a href="http://validator.w3.org/">validateur HTML</a> du W3C. Cet outil permet de v&eacute;rifier rapidement les erreurs de syntaxe dans un document. Et on a parfois des surprises...</p>
+<p>Avoir un document <em>valide</em> est la premi&egrave;re &eacute;tape dans le d&eacute;bogage d'un site Web. Il faut savoir en effet que les navigateurs ne sont pas tenus de respecter les m&ecirc;mes conventions d'affichage d'un code invalide. Un code valide, au contraire, est le minimum n&eacute;cessaire pour assurer qu'un site Web apparaisse de la m&ecirc;me mani&egrave;re sur UN Mac, un PC sous Windows ou une station Unix. Et cela ne suffit pas...</p>
+<br>
+<h4>
+<a name="accessibilite"></a>5. Accessibilit&eacute;</h4>
+<p>L'accessibilit&eacute; est un vaste domaine, qui ne se pose que r&eacute;cemment. On peut y voir une cons&eacute;quence de l'am&eacute;lioration progressive du support des standards du Web par les navigateurs. Aux temps pas si lointains de la "Balkanisation" du Web, lorsque <code class="logiciel">Netscape</code> et <code class="logiciel">Internet Explorer</code> se livraient une guerre sans merci &agrave; coups de balises et d'effets propri&eacute;taires, la priorit&eacute; num&eacute;ro 1 des d&eacute;veloppeurs &eacute;tait de s'assurer que leur site s'affichait grossi&egrave;rement de la m&ecirc;me mani&egrave;re dans les deux navigateurs.</p>
+<p>Maintenant que les standards du Web se sont r&eacute;pandus et sont mieux support&eacute;s (&agrave; la date d'&eacute;criture de ce passage de ce cours, octobre 2004, au contraire de ce qui se passait il y a encore seulement trois ans, le facteur limitant est incontestablement, dans ce domaine, <code class="logiciel">Internet Explorer</code> qui est de loin &agrave; la tra&icirc;ne), la classe de probl&egrave;mes &agrave; r&eacute;soudre pour les d&eacute;veloppeurs s'est d&eacute;plac&eacute;e. Il s'agit maintenant de faire en sorte que le plus grand nombre de personnes possibles aient acc&egrave;s &agrave; leur site.</p>
+<p>Il ne faut pas entendre par l&agrave; un acc&egrave;s ADSL ou par modem... mais bien de la lecture possible du site et des informations qui s'y trouvent. Cela passe, par exemple, par l'ajout de contenu alternatif aux images pour les personnes ayant choisi de ne pas les afficher, ou incapables de les examiner en d&eacute;tails, mais aussi par la pr&eacute;sentation soign&eacute;e de donn&eacute;es dans un tableau (fournir un r&eacute;sum&eacute; du tableau, des ent&ecirc;tes de colonnes reconnus comme tels par des navigateurs-lecteurs de contenu), la structuration du contenu, des aides &agrave; la navigation, etc.</p>
+<p>Avoir un code valide est, l&agrave; aussi, la premi&egrave;re &eacute;tape. Des outils existent ainsi en ligne afin de faciliter ce genre de tests:</p>
+<ul>
+<li>
+<p>
+<a href="http://www.contentquality.com/">Cynthia Says</a>
+</p>
+</li>
+<li>
+<p>
+<a href="http://www.wave.webaim.org/index.jsp">Wave</a>
+</p>
+</li>
+<li>
+<p>
+<a href="http://aprompt.snow.utoronto.ca/">A-Prompt</a>...</p>
+</li>
+</ul>
+<p>Pour plus d'informations sur ce sujet, vous pouvez consulter <a href="http://www.webaim.org/">WebAIM</a> (en anglais), ou <a href="http://www.accessiweb.org/">AccessiWeb</a> (en fran&ccedil;ais).</p>
+<br>
+<h3>
+<a name="corps"></a>II. Le corps d'un document</h3>
+<h4>
+<a name="structure"></a>1. Structure</h4>
+<h5 id="titpara">a. Titres et paragraphes</h5>
+<p>
+<code class="langage">HTML</code> d&eacute;finit quelques niveaux de titres. Ces titres se codent &agrave; l'aide des balises <code class="code">&lt;hn&gt;</code>, o&ugrave; <code class="code">n</code> peut valoir de 1 &agrave; 6. Un titre h1 est plus important qu'un titre h2, etc.</p>
+<p>Un paragraphe se code entre des balises <code class="code">&lt;p&gt;</code>. On obtient ainsi, par exemple</p>
+<p class="html">
+
+<span class="tag">&lt;h1&gt;</span><span class="contenu">Titre de niveau 1</span><span class="tag">&lt;/h1&gt;</span>
+<br>
+
+<span class="tag">&lt;p&gt;</span><span class="contenu">Et voici un paragraphe...</span><span class="tag">&lt;/p&gt;</span>
+<br>
+
+</p>
+<p>Vous noterez la pr&eacute;sence des balises ouvrantes et fermantes, encadrant le texte.</p>
+<p>Il est possible d'aligner un paragraphe &agrave; droite, au centre, ou de le justifier, &agrave; l'aide de l'attribut <code class="code">align</code>. Ainsi, <code class="code">&lt;p align="justify"&gt;(...)&lt;/p&gt;</code> permet de justifier le paragraphe. Cet attribut est n&eacute;anmoins obsol&egrave;te, et utilisable uniquement avec les types de documents transitionnels.</p>
+<br>
+<h5 id="listes">b. Listes</h5>
+<p>Il existe plusieurs types de listes en <code class="langage">HTML</code>:</p>
+<ul>
+<li>
+
+<p>les listes &agrave; puces , avec les balises <code class="code">&lt;ul&gt;</code>. Chaque &eacute;l&eacute;ment de liste se place dans une balise <code class="code">&lt;li&gt;</code>. Par exemple:</p>
+
+<p class="html">
+
+<span class="tag">&lt;ul&gt;</span>
+<br>
+		    &nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>
+		    <span class="contenu">Premier &eacute;l&eacute;ment</span>
+		    <span class="tag">&lt;/li&gt;</span>
+<br>
+		    &nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>
+		    <span class="contenu">Deuxi&egrave;me &eacute;l&eacute;ment</span>
+		    <span class="tag">&lt;/li&gt;</span>
+<br>
+		    &nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>
+		    <span class="contenu">Troisi&egrave;me &eacute;l&eacute;ment</span>
+		    <span class="tag">&lt;/li&gt;</span>
+<br>
+
+<span class="tag">&lt;/ul&gt;</span>
+<br>
+
+</p>
+
+</li>
+<li>
+<p>Les listes ordonn&eacute;es, &agrave; num&eacute;ros, se codent &agrave; l'aide d'une balise <code class="code">&lt;ol&gt;</code>; les &eacute;l&eacute;ments de liste s'utilisent de la m&ecirc;me mani&egrave;re.</p>
+</li>
+</ul>
+<p>Il existe aussi des listes de d&eacute;finitions, des listes de menus, etc.</p>
+<br>
+<h5 id="tableaux">c. Tableaux</h5>
+<p>C'est un vaste sujet. Il y a quelques ann&eacute;es, beaucoup utilisaient des tableaux pour mettre en page des sites Web. Cette pratique est aujourd'hui d&eacute;pass&eacute;e gr&acirc;ce &agrave; la souplesse d'emploi des feuilles de style <code class="langage">CSS</code>, et &agrave; proscrire car elle met en p&eacute;ril l'accessibilit&eacute; de la page.</p>
+<p>Un tableau est encadr&eacute; par des balises <code class="code">&lt;table&gt;</code>, avec un attribut obligatoire <code class="code">summary</code>, permettant de donner des informations sur le contenu du tableau. Chaque ligne d'un tableau est entour&eacute;e par des balises <code class="code">&lt;tr&gt;</code>. Chaque cellule est entour&eacute;e de balises <code class="code">&lt;td&gt;</code> (pour des cellules de donn&eacute;es), ou des balises <code class="code">&lt;th&gt;</code> (pour des cellules de titre -<span lang="en" class="autrelangue">header</span>). L'encombrement de ces cellules est donn&eacute; par les attributs <code class="code">colspan</code> (nombre de colonnes) et <code class="code">rowspan</code> (nombre de lignes).</p>
+<br>
+<h4>
+<a name="enligne"></a>2. El&eacute;ments 'enligne' </h4>
+<h5 id="liens">a. Liens</h5>
+<p>On fait un lien avec une balise <code class="code">&lt;a&gt;</code>. L'URL du lien est donn&eacute;e par l'attribut <code class="code">href</code>. Par exemple, <code class="code">&lt;a href="http://www.monsite.com"&gt;Ceci est un lien&lt;/a&gt;</code>.</p>
+<br>
+<h5 id="danstexte">b. A l'int&eacute;rieur du texte</h5>
+<table class="tableau" summary="Balises de formatage logique." width="" border="">
+<tr>
+<th>
+<p>Balise</p>
+</th><th>
+<p>Signification</p>
+</th><th>
+<p>Effet</p>
+</th>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;em&gt;</code>
+</p>
+</td><td>
+<p>emphasis</p>
+</td><td><span class="image"><img src="exemples/em.gif" alt="emphasis" width="112" height="20" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;strong&gt;</code>
+</p>
+</td><td>
+<p>fort</p>
+</td><td><span class="image"><img src="exemples/strong.gif" alt="strong" width="121" height="19" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;cite&gt;</code>
+</p>
+</td><td>
+<p>citation br&egrave;ve</p>
+</td><td><span class="image"><img src="exemples/cite.gif" alt="cite" width="113" height="19" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;dfn&gt;</code>
+</p>
+</td><td>
+<p>d&eacute;finition</p>
+</td><td><span class="image"><img src="exemples/dfn.gif" alt="dfn" width="113" height="18" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;code&gt;</code>
+</p>
+</td><td>
+<p>extrait de programme</p>
+</td><td><span class="image"><img src="exemples/code.gif" alt="code" width="156" height="15" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;samp&gt;</code>
+</p>
+</td><td>
+<p>sample: &eacute;chantillon</p>
+</td><td><span class="image"><img src="exemples/samp.gif" alt="samp" width="158" height="18" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;kbd&gt;</code>
+</p>
+</td><td>
+<p> Keyboard(clavier)</p>
+</td><td><span class="image"><img src="exemples/kbd.gif" alt="kbd" width="156" height="20" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;var&gt;</code>
+</p>
+</td><td>
+<p>variable ou argument</p>
+</td><td><span class="image"><img src="exemples/var.gif" alt="var" width="119" height="21" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;abbr&gt;</code>
+</p>
+</td><td>
+<p>abr&eacute;viation</p>
+</td><td><span class="image"><img src="exemples/abbr.gif" alt="abbr" width="104" height="21" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;acronym&gt;</code>
+</p>
+</td><td>
+<p>acronyme</p>
+</td><td><span class="image"><img src="exemples/acronym.gif" alt="acronym" width="108" height="23" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;sub&gt;</code>
+</p>
+</td><td>
+<p>subscript/indice</p>
+</td><td><span class="image"><img src="exemples/sub.gif" alt="sub" width="98" height="25" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;sup&gt;</code>
+</p>
+</td><td>
+<p>superscript/exposant</p>
+</td><td><span class="image"><img src="exemples/sup.gif" alt="sup" width="94" height="26" class="normal"></span></td>
+</tr>
+<tr>
+<td>
+<p>
+<code class="code">&lt;pre&gt;</code>
+</p>
+</td><td>
+<p>preformatted</p>
+</td><td><span class="image"><img src="exemples/pre.gif" alt="pre" width="156" height="23" class="normal"></span></td>
+</tr>
+</table>
+<p class="legende">Table&nbsp;1. Balises de formatage logique.</p>
+<br>
+<h5 id="images">c. Images</h5>
+<p>On ins&egrave;re une image &agrave; l'aide de la balise (vide) <code class="code">&lt;img&gt;</code> et de son attribut <code class="code">src</code>. L'attribut <code class="code">alt</code>, donnant un texte de substitution, est obligatoire, et les attributs <code class="code">width</code> et <code class="code">height</code>, donnant largeur et hauteur en pixels sont conseill&eacute;s. Par exemple, <code class="code">&lt;img src="ours.jpg" alt="Une t&ecirc;te d'ours en gros plan" width="100" height="90"&gt;</code> affiche... une t&ecirc;te d'ours, probablement.</p>
+<br>
+</div>
+<div id="navigation2">
+<p>Copyright (c) 2004 Gilles Chagnon. Tous les documents li&eacute;s sont publi&eacute;s selon les termes de la <a href="license.html">Licence de Documentation Libre GNU</a>.</p>
+<p></p>
+<dl id="listefichiers">
+<dt>Liste des fichiers associ&eacute;s &agrave; ce fichier HTML:</dt>
+<dd>
+<a href="htmlrapide.xml">Fichier XML</a>
+</dd>
+<dd>
+<a href="chapitre15.dtd">DTD du cours</a>
+</dd>
+<dd>
+<a href="chapitreweb11.xsl">Feuille de style XSL</a>
+</dd>
+<dd>
+<a href="forme2.css">Feuille de style CSS</a>
+</dd>
+</dl>
+</div>
+<div id="maj">
+<a name="listemaj"></a>
+<h4>Historique de ce document</h4>
+<dl>
+<dt>Le 21/10/2004, par G. Chagnon (v. 1.0):</dt>
+<dd>Cr&eacute;ation.</dd>
+</dl>
+</div>
+</div>
+</body>
+</html>

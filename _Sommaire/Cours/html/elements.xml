@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="elements">Cours de HTML</cours>
+	<entete>
+		<titre>Éléments HTML</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre résume les conditions d'utilisation des éléments HTML</resume>
+		<motsclefs>html, base, concept, introduction, balise</motsclefs>
+	</entete>
+	<corpus>
+		<partie titre="Introduction" ancre="intro">
+			<section titre="Sémantique des éléments HTML" ancre="introintro">
+				<paragraphe><texte>À l'origine, <code type="langage">HTML</code> a été conçu pour être un langage de balisage porteur de sens. Cela signifiait que chaque élément codait un type de contenu particulier. Dans la deuxième moitié des années 1990, lorsque le «&#160;Web&#160;» a pris son essor, bon nombre d'auteurs de site ont émis le souhait que des éléments puissent être créés, qui leur permettent de gérer plus finement l'apparence du document quand il est affiché sur un navigateur graphique. Les éditeurs de navigateur ont suivi. Par la suite au tournant du siècle, les navigateurs supportant mieux les feuilles de style <code type="langage">CSS</code>, il est devenu possible de revenir à la séparation initiale du fond et sa mise en forme. Ce chapitre expose les éléments de la spécification plus spécialement consacrés au balisage «&#160;sémantique&#160;» du contenu.</texte></paragraphe>
+			</section>
+			<section titre="Éléments de type bloc, éléments de type en ligne" ancre="blocenligne">
+				<paragraphe><texte>Il existe en <code type="langage">HTML</code> deux types d'éléments&#160;: les éléments en ligne et les éléments de type bloc.</texte>
+				<liste>
+					<item><texte>Les éléments en ligne sont destinés à être placés au fil du texte. Il s'agit par exemple des éléments d'emphase (<code>em</code>), des images (<code>img</code>), des liens (<code>a</code>)... Normalement, ces éléments n'ont pas vocation à être placés sur une page, mais à être affichés dans le contexte de l'élément parent qui les encadre. Un élément en ligne ne peut contenir que des éléments en ligne ou du texte.</texte></item>
+					<item><texte>Les éléments de type bloc sont ceux qui, par défaut, ont un rendu visuel «&#160;en bloc&#160;» sur un navigateur graphique&#160;: c'est le cas par exemple des titres (<code>h1...6</code>), des paragraphes (<code>p</code>), des tableaux (<code>table</code>)... Ils peuvent être positionnés sur une page. À l'écran, ces éléments sont précédés et suivis d'un retour à la ligne. Les éléments de type bloc peuvent contenir des éléments en ligne. Tous les éléments de type bloc, sauf les paragraphes et les titres, peuvent de plus contenir d'autres éléments de type bloc.</texte></item>
+				</liste>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="Éléments usuels" ancre="usuels">
+			<section titre="Groupements d'éléments" ancre="groupements">
+				<paragraphe>
+					<texte>Avant d'aborder les éléments porteurs d'une information sémantique à proprement parler, nous allons aborder deux éléments dont la fonction n'est que d'en contenir d'autres, sans aucune connotation sémantique propre&#160;: les éléments <code>div</code> et <code>span</code>. Il est parfois nécessaire de grouper plusieurs éléments soit pour organiser le contenu, soit pour mettre en page à l'aide d'une feuille de styles, tels que par exemple des titres et des paragraphes partageant un point commun (table des matières en tête d'un document, ensemble de liens sponsorisés et de publicités...). C'est là l'unique fonction de ces éléments. <code>div</code> est un élément de type bloc et peut contenir d'autres éléments de type bloc, <code>span</code> est un élément en ligne.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Hiérarchisation de l'information : entêtes et paragraphes" ancre="hierarchie">
+				<paragraphe>
+					<texte>Un texte se structure à l'aide de titres (éléments <code>h1</code>... <code>h6</code>) et de paragraphes (éléments <code>p</code>). Tous sont des éléments de type bloc.</texte>
+					<texte>Il existe six niveaux de titres, par ordre d'importance décroissante <code>h1</code> à <code>h6</code>. Ces niveaux de titre sont interprétés par certaines aides techniques, et fournissent une table des matières pour la page Web. Il est donc important de respecter la hiérarchie de ces titres. Il faut également prendre garde à ne pas émietter l'information (il est rare d'avoir à faire appel à <code>h5</code> ou <code>h6</code>&#160;!).</texte>
+					<texte>Un paragraphe se signale dans la plupart des cas par l'élément <code>p</code>. Il est possible également d'utiliser l'élément <code>pre</code> (pour <autrelangue type="en">preformatted</autrelangue>), qui permet, sur un navigateur graphique ou textuel, d'afficher le paragraphe en respectant les retours chariot et nombre d'espaces indiqués dans le code source.</texte>
+					<texte>L'élément <code>br</code> permet d'insérer un saut de ligne à l'intérieur d'un paragraphe. Avant de l'utiliser, il faut se demander si ce saut de ligne s'intercale logiquement au sein du paragraphe, ou bien s'il n'y a pas lieu de scinder ce dernier en deux éléments <code>p</code> distincts.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Listes" ancre="listes">
+				<paragraphe titre="Introduction" ancre="listesIntro">
+					<texte>On distingue trois types de listes&#160;: listes à puces (éléments <code>ul</code>) et listes numérotées (éléments <code>ol</code>) qui partagent l'utilisation de l'élément <code>li</code>, et les  listes de définitions (élément <code>dl</code>). Tous ces éléments sont de type bloc.</texte>
+				</paragraphe>
+				<paragraphe titre="Listes à puces et ordonnées" ancre="listesPuces">
+					<texte>Les listes à puces sont les listes les plus simples, quand l'ordre de présentation des items est important&#160;; elles comportent des items (éléments <code>li</code>). Il est possible d'imbriquer des listes. Attention toutefois au fait qu'un élément <code>ul</code> ne peut contenir que des éléments <code>li</code>&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="ul" indent="oui">
+							<element nom="li" niveau="1">(....)</element>
+							<element nom="li" niveau="1">(....)</element>
+							<element nom="li" niveau="1" indent="oui">
+								<element nom="ul" niveau="2" indent="oui">
+									<element nom="li" niveau="3">(...)</element>
+									<element nom="li" niveau="3">(...)</element>
+									<element nom="li" niveau="3">(...)</element>
+								</element>
+							</element>
+							<element nom="li" niveau="1">(....)</element>
+						</element>
+					</exemple>
+					<texte>Les listes numérotées sont des énumérations ordonnées (comme dans le cas de la présente liste)&#160;; elles comportent des items (éléments <code>li</code>) et peuvent être imbriquées, tout comme les listes à puces. Par exemple, dans une recette de cuisine, on utilisera plutôt une liste non ordonnée pour les ingrédients, et une liste ordonnée pour indiquer la séquence des opérations.</texte>
+				</paragraphe>
+				<paragraphe titre="Listes de définitions" ancre="listesDf">
+					<texte>Les listes de définition sont des suites de termes (éléments <code>dt</code>) et de définitions pour ces termes (éléments <code>dd</code>). Plusieurs définitions peuvent être indiquées pour un terme. Il est à noter que Google possède la fonctionnalité <code>define</code>, qui tire parti de ces listes pour extraire des définitions sur le Web. On écrira par exemple...</texte>
+					<exemple type="HTML">
+						<element nom="dl" indent="oui">
+							<element nom="dt" niveau="1">Maison</element>
+							<element nom="dd" niveau="1">Une maison est une habitation.</element>
+							<element nom="dt" niveau="1">Château</element>
+							<element nom="dd" niveau="1">Un château est une grande maison.</element>
+							<element nom="dt" niveau="1">Palais</element>
+							<element nom="dd" niveau="1">Château somptueux</element>
+							<element nom="dd" niveau="1">Partie supérieure de la cavité buccale.</element>
+						</element>
+					</exemple>
+					<texte>Pour plus de détails, voir le chapitre consacré aux <reference href="listes.html">listes</reference>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Les tableaux" ancre="tableaux">
+				<paragraphe titre="Présentation" ancre="tablePresentation">
+					<texte>Un tableau se déclare à l'aide de l'élément <code>table</code>. Cet élément doit contenir des données sous format tabulaire, présentes dans des cellules. Ces dernières sont soit des cellules de données (élément <code>td</code>), soit des cellules d'entête (élément <code>th</code>). L'attribut <code>summary</code> de l'élément <code>table</code> donne une description du tableau. Tous les éléments mentionnés dans cette partie sont de type bloc.</texte>
+					<texte>Les tableaux ont souvent été utilisés pour la mise en page, afin de pallier le support partiel de <code type="langage">CSS</code> par les navigateurs. Dans la mesure où ce support est maintenant largement répandu, cet usage obsolète qui détournait l'élément <code>table</code> de sa signification première, est à abandonner.</texte>
+				</paragraphe>
+				<paragraphe titre="Structuration" ancre="tableStructure">
+					<texte>Un tableau de données doit contenir une légende (élément <code>caption</code>), des entêtes de lignes et/ou de colonnes (éléments <code>th</code>). On peut également utiliser les éléments <code>thead</code>, <code>tfoot</code> et <code>tbody</code>, qui permettent d'organiser les grands blocs d'informations dans le tableau. <code>thead</code> est destiné à contenir les lignes d'entêtes, <code>tfoot</code> éventuellement leur reprise en fin de tableau (à noter que cet élément se place dans le code lorsqu'il est utilisé, entre les éléments <code>thead</code> et <code>tbody</code>). <code>tbody</code> contient les informations du corps du tableau&#160;; il est possible d'en compter plusieurs par tableau, ce qui permet d'isoler des blocs de données indépendants.</texte>
+					<texte>Dans les cellules d'entête <code>th</code>, l'utilisation de l'attribut <code>id</code>, couplée à celle de l'attribut <code>headers</code> dans les cellules de données <code>td</code> permet de lier les cellules aux entêtes dont elles dépendent. Il est possible également d'utiliser l'attribut <code>scope</code>, pouvant prendre les valeurs <code>col</code> ou <code>row</code>, liant la cellule d'entête respectivement à une colonne ou une rangée de cellules de données.</texte>
+					<exemple type="HTML">
+						<element nom="table" indent="oui">
+							<attribut nom="summary">Description du tableau</attribut>
+							<element nom="caption" niveau="1">Légende du tableau</element>
+							<element nom="thead" niveau="1" indent="oui">
+								<element nom="tr" niveau="2" indent="oui">
+									<element nom="th" niveau="3"><attribut nom="id">id1</attribut>Titre de la première colonne</element>
+									<element nom="th" niveau="3"><attribut nom="id">id2</attribut>Titre de la deuxième colonne</element>
+									<element nom="th" niveau="3"><attribut nom="id">id3</attribut>Titre de la troisième colonne</element>
+									<element nom="th" niveau="3"><attribut nom="id">id4</attribut>Titre de la quatrième colonne</element>
+								</element>
+							</element>
+							<element nom="tfoot" niveau="1" indent="oui">
+								<element nom="tr" niveau="2" indent="oui">
+									<element nom="th" niveau="3">Titre de la première colonne</element>
+									<element nom="th" niveau="3">Titre de la deuxième colonne</element>
+									<element nom="th" niveau="3">Titre de la troisième colonne</element>
+									<element nom="th" niveau="3">Titre de la quatrième colonne</element>
+								</element>
+							</element>
+								<element nom="tbody" niveau="1" indent="oui">
+									<element nom="tr" niveau="2" indent="oui">
+										<element nom="td" niveau="3"><attribut nom="headers">id1</attribut>Cellule de la deuxième ligne, première colonne</element>
+										<element nom="td" niveau="3"><attribut nom="headers">id2</attribut>Cellule de la deuxième ligne, deuxième colonne</element>
+										<element nom="td" niveau="3"><attribut nom="headers">id3</attribut>Cellule de la deuxième ligne, troisième colonne</element>
+										<element nom="td" niveau="3"><attribut nom="headers">id4</attribut>Cellule de la deuxième ligne, quatrième colonne</element>
+									</element>
+									<element nom="tr" niveau="2">(...)</element>
+									<element nom="tr" niveau="2">(...)</element>
+								</element>
+						</element>
+					</exemple>
+					<texte>Pour plus de détails, voir le chapitre consacré aux <reference href="tableaux.html">tableaux</reference>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Formulaires" ancre="formulaires">
+				<paragraphe>
+					<texte>Pour introduire un minimum d'interactivité dans un site Web, il est souvent bienvenu d'utiliser un formulaire. Il s'agit d'une zone d'une page dans laquelle l'utilisateur est invité à entrer des informations. Un formulaire est indiqué par l'élément de type bloc <code>form</code>. Cet élément peut contenir divers autres éléments (tous de type en ligne) de saisie (éléments <code>input</code>, <code>textarea</code> ou <code>select</code>), d'interaction (élément <code>button</code>) ou des étiquettes destinées à informer l'utilisateur de la nature du champ à remplir (élément <code>label</code>). Lorsque des ambiguïtés sont susceptibles de perturber le bon remplissage du formulaire, on peut utiliser un élément <code>fieldset</code> accompagné d'une légende (élément <code>legend</code>) pour lever les incertitudes. Par exemple,</texte>
+					<exemple type="HTML">
+						<element nom="form" indent="oui">
+							<attribut nom="method">(...)</attribut><attribut nom="action">(...)</attribut>
+							<element nom="fieldset" indent="oui" niveau="1">
+								<element nom="legend" niveau="2">Adresse de facturation</element>
+								<element nom="label" niveau="2"><attribut nom="for">nomFac</attribut>Nom</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">nomFac</attribut></element>
+								<element nom="label" niveau="2"><attribut nom="for">numrueFac</attribut>Numéro et rue</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">numrueFac</attribut></element>
+								<element nom="label" niveau="2"><attribut nom="for">codepostalFac</attribut>Code postal</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">codepostalFac</attribut></element>
+								<element nom="label" niveau="2"><attribut nom="for">villeFac</attribut>Ville</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">villeFac</attribut></element>
+							</element>
+							<element nom="fieldset" indent="oui" niveau="1">
+								<element nom="legend" niveau="2">Adresse de livraison</element>
+								<element nom="label" niveau="2"><attribut nom="for">nomLiv</attribut>Nom</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">nomLiv</attribut></element>
+								<element nom="label" niveau="2"><attribut nom="for">numrueLiv</attribut>Numéro et rue</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">numrueLiv</attribut></element>
+								<element nom="label" niveau="2"><attribut nom="for">codepostalLiv</attribut>Code postal</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">codepostalLiv</attribut></element>
+								<element nom="label" niveau="2"><attribut nom="for">villeLiv</attribut>Ville</element>
+								<element nom="input" niveau="2" vide="oui"><attribut nom="type">text</attribut><attribut nom="id">villeLiv</attribut></element>
+							</element>
+						</element>
+					</exemple>
+					<texte>Pour plus de détails, voir le chapitre consacré aux <reference href="forms.html">formulaires</reference>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Images" ancre="images">
+				<paragraphe>
+					<texte>Il est facile d'indiquer qu'une image doit être présente sur une page Web&#160;; pour cela, on utilise l'élément <code>img</code>. Cet élément utilise deux attributs <valeur>obligatoires</valeur>&#160;: l'attribut <code>src</code> pointe vers l'image à insérer, et l'attribut <code>alt</code> en donne une alternative à destination des agents utilisateurs qui ne sont pas en mesure de restituer les images (navigateurs graphiques dans lesquels la visualisation des images a été désactivée, lecteurs d'écran, moteurs de recherche...). Pour plus de détails, voir le chapitre consacré aux <reference href="images.html">images</reference>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Liens hypertexte" ancre="liens">
+				<paragraphe titre="Adresse relative, adresse absolue" ancre="relabs">
+					<texte>Quand, à partir d’une page donnée, on fait référence à une autre ressource (ce peut être une image, ou un autre fichier HTML), il est possible de le faire de deux manières&#160;: relative ou absolue.</texte>
+					<liste>
+						<item><texte>Une adresse absolue commence par <code>http://</code>&#160;: concrètement, le poste client (celui sur lequel se trouve le navigateur) doit alors déterminer le chemin vers le serveur à chacune de ces requêtes, et ce, que ce chemin lui soit réellement connu ou pas (via son serveur de nom de domaine (DNS).</texte></item>
+						<item><texte>Une adresse relative spécifie le chemin menant au fichier cible, à partir du fichier courant, en utilisant une syntaxe similaire à la navigation dans une arborescence Unix. Par exemple, pour indiquer que le fichier <code>fichier1.html</code> se trouve dans le répertoire <code>rep1</code>, fils du répertoire courant, on écrira <code>rep1/fichier1.html</code>. Si le fichier <code>fichier2.html</code> se trouve dans le répertoire parent, on écrira <code>../fichier2.html</code> et enfin, si le fichier <code>image1.png</code> se trouve dans le répertoire <code>images</code> frère du répertoire courant, on écrira <code>../images/image1.png</code>.</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Types de liens" ancre="typesliens">
+					<texte>Il existe deux types de liens dans une page&#160;:</texte>
+					<liste>
+						<item><texte>Les liens «&#160;classiques&#160;» que l'on a l'habitude de suivre quand on consulte une page Web se codent à l'aide de l'élément <code>a</code>, pour lequel on précise l'attribut <code>href</code> qui pointe vers l'adresse de la page ou, plus généralement, de la ressource à visiter. Il est possible aussi de spécifier la langue dans laquelle est rédigée cette ressource à l'aide de l'attribut <code>hreflang</code>. Il s'agit d'un élément de type en ligne. Par exemple, <![CDATA[<p>Ceci est un paragraphe contenant un lien vers l’<a href="http://www.upmc.fr/">Université Pierre-et-Marie Curie</a>.</p>]]></texte></item>
+						<item>
+							<texte>Il est possible d'ajouter à un document une deuxième sorte de liens qui n'apparaissent pas dans le corps de la page, grâce à l'élément <code>link</code>. Cet élément, à utiliser dans l'entête du fichier, permet de spécifier aux outils capables de le traiter des «&#160;méta-liens&#160;», comme un lien vers des informations sur l'auteur, sur une table des matières, vers l'accueil... L'exemple ci-après permet d'indiquer au navigateur l'existence d'un lien vers un fichier censé être le suivant dans l'ordre logique de lecture des pages du site, puis l'existence d'une version alternative au format <code type="langage">Postscript</code>&#160;:</texte>
+						<exemple type="HTML">
+							<element nom="link" vide="oui"><attribut nom="rel">next</attribut><attribut nom="type">text/html</attribut><attribut nom="href">fichier_suivant.html</attribut></element>
+							<element nom="link" vide="oui"><attribut nom="rel">alternate</attribut><attribut nom="type">application/postscript</attribut><attribut nom="href">document.ps</attribut></element>
+						</exemple>
+						</item>
+					</liste>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="Autres éléments" ancre="autres">
+			<paragraphe><texte>Sauf exception, tous les éléments mentionnés ci-après sont des éléments de type en ligne.</texte></paragraphe>
+			<section titre="Emphase" ancre="emphase">
+				<paragraphe>
+					<texte>Une emphase est réalisée grâce à l'élément <code>em</code>&#160;; si on a besoin d'une emphase plus forte, on utilise <code>strong</code>. Ces éléments étaient parfois mal utilisés pour mettre du texte respectivement en italique ou en gras, alors qu'il ne s'agit là que de la manière dont elles sont traduites par un navigateur graphique, et donc d'un détournement de leur signification.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Citation" ancre="citation">
+				<paragraphe>
+					<texte>La notion de citation prête à confusion en français, par rapport à l'anglais. Dans cette langue en effet, il existe deux sortes de citations au sens français&#160;: d'une part les «&#160;<autrelangue>citations</autrelangue>&#160;», qui désignent des références de type bibliographique, comme par exemple des titres de livres ou des noms d'auteur, et d'autre part les «&#160;<autrelangue>quotations</autrelangue>&#160;» qui sont des extraits de texte.</texte>
+					<liste type="ordonnee">
+						<item><texte>Les références bibliographiques sont codées grâce à l'élément <code>cite</code>.</texte></item>
+						<item><texte>Les citations de texte se font en ligne grâce à l'élément <code>q</code>, et quand il s'agit d'un bloc de texte, grâce à l'élément <code>blockquote</code> qui est de type bloc. Ces deux éléments peuvent être précisés avec l'attribut <code>cite</code>, dont le but est de donner, quand cela est possible, l'URL de la ressource qui est citée.</texte></item>
+					</liste>
+					<texte>Par exemple,</texte>
+					<exemple type="HTML">
+						<element nom="p">Le célèbre poème de Pierre de Ronsard intitulé <element nom="cite" enligne="oui">À Cassandre</element> commence par ces mots&#160;: <element nom="q" enligne="oui"><attribut nom="cite">http://fr.wikisource.org/wiki/Mignonne%2C_allons_voir_si_la_rose...</attribut>"Mignonne, allons voir si la rose Qui ce matin avait déclose..."</element>.</element>
+					</exemple>
+					<exemple type="HTML">
+						<element nom="blockquote" enligne="non" indent="oui"><attribut nom="cite">http://fr.wikisource.org/wiki/Son_Excellence_Eug%C3%A8ne_Rougon_-_10</attribut>
+							<element nom="p" enligne="non" niveau="1">Cependant, M. Kahn, qui avait dîné avec le ministre et le préfet, était très questionné sur la solennité du lendemain. On devait se rendre à une lieue de la ville, dans le quartier dit des Moulins, devant l'entrée d'un tunnel projeté pour le chemin de fer de Niort à Angers ; et là Son Excellence le ministre de l'Intérieur mettrait lui-même le feu à la première mine. Cela parut touchant.</element>
+							<element nom="p" enligne="non" niveau="1">Rougon faisait le bonhomme. Il voulait simplement honorer l'entreprise si laborieuse d'un vieil ami. D'ailleurs, il se considérait comme le fils adoptif du département des Deux-Sèvres, qui l'avait autrefois envoyé à l'Assemblée législative. À la vérité, le but de son voyage, vivement conseillé par Du Poizat, était de le montrer dans toute sa puissance à ses anciens électeurs, afin d'assurer complètement sa candidature, s'il lui fallait jamais un jour entrer au Corps législatif.</element>
+						</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section titre="Insérer des marques de mise à jour" ancre="miseAJour">
+				<paragraphe>
+					<texte>Il est parfois nécessaire de conserver les traces des mises à jour successives d'une page mise en ligne. Deux éléments complémentaires ont ce rôle&#160;: <code>del</code> et <code>ins</code>. Ces deux éléments possèdent deux attributs, <code>datetime</code> et <code>cite</code>. <code>cite</code> donne l'URL d'une ressource expliquant éventuellement les raisons de la modification. <code>datetime</code> indique la date et l'heure de la modification, sous une forme normalisée (YYYY-MM-DDThh:mm:ssTZD)&#160;:</texte>
+					<liste>
+						<item><texte>YYYY désigne l'année&#160;;</texte></item>
+						<item><texte>MM désigne le mois&#160;;</texte></item>
+						<item><texte>DD désigne le jour&#160;;</texte></item>
+						<item><texte>hh:mm:ss désigne l'heure en heures, minutes, secondes&#160;;</texte></item>
+						<item><texte>T sépare date et heure&#160;;</texte></item>
+						<item><texte>TZD désigne le fuseau horaire.</texte></item>
+					</liste>
+					<texte>Cette notation assez lourde peut être tronquée quand une telle précision n'est pas nécessaire. On peut ainsi écrire <code><![CDATA[<del datetime="2005-06-13">texte supprimé</del> <ins datetime="2005-06-13">texte corrigé</ins>]]></code>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Abréviations et acronymes" ancre="abbr">
+				<paragraphe><texte>On distingue en français acronymes et sigles. Les acronymes, codés à l'aide d'éléments <code>acronym</code>, sont prononcés comme des mots (par exemple, <acronyme titre="Organisation du Traité de l'Atlantique Nord">OTAN</acronyme> ou <acronyme titre="Certificat d'Aptitude au Professorat de l'Enseignement du Second degré">CAPES</acronyme>). Les sigles sont codés grâce à l'élément <code>abbr</code>, de l'anglais <autrelangue>abbreviation</autrelangue>, à ne pas écrire selon l'orthographe française abréviation (par exemple <abreviation titre="Union Européenne">UE</abreviation> ou <abreviation titre="Union des Républiques Socialistes Soviétiques">URSS</abreviation>).</texte></paragraphe>
+			</section>
+			<section titre="Formatage de code" ancre="code">
+				<paragraphe>
+					<texte><code type="langage">HTML</code> étant un langage informatique, ses concepteurs ont eu tendance à multiplier les éléments destinés à la transcription des langages de programmation. On dénombre ainsi&#160;:</texte>
+					<liste type="ordonnee">
+						<item><texte><code>code</code>, qui désigne un morceau de code de programmation&#160;;</texte></item>
+						<item><texte><code>var</code>, qui désigne une variable&#160;;</texte></item>
+						<item><texte><code>kbd</code>, qui désigne une saisie faite au clavier par l'utilisateur&#160;;</texte></item>
+						<item><texte><code>samp</code>, qui désigne une sortie faite par un programme.</texte></item>
+					</liste>
+				</paragraphe>
+			</section>
+			<section titre="Définition en ligne&#160;: l'élément dfn" ancre="dfn">
+				<paragraphe>
+					<texte>L'élément <code>dfn</code> permet d'écrire une définition dans un corps de texte. Par exemple,</texte>
+					<exemple type="HTML">
+						<element nom="p"><element nom="dfn" enligne="oui">Un château est une grande maison</element>, et Louis XIV a fait construire celui de Versailles.</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section titre="Éléments multimédia" ancre="multimedia">
+				<paragraphe>
+					<texte>Un élément multimédia est inclus dans une page Web de la même manière que par exemple un programme <code type="langage">Java</code>, à l'aide de l'élément <code>object</code>. Cet élément, qui est de type bloc, possède plusieurs éléments-enfants <code>param</code> destinés à préciser les conditions de fonctionnement de l'objet multimédia.</texte>
+					<texte>On consultera avec profit une liste des valeurs possibles et des attributs de cet élément dans cet <reference href="http://www.laltruiste.com/courshtml/multiobject.html">article sur <code>object</code></reference>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Éléments divers" ancre="divers">
+				<paragraphe>
+					<texte>Il est temps maintenant de faire un sort à quelques derniers éléments, qui sont plutôt des éléments de présentation pour la plupart.</texte>
+					<liste>
+						<item><texte>l'élément vide <code>hr</code> n'a en soi aucun contenu sémantique. Il n'apporte aucune information supplémentaire dans une page, puisqu'il n'agit que comme séparateur graphique.</texte></item>
+						<item><texte><code>big</code>, <code>small</code>, <code>tt</code>, <code>i</code> et <code>b</code> sont des éléments de présentation permettant respectivement d'augmenter la taille de caractères, de la diminuer, d'afficher le texte à la manière des télétypes avec une police à espacement fixe, de placer le texte en italiques et de le mettre en gras, encore présents dans les recommandations strictes de <code type="langage">HTML&#160;4.01</code> et <code type="langage">XHTML&#160;1.0</code>. Leur utilisation est donc plutôt à éviter.</texte></item>
+						<item><texte><code>sub</code> et <code>sup</code> servent respectivement à placer un texte en indice ou exposant. Leur usage est par exemple utile dans le cas de l'écriture de formules mathématiques.</texte></item>
+						<item><texte><code>address</code> sert à indiquer l'adresse de contact de l'auteur de la page consultée, et non une adresse quelconque.</texte></item>
+					</liste>
+				</paragraphe>
+			</section>
+		</partie>
+	</corpus>
+</chapitre>

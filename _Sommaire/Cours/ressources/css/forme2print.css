@@ -1,0 +1,74 @@
+/* Positionnement */
+
+#entete{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+#tablemat{
+	display: none;
+}
+
+#main{
+	position: relative;
+	top: 35px;
+	left: 0px;
+}
+
+#corpus{
+	position: relative;
+	top: 0%;
+	left: 0%;
+}
+
+#maj{
+	display: none;
+}
+
+/* Fonds */
+
+body{
+	background-color: white;
+	color: black;
+}
+
+/* Mise en forme de l'entête */
+
+#entete p{
+	position: absolute;
+	right: 2%;
+	top: 25px;
+	font-size: x-small;
+	font-style: italic;
+}
+
+#entete h1{
+	position: relative;
+	top: 0px;
+}
+
+/* Mise en forme de la table des matières */
+
+#tablemat ol ol ol {
+	display: none;
+}
+
+/* Mise en forme du corpus */
+
+#corpus a[href]:after{
+	content: " [ "attr(href)" ] ";
+	font-size: smaller;
+}
+
+#corpus #listefichiers{
+	display: none;
+}
+
+/* Mise en forme de la navigation2 */
+
+#navigation2 #listefichiers{
+	display: none;
+}
+

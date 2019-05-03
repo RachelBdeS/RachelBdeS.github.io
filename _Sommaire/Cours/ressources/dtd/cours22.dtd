@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Version 2.22 du 11/03/2005
+		- Ajout de liens possibles dans les détails des mises à jour.
+-->
+<!--
+	Version 2.21 du 05/02/2005
+		- L'élément maj peut contenir plusieurs éléments "quoi"
+-->
+<!--
+	Version 2.2 du 06/10/2004
+		- Ajout de l'élément obligatoire description
+-->
+<!--
+	Version 2.1 du 23/05/2004
+		- Ajout de l'élément obligatoire motsclefs.
+		- Ajout de l'attribut obligatoire version de l'élément de mise à jour.
+-->
+<!--
+	Version 2.0 du 05/10/2003
+		- Le lien vers chaque partie est maintenant implicite; il n'est plus besoin de faire les mises à jour à la main.
+		- Suppression de l'élément date.
+-->
+<!--
+	Version 1.1 du 11/10/2002
+		- Ajout de l'attribut nomfichier à l'élément-racine cours
+-->
+
+<!-- Entités -->
+
+<!ENTITY % HTMLspecial SYSTEM "xhtml-special.ent">
+%HTMLspecial;
+
+<!ENTITY % URI "CDATA">
+<!ENTITY % enligne "#PCDATA | lien">
+
+<!-- Eléments -->
+
+<!ELEMENT cours (titre, auteur, motsclefs, (miseajour)?, (resume)?, description, (prerequis)?, (plan)?)>
+	<!ATTLIST cours nomfichier CDATA #REQUIRED> <!-- nom du fichier sans extension-->
+
+	<!ELEMENT titre (#PCDATA)>
+
+	<!ELEMENT auteur (identite, email, adresse, telephone)?>
+		<!ELEMENT identite (#PCDATA)>
+		<!ELEMENT email (#PCDATA)>
+		<!ELEMENT adresse (organisme?, localisation?, rue, ville, pays?)>
+			<!ELEMENT organisme (#PCDATA)>
+			<!ELEMENT localisation (#PCDATA)>
+			<!ELEMENT rue (#PCDATA)>
+			<!ELEMENT ville (#PCDATA)>
+			<!ELEMENT pays (#PCDATA)>
+		<!ELEMENT telephone EMPTY>
+			<!ATTLIST telephone
+				tel CDATA #REQUIRED
+				fax CDATA ""
+			>
+				
+	<!ELEMENT motsclefs (#PCDATA)>
+			
+	<!ELEMENT date (#PCDATA)>
+	
+	<!ELEMENT miseajour (maj)+>
+		<!ELEMENT maj (quand, qui, quoi+)>
+			<!ELEMENT quand (#PCDATA)>
+			<!ELEMENT qui (#PCDATA)>
+			<!ELEMENT quoi (%enligne;)*>
+			<!ATTLIST maj version CDATA #REQUIRED >
+			
+	<!ELEMENT lien (#PCDATA) >
+		<!ATTLIST lien href %URI; #REQUIRED >
+			
+	<!ELEMENT resume (#PCDATA)>
+	
+	<!ELEMENT description (#PCDATA)>
+	
+	<!ELEMENT prerequis ANY>
+	
+	<!ELEMENT plan (chapitre)+>
+		<!ELEMENT chapitre EMPTY>
+			
+			<!ATTLIST chapitre
+				auteur CDATA ""
+				date CDATA ""
+				href %URI; ""
+			>

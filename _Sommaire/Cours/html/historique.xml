@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<misesAJour xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="historique10.xsd">
+	<quand date="2011-07-04">
+		<maj où="elements" type="3">Ajout d’explications sur les liens hypertexte et les adressages relatif et absolu.</maj>
+	</quand>
+	<quand date="2009-09-14">
+		<maj où="intro" type="3">Corrections de styles et de fautes de frappe. HTML5, loi n° 2005-102 du 11 février 2005 et son décret.</maj>
+		<maj où="elements" type="4">Corrections de style et de fautes de frappe.</maj>
+	</quand>
+	<quand date="2008-11-19">
+		<maj où="cours" type="1">Passage en licence <lien href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons CC-BY-SA</lien>.</maj>
+	</quand>
+	<quand date="2008-10-24">
+		<maj où="css1" type="4">Corrections de style et de fautes de frappe.</maj>
+		<maj où="cssintro" type="3">Correction de syntaxe. Précisions diverses. Mise à jour des informations.</maj>
+		<maj où="modeles" type="4">Correction de la position des commentaires dans les exemples de code.</maj>
+	</quand>
+	<quand date="2008-02-29">
+		<maj où="cssintro" type="3">Corrections syntaxiques. Ajout d'un paragraphe sur les commentaires.</maj>
+		<maj où="css1" type="4">Corrections syntaxiques et de fautes de frappe.</maj>
+	</quand>
+	<quand date="2008-02-04">
+		<maj où="intro" type="3">Corrections syntaxiques. Ajout d'un paragraphe sur la validation.</maj>
+		<maj où="elements" type="4">Corrections syntaxiques. Ajout de l'élément dfn.</maj>
+	</quand>
+	<quand date="2007-09-21">
+		<maj où="css1" type="4">Corrections syntaxiques.</maj>
+		<maj où="cssintro" type="4">Corrections syntaxiques.</maj>
+	</quand>
+	<quand date="2007-09-19">
+		<maj où="elements" type="2">Création.</maj>
+		<maj où="intro" type="3">Ajout d'un passage sur les encodages des caractères.</maj>
+	</quand>
+	<quand date="2007-03-27">
+		<maj où="intro" type="4">Ajout d'un exercice.</maj>
+	</quand>
+	<quand date="2006-10-11">
+		<maj où="css1" type="4">Ajout d'une remarque sur les différences d'interprétation de width entre les navigateurs.</maj>
+		<maj où="css2" type="3">Corrections syntaxiques, mises à jour sur le support de certaines propriétés par les navigateurs. Ajout d'une partie sur les éléments de type bloc et en ligne.</maj>
+	</quand>
+	<quand date="2006-10-04">
+		<maj où="css1" type="3">Corrections syntaxiques, explicitation des titres.</maj>
+		<maj où="cssintro" type="4">Corrections syntaxiques, ajout d'un exemple d'utilisation de :first-letter.</maj>
+	</quand>
+	<quand date="2006-09-29">
+		<maj où="intro" type="3">Corrections syntaxiques, ajout d'un paragraphe introductif sur HTML et de remarques sur XHTML 1.0 et 2.0.</maj>
+	</quand>
+	<quand date="2006-09-17">
+		<maj où="cours" type="2">Ajout d'une page présentant l'<lien href="../ressources/apropos.html">auteur et sa démarche</lien>.</maj>
+	</quand>
+	<quand date="2006-05-09">
+		<maj où="cssintro" type="4">Syntaxe et correction de coquilles.</maj>
+	</quand>
+	<quand date="2006-05-05">
+		<maj où="htmlrapide" type="3">Syntaxe, corrections de coquilles et ajout d'une partie sur les «briques» du langage.</maj>
+		<maj où="intro" type="3">Coquilles et ajout d'une partie sur les entités.</maj>
+	</quand>
+	<quand date="2006-01-04">
+		<maj où="css1" type="4">Correction de coquille.</maj>
+		<maj où="cours" type="2">Mise en forme des exercices.</maj>
+	</quand>
+	<quand date="2005-11-09">
+		<maj où="cours" type="4">Modifications des résumés de chaque chapitre.</maj>
+	</quand>
+	<quand date="2005-11-02">
+		<maj où="cssintro" type="4">Corrections syntaxiques et ajout de la pseudo-classe hover.</maj>
+	</quand>
+	<quand date="2005-10-28">
+		<maj où="cours" type="1">Renouvellement de la charte graphique.</maj>
+		<maj où="intro" type="4">Corrections syntaxiques.</maj>
+		<maj où="modeles" type="4">Corrections typographiques.</maj>
+	</quand>
+	<quand date="2005-07-18">
+		<maj où="cadres" type="3">Réécriture des exemples. Complément sur l'élément noframes.</maj>
+		<maj où="cssintro" type="3">Réécriture des exemples.</maj>
+		<maj où="forms" type="3">Réécriture des exemples.</maj>
+		<maj où="images" type="3">Réécriture des exemples.</maj>
+		<maj où="intro" type="3">Réécriture des exemples et mise à jour sur la loi "pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées".</maj>
+		<maj où="listes" type="3">Réécriture des exemples.</maj>
+		<maj où="liens" type="3">Réécriture des exemples.</maj>
+		<maj où="modeles" type="3">Réécriture des exemples.</maj>
+		<maj où="tableaux" type="3">Réécriture des exemples.</maj>
+		<maj où="texte" type="3">Réécriture des exemples.</maj>
+		<maj où="video" type="3">Réécriture des exemples.</maj>
+	</quand>
+	<quand date="2005-07-07">
+		<maj où="images" type="4">Corrections dans les définitions des attributs usemap et ismap.</maj>
+		<maj où="liens" type="4">Correction d'une coquille dans l'explication du mailto et dans quelques liens.</maj>
+		<maj où="tableaux" type="4">Corrections typographiques.</maj>
+	</quand>
+	<quand date="2005-06-03">
+		<maj où="intro" type="4">Ajout d'entêtes au tableau historique du HTML.</maj>
+	</quand>
+	<quand date="2005-05-27">
+		<maj où="liens" type="4">Correction d'une coquille dans l'explication du mailto.</maj>
+	</quand>
+	<quand date="2005-04-18">
+		<maj où="cours" type="3">Corrections sur les entités utilisées pour l'affichage sous FireFox.</maj>
+	</quand>
+	<quand date="2005-02-07">
+		<maj où="cours" type="2">Changement du système de suivi des numéros de version.</maj>
+	</quand>
+	<quand date="2005-01-28">
+		<maj où="cadres" type="4">Correction des prologues.</maj>
+		<maj où="intro" type="4">Correction de la syntaxe des prologues.</maj>
+		<maj où="modeles" type="4">Correction des prologues.</maj>
+	</quand>
+	<quand date="2004-11-09">
+		<maj où="cssintro" type="4">Mise à jour des supports par les navigateurs.</maj>
+		<maj où="intro" type="3">Ajout de sections sur l'accessibilité et les outils de production.</maj>
+	</quand>
+	<quand date="2004-11-03">
+		<maj où="htmlrapide" type="4">Ajout d'une référence à la loi sur l'accessibilité pour les sites publics en France.</maj>
+	</quand>
+	<quand date="2004-10-25">
+		<maj où="cssintro" type="3">Ajout de liens (CSSZenGarden), stratégie de développement.</maj>
+	</quand>
+	<quand date="2004-10-21">
+		<maj où="htmlrapide" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2004-10-07">
+		<maj où="cours" type="1">Passage du cours en licence GNU-FDL.</maj>
+	</quand>
+	<quand date="2004-06-21">
+		<maj où="cours" type="2">Remaniement du plan (remontée des cours sur les images et les tableaux).</maj>
+	</quand>
+	<quand date="2004-06-16">
+		<maj où="cadres" type="4">Ajout de la correction des exercices.</maj>
+		<maj où="css1" type="4">Ajout de la correction des exercices.</maj>
+		<maj où="css2" type="4">Ajout de la correction des exercices.</maj>
+		<maj où="cssintro" type="4">Ajout de la correction des exercices.</maj>
+		<maj où="listes" type="4">Ajout de la correction des exercices.</maj>
+		<maj où="liens" type="4">Ajout de la correction des exercices.</maj>
+		<maj où="texte" type="4">Ajout des corrections des exercices.</maj>
+	</quand>
+	<quand date="2005-05-23">
+		<maj où="cours" type="3">Modification des mots-clefs pour le cours et ajout d'un suivi des numéros de version.</maj>
+	</quand>
+	<quand date="2004-05-22">
+		<maj où="cssintro" type="4">Correction de coquilles.</maj>
+	</quand>
+	<quand date="2004-05-11">
+		<maj où="css1" type="3">Correction de coquilles. Ajout des problèmes de compatibilité pour chaque propriété.</maj>
+		<maj où="css2" type="3">Ajout des problèmes de compatibilité pour chaque propriété.</maj>
+		<maj où="cssintro" type="4">Correction de coquilles.</maj>
+	</quand>
+	<quand date="2004-05-05">
+		<maj où="cssintro" type="4">Ajout d'une information sur les classes.</maj>
+	</quand>
+	<quand date="2004-05-03">
+		<maj où="css2" type="4">Ajout d'un appel à un exercice.</maj>
+	</quand>
+	<quand date="2004-04-22">
+		<maj où="css1" type="3">Correction de coquilles. Ajouts d'appels aux exercices.</maj>
+		<maj où="cssintro" type="3">Corrections typographiques. Ajouts d'appels aux exercices.</maj>
+		<maj où="forms" type="4">Corrections typographiques.</maj>
+	</quand>
+	<quand date="2004-03-11">
+		<maj où="cadres" type="4">Ajout de liens vers les exercices.</maj>
+		<maj où="forms" type="4">Ajout d'un lien vers l'exercice.</maj>
+		<maj où="listes" type="4">Ajout des liens vers les exercices.</maj>
+		<maj où="liens" type="4">Ajout des liens vers les exercices.</maj>
+		<maj où="texte" type="4">Ajout des liens vers les exercices</maj>
+	</quand>
+	<quand date="2003-12-11">
+		<maj où="css2" type="4">Correction de coquilles.</maj>
+	</quand>
+	<quand date="2003-11-13">
+		<maj où="cssintro" type="4">Corrections typographiques. Ajout d'une remarque sur CSS3.</maj>
+		<maj où="forms" type="4">Corrections de coquilles.</maj>
+	</quand>
+	<quand date="2003-11-06">
+		<maj où="video" type="4">Corrections de coquilles. Liste des attributs de la balise object.</maj>
+	</quand>
+	<quand date="2003-10-05">
+		<maj où="modeles" type="2">Création du cours.</maj>
+		<maj où="cours" type="1">Passage à la DTD 2.0.</maj>
+	</quand>
+	<quand date="2003-10-01">
+		<maj où="cadres" type="4">Correction de coquilles. Correction de la place de la balise noframes.</maj>
+		<maj où="images" type="4">Corrections typographiques; considérations sur l'accessibilité.</maj>
+		<maj où="listes" type="4">Correction de coquilles.</maj>
+		<maj où="tableaux" type="4">Corrections typographiques; considérations sur l'accessibilité.</maj>
+	</quand>
+	<quand date="2003-09-29">
+		<maj où="liens" type="3">Ajout de l'attribut title de l'élément a.</maj>
+	</quand>
+	<quand date="2003-09-22">
+		<maj où="listes" type="4">Correction de coquilles.</maj>
+		<maj où="liens" type="4">Correction de coquilles. Ajout de considérations sur l'accessibilité.</maj>
+	</quand>
+	<quand date="2003-09-19">
+		<maj où="intro" type="3">Corrections de coquilles. Ajout des balises du header.</maj>
+		<maj où="texte" type="4">Correction de coquilles et quelques petits ajouts.</maj>
+	</quand>
+	<quand date="2003-08-01">
+		<maj où="cssintro" type="4">Correction d'orthographe.</maj>
+	</quand>
+	<quand date="2002-12-15">
+		<maj où="css2" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-12-08">
+		<maj où="css1" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-11-29">
+		<maj où="cssintro" type="3">Ajout du lien vers le validateur du W3C et du codage des couleurs.</maj>
+	</quand>
+	<quand date="2002-11-20">
+		<maj où="cssintro" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-11-18">
+		<maj où="forms" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-11-16">
+		<maj où="liens" type="3">Ajout des attributs de script.</maj>
+	</quand>
+	<quand date="2002-11-15">
+		<maj où="video" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-11-01">
+		<maj où="cadres" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-10-31">
+		<maj où="images" type="3">Ajout des images réactives.</maj>
+	</quand>
+	<quand date="2002-10-29">
+		<maj où="texte" type="4">Correction de coquilles.</maj>
+	</quand>
+	<quand date="2002-10-23">
+		<maj où="images" type="2">Création du cours.</maj>
+		<maj où="listes" type="2">Création du cours.</maj>
+		<maj où="tableaux" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-10-21">
+		<maj où="intro" type="4">Correction de coquilles.</maj>
+		<maj où="liens" type="4">Correction de coquilles.</maj>
+	</quand>
+	<quand date="2002-10-18">
+		<maj où="liens" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-10-13">
+		<maj où="intro" type="2">Création du cours.</maj>
+		<maj où="texte" type="2">Création du cours.</maj>
+	</quand>
+	<quand date="2002-10-12">
+		<maj où="cours" type="1">Création.</maj>
+	</quand>
+</misesAJour>

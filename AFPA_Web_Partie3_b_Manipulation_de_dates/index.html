@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+  <html lang="fr">
+    
+  <head>
+    <meta charset="utf-8">
+    <link href="./css/AFPA_Web_Partie3_b.css" rel="stylesheet">
+    <title>Manipulation de la date</title>
+  </head>
+    
+  <body>
+    <input type="date"><button>Date actuelle</button><br>
+    <input type="time"><button>Heure actuelle</button>
+  </body>
+    
+  <script>
+    // Déclarations
+    var mo, j;
+    var h, mi;
+    var srt;
+    // Handlers
+    document.querySelector('input[type="date"]+button').onclick=function() {
+      
+      d=new Date();
+      
+      mo=d.getUTCMonth().toString();
+      if (mo.length<2) {mo='0'+mo}
+      
+      j=d.getUTCDay().toString();
+      if (j.length<2) {j='0'+j}
+      
+      str=d.getFullYear()+'-'+mo+'-'+j;
+      this.previousSibling.value=str;
+    }   
+    document.querySelector('input[type="time"]+button').onclick=function() {
+      d=new Date();
+      
+      h=d.getHours().toString();
+      if (h.length<2) {h='0'+h}
+      
+      mi=d.getMinutes().toString();
+      if (mi.length<2) {mi='0'+mi}
+      
+      str=h+':'+mi;
+      this.previousSibling.value=str;
+    }
+  </script>
+</html>

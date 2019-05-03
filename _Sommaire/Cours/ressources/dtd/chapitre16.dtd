@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- Version 1.60 du 01/12/2004
+	- L'attribut href de l'élément correction devient obligatoire.
+	- Ajout de l'attribut facultatif description de l'élément correction.
+	- L'attribut version de maj devient obligatoire.
+	- Remplacement de l'entité &nbsp; par l'élément vide <espace>.
+	- Remplacement de l'élément code type="logiciel" par l'élément logiciel.
+-->
+<!-- Version 1.57 du 28/06/2004
+	- Ajout de l'élément optionnel remarque à un exercice.
+-->
+<!-- Version 1.56 du 26/03/2004
+	- Ajout de l'entité &Schema, valant <code type="typefichier">Schema&nbsp;XML</code>.
+-->
+<!-- Version 1.55 du 06/03/2004
+	- L'élément exemplejavascript admet un élément vide sautligne supplémentaire
+-->
+
+<!-- Version 1.54 du 06/03/2004
+	- L'élément fonction admet maintenant aussi comme enfant un élément propriete.
+-->
+<!-- Version 1.53 du 05/03/2004
+	- Ajout des éléments propriete et bloc, fils de l'élément exemplejavascript.
+-->
+<!-- Version 1.52 du 23/02/2004
+	- L'attribut titre de paragraphe devient obtionnel.
+	- Une section peut contenir un exercice.
+-->
+<!-- Version 1.51 du 06/02/2004
+	- Ajout de l'attribut optionnel version de l'élément maj.
+-->
+<!-- Version 1.5 du 05/12/2003
+	- L'élément item peut contenir tout élément de l'entité bloc.
+-->
+<!-- Version 1.42 du 05/12/2003
+	- Ajout de l'entité SVG.
+-->
+<!-- Version 1.41 du 29/11/2003
+	- Création de l'élément exemplejavascript.
+-->
+<!-- Version 1.4 du 28/11/2003
+	- Les éléments cours, entete et corpus deviennent obligatoires.
+-->
+<!-- Version 1.31 du 13/11/2003
+	- Ajout de l'élément optionnel groupecolonne à l'élément tableau.
+-->
+<!-- Version 1.3 du 30/07/2003
+	- Ajout de l'attribut requis titre à l'élément acronyme.
+	- L'attribut type de l'élément exemple devient requis (était HTML par défaut).
+-->
+<!-- Version 1.23 du 29/07/2003
+	- Ajouts des valeurs html, prologue, cdat, dtdexterne, dtdinterne, dtdelement, dtdattribut, dtdattributmilieu,
+		dtdattributfin, xsl, html à l'attribut type de l'élément tag.
+	- Ajout de l'attribut vide à l'élément tag.
+	- Ajout des entités XPATH, XSL et SMIL.
+	- Correction du nombre d'éléments quand, qui et quoi acceptables par élément maj.
+-->
+<!-- Version 1.22 du 24/06/2003
+	- L'attribut ancre de l'élément paragraphe devient optionnel.
+-->
+<!-- Version 1.21 du 26/11/2002
+	- Ajout de la valeur css de l'élément exemple.
+	- Ajout de l'élément csselt comme enfant de l'élément exemple.
+	- Ajout des éléments selecteur et prop comme enfants de l'élément csselt
+-->
+<!-- Version 1.2 du 31/10/2002
+	- Ajout de l'élément imagereactive.
+	- Ajout de l'élément imagereactive à l'entité bloc.
+	- L'attribut alt de image devient requis.
+-->
+<!-- Version 1.11 du 29/10/2002
+	- Ajout de l'attribut *requis* nomfichier à l'élément-racine cours.
+-->
+<!-- Version 1.1 du 23/10/2002
+	- La balise reference est maintenant de type ANY.
+	- Ajout d'une liste "sans puce".
+	- Une image peut maintenant être utilisée à l'intérieur de texte.
+	- Création de l'entité bloc, qui référence image, texte, tableau, exemple, liste.
+	- Ajout de l'attribut type de l'élément image.
+	- Suppression de l'attribut vide de l'élément tag.
+	- Le type par défaut de l'élément exemple est HTML.
+	- Ajout de la balise acronyme en ligne.
+	- Changement des valeurs de l'attribut type de exemple.
+	- Suppression des _ dans les identifiants de type (conformité XHTML).
+-->
+<!-- ================ Declarations d'entites ============================= -->
+<!--<!ENTITY % HTMLspecial PUBLIC "-//W3C//ENTITIES Special for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent">-->
+<!ENTITY % HTMLspecial SYSTEM "xhtml-special.ent">
+%HTMLspecial;
+<!ENTITY % URI "CDATA">
+<!ENTITY % enligne "#PCDATA | definition | valeur | index | autrelangue | code | reference | acronyme | image | espace | logiciel">
+<!ENTITY % bloc "image | texte | liste | exemple | exemplejavascript | tableau | imagereactive">
+<!ENTITY DTD "<code type='typefichier'>DTD</code>">
+<!ENTITY Schema "<code type='typefichier'>Schema XML</code>">
+<!ENTITY XML "<code type='typefichier'>XML</code>">
+<!ENTITY XSL "<code type='typefichier'>XSL</code>">
+<!ENTITY SVG "<code type='typefichier'>SVG</code>">
+<!ENTITY XPath "<code type='langage'>XPath</code>">
+<!ENTITY SMIL "<code type='langage'>SMIL</code>">
+<!ENTITY HTML "<code type='typefichier'>HTML</code>">
+<!ENTITY CSS "<code type='typefichier'>CSS</code>">
+<!ENTITY node "n&oelig;ud">
+<!ENTITY nodec "&node; contextuel">
+<!-- ======================== Declarations d'elements ======================================= -->
+<!ELEMENT chapitre (cours, entete, corpus)>
+<!ELEMENT cours (#PCDATA)>
+<!-- Nom du fichier XML sans l'extension -->
+<!ATTLIST cours
+	nomfichier CDATA #REQUIRED
+>
+<!--    Declarations des elements de l'entete     -->
+	<!ELEMENT entete (titre, auteur, miseajour, resume, motsclefs)>
+		<!ELEMENT titre (#PCDATA)>
+		<!ELEMENT auteur (#PCDATA)>
+			<!ATTLIST auteur
+				email CDATA #IMPLIED
+			>
+		<!ELEMENT miseajour (maj+)>
+			<!ELEMENT maj (quand, qui, quoi)>
+				<!ELEMENT quand (#PCDATA)>
+				<!ELEMENT qui (#PCDATA)>
+				<!ELEMENT quoi (#PCDATA)>
+			<!ATTLIST maj version CDATA #REQUIRED >
+	<!ELEMENT resume (#PCDATA)>
+	<!ELEMENT motsclefs (#PCDATA)>
+	
+<!--  Declarations des elements du corps du cours   -->
+<!ELEMENT corpus (partie*, bibliographie?)>
+<!ELEMENT partie (section | exercice | paragraphe)*>
+<!ELEMENT section (paragraphe | liste | exercice)*>
+<!ELEMENT paragraphe (%bloc;)*>
+<!ATTLIST paragraphe
+	titre CDATA #IMPLIED
+	auteur CDATA ""
+	date CDATA ""
+	href %URI; ""
+	ancre ID #IMPLIED
+>
+<!ELEMENT liste (item)*>
+
+<!ELEMENT item (%bloc;)*>
+<!ATTLIST liste
+	type (envrac | ordonnee | sanspuce) "envrac"
+>
+<!ELEMENT tableau (groupecolonne*,ligne*, legende?)>
+<!ELEMENT groupecolonne EMPTY>
+	<!ATTLIST groupecolonne
+		nombre CDATA "1"
+		largeur CDATA #IMPLIED
+	>
+<!ELEMENT ligne (colonne*)>
+<!ELEMENT colonne (%bloc;)*>
+<!ATTLIST colonne
+	type (header | normal) "normal"
+>
+<!ATTLIST ligne
+	type (header | normal) "normal"
+>
+<!ELEMENT legende (%enligne;)*>
+<!ATTLIST tableau
+	largeur CDATA ""
+	bordure CDATA "1"
+>
+<!ELEMENT image (legende?)>
+<!ATTLIST image
+	src %URI; #REQUIRED
+	hauteur CDATA ""
+	largeur CDATA ""
+	alt CDATA #REQUIRED
+	classe (normal | illustration) "normal"
+>
+<!ELEMENT imagereactive (zone+, legende?)>
+<!ATTLIST imagereactive
+	src %URI; #REQUIRED
+	hauteur CDATA ""
+	largeur CDATA ""
+	alt CDATA #REQUIRED
+	nom CDATA #REQUIRED
+>
+<!ELEMENT zone EMPTY>
+<!ATTLIST zone
+	forme (rect | circle | poly | default) "rect"
+	coords CDATA #IMPLIED
+	href %URI; #IMPLIED
+	alt CDATA #REQUIRED
+>
+<!ELEMENT texte (%enligne;)*>
+<!ATTLIST section
+	titre CDATA #REQUIRED
+	auteur CDATA ""
+	date CDATA ""
+	href %URI; ""
+	ancre ID #REQUIRED
+>
+<!ELEMENT exercice (remarque?,enonce?, correction*)>
+<!ELEMENT remarque (#PCDATA)>
+<!ELEMENT enonce EMPTY>
+<!ATTLIST enonce
+	href %URI; ""
+>
+<!ELEMENT correction EMPTY>
+<!ATTLIST correction
+	href %URI; #REQUIRED
+	description CDATA #IMPLIED
+>
+<!ATTLIST exercice
+	titre CDATA #REQUIRED
+	auteur CDATA ""
+	date CDATA ""
+	ancre ID #REQUIRED
+>
+<!ATTLIST partie
+	titre CDATA #REQUIRED
+	auteur CDATA ""
+	date CDATA ""
+	href %URI; ""
+	ancre ID #REQUIRED
+>
+<!ELEMENT bibliographie (author, titre, editeur, lien, commentaire)?>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT editeur (#PCDATA)>
+<!ELEMENT lien (#PCDATA)>
+<!ELEMENT commentaire (#PCDATA)>
+<!ATTLIST bibliographie
+	auteur CDATA ""
+	date CDATA ""
+	href %URI; ""
+>
+<!-- Definitions d'elements en-ligne -->
+<!ELEMENT acronyme (#PCDATA)>
+	<!ATTLIST acronyme
+		titre CDATA #REQUIRED
+	>
+<!ELEMENT index (#PCDATA)>
+<!ATTLIST index
+	type (visible | hidden) "hidden"
+	id ID #REQUIRED
+>
+<!ELEMENT definition (#PCDATA)>
+<!ATTLIST definition
+	clef CDATA #REQUIRED
+>
+<!-- espace insécable-->
+<!ELEMENT espace EMPTY>
+<!ELEMENT autrelangue (%enligne;)*>
+<!ATTLIST autrelangue
+	type CDATA "en"
+>
+<!ELEMENT valeur ANY>
+<!ELEMENT code (#PCDATA)>
+<!ATTLIST code
+	type (langage | code | typefichier) "code"
+	option (yes | no) "no"
+>
+<!ELEMENT logiciel (#PCDATA | espace)* >
+<!ELEMENT exemple (contenu | tag | propriete | csselt)*>
+<!ELEMENT tag (#PCDATA)>
+<!ATTLIST tag
+	pos (debut | fin) "debut"
+	niveau CDATA "0"
+	type (general | commentaire | html | doctype | prologue | cdat | dtdexterne | dtdinterne | dtdinternefin | dtdelement | dtdattribut | dtdattributmilieu | dtdattributfin | xsl) "general"
+	vide (yes | no) "no"
+>
+<!ELEMENT contenu (#PCDATA)>
+<!ATTLIST contenu
+	niveau CDATA "0"
+	pos (debut | fin) "debut"
+>
+<!ELEMENT csselt (selecteur, prop+)>
+<!ELEMENT selecteur (#PCDATA)>
+<!ELEMENT prop EMPTY>
+<!ATTLIST prop
+	nom CDATA #REQUIRED
+	valeur CDATA #REQUIRED
+>
+<!ATTLIST exemple
+	type (XML | HTML | illustration | CSS) #REQUIRED
+	ancre ID #IMPLIED
+>
+	
+<!ELEMENT exemplejavascript (fonction | instruction | variable | propriete | declaration | autres | finligne | sautligne | bloc)*>
+<!ELEMENT bloc (fonction | instruction | variable | propriete | declaration | autres | finligne | sautligne)* >
+<!ELEMENT fonction (variable | autres | propriete)*>
+	<!ATTLIST fonction name CDATA #REQUIRED>
+<!ELEMENT instruction EMPTY>
+	<!ATTLIST instruction name CDATA #REQUIRED>
+<!ELEMENT variable EMPTY>
+	<!ATTLIST variable name CDATA #REQUIRED>
+<!ELEMENT propriete EMPTY>
+	<!ATTLIST propriete name CDATA #REQUIRED>
+<!ELEMENT declaration EMPTY>
+	<!ATTLIST declaration
+		nomvariable CDATA #REQUIRED
+		valeur CDATA #REQUIRED	
+	>
+<!ELEMENT autres (#PCDATA)>
+<!ELEMENT finligne EMPTY>
+<!ELEMENT sautligne EMPTY>
+
+<!ELEMENT reference ANY>
+<!ATTLIST reference
+	href %URI; #REQUIRED
+>

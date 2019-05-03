@@ -1,0 +1,509 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les liens hypertexte</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, concept, introduction, lien, hypertexte">
+      <meta name="description" content="Une page Web sans lien est une impasse. Ce chapitre entre dans les détails des possibilités offertes par ce concept.">
+      <link rel="next" href="listes.html">
+      <link rel="prev" href="texte.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les liens hypertexte</h1>
+         <p><span class="version">version 1.30</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#intro" title="Introduction">Introduction</a></li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#types" title="Différents types de liens">Différents types de liens</a><ol>
+                     <li><a href="#typesintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#interne" title="Liens internes">Liens internes</a><ol>
+                           <li><a href="#internesexemple" title="Exemple">Exemple</a></li>
+                           <li><a href="#internesbalisea" title="La balise a">La balise a</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#externe" title="Le lien externe et l'adresse absolue: comment s'écrit une URL absolue?">Le lien externe et l'adresse absolue: comment s'écrit une URL absolue?</a><ol>
+                           <li><a href="#url" title="URL: Uniform Resource Locator">URL: Uniform Resource Locator</a></li>
+                           <li><a href="#protocole" title="Un protocole">Un protocole</a></li>
+                           <li><a href="#adresseserveur" title="L'adresse du serveur">L'adresse du serveur</a></li>
+                           <li><a href="#cheminacces" title="Un chemin d'accès">Un chemin d'accès</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#relatif" title="Le lien interne et l'adresse relative: comment s'écrit une URL relative?">Le lien interne et l'adresse relative: comment s'écrit une URL relative?</a><ol>
+                           <li><a href="#memerep" title="Ressource située dans le même répertoire que la page d'appel">Ressource située dans le même répertoire que la page d'appel</a></li>
+                           <li><a href="#sousrep" title="Ressource située dans un sous-répertoire du répertoire contenant la page d'appel">Ressource située dans un sous-répertoire du répertoire contenant la page d'appel</a></li>
+                           <li><a href="#repparent" title="Ressource située dans un répertoire contenant la page d'appel">Ressource située dans un répertoire contenant la page d'appel</a></li>
+                           <li><a href="#parallele" title="Ressource située dans un répertoire situé dans une branche latérale">Ressource située dans un répertoire situé dans une branche latérale</a></li>
+                           <li><a href="#remarque" title="Remarque importante: privilégier l'adresse relative">Remarque importante: privilégier l'adresse relative</a></li>
+                           <li><a href="#concatenation" title="Concaténer une URL et une ancre intra-page">Concaténer une URL et une ancre intra-page</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#protocoles" title="Liens vers des ressources utilisant d'autres protocoles">Liens vers des ressources utilisant d'autres protocoles</a><ol>
+                     <li><a href="#courrier" title="Courrier électronique">Courrier électronique</a></li>
+                     <li><a href="#ftp" title="FTP ou Gopher">FTP ou Gopher</a></li>
+                     <li>Exercice&nbsp;: <a href="#exoliens">Liens divers</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>IV. <a href="#autresobjets" title="Lien vers d'autres objets">Lien vers d'autres objets</a></li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="intro" href="#intro" id="intro"></a>I. Introduction
+         </h3>
+         <p>Ecrire des "pages Web", c'est bien&nbsp;; ne pas les isoler du monde et leur permettre, soit d'être indexée sur une autre page,
+            soit de mener vers un autre site, c'est mieux. A l'inverse d'un livre, par exemple, où le plus souvent la lecture se fait
+            de manière linéaire, et ceci à cause de la nature même du support, le support électronique a permis de développer le concept
+            d'hypertexte.
+         </p>
+         <p>La lecture n'est plus forcément linéaire&nbsp;; chaque groupe de mots peut mener à des informations supplémentaires, ou bien permettre
+            de lancer une application externe, en fonction des besoins de l'utilisateur. C'est une perspective qu'il ne faut jamais oublier&nbsp;:
+            un lien hypertexte est là pour introduire une certaine profondeur ou bien pour élargir un champ... et non pour artificiellement
+            multiplier des pages sur un site&nbsp;!
+         </p>
+         <p>Le but de ce chapitre est de faire un rapide exposé de cette notion fondamentale sur le réseau.</p>
+         <h3><a name="types" href="#types" id="types"></a>II. Différents types de liens
+         </h3>
+         <h4><a name="typesintro" id="typesintro" href="#typesintro"></a>1. Introduction
+         </h4>
+         <p>Différents types de liens sont possibles&nbsp;:</p>
+         <ul>
+            <li>
+               <p>des liens internes à une page donnée. Lors du fonctionnement de ce lien, le navigateur ne charge pas de nouvelle page. Le
+                  contenu de la fenêtre est simplement ajusté pour que la référence apparaisse à l'écran. Par exemple, ce <a href="#interne">lien intra-page</a> va placer l'affichage au niveau du paragraphe consacré à cette notion.
+               </p>
+            </li>
+            <li>
+               <p>des liens pointant vers une autre page d'un même serveur. Lors du fonctionnement de ce lien, le navigateur charge une nouvelle
+                  page située sur le même serveur. La syntaxe employée sera alors <em>relative</em> à la page en cours. Par exemple, ce support de cours constitue lui-même un site installé sur un serveur unique, et <a href="intro.html">ce lien</a> permet de revenir au premier cours d'introduction. On parle de <em>lien interne</em> et d'<em>adresse relative</em>.
+               </p>
+            </li>
+            <li>
+               <p>des liens pointant vers un autre site. Il va falloir lancer une requête sur l'ensemble de la toile pour que le serveur qui
+                  possède la page demandée puisse l'envoyer via l'Internet, au client demandeur. On parle de <em>lien externe</em> et d'<em>adresse absolue</em>. Exemple&nbsp;: <a href="http://www.w3.org">vers le site du W3C</a>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_typesintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="interne" id="interne" href="#interne"></a>2. Liens internes
+         </h4>
+         <h5><a href="#internesexemple" name="internesexemple" id="internesexemple"></a>a. Exemple
+         </h5>
+         <p>La table des matières en tête de ce document est constituée d'une collection de liens relatifs donnant accès à chacun de ses
+            paragraphes.
+         </p>
+         <p>La syntaxe à respecter est la suivante&nbsp;:</p>
+         <table class="tableau" summary="Utilisation de la balise a pour créer un lien interne." border="1">
+            <tr>
+               <th id="origine">
+                  <p>Origine du lien de l'exemple</p>
+               </th>
+               <th id="destination">
+                  <p>Extrémité du lien de l'exemple</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="origine">
+                  <p class="html"><span class="tag">&lt;a<span class="nomattribut"> href</span>="<span class="valeurattribut">#internes</span>"&gt;</span>Liens internes<span class="tag">&lt;/a&gt;</span><br></p>
+               </td>
+               <td headers="destination">
+                  <p class="html"><span class="tag">&lt;a<span class="nomattribut"> name</span>="<span class="valeurattribut">internes</span>"&gt;</span><span class="tag">&lt;/a&gt;</span><br></p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Utilisation de la balise <code class="code">a</code> pour créer un lien interne.
+         </p>
+         <p class="retourtdm"><a href="#tdm_internesexemple" title="Retour à la TdM (Exemple)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#internesbalisea" name="internesbalisea" id="internesbalisea"></a>b. La balise a
+         </h5>
+         <p>Pour définir un lien, il faut désigner son départ et son arrivée&nbsp;: c'est la même balise <code class="code">&lt;a&gt;</code> (pour <span lang="en" class="autrelangue">anchor</span> ou ancre) à l'aide de deux attributs différents (<code class="code">href</code> et <code class="code">name</code>) qui les prend en charge.
+         </p>
+         <table class="tableau" summary="Attributs de la balise <a&gt;" border="1">
+            <tr>
+               <th id="attr">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff">
+                  <p>Effet</p>
+               </th>
+               <th id="val">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">href</code></p>
+               </td>
+               <td headers="eff">
+                  <p><em>H</em>ypertexte <em>REF</em>erence, désigne l'adresse à atteindre par le navigateur 
+                  </p>
+               </td>
+               <td headers="val">
+                  <ul>
+                     <li>
+                        <p>URL (voir ci-dessous).</p>
+                     </li>
+                     <li>
+                        <p>valeur de l'attribut <code class="code">name</code> (nom) de l'ancre à atteindre dans la même page Internet précédée du caractère <code class="code">#</code>.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff">
+                  <p>étiquette de l'ancre</p>
+               </td>
+               <td headers="val">
+                  <p>chaîne de caractères</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">accesskey</code></p>
+               </td>
+               <td headers="eff">
+                  <p>définit une touche du clavier. La combinaison "ALT + touche" a le même effet que le clic sur le lien.</p>
+               </td>
+               <td headers="val">
+                  <p>touche du clavier</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">tabindex</code></p>
+               </td>
+               <td headers="eff">
+                  <p>fixe la position de l'élément dans l'ordre séquentiel des tabulations.</p>
+               </td>
+               <td headers="val">
+                  <p>valeur numérique entière</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">target</code></p>
+               </td>
+               <td headers="eff">
+                  <p>(voir <a href="cadres.html">les frames</a>)
+                  </p>
+               </td>
+               <td headers="val">
+                  <p></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">title</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Une rapide description du lien</p>
+               </td>
+               <td headers="val">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">shape</code></p>
+               </td>
+               <td headers="eff">
+                  <p>(voir <a href="images.html#imgreac">les images réactives</a>)
+                  </p>
+               </td>
+               <td headers="val">
+                  <p></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">coords</code></p>
+               </td>
+               <td headers="eff">
+                  <p>(voir <a href="images.html#imgreac">les images réactives</a>)
+                  </p>
+               </td>
+               <td headers="val">
+                  <p></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">onfocus</code>, <code class="code">onblur</code></p>
+               </td>
+               <td headers="eff">
+                  <p> Un script à exécuter quand le curseur est positionné sur le lien (<code class="code">onfocus</code>), ou bien qu'il le quitte (<code class="code">onblur</code>). 
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Attributs de la balise <code class="code">&lt;a&gt;</code></p>
+         <p>L'attribut <code class="code">accesskey</code> est très important si l'on doit prendre en compte l'accessibilité de la page. Il permet la navigation sans utiliser de souris.
+            De plus, on peut imaginer, sur un site Web, des fonctionnalités qui sont alors facilement accessibles par une combinaison
+            de touches&nbsp;: envoyer un courrier électronique avec une combinaison <code class="code">ALT+C</code>, faire une recherche avec le raccourci <code class="code">ALT+R</code>, <span lang="en" class="autrelangue">etc</span>. De même, l'attribut <code class="code">tabindex</code> permet de faciliter la navigation pour les personnes ne pouvant que mal maîtriser une souris (les mal-voyants par exemple).
+         </p>
+         <p class="retourtdm"><a href="#tdm_interne" title="Retour à la TdM (Liens internes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="externe" id="externe" href="#externe"></a>3. Le lien externe et l'adresse absolue: comment s'écrit une URL absolue?
+         </h4>
+         <h5><a href="#url" name="url" id="url"></a>a. URL: Uniform Resource Locator
+         </h5>
+         <p>C'est-à-dire un "localisateur" (adresse) unifié de ressource. L'<acronym title="Uniform Resource Locator">URL</acronym> absolue peut se décomposer en trois parties, par exemple l'adresse&nbsp;:<a href="http://www.w3.org/TR/REC-MathML/appendixA.html">http://www.w3.org/TR/REC-MathML/appendixA.html</a> se décompose en&nbsp;:
+         </p>
+         <table class="tableau" summary="Structure d'une URL." border="1">
+            <tr>
+               <th id="proto">
+                  <p>protocole</p>
+               </th>
+               <th id="adresse">
+                  <p>adresse du serveur</p>
+               </th>
+               <th id="chemin">
+                  <p>Chemin d'accès sur le serveur</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="proto">
+                  <p><code class="code">http://</code></p>
+               </td>
+               <td headers="adresse">
+                  <p><code class="code">www.w3.org</code></p>
+               </td>
+               <td headers="chemin">
+                  <p><code class="code">/TR/REC-MathML/appendixA.html</code></p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;3. Structure d'une URL.</p>
+         <p class="retourtdm"><a href="#tdm_url" title="Retour à la TdM (URL: Uniform Resource Locator)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#protocole" name="protocole" id="protocole"></a>b. Un protocole
+         </h5>
+         <p>Indique le mode de dialogue utilisé pour communiquer avec la ressource invoquée. Ce peut être&nbsp;:</p>
+         <ul>
+            <li>
+               <p><em>http://</em> <span lang="en" class="autrelangue">Hyper Text Transfer Protocole</span>, pour les pages Web. 
+               </p>
+            </li>
+            <li>
+               <p><em>ftp://</em> <span lang="en" class="autrelangue">File Transfer Protocole</span> pour l'échange de fichiers quelconques. 
+               </p>
+            </li>
+            <li>
+               <p><em>news:</em> serveur de news.
+               </p>
+            </li>
+            <li>
+               <p><em>mailto:</em> courrier électronique.
+               </p>
+            </li>
+            <li>
+               <p><em>gopher://</em> autre mode de parcours de pages web utilisant une recherche par mot-clé. 
+               </p>
+            </li>
+            <li>
+               <p><em>file://</em> fichier interne, dont l'accès ne nécessite pas l'emploi du réseau Internet. 
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_protocole" title="Retour à la TdM (Un protocole)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#adresseserveur" name="adresseserveur" id="adresseserveur"></a>c. L'adresse du serveur
+         </h5>
+         <p>C'est l'identifiant du serveur où se trouvent les pages et autres ressources auxquelles l'utilisateur souhaite accéder. Elle
+            apparaît en général en clair formée de trois parties. On peut trouver aussi des adresses numériques. Par exemple, 134.157.46.230
+            est l'adresse du serveur de la salle multimédia de la CIM.
+         </p>
+         <p class="retourtdm"><a href="#tdm_adresseserveur" title="Retour à la TdM (L'adresse du serveur)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#cheminacces" name="cheminacces" id="cheminacces"></a>d. Un chemin d'accès
+         </h5>
+         <p>Une requête vers un serveur aboutit dans un dossier par défaut (généralement sous Windows NT, dans le dossier <code class="typefichier">InetPub&gt;wwwroot</code>). Il faut préciser le chemin d'accès (enchâssement des dossiers et sous-dossiers) du fichier contenant la page Web à afficher.
+            
+         </p>
+         <p>Les extensions des fichiers contenant des pages <code class="typefichier">HTML</code> peuvent être <code class="typefichier">.htm</code>, <code class="typefichier">.html</code>, <code class="typefichier">.shtml</code>, <code class="typefichier">.asp</code> (requête base de données sur le serveur) ou <code class="typefichier">.php</code> (idem).
+         </p>
+         <p class="retourtdm"><a href="#tdm_externe" title="Retour à la TdM (Le lien externe et l'adresse absolue: comment s'écrit une URL absolue?)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="relatif" id="relatif" href="#relatif"></a>4. Le lien interne et l'adresse relative: comment s'écrit une URL relative?
+         </h4>
+         <h5><a href="#memerep" name="memerep" id="memerep"></a>a. Ressource située dans le même répertoire que la page d'appel
+         </h5>
+         <p>La valeur prise par l'attribut href est simplement le nom du fichier, par exemple <code class="code">href="index.html"</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_memerep" title="Retour à la TdM (Ressource située dans le même répertoire que la page d'appel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#sousrep" name="sousrep" id="sousrep"></a>b. Ressource située dans un sous-répertoire du répertoire contenant la page d'appel
+         </h5>
+         <p>Il suffit de citer la suite des sous-répertoires jusqu'au fichier ressource, par exemple<code class="code">href="archives/2001/18072001.html"</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_sousrep" title="Retour à la TdM (Ressource située dans un sous-répertoire du répertoire contenant la page d'appel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#repparent" name="repparent" id="repparent"></a>c. Ressource située dans un répertoire contenant la page d'appel
+         </h5>
+         <p>Il faut remonter successivement chaque répertoire par "../". Dans cet exemple, le répertoire visé est le supérieur hiérarchique
+            de deuxième rang (le grand-père)&nbsp;: <code class="code">href="../../index.html"</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_repparent" title="Retour à la TdM (Ressource située dans un répertoire contenant la page d'appel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#parallele" name="parallele" id="parallele"></a>d. Ressource située dans un répertoire situé dans une branche latérale
+         </h5>
+         <p>Il faut remonter au répertoire commun par "../" puis redescendre la bonne branche, par exemple <code class="code">href="../../produits/convecteurs/rh1200x.html"</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_parallele" title="Retour à la TdM (Ressource située dans un répertoire situé dans une branche latérale)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#remarque" name="remarque" id="remarque"></a>e. Remarque importante: privilégier l'adresse relative
+         </h5>
+         <p>Lors de la création d'un site destiné à un seul serveur, tous les liens internes doivent être sous forme relative. En effet,
+            on développe sur sa propre machine avant de transférer sur le serveur l'ensemble du site créé. Si les liens internes sont
+            sous forme absolue, ils seront perdus après le transfert&nbsp;: les noms de répertoires ne seront peut-être pas les mêmes sur le
+            serveur&nbsp;!
+         </p>
+         <p>De plus, utiliser une adresse relative au lieu d'une adresse absolue permet au routeur de ne pas avoir à résoudre à chaque
+            requête le chemin vers le serveur. Cette opération prend du temps, rendant ainsi la page plus longue à charger.
+         </p>
+         <p class="retourtdm"><a href="#tdm_remarque" title="Retour à la TdM (Remarque importante: privilégier l'adresse relative)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#concatenation" name="concatenation" id="concatenation"></a>f. Concaténer une URL et une ancre intra-page
+         </h5>
+         <p>Pour accéder directement à une section donnée d'une autre page donnée, il suffit de concaténer l'URL avec la valeur du paramètre
+            <code class="code">name</code> à l'aide du symbole <code class="code">#</code>, par exemple&nbsp;:
+         </p>
+         <p><code class="code">href="index.html#tablematieres"</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_relatif" title="Retour à la TdM (Le lien interne et l'adresse relative: comment s'écrit une URL relative?)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="protocoles" href="#protocoles" id="protocoles"></a>III. Liens vers des ressources utilisant d'autres protocoles
+         </h3>
+         <h4><a name="courrier" id="courrier" href="#courrier"></a>1. Courrier électronique
+         </h4>
+         <p>L'utilisation de protocole <code class="code">mailto:...</code> provoque l'ouverture de l'application correspondant au courrier sous <code class="logiciel">Internet Explorer</code> ou sous <code class="logiciel">Netscape</code>.
+         </p>
+         <ul>
+            <li>
+               <p><em>lien e-mail sans sujet</em>&nbsp;:
+               </p>
+               <p><code class="code">href="mailto:A.Talon@dupuis.fr"</code></p>
+            </li>
+            <li>
+               <p><em>lien e-mail avec sujet</em>&nbsp;:
+               </p>
+               <p><code class="code">href="mailto:A.Talon@dupuis.fr?subject=marsupilami"</code></p>
+            </li>
+            <li>
+               <p><em>lien e-mail avec sujet et texte dans le corps du message</em>&nbsp;:
+               </p>
+               <p><code class="code">href="mailto:A.Talon@dupuis.fr?subject=marsupilami&amp;body=longueur_queue"</code></p>
+            </li>
+            <li>
+               <p><em>lien e-mail avec sujet, envoyé à deux personnes</em>&nbsp;:
+               </p>
+               <p><code class="code">href="mailto:A.Talon@dupuis.fr?cc=Lefuneste@dupuis.fr&amp;subject=marsupilami"</code></p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_courrier" title="Retour à la TdM (Courrier électronique)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="ftp" id="ftp" href="#ftp"></a>2. FTP ou Gopher
+         </h4>
+         <p>provoque l'ouverture d'une application FTP ou Gopher selon le cas.</p>
+         <ul>
+            <li>
+               <p><em>lien externe vers un serveur FTP&nbsp;:</em> <code class="code">href="ftp://ftp.jussieu.fr"</code>. 
+               </p>
+            </li>
+            <li>
+               <p><em>lien externe vers un serveur de news&nbsp;:</em> <code class="code">href="news:news.u-psud.fr"</code>. Il est alors demandé au visiteur, le cas échéant, s'il veut s'abonner à ce serveur de news. 
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_ftp" title="Retour à la TdM (FTP ou Gopher)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoliens" href="#exoliens" id="exoliens"></a>1. Liens divers
+         </h4>
+         <h5><a href="exercices/td2.html" title="Énoncé de l'exercice 'Liens divers'">Énoncé</a></h5>
+         <h5><a href="exercices/td2cor.html" title="Correction 'Liens divers'">
+               				Correction</a></h5>
+         <h3><a name="autresobjets" href="#autresobjets" id="autresobjets"></a>IV. Lien vers d'autres objets
+         </h3>
+         <p>Le système d'exploitation recherchera de lui-même, selon l'extension du fichier, quelle application permet de l'exploiter.
+            S'il n'a jamais fait l'association, il proposera à l'utilisateur de l'établir lui-même.
+         </p>
+         <p>
+            					Vous pouvez également proposer un fichier (<code class="typefichier">.EXE</code> ou <code class="typefichier">.ZIP</code>) en téléchargement...
+            				
+         </p>
+         <p class="html"><span class="tag">&lt;a<span class="nomattribut"> href</span>="<span class="valeurattribut">site.zip</span>"&gt;</span>Téléchargement du site<span class="tag">&lt;/a&gt;</span><br></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="texte.html">Mise en forme de texte</a><br>Cours suivant&nbsp;: <a href="listes.html">Les listes</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="liens.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.30. Réécriture des exemples.</li>
+            <li>Le 7 juillet 2005, version 1.24. Correction d'une coquille dans l'explication du mailto et dans quelques liens.</li>
+            <li>Le 27 mai 2005, version 1.23. Correction d'une coquille dans l'explication du mailto.</li>
+            <li>Le 16 juin 2004, version 1.22. Ajout de la correction des exercices.</li>
+            <li>Le 11 mars 2004, version 1.21. Ajout des liens vers les exercices.</li>
+            <li>Le 29 septembre 2003, version 1.20. Ajout de l'attribut title de l'élément a.</li>
+            <li>Le 22 septembre 2003, version 1.11. Correction de coquilles. Ajout de considérations sur l'accessibilité.</li>
+            <li>Le 16 novembre 2002, version 1.10. Ajout des attributs de script.</li>
+            <li>Le 21 octobre 2002, version 1.01. Correction de coquilles.</li>
+            <li>Le 18 octobre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

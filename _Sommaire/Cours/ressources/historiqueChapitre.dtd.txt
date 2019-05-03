@@ -1,0 +1,155 @@
+<!-- Version 2.2A du 19/12/2012
+	- ajout de l'attribut optionnel caractère à l'élément finligne.
+-->
+<!-- Version 2.29 du 12/01/12
+	- ajout de l'indentation des exemples JavaScript
+-->
+<!-- Version 2.28 du 09/01/2012
+	- ajout des listes de définitions
+-->
+
+<!-- Version 2.27 du 13/05/2011
+	- ajout de l'élément bibliographie
+-->
+
+<!-- Version 2.26 du 29/02/2008
+	- ajout de l'élément facultatif commentaireCSS enfant de exemple_css
+-->
+<!-- Version 2.25 du 22/01/2008
+	- l'élément abreviation devient mixte et peut contenir un ou plusieurs éléments code
+-->
+<!-- Version 2.24 du 02/10/2007
+	- ajout de l'élément contenu
+	- ajout de l'élément puissance (pour les exposants mathématiques)
+	- ajout de l'attribut new de l'élément declaration
+	- ajout de l'élément commentaire_js
+	- l'élément fonction peut contenir un autre élément fonction
+-->
+<!-- Version 2.23 du 19/09/2007
+	- ajout de l'élément abreviation
+-->
+<!-- Version 2.22 du 25/04/2007
+	- un élément bloc peut maintenant contenir d'autres blocs.
+-->
+<!-- Version 2.21 du 27/04/2006
+	- ajout de l'attribut lang aux éléments definition, valeur, reference, acronyme et logiciel.
+	- nettoyage dans les déclarations des appels à des éléments déjà supprimés.
+-->
+<!-- Version 2.2 du 06/11/2005
+	- Suppression du type CSS des exemples.
+	- Suppression de l'élément espace.
+	- Ajout de l'attribut obligatoire typecourssiteweb à l'élément racine.
+-->
+<!-- Version 2.1 du 26/10/2005
+	- Suppression des éléments d'historique.
+-->
+<!-- Version 2.01 du 14/07/2005
+	- L'élément <declaration_attribut> dépend maintenant de <declaration_element> et perd son attribut nomelt.
+	- Ajout de l'élément declaration_entite
+-->
+<!-- Version 2.0 du 12/07/2005
+	- Modification de la déclaration des éléments dans les exemples:
+		- création de l'élément <prologue>, attribut encodage avec valeur par défaut ISO-8859-1, version avec valeur par défaut 1.0, standalone (yes | no)
+		- création de l'élément <instruction_traitement>, attributs nom, type et href requis.
+		- création de l'élément <element>, attributs nom (requis), enligne (oui|non) ("non" par défaut), indent (s'il doit être indenté) (oui ou non, oui par défaut), niveau (val par défaut 0), vide (oui|non) (valeur par défaut="non")
+		- création de l'élément <attribut>, attributs nom (requis)
+		- création de l'élément <commentaire>
+		- création de l'élément <cdat>
+		- création de l'élément <typedocument>, attributs nomracine (requis), type (system|public), identifiant (optionnel) et href (requis)
+		- création de l'élément <declaration_element>, attributs nom (requis), type
+		- création de l'élément <declaration_attribut>, attributs nomelt (requis), nomattr (requis), type
+	- L'élément <exemple> ne peut contenir que des <prologue>, <instruction_traitement>, <element>, <commentaire>, <cdat>, <typedocument>, <declaration_element> et <declaration_attribut>.
+	- Création de l'élément <exemple_css>
+	- Suppression de l'élément <tag>
+	- Suppression de l'élément <bibliographie> et de ses enfants
+-->
+<!-- Version 1.80 du 03/06/2005
+	- Suppression de l'attribut largeur des tableaux
+	- Ajout des attributs id, abbr et headers aux éléments colonne.
+ -->
+<!-- Version 1.70 du 18/04/2005 
+	- Suppression des entités internes.
+-->
+<!-- Version 1.60 du 01/12/2004
+	- L'attribut href de l'élément correction devient obligatoire.
+	- Ajout de l'attribut facultatif description de l'élément correction.
+	- L'attribut version de maj devient obligatoire.
+	- Remplacement de l'entité &nbsp; par l'élément vide <espace>.
+	- Remplacement de l'élément code type="logiciel" par l'élément logiciel.
+-->
+<!-- Version 1.57 du 28/06/2004
+	- Ajout de l'élément optionnel remarque à un exercice.
+-->
+<!-- Version 1.56 du 26/03/2004
+	- Ajout de l'entité &Schema, valant <code type="typefichier">Schema&nbsp;XML</code>.
+-->
+<!-- Version 1.55 du 06/03/2004
+	- L'élément exemplejavascript admet un élément vide sautligne supplémentaire
+-->
+<!-- Version 1.54 du 06/03/2004
+	- L'élément fonction admet maintenant aussi comme enfant un élément propriete.
+-->
+<!-- Version 1.53 du 05/03/2004
+	- Ajout des éléments propriete et bloc, fils de l'élément exemplejavascript.
+-->
+<!-- Version 1.52 du 23/02/2004
+	- L'attribut titre de paragraphe devient obtionnel.
+	- Une section peut contenir un exercice.
+-->
+<!-- Version 1.51 du 06/02/2004
+	- Ajout de l'attribut optionnel version de l'élément maj.
+-->
+<!-- Version 1.5 du 05/12/2003
+	- L'élément item peut contenir tout élément de l'entité bloc.
+-->
+<!-- Version 1.42 du 05/12/2003
+	- Ajout de l'entité SVG.
+-->
+<!-- Version 1.41 du 29/11/2003
+	- Création de l'élément exemplejavascript.
+-->
+<!-- Version 1.4 du 28/11/2003
+	- Les éléments cours, entete et corpus deviennent obligatoires.
+-->
+<!-- Version 1.31 du 13/11/2003
+	- Ajout de l'élément optionnel groupecolonne à l'élément tableau.
+-->
+<!-- Version 1.3 du 30/07/2003
+	- Ajout de l'attribut requis titre à l'élément acronyme.
+	- L'attribut type de l'élément exemple devient requis (était HTML par défaut).
+-->
+<!-- Version 1.23 du 29/07/2003
+	- Ajouts des valeurs html, prologue, cdat, dtdexterne, dtdinterne, dtdelement, dtdattribut, dtdattributmilieu,
+		dtdattributfin, xsl, html à l'attribut type de l'élément tag.
+	- Ajout de l'attribut vide à l'élément tag.
+	- Ajout des entités XPATH, XSL et SMIL.
+	- Correction du nombre d'éléments quand, qui et quoi acceptables par élément maj.
+-->
+<!-- Version 1.22 du 24/06/2003
+	- L'attribut ancre de l'élément paragraphe devient optionnel.
+-->
+<!-- Version 1.21 du 26/11/2002
+	- Ajout de la valeur css de l'élément exemple.
+	- Ajout de l'élément csselt comme enfant de l'élément exemple.
+	- Ajout des éléments selecteur et prop comme enfants de l'élément csselt
+-->
+<!-- Version 1.2 du 31/10/2002
+	- Ajout de l'élément imagereactive.
+	- Ajout de l'élément imagereactive à l'entité bloc.
+	- L'attribut alt de image devient requis.
+-->
+<!-- Version 1.11 du 29/10/2002
+	- Ajout de l'attribut *requis* nomfichier à l'élément-racine cours.
+-->
+<!-- Version 1.1 du 23/10/2002
+	- La balise reference est maintenant de type ANY.
+	- Ajout d'une liste "sans puce".
+	- Une image peut maintenant être utilisée à l'intérieur de texte.
+	- Création de l'entité bloc, qui référence image, texte, tableau, exemple, liste.
+	- Ajout de l'attribut type de l'élément image.
+	- Suppression de l'attribut vide de l'élément tag.
+	- Le type par défaut de l'élément exemple est HTML.
+	- Ajout de la balise acronyme en ligne.
+	- Changement des valeurs de l'attribut type de exemple.
+	- Suppression des _ dans les identifiants de type (conformité XHTML).
+-->

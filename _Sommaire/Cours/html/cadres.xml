@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+
+<cours nomfichier="cadres">Cours de HTML</cours>
+
+<entete>
+	<titre>Les cadres (frames)</titre>
+	<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+	<resume>Même s'ils ont tendance à disparaître, les cadres (ou frames) restent encore présents sur nombre de pages Web.</resume>
+	<motsclefs>html, frame, frameset</motsclefs>
+</entete>
+
+<corpus>
+
+<partie titre="Généralités" ancre="gen">
+	<section titre="Fonction" ancre="fonction">
+		<paragraphe>
+			<texte>Les cadres (<autrelangue>frames</autrelangue> dans la terminologie anglo-saxonne) découpent la fenêtre principale en autant de petits cadres, chacun d'eux jouant le même rôle qu'une fenêtre&#160;: document <code type='typefichier'>HTML</code> propre, barres de défilement indépendantes...</texte>
+			<texte>Ces <autrelangue>frames</autrelangue> peuvent être chargés de manière totalement indépendante&#160;: un cadre sera modifié et l'autre maintenu. Ils peuvent interargir entre eux&#160;: un choix dans un premier cadre pourra provoquer le chargement d'une nouvelle page dans un deuxième.</texte>
+			<texte>Examiner l'exemple au bout de <reference href="exemples/cadres1.html">ce lien</reference>.</texte>
+			<texte>Puis admirer la magnifique réalisation du Site officiel du musée du Louvre <reference href="http://www.louvre.fr/">http://www.louvre.fr/</reference>&#160;: Observer la navigation.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Avantages/Inconvénients" ancre="avinc" >
+		<paragraphe >
+			<texte>Les cadres permettent de créer rapidement une mise en page simple pour un site. L'utilisation classique consiste ainsi à présenter sur un cadre à gauche une liste de liens vers les différentes parties d'un site, qui s'affichent dans la fenêtre principale au centre. Cela facilite de plus la maintenance des différentes pages.</texte>
+			<texte>Cependant, les moteurs de recherche indexent les pages à l'intérieur des cadres autant que les autres. Il y a donc un risque pour qu'une page indexée de la sorte soit "orpheline", et ne donne pas accès au reste du site. Plus généralement, une telle page ne se suffit souvent pas à elle-même (il y manque parfois les outils de navigation à l'intérieur du site). Enfin, la présence de cadres s'accompagne souvent de celles de barres de défilement horizontales.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Structure de la page HTML" ancre="structure" >
+		<paragraphe titre="Un nouveau type de document" ancre="dtd">
+			<texte>Nous avions déjà rencontré les déclarations de type de document suivantes&#160;:</texte>
+			<exemple type="HTML">
+				<typedocument nomracine="html" type="PUBLIC" href="http://www.w3.org/TR/html4/strict.dtd" identifiant="-//W3C//DTD HTML 4.01//EN"/>
+			</exemple>
+			<exemple type="HTML">
+				<typedocument nomracine="html" type="PUBLIC" href="http://www.w3.org/TR/html4/loose.dtd" identifiant="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+			</exemple>
+			<texte>L'appel à des cadres ne peut se faire qu'à l'aide de balises qui nécessitent une troisième forme de déclaration&#160;:</texte>
+			<exemple type="HTML">
+				<typedocument nomracine="html" type="PUBLIC" href="http://www.w3.org/TR/html4/frameset.dtd" identifiant="-//W3C//DTD HTML 4.01 Frameset//EN"/>
+			</exemple>
+			<texte>Ce type de document étant une extension de la recommandation <code type="langage">HTML</code> Transitionnel, les balises de présentation sont également acceptées, même s'il vaut mieux éviter de faire appel à elles.</texte>
+		</paragraphe>
+		<paragraphe titre="Le squelette d'une page-cadre" ancre="squelette" >
+			<texte>Une page destinée à recevoir plusieurs cadres a une structure légèrement différente d'une page "habituelle". Cette dernière, on s'en souvient, possède la structure suivante...</texte>
+			<exemple type="HTML">
+				<element nom="html" indent="oui">
+					<element nom="head" indent="oui" niveau="1">
+						<element nom="title" niveau="2">Premiers pas</element>
+					</element>
+					<element nom="body" niveau="1" indent="oui">(contenu de la page)</element>
+				</element>
+			</exemple>
+			<texte>Cette fois-ci, la balise <code><![CDATA[<body>]]></code> est remplacée par la balise <code><![CDATA[<frameset>]]></code>&#160;:</texte>
+			<exemple type="HTML">
+				<element nom="html" indent="oui">
+					<element nom="head" indent="oui" niveau="1">
+						<element nom="title" niveau="2">Premiers pas</element>
+					</element>
+					<element nom="frameset" niveau="1" indent="oui">
+						(déclaration des cadres)
+						<element nom="noframes" niveau="2">contenu alternatif pour les navigateurs ne supportant pas les cadres.</element>
+					</element>
+				</element>
+			</exemple>
+		</paragraphe>
+		<paragraphe titre="La balise &lt;noframes&gt;" ancre="noframes" >
+			<texte>L'objectif est d'avertir l'utilisateur d'une vieille version de navigateur (2), ou bien d'un navigateur ne supportant pas les cadres (navigateur texte ou <autrelangue type="en"><acronyme titre=" Personal Digital Assistant">PDA</acronyme></autrelangue>) qu'il n'a pas accès au contenu du document sous la forme de cadres. le contenu de cet élément doit fournir une méthode alternative d'accéder à l'intégralité des informations contenues dans les cadres.</texte>
+			<texte>La balise <code><![CDATA[<noframes>]]></code> est fille de la balise <code><![CDATA[<frameset>]]></code>. Un navigateur reconnaissant <code><![CDATA[</frameset>]]></code> ignore le contenu du conteneur <code><![CDATA[<noframes>]]></code>. Cette balise peut contenir un élément <code><![CDATA[<body>]]></code>. Réciproquement, un navigateur de vieille version sautera les balises dont il ne connaît pas la signification&#160;: <code><![CDATA[<frameset>]]></code>, <code><![CDATA[<frame>]]></code>, <code><![CDATA[<noframes>]]></code> et affichera la suite du document. Le cas est prévu dans l'<reference href="exemples/cadres1.html">exemple</reference>. Examiner son source.</texte>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="La balise &lt;frameset&gt;" ancre="frameset" >
+	<section titre="Définition du découpage de la page: les attributs rows et cols" ancre="decoupage" >
+		<paragraphe>
+			<texte>Les attributs <code>rows</code> et <code>cols</code> définissent un quadrillage dont chaque élément sera un cadre (<autrelangue>frame</autrelangue>). <code>rows</code> définit le découpage horizontal et <code>cols</code> le découpage vertical. Exemples (l'illustration est au bout de chaque lien)&#160;:</texte>
+			<liste>
+				<item><texte><code><![CDATA[<frameset rows="150,200,300" cols="100,300,500">]]></code>&#160;: <reference href="exemples/cadres9.html">rendu à l'écran</reference>.</texte></item>
+				<item><texte><code><![CDATA[<frameset rows="150,200,300">]]></code>&#160;: <reference href="exemples/cadres7.html">rendu à l'écran</reference>.</texte></item>
+				<item><texte><code><![CDATA[<frameset cols="100,300,500">]]></code>&#160;: <reference href="exemples/cadres5.html">rendu à l'écran</reference>.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Jeux de valeurs possibles" ancre="jeuxvaleurs" >
+		<paragraphe>
+			<texte>Les valeurs peuvent s'exprimer par&#160;:</texte>
+			<liste>
+				<item><texte>Par un nombre entier de pixels (voir les exemples précédents).</texte></item>
+				<item>
+					<texte>Par un pourcentage (ex&#160;: 20%) de la fenêtre du navigateur&#160;: lorsque l'utilisateur modifie la taille de sa fenêtre, la taille du cadre se modifie en proportion. Exemple&#160;: <code><![CDATA[<frameset cols="20%,50%,30%">]]></code></texte>
+					<texte>Si la somme ne fait pas 100%, les pourcentages sont ajustés par règle de trois.</texte>
+				</item>
+				<item>
+					<texte>Par le caractère astérisque <code>*</code>. Deux usages sont possibles&#160;: </texte>
+					<liste>
+						<item><texte><code>*</code> peut signifier ce qui reste de libre. Exemple&#160;: <code><![CDATA[<frameset rows="150,*,100">]]></code>. <reference href="exemples/cadres8.html">Rendu à l'écran.</reference></texte></item>
+						<item><texte><code>*</code> peut signifier&#160;: le facteur multiplicatif nécessaire pour que l'ensemble soit à la taille de la fenêtre. Exemple&#160;: <code><![CDATA[<frameset cols="2*,*,5*">]]></code>. <reference href="exemples/cadres6.html">Rendu à l'écran</reference>.</texte></item>
+					</liste>
+				</item>
+			</liste>
+			<texte>De manière générale, si le jeu de paramètres est incohérent, le navigateur trouve toujours un moyen de les ajuster (ce qui peut produire une apparence parfois fluctuante au gré des interprétations&#160;!).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Découpage irrégulier" ancre="irregulier" >
+		<paragraphe >
+			<texte>Le découpage peut ne pas être un quadrillage mais un simple pavage de rectangles. Ce pavage est obtenu en insérant une nouvelle fois la balise <code><![CDATA[<frameset>]]></code> à l'intérieur du conteneur <code><![CDATA[<frameset></frameset>]]></code>. La structure de l'<reference href="exemples/cadres1.html">exemple</reference> est la suivante&#160;:</texte>
+			<exemple type="HTML">
+				<element nom="frameset" indent="oui">
+					<attribut nom="cols">218,*</attribut>
+					<element nom="frame" niveau="1"><attribut nom="name">menu</attribut><attribut nom="src">Cadre_ex11.htm</attribut></element>
+					<element nom="frame" niveau="1"><attribut nom="name">bandeau</attribut><attribut nom="src">Cadre_ex12.htm</attribut></element>
+					<element nom="frame" niveau="1"><attribut nom="name">principal</attribut><attribut nom="src">Cadre_ex13.htm</attribut></element>
+				</element>
+			</exemple>
+		</paragraphe>
+	</section>
+</partie>
+	
+<partie titre="La balise &lt;frame&gt;" ancre="frame" >
+	<section titre="Utilisation de la balise" ancre="frameutilisation" >
+		<paragraphe >
+			<texte>Il doit y avoir autant de conteneurs <code><![CDATA[<frame>]]></code> qu'il y a de régions définies dans la balise <code><![CDATA[<frameset>]]></code>. L'ordre est imposé de gauche à droite, puis de haut en bas (voir les numérotations des régions dans les exemples précédents).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Les attributs" ancre="frameattributs" >
+		<paragraphe>
+			<tableau>
+				<ligne type="header">
+					<colonne id="attr_frame"><texte>Attribut</texte></colonne>
+					<colonne id="eff_frame"><texte>Effet</texte></colonne>
+					<colonne id="val_frame"><texte>Valeur(s)</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>src</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>URL du document à charger initialement dans le cadre.</texte></colonne>
+					<colonne headers="val_frame"><texte>Une URL. Facultatif, le chargement peut avoir lieu plus tard.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>name</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>Nom du cadre.</texte></colonne>
+					<colonne headers="val_frame"><texte>Une chaîne de caractères. Obligatoire si son contenu doit être modifié après le chargement initial. Répond à l'attribut <code>target</code> de l'appel de lien <code>&lt;a&gt;</code>.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>longdesc</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>Renvoie vers un fichier contenant une "longue" description du contenu de la fenêtre.</texte></colonne>
+					<colonne headers="val_frame"><texte>Une URL.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>frameborder</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>Présence d'une bordure de séparation entre les cadres. Reprendre le premier exemple.</texte></colonne>
+					<colonne headers="val_frame"><texte><code>1</code> (présence) ou <code>0</code> (absence). Valeur par défaut <code>1</code>.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>marginwidth</code>, <code>marginheight</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>Marge entre le contenu et le bord du cadre.</texte></colonne>
+					<colonne headers="val_frame"><texte>Un nombre de pixels.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>noresize</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>Gère le redimensionnement du cadre.</texte></colonne>
+					<colonne headers="val_frame"><texte>Si <code>noresize="noresize"</code>, l'utilisateur ne peut pas redimensionner le cadre.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_frame"><texte><code>scrolling</code></texte></colonne>
+					<colonne headers="eff_frame"><texte>Gère l'apparition des barres de défilement.</texte></colonne>
+					<colonne headers="val_frame">
+						<liste>
+							<item><texte><code>yes</code>&#160;: le navigateur crée toujours des barres.</texte></item>
+							<item><texte><code>no</code>&#160;: les barres sont interdites.</texte></item>
+							<item><texte><code>auto</code>&#160;: le navigateur crée des barres si besoin. Valeur par défaut.</texte></item>
+						</liste>
+					</colonne>
+				</ligne>
+				<legende>Attributs de la balise <code><![CDATA[<frame>]]></code>.</legende>
+			</tableau>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="La balise &lt;iframe&gt;" ancre="iframe" >
+	<section titre="Utilisation de la balise" ancre="iframeutilisation" >
+		<paragraphe >
+			<texte>Il ne s'agit plus du quadrillage de la fenêtre du navigateur de la balise <code><![CDATA[<frameset>]]></code> mais d'une petite lucarne insérée dans le document <code type='typefichier'>HTML</code>. Le document lui-même garde la structure habituelle&#160;: entête (<code><![CDATA[<head>]]></code>) et corps (<code><![CDATA[<body>]]></code>).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Les attributs" ancre="iframeattributs" >
+		<paragraphe >
+			<tableau>
+				<ligne type="header">
+					<colonne id="attr_iframe"><texte>Attribut</texte></colonne>
+					<colonne id="eff_iframe"><texte>Effet</texte></colonne>
+					<colonne id="val_iframe"><texte>Valeur(s)</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>src</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>URL du document à charger initialement dans le cadre.</texte></colonne>
+					<colonne headers="val_iframe"><texte>Une URL. Facultatif, le chargement peut avoir lieu plus tard.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>name</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>Nom du cadre.</texte></colonne>
+					<colonne headers="val_iframe"><texte>Une chaîne de caractères. Obligatoire si son contenu doit être modifié après le chargement initial. Répond à l'attribut <code>target</code> de l'appel de lien <code>&lt;a&gt;</code>.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>longdesc</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>Renvoie vers un fichier contenant une "longue" description du contenu de la fenêtre.</texte></colonne>
+					<colonne headers="val_iframe"><texte>Une URL.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>frameborder</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>Présence d'un encadrement.</texte></colonne>
+					<colonne headers="val_iframe"><texte><code>1</code> (présence) ou <code>0</code> (absence). Valeur par défaut <code>1</code>.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>marginwidth</code>, <code>marginheight</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>Marge entre le contenu et le bord du cadre.</texte></colonne>
+					<colonne headers="val_iframe"><texte>Un nombre de pixels.</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>scrolling</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>Gère l'apparition des barres de défilement.</texte></colonne>
+					<colonne headers="val_iframe">
+						<liste>
+							<item><texte><code>yes</code>&#160;: le navigateur crée toujours des barres.</texte></item>
+							<item><texte><code>no</code>&#160;: les barres sont interdites.</texte></item>
+							<item><texte><code>auto</code>&#160;: le navigateur crée des barres si besoin. Valeur par défaut.</texte></item>
+						</liste>
+					</colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>align</code></texte></colonne>
+					<colonne headers="eff_iframe">
+						<texte>Détermine la position du cadre par rapport au texte qui l'entoure. Le cadre peut suivre le flot du texte ou être enveloppée par ce texte. Par défaut la valeur est à <code>bottom</code>.</texte>
+					</colonne>
+					<colonne headers="val_iframe">
+						<liste>
+							<item><texte><code>left</code> (valeur par défaut)</texte></item>
+							<item><texte><code>right</code></texte></item>
+							<item><texte><code>top</code>&#160;: l'alignement se fait par rapport au sommet du cadre.</texte></item>
+							<item><texte><code>bottom</code>&#160;: l'alignement se fait par rapport au bas du cadre.</texte></item>
+							<item><texte><code>middle</code>&#160;: l'alignement se fait par rapport au centre du cadre.</texte></item>
+						</liste>
+					</colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="attr_iframe"><texte><code>width</code>, <code>height</code></texte></colonne>
+					<colonne headers="eff_iframe"><texte>Largeur et hauteur du cadre.</texte></colonne>
+					<colonne headers="val_iframe"><texte>Un nombre de pixels ou un pourcentage.</texte></colonne>
+				</ligne>
+				<legende>Attributs de la balise <code><![CDATA[<iframe>]]></code>.</legende>
+			</tableau>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="L'attribut target" ancre="target" >
+	<section titre="L'attribut target en HTML Transitionnel" ancre="targethtml" >
+		<paragraphe>
+			<texte>La balise <code>&lt;a&gt;</code> permettant de créer un lien possède en <code type="langage">HTML</code> Transitionnel un attribut supplémentaire, <code>target</code> ("cible" en anglais), qui permet de spécifier la fenêtre dans laquelle le document lié doit s'ouvrir.</texte>
+			<texte><code>target</code> ne peut prendre qu'une seule valeur pertinente possible en <code type="langage">HTML</code> Transitionnel, la valeur <code>target="_blank"</code>. Cela permet d'ouvrir le lien dans une nouvelle fenêtre. Par exemple, <code><![CDATA[<a href="http://dam.cicrp.jussieu.fr" target="_blank">]]></code> permet d'ouvrir une seconde fenêtre du navigateur, à l'intérieur de laquelle s'affiche le document spécifié par l'attribut <code>href</code>, ici la page d'accueil du DEUST.</texte>
+		</paragraphe>
+	</section>
+	<section titre="L'attribut target avec des cadres" ancre="targetcadres" >
+		<paragraphe >
+			<texte>Par défaut, l'appel de lien par la balise <code><![CDATA[<a href="url_du_source">]]></code> charge la fenêtre courante par le document désigné par <code>href</code>.</texte>
+			<texte>L'attribut <code>target</code> permet de spécifier dans quel cadre (au sens large) va se charger le document. Il peut prendre quatre valeurs prédéfinies, ou bien une valeur déterminée par l'auteur.</texte>
+			<liste>
+				<item><texte><code>target="_self"</code>&#160;: fenêtre ou cadre d'appel (valeur par défaut).</texte></item>
+				<item>
+					<texte>
+						<code>target="_parent"</code>&#160;: fenêtre ouvrant le <code><![CDATA[<frameset>]]></code> du <code><![CDATA[<frame>]]></code>.
+					</texte>
+				</item>
+				<item><texte><code>target="_top"</code>&#160;: fenêtre entière du navigateur.</texte></item>
+				<item><texte><code>target="_blank"</code>&#160;: nouvelle fenêtre.</texte></item>
+				<item><texte>Valeur de l'attribut <code>name</code> du cadre visé.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<exercice titre="Construire des frames" ancre="exoframes">
+		<enonce href="exercices/td3.html"/>
+		<correction href="exercices/td3/index.html"/>
+	</exercice>
+</partie>
+
+</corpus>
+
+</chapitre>

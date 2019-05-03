@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="listes">Cours de HTML</cours>
+	<entete>
+		<titre>Les listes</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre présente la gestion des listes en HTML.</resume>
+		<motsclefs>html, base, liste, ul, ol, li, dl, dd, dt, list</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="listes" titre="Listes">
+			<section ancre="listesintro" titre="Introduction">
+				<paragraphe>
+					<texte>Très tôt, en raison de l'historique du <code type="langage">HTML</code>, la notion de liste est apparue, car elle permet de structurer simplement un ensemble de données. Cinq types de listes différents existent&#160;: les listes non ordonnées, les listes numérotées, les listes de définition d'une part, qui sont encore utilisées, et les listes de type répertoire et de menu d'autre part, qui sont maintenant tombées en désuétude. Ce cours se limite aux premiers types de listes.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="listestypes" titre="Les types de listes">
+				<paragraphe ancre="li" titre="la balise &lt;li&gt;">
+					<texte>Cette balise sert à délimiter un élément de liste, et est toujours incluse dans un environnement de liste. Elle ne possède qu'un unique attribut, valable uniquement en <code type="langage">HTML</code> transitionnel, <code>type</code>.</texte>
+					<texte><code>type</code> peut prendre les valeurs <code>disc</code> (valeur par défaut pour un premier niveau d'<reference href="#imbriquees">imbrication</reference> d'une <reference href="#puces">liste à puces</reference>), <code>circle</code> ou <code>square</code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="puces" titre="Listes à puces">
+					<texte>C'est le type de liste le plus simple. Elle s'introduit en utilisant la balise <code><![CDATA[<ul>]]></code>, qui signifie <autrelangue> <valeur>U</valeur>nordered <valeur>L</valeur>ist</autrelangue>. Elle possède le même attribut que la balise <code>&lt;li&gt;</code>, qui s'utilise dans les mêmes conditions, et est également <valeur>obsolète en HTML&#160;4.01 strict</valeur>&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_ul"><texte>Attribut</texte></colonne>
+							<colonne id="effet_ul"><texte>Effet</texte></colonne>
+							<colonne id="valeurs_ul"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_ul"><texte><code>type</code></texte></colonne>
+							<colonne headers="effet_ul"><texte>Choix du type de puce</texte></colonne>
+							<colonne headers="valeurs_ul">
+								<liste type="sanspuce">
+									<item><texte><image alt="disc" hauteur="15" largeur="15" src="exemples/disc.gif"/>disc (défaut)</texte></item>
+									<item><texte><image alt="circle" hauteur="15" largeur="15" src="exemples/circle.gif"/>circle</texte></item>
+									<item><texte><image alt="square" hauteur="15" largeur="15" src="exemples/square.gif"/>square</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<legende>Attribut <valeur>obsolète</valeur> de la balise ul.</legende>
+					</tableau>
+					<texte> Exemple d'utilisation&#160;: </texte>
+					<exemple type="HTML">
+						<element nom="ul" indent="oui">
+							<element nom="li" niveau="1">Premier élément</element>
+							<element nom="li" niveau="1">Deuxième élément</element>
+							<element nom="li" niveau="1">Troisième élément</element>
+						</element>
+					</exemple>
+				</paragraphe>
+				<paragraphe ancre="numeros" titre="Listes numérotées">
+					<texte>Ce type de listes est ordonnée. Elle s'introduit en utilisant la balise <code><![CDATA[<ol>]]></code>, qui signifie <autrelangue> <valeur>O</valeur>rdered <valeur>L</valeur>ist</autrelangue>. Les éléments de la liste sont également déclarés par la balise <code>&lt;li&gt;</code>. La "numérotation" peut se faire de cinq manières différentes, cela étant spécifié par la valeur de l'attribut <code>type</code>. Elle peut débuter à n'importe quelle position (par exemple à 2...), grâce à la valeur de l'attribut obsolète <code>start</code>.</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_ol"><texte>Attribut</texte></colonne>
+							<colonne id="effet_ol"><texte>Effet</texte></colonne>
+							<colonne id="valeurs_ol"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_ol"><texte><code>type</code></texte></colonne>
+							<colonne headers="effet_ol"><texte>choix du type de numérotation</texte></colonne>
+							<colonne headers="valeurs_ol">
+								<liste type="sanspuce">
+									<item><texte>1 (par défaut)</texte></item>
+									<item><texte>a</texte></item>
+									<item><texte>A</texte></item>
+									<item><texte>i</texte></item>
+									<item><texte>I</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne><texte><code>start</code></texte></colonne>
+							<colonne><texte>numéro de début de liste</texte></colonne>
+							<colonne><texte>selon le type, un numéro ou une lettre</texte></colonne>
+						</ligne>
+						<legende>Attributs <valeur>obsolètes</valeur> de la balise <code>&lt;ol&gt;</code></legende>
+					</tableau>
+					<texte>La balise <code><![CDATA[<li>]]></code> possède alors un autre attribut,<code>value</code>, analogue au rôle de <code>start</code>, qui permet de spécifier le rang de l'item, et donc d'imposer des sauts dans la numérotation.</texte>
+				</paragraphe>
+				<paragraphe ancre="definition" titre="Liste de définitions">
+					<texte>Ce type de liste, peu usité, est une... liste de définitions&#160;! Elle est déclarée par la balise <code><![CDATA[<dl>]]></code>. Par exemple&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="dl" indent="oui">
+							<element nom="dt" niveau="1">basilic</element>
+							<element nom="dd" niveau="1">Annuelle. Peut dépasser un mètre de hauteur. Le parfum de ses petites fleurs blanches est divin.</element>
+							<element nom="dt" niveau="1">origan</element>
+							<element nom="dd" niveau="1">Vivace. Propage ses stolons sous terre. Il est difficile de s'en débarrasser une fois bien établi.</element>
+							<element nom="dt" niveau="1">coriandre</element>
+							<element nom="dd" niveau="1">Annuelle. Préfère une situation ombragée. Son huile est utilisée en parfumerie.</element>
+						</element>
+					</exemple>
+					<texte> Il n'y a pas d'attribut spécial pour cette balise. </texte>
+				</paragraphe>
+			</section>
+			<section ancre="imbriquees" titre="Listes imbriquées">
+				<paragraphe>
+					<texte>Les puces et la numérotation varient selon le rang de la liste. Par exemple, pour des listes non ordonnées, on obtient&#160;:</texte>
+					<liste>
+						<item>
+							<texte>Premier niveau</texte>
+							<liste>
+								<item>
+									<texte>Deuxième niveau</texte>
+									<liste>
+										<item>
+											<texte>Troisième niveau</texte>
+											<liste>
+												<item><texte>Quatrième niveau</texte></item>
+											</liste>
+										</item>
+									</liste>
+								</item>
+							</liste>
+						</item>
+					</liste>
+				</paragraphe>
+			</section>
+			<exercice titre="Listes et liens" ancre="exolistes">
+				<enonce href="exercices/td2.html"/>
+				<correction href="exercices/td2cor.html"/>
+			</exercice>
+		</partie>
+	</corpus>
+</chapitre>

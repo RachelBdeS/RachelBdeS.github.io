@@ -1,0 +1,288 @@
+<!DOCTYPE webproject>
+<webproject>
+  <project usePreviewPrefix="0" previewPrefix="file:/" type="Local" name="Cours HTML Jussieu" encoding="iso 8859-1" >
+    <upload remote_host="linux22.cicrp.jussieu.fr" remote_port="21" remote_path="/WWW/p6_vis/html2" remote_protocol="ftp" user="damfper6" />
+    <defaultDTD>-//w3c//dtd html 4.01//en</defaultDTD>
+    <item upload_time="" url="exemples/" uploadstatus="1" />
+    <item modified_time="1034537376" url="exemples/abbr.gif" uploadstatus="1" />
+    <item modified_time="1034537388" url="exemples/acronym.gif" uploadstatus="1" />
+    <item modified_time="1034539852" url="exemples/b.gif" uploadstatus="1" />
+    <item modified_time="1034539888" url="exemples/big.gif" uploadstatus="1" />
+    <item modified_time="1039377618" url="exemples/boites.gif" uploadstatus="1" />
+    <item modified_time="1104941059" url="exemples/cadres1.html" uploadstatus="1" />
+    <item modified_time="1104940161" url="exemples/cadres2.html" uploadstatus="1" />
+    <item modified_time="1104940162" url="exemples/cadres3.html" uploadstatus="1" />
+    <item modified_time="1104940162" url="exemples/cadres4.html" uploadstatus="1" />
+    <item modified_time="1104940163" url="exemples/cadres5.html" uploadstatus="1" />
+    <item modified_time="1104940163" url="exemples/cadres6.html" uploadstatus="1" />
+    <item modified_time="1104940164" url="exemples/cadres7.html" uploadstatus="1" />
+    <item modified_time="1104940165" url="exemples/cadres8.html" uploadstatus="1" />
+    <item modified_time="1104940165" url="exemples/cadres9.html" uploadstatus="1" />
+    <item modified_time="1035040822" url="exemples/circle.gif" uploadstatus="1" />
+    <item modified_time="1034536524" url="exemples/cite.gif" uploadstatus="1" />
+    <item modified_time="1038498888" url="exemples/classes.gif" uploadstatus="1" />
+    <item modified_time="1038499096" url="exemples/classes.jpg" uploadstatus="1" />
+    <item modified_time="1038498996" url="exemples/classes.png" uploadstatus="1" />
+    <item modified_time="1039699760" url="exemples/clip.gif" uploadstatus="1" />
+    <item modified_time="1034536556" url="exemples/code.gif" uploadstatus="1" />
+    <item modified_time="1104940172" url="exemples/col1.html" uploadstatus="1" />
+    <item modified_time="1104940173" url="exemples/col2.html" uploadstatus="1" />
+    <item modified_time="1104940173" url="exemples/col3.html" uploadstatus="1" />
+    <item modified_time="1104940174" url="exemples/col4.html" uploadstatus="1" />
+    <item modified_time="1104940174" url="exemples/col5.html" uploadstatus="1" />
+    <item modified_time="1104940174" url="exemples/col6.html" uploadstatus="1" />
+    <item modified_time="1104940175" url="exemples/col7.html" uploadstatus="1" />
+    <item modified_time="1104940175" url="exemples/col8.html" uploadstatus="1" />
+    <item modified_time="1104940176" url="exemples/col9.html" uploadstatus="1" />
+    <item modified_time="1039982822" url="exemples/content.html" uploadstatus="1" />
+    <item modified_time="1034542622" url="exemples/couleurs.gif" uploadstatus="1" />
+    <item modified_time="1034543132" url="exemples/couleurs.png" uploadstatus="1" />
+    <item modified_time="1034536542" url="exemples/dfn.gif" uploadstatus="1" />
+    <item modified_time="1035040860" url="exemples/disc.gif" uploadstatus="1" />
+    <item modified_time="1034536494" url="exemples/em.gif" uploadstatus="1" />
+    <item modified_time="1034538264" url="exemples/font.gif" uploadstatus="1" />
+    <item modified_time="1034539864" url="exemples/i.gif" uploadstatus="1" />
+    <item modified_time="1034536582" url="exemples/kbd.gif" uploadstatus="1" />
+    <item modified_time="1104940184" url="exemples/lin1.html" uploadstatus="1" />
+    <item modified_time="1104940185" url="exemples/lin2.html" uploadstatus="1" />
+    <item modified_time="1104940920" url="exemples/lin3.html" uploadstatus="1" />
+    <item modified_time="1104940972" url="exemples/lin4.html" uploadstatus="1" />
+    <item modified_time="1104940993" url="exemples/lin5.html" uploadstatus="1" />
+    <item modified_time="1034543008" url="exemples/melange.png" uploadstatus="1" />
+    <item modified_time="1034532076" url="exemples/nuancier.gif" uploadstatus="1" />
+    <item modified_time="1039958184" url="exemples/outline.html" uploadstatus="1" />
+    <item modified_time="1039712202" url="exemples/overflow.gif" uploadstatus="1" />
+    <item modified_time="1039712416" url="exemples/overflowhidden.gif" uploadstatus="1" />
+    <item modified_time="1039712572" url="exemples/overflowscroll.gif" uploadstatus="1" />
+    <item modified_time="1034540542" url="exemples/pre.gif" uploadstatus="1" />
+    <item modified_time="1034536568" url="exemples/samp.gif" uploadstatus="1" />
+    <item modified_time="1034539912" url="exemples/s.gif" uploadstatus="1" />
+    <item modified_time="1034544404" url="exemples/simples.png" uploadstatus="1" />
+    <item modified_time="1034539898" url="exemples/small.gif" uploadstatus="1" />
+    <item modified_time="1034521536" url="exemples/soulignement.gif" uploadstatus="1" />
+    <item modified_time="1035040448" url="exemples/square.gif" uploadstatus="1" />
+    <item modified_time="1034536512" url="exemples/strong.gif" uploadstatus="1" />
+    <item modified_time="1034540400" url="exemples/sub.gif" uploadstatus="1" />
+    <item modified_time="1034540416" url="exemples/sup.gif" uploadstatus="1" />
+    <item modified_time="1034532936" url="exemples/titre1.gif" uploadstatus="1" />
+    <item modified_time="1034532924" url="exemples/titre2.gif" uploadstatus="1" />
+    <item modified_time="1034532910" url="exemples/titre3.gif" uploadstatus="1" />
+    <item modified_time="1034532896" url="exemples/titre4.gif" uploadstatus="1" />
+    <item modified_time="1034532878" url="exemples/titre5.gif" uploadstatus="1" />
+    <item modified_time="1034532858" url="exemples/titre6.gif" uploadstatus="1" />
+    <item modified_time="1034539874" url="exemples/tt.gif" uploadstatus="1" />
+    <item modified_time="1034539928" url="exemples/u.gif" uploadstatus="1" />
+    <item modified_time="1034536596" url="exemples/var.gif" uploadstatus="1" />
+    <item modified_time="1039775194" url="exemples/visibility.html" uploadstatus="1" />
+    <item modified_time="1039793190" url="exemples/zindex.html" uploadstatus="1" />
+    <item url="exercices/" uploadstatus="1" />
+    <item url="exercices/td3/" uploadstatus="1" />
+    <item url="exercices/td3/enonce/" uploadstatus="1" />
+    <item url="exercices/td3/enonce/images/" uploadstatus="1" />
+    <item modified_time="1036272572" url="exercices/td3/enonce/images/artich_g.gif" uploadstatus="1" />
+    <item modified_time="1036272596" url="exercices/td3/enonce/images/bettra_g.gif" uploadstatus="1" />
+    <item modified_time="1036272566" url="exercices/td3/enonce/images/chou_g.gif" uploadstatus="1" />
+    <item modified_time="1036274164" url="exercices/td3/enonce/images/contact.gif" uploadstatus="1" />
+    <item modified_time="1036272558" url="exercices/td3/enonce/images/epina_g.gif" uploadstatus="1" />
+    <item modified_time="1036272550" url="exercices/td3/enonce/images/harico_g.gif" uploadstatus="1" />
+    <item modified_time="1036272542" url="exercices/td3/enonce/images/oign_g.gif" uploadstatus="1" />
+    <item modified_time="1036272584" url="exercices/td3/enonce/images/poiro_g.gif" uploadstatus="1" />
+    <item modified_time="1036272534" url="exercices/td3/enonce/images/ppois_g.gif" uploadstatus="1" />
+    <item modified_time="1036276830" url="exercices/td3/enonce/images/produits.gif" uploadstatus="1" />
+    <item modified_time="1036276786" url="exercices/td3/enonce/images/promotions.gif" uploadstatus="1" />
+    <item modified_time="1036272526" url="exercices/td3/enonce/images/ptc_g.gif" uploadstatus="1" />
+    <item modified_time="1036272518" url="exercices/td3/enonce/images/radis_g.gif" uploadstatus="1" />
+    <item modified_time="1036257890" url="exercices/td3/enonce/images/salade.gif" uploadstatus="1" />
+    <item modified_time="1036315588" url="exercices/td3/enonce/images/societe.gif" uploadstatus="1" />
+    <item modified_time="1036272500" url="exercices/td3/enonce/images/tomat_g.gif" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/bandeau.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/contact.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/contenu.html" uploadstatus="1" />
+    <item modified_time="1036317196" url="exercices/td3/enonce/fichiers.zip" uploadstatus="1" />
+    <item modified_time="1036317228" url="exercices/td3/enonce/images.zip" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/index.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/menu.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/produits.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/promotions.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/enonce/societe.html" uploadstatus="1" />
+    <item url="exercices/td3/images/" uploadstatus="1" />
+    <item modified_time="1036272572" url="exercices/td3/images/artich_g.gif" uploadstatus="1" />
+    <item modified_time="1036260776" url="exercices/td3/images/artich_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272596" url="exercices/td3/images/bettra_g.gif" uploadstatus="1" />
+    <item modified_time="1036261162" url="exercices/td3/images/bettra_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272566" url="exercices/td3/images/chou_g.gif" uploadstatus="1" />
+    <item modified_time="1036260834" url="exercices/td3/images/chou_g.jpg" uploadstatus="1" />
+    <item modified_time="1036274164" url="exercices/td3/images/contact.gif" uploadstatus="1" />
+    <item modified_time="1036272558" url="exercices/td3/images/epina_g.gif" uploadstatus="1" />
+    <item modified_time="1036260852" url="exercices/td3/images/epina_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272550" url="exercices/td3/images/harico_g.gif" uploadstatus="1" />
+    <item modified_time="1036260866" url="exercices/td3/images/harico_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272542" url="exercices/td3/images/oign_g.gif" uploadstatus="1" />
+    <item modified_time="1036260880" url="exercices/td3/images/oign_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272584" url="exercices/td3/images/poiro_g.gif" uploadstatus="1" />
+    <item modified_time="1036260722" url="exercices/td3/images/poiro_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272534" url="exercices/td3/images/ppois_g.gif" uploadstatus="1" />
+    <item modified_time="1036260898" url="exercices/td3/images/ppois_g.jpg" uploadstatus="1" />
+    <item modified_time="1036276830" url="exercices/td3/images/produits.gif" uploadstatus="1" />
+    <item modified_time="1036276786" url="exercices/td3/images/promotions.gif" uploadstatus="1" />
+    <item modified_time="1036272526" url="exercices/td3/images/ptc_g.gif" uploadstatus="1" />
+    <item modified_time="1036260910" url="exercices/td3/images/ptc_g.jpg" uploadstatus="1" />
+    <item modified_time="1036272518" url="exercices/td3/images/radis_g.gif" uploadstatus="1" />
+    <item modified_time="1036260924" url="exercices/td3/images/radis_g.jpg" uploadstatus="1" />
+    <item modified_time="1036257890" url="exercices/td3/images/salade.gif" uploadstatus="1" />
+    <item modified_time="1036257292" url="exercices/td3/images/salade.jpg" uploadstatus="1" />
+    <item modified_time="1036315588" url="exercices/td3/images/societe.gif" uploadstatus="1" />
+    <item modified_time="1036272500" url="exercices/td3/images/tomat_g.gif" uploadstatus="1" />
+    <item modified_time="1036260932" url="exercices/td3/images/tomat_g.jpg" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/bandeau.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/contact.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/contenu.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/index.html" uploadstatus="1" />
+    <item modified_time="1088060924" url="exercices/td3/menu.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/produits.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/promotions.html" uploadstatus="1" />
+    <item modified_time="1065433540" url="exercices/td3/societe.html" uploadstatus="1" />
+    <item modified_time="1036253908" url="exercices/dauphine.html" uploadstatus="1" />
+    <item modified_time="1036252936" url="exercices/phare.html" uploadstatus="1" />
+    <item modified_time="1036253076" url="exercices/plaque.html" uploadstatus="1" />
+    <item modified_time="1036253150" url="exercices/portiere.html" uploadstatus="1" />
+    <item modified_time="1071396800" url="exercices/position1.gif" uploadstatus="1" />
+    <item modified_time="1071396824" url="exercices/position2.gif" uploadstatus="1" />
+    <item modified_time="1087376364" url="exercices/racine.zip" uploadstatus="1" />
+    <item modified_time="1087374270" url="exercices/td1cor2.html" uploadstatus="1" />
+    <item modified_time="1087373408" url="exercices/td1cor.html" uploadstatus="1" />
+    <item modified_time="1087374064" url="exercices/td1.html" uploadstatus="1" />
+    <item modified_time="1087373830" url="exercices/td1.txt" uploadstatus="1" />
+    <item modified_time="1087376502" url="exercices/td2cor.html" uploadstatus="1" />
+    <item modified_time="1036393968" url="exercices/td2.html" uploadstatus="1" />
+    <item modified_time="1087378026" url="exercices/td3.html" uploadstatus="1" />
+    <item modified_time="1087378624" url="exercices/td4.html" uploadstatus="1" />
+    <item modified_time="1087378920" url="exercices/td5cor1.html" uploadstatus="1" />
+    <item modified_time="1039385814" url="exercices/td5_cor.html" uploadstatus="1" />
+    <item modified_time="1070958828" url="exercices/td5_e.html" uploadstatus="1" />
+    <item modified_time="1039386038" url="exercices/td5.html" uploadstatus="1" />
+    <item modified_time="1039985784" url="exercices/td6_cor2.html" uploadstatus="1" />
+    <item modified_time="1048087316" url="exercices/td6_cor.html" uploadstatus="1" />
+    <item modified_time="1071398070" url="exercices/td6.html" uploadstatus="1" />
+    <item modified_time="1071397898" url="exercices/td6.zip" uploadstatus="1" />
+    <item modified_time="1036253000" url="exercices/vitre.html" uploadstatus="1" />
+    <item url="images/" uploadstatus="1" />
+    <item modified_time="1037366874" url="images/b2_help.gif" uploadstatus="1" />
+    <item modified_time="1035976638" url="images/citron_transp.gif" uploadstatus="1" />
+    <item modified_time="1036247894" url="images/dauphine.jpg" uploadstatus="1" />
+    <item modified_time="1035492310" url="images/fleche_haut.gif" uploadstatus="1" />
+    <item modified_time="1035976208" url="images/fleur_transp.gif" uploadstatus="1" />
+    <item modified_time="1036051590" url="images/homeparoi.jpg" uploadstatus="1" />
+    <item modified_time="1035914434" url="images/panthere.gif" uploadstatus="1" />
+    <item modified_time="1035985100" url="images/paon10.jpg" uploadstatus="1" />
+    <item modified_time="1035985124" url="images/paon25.jpg" uploadstatus="1" />
+    <item modified_time="1035985150" url="images/paon50.jpg" uploadstatus="1" />
+    <item modified_time="1035985226" url="images/paon75.jpg" uploadstatus="1" />
+    <item modified_time="1035985254" url="images/paon90.jpg" uploadstatus="1" />
+    <item modified_time="1035985278" url="images/paon99.jpg" uploadstatus="1" />
+    <item modified_time="1035983424" url="images/paon.jpg" uploadstatus="1" />
+    <item modified_time="1039791612" url="images/papillon2.gif" uploadstatus="1" />
+    <item modified_time="1039791080" url="images/papillon.gif" uploadstatus="1" />
+    <item modified_time="1035975946" url="images/perroquet_couleurs256.jpg" uploadstatus="1" />
+    <item modified_time="1035975316" url="images/perroquet_couleurs.gif" uploadstatus="1" />
+    <item modified_time="1035975304" url="images/perroquet_couleurs.jpg" uploadstatus="1" />
+    <item modified_time="1035986802" url="images/schema.bmp" uploadstatus="1" />
+    <item modified_time="1035986828" url="images/schema.gif" uploadstatus="1" />
+    <item modified_time="1035986854" url="images/schema.jpg" uploadstatus="1" />
+    <item modified_time="1038675056" url="images/snoopy.gif" uploadstatus="1" />
+    <item modified_time="1035988464" url="images/toucan.jpg" uploadstatus="1" />
+    <item modified_time="1035988458" url="images/toucan.png" uploadstatus="1" />
+    <item modified_time="1035990326" url="images/toucan_transp.png" uploadstatus="1" />
+    <item modified_time="1035987870" url="images/zoomgif.gif" uploadstatus="1" />
+    <item modified_time="1035988134" url="images/zoomgif.png" uploadstatus="1" />
+    <item modified_time="1035988058" url="images/zoomjpg.png" uploadstatus="1" />
+    <item url="sons/" uploadstatus="1" />
+    <item modified_time="1037367460" url="sons/ringin.wav" uploadstatus="1" />
+    <item url="templates/" uploadstatus="1" />
+    <item url="toolbars/" uploadstatus="1" />
+    <item modified_time="1097142300" url="accueilcours10.xsl" uploadstatus="1" />
+    <item modified_time="1107786217" url="accueilcours11.xsl" uploadstatus="1" />
+    <item modified_time="1107786337" url="cadres.html" uploadstatus="1" />
+    <item modified_time="1106922219" url="cadres.xml" uploadstatus="1" />
+    <item modified_time="1088415690" url="chapitre15.dtd" uploadstatus="1" />
+    <item modified_time="1085244256" url="chapitre15.xsl" uploadstatus="1" />
+    <item modified_time="1101914406" url="chapitre16.dtd" uploadstatus="1" />
+    <item modified_time="1098022486" url="chapitreweb10.xsl" uploadstatus="1" />
+    <item modified_time="1107786210" url="chapitreweb11.xsl" uploadstatus="1" />
+    <item modified_time="1065363594" url="cours20.dtd" uploadstatus="1" />
+    <item modified_time="1085328650" url="cours20.xsl" uploadstatus="1" />
+    <item modified_time="1085329532" url="cours21.dtd" uploadstatus="1" />
+    <item modified_time="1107704966" url="cours22.dtd" uploadstatus="1" />
+    <item modified_time="1080300072" url="cours.css" uploadstatus="1" />
+    <item modified_time="1107787240" url="courshtmljussieu.webprj" uploadstatus="1" />
+    <item modified_time="1084287870" url="courshtml.xpr" uploadstatus="1" />
+    <item modified_time="1068725676" url="coursprint.css" uploadstatus="1" />
+    <item modified_time="1080298466" url="coursscreen.css" uploadstatus="1" />
+    <item modified_time="1097141590" url="coursweb10.xsl" uploadstatus="1" />
+    <item modified_time="1107786201" url="coursweb11.xsl" uploadstatus="1" />
+    <item modified_time="1107786360" url="courswebhtml.xpr" uploadstatus="1" />
+    <item modified_time="1107786005" url="cours.xml" uploadstatus="1" />
+    <item modified_time="1107786332" url="css1.html" uploadstatus="1" />
+    <item modified_time="1101837717" url="css1.xml" uploadstatus="1" />
+    <item modified_time="1107786330" url="css2.html" uploadstatus="1" />
+    <item modified_time="1101838249" url="css2.xml" uploadstatus="1" />
+    <item modified_time="1107786328" url="cssintro.html" uploadstatus="1" />
+    <item modified_time="1101838494" url="cssintro.xml" uploadstatus="1" />
+    <item modified_time="1098534036" url="cssrapide.html" uploadstatus="1" />
+    <item modified_time="1098534360" url="cssrapide.xml" uploadstatus="1" />
+    <item modified_time="1082631264" url="exercices.html" uploadstatus="1" />
+    <item modified_time="1097141684" url="forme1cours.css" uploadstatus="1" />
+    <item modified_time="1097141686" url="forme1.css" uploadstatus="1" />
+    <item modified_time="1100085382" url="forme1print.css" uploadstatus="1" />
+    <item modified_time="1085493672" url="forme1screen.css" uploadstatus="1" />
+    <item modified_time="1098284446" url="forme2cours.css" uploadstatus="1" />
+    <item modified_time="1098048494" url="forme2.css" uploadstatus="1" />
+    <item modified_time="1100084910" url="forme2print.css" uploadstatus="1" />
+    <item modified_time="1107786326" url="forms.html" uploadstatus="1" />
+    <item modified_time="1107712514" url="forms.xml" uploadstatus="1" />
+    <item modified_time="1107786189" url="historique10.xsl" uploadstatus="1" />
+    <item modified_time="1107786342" url="historique.html" uploadstatus="1" />
+    <item modified_time="1035816654" url="html.gif" uploadstatus="1" />
+    <item modified_time="1107271141" url="htmlrapide.html" uploadstatus="1" />
+    <item modified_time="1100010734" url="htmlrapide.xml" uploadstatus="1" />
+    <item modified_time="1106930512" url="html.zip" uploadstatus="1" />
+    <item modified_time="1107786324" url="images.html" uploadstatus="1" />
+    <item modified_time="1107785049" url="images.xml" uploadstatus="1" />
+    <item modified_time="1107786352" url="index.html" uploadstatus="1" />
+    <item modified_time="1107786321" url="intro.html" uploadstatus="1" />
+    <item modified_time="1106922115" url="intro.xml" uploadstatus="1" />
+    <item modified_time="1097142236" url="license.html" uploadstatus="1" />
+    <item modified_time="1107786319" url="liens.html" uploadstatus="1" />
+    <item modified_time="1107784519" url="liens.xml" uploadstatus="1" />
+    <item modified_time="1107786317" url="listes.html" uploadstatus="1" />
+    <item modified_time="1101839472" url="listes.xml" uploadstatus="1" />
+    <item modified_time="1107786314" url="modeles.html" uploadstatus="1" />
+    <item modified_time="1106922296" url="modeles.xml" uploadstatus="1" />
+    <item modified_time="1107786312" url="tableaux.html" uploadstatus="1" />
+    <item modified_time="1107785077" url="tableaux.xml" uploadstatus="1" />
+    <item modified_time="1107786309" url="texte.html" uploadstatus="1" />
+    <item modified_time="1101840260" url="texte.xml" uploadstatus="1" />
+    <item modified_time="1107786347" url="toc.html" uploadstatus="1" />
+    <item modified_time="1107786303" url="video.html" uploadstatus="1" />
+    <item modified_time="1101840353" url="video.xml" uploadstatus="1" />
+    <item modified_time="1097142452" url="weborama.xml" uploadstatus="1" />
+    <item modified_time="1021550520" url="xhtml-special.ent" uploadstatus="1" />
+    <item modified_time="1035816608" url="xml.gif" uploadstatus="1" />
+    <templates>templates/</templates>
+    <toolbars>toolbars/</toolbars>
+    <item url="" uploadstatus="1" />
+    <author>Gilles Chagnon</author>
+    <email>Gilles.Chagnon@upmc.fr</email>
+    <debuggerclient>Aucun débogueur</debuggerclient>
+    <exclude cvsignore="false" >*~;</exclude>
+    <teamdata>
+      <taskleaders/>
+      <subprojectleaders/>
+      <mailinglist address="" />
+    </teamdata>
+    <events/>
+    <uploadprofiles defaultProfile="damfper6@linux22.cicrp.jussieu.fr" >
+      <profile remote_host="linux22.cicrp.jussieu.fr" remote_port="21" remote_path="/WWW/p6_vis/html2" remote_protocol="ftp" user="damfper6" name="damfper6@linux22.cicrp.jussieu.fr" />
+    </uploadprofiles>
+  </project>
+</webproject>

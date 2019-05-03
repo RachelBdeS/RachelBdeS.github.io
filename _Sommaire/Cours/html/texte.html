@@ -1,0 +1,821 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Mise en forme de texte</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, concept, introduction, balise, texte, font">
+      <meta name="description" content="Ce chapitre présente le formatage du texte en HTML.">
+      <link rel="next" href="liens.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Mise en forme de texte</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#intro" title="Introduction">Introduction</a></li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#logique" title="Formatage logique">Formatage logique</a><ol>
+                     <li><a href="#titres" title="Titre et sous-titre">Titre et sous-titre</a></li>
+                     <li><a href="#paragraphes" title="Paragraphes">Paragraphes</a><ol>
+                           <li><a href="#p" title="La balise <p&gt;">La balise &lt;p&gt;</a></li>
+                           <li><a href="#br" title="Rupture de ligne: la balise <br&gt;">Rupture de ligne: la balise &lt;br&gt;</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#div" title="Les balises <div&gt; et <span&gt;">Les balises &lt;div&gt; et &lt;span&gt;</a></li>
+                     <li><a href="#autresbalises" title="Autres balises">Autres balises</a></li>
+                     <li><a href="#hr" title="La balise <hr&gt;">La balise &lt;hr&gt;</a></li>
+                     <li>Exercice&nbsp;: <a href="#exoformatagelogique">Formatage logique</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#physique" title="Formatage physique">Formatage physique</a><ol>
+                     <li><a href="#police" title="Mise en forme de la police">Mise en forme de la police</a><ol>
+                           <li><a href="#policedefaut" title="Police par défaut">Police par défaut</a></li>
+                           <li><a href="#font" title="La balise <font&gt;">La balise &lt;font&gt;</a></li>
+                           <li><a href="#basefont" title="La balise <basefont&gt;">La balise &lt;basefont&gt;</a></li>
+                           <li><a href="#autresphysique" title="Autres balises">Autres balises</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>IV. <a href="#entites" title="Les entités de caractères">Les entités de caractères</a><ol>
+                     <li><a href="#rappel" title="Rappel">Rappel</a></li>
+                     <li><a href="#diacritiques" title="Nécessité d'un codage supplémentaire: les diacritiques">Nécessité d'un codage supplémentaire: les diacritiques</a></li>
+                     <li><a href="#presentation" title="Présentation d'une entité de caractère">Présentation d'une entité de caractère</a></li>
+                     <li><a href="#reserves" title="Les caractères réservés">Les caractères réservés</a></li>
+                     <li><a href="#nbsp" title="L'entité &amp;nbsp;">L'entité &amp;nbsp;</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>V. <a href="#couleur" title="Codage de la couleur">Codage de la couleur</a><ol>
+                     <li><a href="#couleurnom" title="Par son nom">Par son nom</a></li>
+                     <li><a href="#couleurrgb" title="Par le triplet RGB">Par le triplet RGB</a></li>
+                     <li><a href="#couleurssimples" title="Les seize couleurs simples">Les seize couleurs simples</a></li>
+                     <li>Exercice&nbsp;: <a href="#exotexte">Mise en forme de texte</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="intro" href="#intro" id="intro"></a>I. Introduction
+         </h3>
+         <p>À l'origine, <code class="langage">HTML</code> devait décrire la structure du texte sans imposer sa représentation&nbsp;physique qui devait rester le choix de l'utilisateur
+            et de son navigateur (voir <a href="intro.html">le premier chapitre</a>). Pour décrire la structure du texte, c'est à-dire la nature du contenu (nom, adresse...) on parle de formatage logique.
+            Pour décrire la représentation physique du texte (gras, italique, taille des caractères...) on parle de formatage physique.
+            Ce second type de formatage, on le rappelle, n'est pas à conseiller, sauf s'il faut assurer la compatibilité avec les plus
+            vieux navigateurs.
+         </p>
+         <p>Ce cours va présenter ces deux types de formatage et les balises qui leur sont associées.</p>
+         <h3><a name="logique" href="#logique" id="logique"></a>II. Formatage logique
+         </h3>
+         <h4><a name="titres" id="titres" href="#titres"></a>1. Titre et sous-titre
+         </h4>
+         <p>Il s'agit ici des titres qui s'afficheront dans la page (et non dans la barre de titre comme la balise <code class="code">&lt;title&gt;</code> précédemment)&nbsp;: ce sont les en-têtes de sections ou paragraphes.
+         </p>
+         <p>Il existe six niveaux de titres d'importance décroissante&nbsp;: <code class="code">&lt;h1&gt;</code>, <code class="code">&lt;h2&gt;</code>, <code class="code">&lt;h3&gt;</code>, <code class="code">&lt;h4&gt;</code>, <code class="code">&lt;h5&gt;</code>, <code class="code">&lt;h6&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_" title="Retour à la TdM ()">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <p>Exemple et code source avec chaque balise TITRE&nbsp;:</p>
+         <table class="tableau" summary="Les niveaux de titre." border="1">
+            <tr>
+               <th id="niveau">
+                  <p>Niveau de titre</p>
+               </th>
+               <th id="effet">
+                  <p>Effet en Times New Roman</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="niveau">
+                  <p><code class="code">&lt;h6&gt;Titre de niveau 6&lt;/h6&gt;</code></p>
+               </td>
+               <td headers="effet"><span class="image"><img src="exemples/titre6.gif" alt="Titre 6" width="80" height="15" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="niveau">
+                  <p><code class="code">&lt;h5&gt;Titre de niveau 5&lt;/h5&gt;</code></p>
+               </td>
+               <td headers="effet"><span class="image"><img src="exemples/titre5.gif" alt="Titre 5" width="97" height="17" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="niveau">
+                  <p><code class="code">&lt;h4&gt;Titre de niveau 4&lt;/h4&gt;</code></p>
+               </td>
+               <td headers="effet"><span class="image"><img src="exemples/titre4.gif" alt="Titre 4" width="120" height="19" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="niveau">
+                  <p><code class="code">&lt;h3&gt;Titre de niveau 3&lt;/h3&gt;</code></p>
+               </td>
+               <td headers="effet"><span class="image"><img src="exemples/titre3.gif" alt="Titre 3" width="137" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="niveau">
+                  <p><code class="code">&lt;h2&gt;Titre de niveau 2&lt;/h2&gt;</code></p>
+               </td>
+               <td headers="effet"><span class="image"><img src="exemples/titre2.gif" alt="Titre 2" width="185" height="27" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="niveau">
+                  <p><code class="code">&lt;h1&gt;Titre de niveau 1&lt;/h1&gt;</code></p>
+               </td>
+               <td headers="effet"><span class="image"><img src="exemples/titre1.gif" alt="Titre 1" width="245" height="38" class="normal"></span></td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Les niveaux de titre.</p>
+         <p class="retourtdm"><a href="#tdm_titres" title="Retour à la TdM (Titre et sous-titre)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="paragraphes" id="paragraphes" href="#paragraphes"></a>2. Paragraphes
+         </h4>
+         <h5><a href="#p" name="p" id="p"></a>a. La balise &lt;p&gt;
+         </h5>
+         <ol>
+            <li>
+               <p><em>Fonction</em>&nbsp;: Un paragraphe comme celui que vous lisez est délimité par les balises <code class="code">&lt;p&gt;</code> et <code class="code">&lt;/p&gt;</code> (voir le source de cette page). La balise <code class="code">&lt;p&gt;</code> provoque un saut de ligne avant le paragraphe. Un paragraphe ne peut en contenir un autre (le navigateur les interprète comme
+                  des paragraphes successifs...).
+               </p>
+            </li>
+            <li>
+               <p><em>Attributs</em>&nbsp;: Attributs de la balise <code class="code">&lt;p&gt;</code></p>
+               <table class="tableau" summary="Attribut de la balise <p&gt;. Cet attribut n'est pas conforme au HTML strict." border="1">
+                  <tr>
+                     <th id="attr_p">
+                        <p> Attribut </p>
+                     </th>
+                     <th id="valeur_p">
+                        <p> Valeur(s) </p>
+                     </th>
+                  </tr>
+                  <tr>
+                     <td headers="attr_p">
+                        <p><code class="code">align</code></p>
+                     </td>
+                     <td headers="valeur_p">
+                        <p><code class="code">left</code>(par défaut)
+                        </p>
+                        <p><code class="code">right</code></p>
+                        <p><code class="code">center</code></p>
+                        <p><code class="code">justify</code></p>
+                     </td>
+                  </tr>
+               </table>
+               <p class="legende">Table&nbsp;2. Attribut de la balise <code class="code">&lt;p&gt;</code>. Cet attribut n'est pas conforme au <code class="langage">HTML</code> strict.
+               </p>
+            </li>
+         </ol>
+         <p class="retourtdm"><a href="#tdm_p" title="Retour à la TdM (La balise <p&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#br" name="br" id="br"></a>b. Rupture de ligne: la balise &lt;br&gt;
+         </h5>
+         <ol>
+            <li>
+               <p><em>Fonction</em>&nbsp;: Force un retour en début de ligne suivante à l'intérieur d'un même paragraphe. La balise fermante est facultative.
+               </p>
+            </li>
+            <li>
+               <p><em>Attributs</em>&nbsp;: Attributs de la balise <code class="code">&lt;br&gt;</code></p>
+               <table class="tableau" summary="Attribut de la balise <br&gt;. Cet attribut n'est pas conforme au HTML strict." border="1">
+                  <tr>
+                     <th id="attr_br">
+                        <p>Attribut</p>
+                     </th>
+                     <th id="effet_br">
+                        <p>Effet</p>
+                     </th>
+                     <th id="valeur_br">
+                        <p>Valeur(s)</p>
+                     </th>
+                  </tr>
+                  <tr>
+                     <td headers="attr_br">
+                        <p><code class="code">clear</code></p>
+                     </td>
+                     <td headers="effet_br">
+                        <p>répartit le texte autour d'une image flottante ou d'un autre objet</p>
+                     </td>
+                     <td headers="valeur_br">
+                        <p><code class="code">all</code></p>
+                        <p><code class="code">left</code></p>
+                        <p><code class="code">right</code></p>
+                     </td>
+                  </tr>
+               </table>
+               <p class="legende">Table&nbsp;3. Attribut de la balise <code class="code">&lt;br&gt;</code>. Cet attribut n'est pas conforme au <code class="langage">HTML</code> strict.
+               </p>
+            </li>
+         </ol>
+         <p class="retourtdm"><a href="#tdm_paragraphes" title="Retour à la TdM (Paragraphes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="div" id="div" href="#div"></a>3. Les balises &lt;div&gt; et &lt;span&gt;
+         </h4>
+         <p>Ces balises jouent un rôle particulier. Elles permettent de découper l'information en unités logiques, et sont fortement utilisées
+            avec des feuilles de style. Par exemple, on peut scinder un document <code class="typefichier">HTML</code> avec deux balises <code class="code">&lt;div&gt;</code> en deux parties, une présentant... une table des matières, et l'autre présentant un contenu de cours (<span lang="en" class="autrelangue">cf</span>. le code source de cette page&nbsp;!). La balise <code class="code">span</code> permet quant à elle une structuration interne à un paragraphe. Par exemple, on peut indiquer un changement momentané de langage
+            utilisé avec l'exemple suivant&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;p&gt;</span>Hamlet a dit <span class="tag">&lt;span<span class="nomattribut"> lang</span>="<span class="valeurattribut">en</span>"&gt;</span>"To be or not to be"<span class="tag">&lt;/span&gt;</span>.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_div" title="Retour à la TdM (Les balises <div&gt; et <span&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="autresbalises" id="autresbalises" href="#autresbalises"></a>4. Autres balises
+         </h4>
+         <table class="tableau" summary="Balises de formatage logique." border="1">
+            <tr>
+               <th id="balise">
+                  <p>Balise</p>
+               </th>
+               <th id="sens">
+                  <p>Signification</p>
+               </th>
+               <th id="effect">
+                  <p>Effet</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;em&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>emphasis</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/em.gif" alt="emphasis" width="112" height="20" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;strong&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>fort</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/strong.gif" alt="strong" width="121" height="19" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;cite&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>citation brève</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/cite.gif" alt="cite" width="113" height="19" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;dfn&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>définition</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/dfn.gif" alt="dfn" width="113" height="18" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;code&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>extrait de programme</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/code.gif" alt="code" width="156" height="15" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;samp&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>sample&nbsp;: échantillon</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/samp.gif" alt="samp" width="158" height="18" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;kbd&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p> Keyboard(clavier)</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/kbd.gif" alt="kbd" width="156" height="20" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;var&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>variable ou argument</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/var.gif" alt="var" width="119" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;abbr&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>abréviation</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/abbr.gif" alt="abbr" width="104" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;acronym&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>acronyme</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/acronym.gif" alt="acronym" width="108" height="23" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;sub&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>subscript/indice</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/sub.gif" alt="sub" width="98" height="25" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;sup&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>superscript/exposant</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/sup.gif" alt="sup" width="94" height="26" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="balise">
+                  <p><code class="code">&lt;pre&gt;</code></p>
+               </td>
+               <td headers="sens">
+                  <p>preformatted</p>
+               </td>
+               <td headers="effect"><span class="image"><img src="exemples/pre.gif" alt="pre" width="156" height="23" class="normal"></span></td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;4. Balises de formatage logique.</p>
+         <p>La touche "Entrée" (le "retour chariot" du temps des machines à écrire) est codée en <code class="langage">ASCII</code> par <code class="code">13</code>. Le navigateur ne le considère pas comme un retour à la ligne mais comme un simple séparateur comme un blanc. Sans demande
+            particulière, le navigateur ignore votre formatage initial.
+         </p>
+         <p><code class="code">&lt;PRE&gt; </code> force le navigateur à respecter les retours à la ligne et les blancs consécutifs.
+         </p>
+         <p class="retourtdm"><a href="#tdm_autresbalises" title="Retour à la TdM (Autres balises)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="hr" id="hr" href="#hr"></a>5. La balise &lt;hr&gt;
+         </h4>
+         <p>Elle est destinée à séparer différentes parties d'un document au moyen d'un trait horizontal de longueur et d'épaisseur variables,
+            et généralement pourvu d'un ombrage. Il s'agit d'un conteneur vide dont la balise fermante est facultative (et même jamais
+            utilisée en <code class="langage">HTML</code>).
+         </p>
+         <p>Cette balise possède des attributs, mais leur emploi est déconseillé par le W3C&nbsp;:</p>
+         <table class="tableau" summary="Les attributs (obsolètes) de la balise <hr&gt;." border="1">
+            <tr>
+               <th id="attr_hr">
+                  <p>attribut</p>
+               </th>
+               <th id="effet_hr">
+                  <p>effet</p>
+               </th>
+               <th id="valeur_hr">
+                  <p>valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_hr">
+                  <p><code class="code">noshade</code></p>
+               </td>
+               <td headers="effet_hr">
+                  <p>suppression de l'ombrage</p>
+               </td>
+               <td headers="valeur_hr">
+                  <p>booléen, sa présence seule supprime l'ombrage</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_hr">
+                  <p><code class="code">align</code></p>
+               </td>
+               <td headers="effet_hr">
+                  <p>alignement</p>
+               </td>
+               <td headers="valeur_hr">
+                  <p><code class="code">left</code> (valeur par défaut)
+                  </p>
+                  <p><code class="code">right</code></p>
+                  <p><code class="code">center</code></p>
+                  <p><code class="code">justify</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_hr">
+                  <p><code class="code">size</code></p>
+               </td>
+               <td headers="effet_hr">
+                  <p>épaisseur du trait</p>
+               </td>
+               <td headers="valeur_hr">
+                  <p>nombre en pixels</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_hr">
+                  <p><code class="code">width</code></p>
+               </td>
+               <td headers="effet_hr">
+                  <p>largeur du trait</p>
+               </td>
+               <td headers="valeur_hr">
+                  <p>en pixels ou en pourcentage de la fenêtre du navigateur (ajouter le symbole %)</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;5. Les attributs (obsolètes) de la balise <code class="code">&lt;hr&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_hr" title="Retour à la TdM (La balise <hr&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoformatagelogique" href="#exoformatagelogique" id="exoformatagelogique"></a>1. Formatage logique
+         </h4>
+         <h5><a href="exercices/td1.html" title="Énoncé de l'exercice 'Formatage logique'">Énoncé</a></h5>
+         <h5><a href="exercices/td1cor.html" title="Correction 'Formatage logique'">
+               				Correction</a></h5>
+         <h3><a name="physique" href="#physique" id="physique"></a>III. Formatage physique
+         </h3>
+         <p>Toutes les balises de cette partie sont obsolètes dans le <code class="langage">HTML 4.01</code> strict.
+         </p>
+         <h4><a name="police" id="police" href="#police"></a>1. Mise en forme de la police
+         </h4>
+         <h5><a href="#policedefaut" name="policedefaut" id="policedefaut"></a>a. Police par défaut
+         </h5>
+         <p>Les navigateurs utilisent par défaut une police proportionnelle&nbsp;: Times Roman sur les Macintosh, et Times New Roman sur les
+            PC. En tant qu'utilisateur (surfeur&nbsp;!), il vous est possible de modifier cette police par défaut. Cela rend la tâche des développeurs
+            de site d'autant plus ardue...
+         </p>
+         <p class="retourtdm"><a href="#tdm_policedefaut" title="Retour à la TdM (Police par défaut)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#font" name="font" id="font"></a>b. La balise &lt;font&gt;
+         </h5>
+         <p>Cette balise est déconseillée, utiliser plutôt les feuilles de style.</p>
+         <p>Pour modifier une partie du texte, on écrira par exemple&nbsp;:</p>
+         <p class="html"><span class="tag">&lt;font<span class="nomattribut"> face</span>="<span class="valeurattribut">Verdana, Arial, Helvetica, sans-serif</span>"<span class="nomattribut"> size</span>="<span class="valeurattribut">5</span>"<span class="nomattribut"> color</span>="<span class="valeurattribut">red</span>"&gt;</span>mon exemple<span class="tag">&lt;/font&gt;</span><br></p>
+         <p>qui produira l'effet suivant&nbsp;:</p><span class="image"><img src="exemples/font.gif" alt="Utilisation de la balise font" width="172" height="36" class="normal"></span><ul>
+            <li>
+               <p>L'attribut <code class="code">face</code>&nbsp;: sa valeur est une liste de polices séparées par des virgules, c'est la première de cette liste présente sur le navigateur
+                  qui sera utilisée. Il est recommandé de spécifier en dernier lieu une famille de polices dite "générique" (nous y reviendrons
+                  dans le cours sur le <code class="langage">CSS</code>).
+               </p>
+            </li>
+            <li>
+               <p>L'attribut <code class="code">size</code>&nbsp;: Il existe 7 tailles, la taille par défaut est 3. On peut spécifier une taille relative à l'aide d'un incrément signé, par
+                  exemple <code class="code">size="+2"</code>, <code class="code">size="-1"</code>.
+               </p>
+            </li>
+            <li>
+               <p>L'attribut <code class="code">color</code>&nbsp;: A l'aide d'un nom de couleur ou d'un code RGB (voir <a href="#couleur">paragraphe sur la couleur</a>).
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_font" title="Retour à la TdM (La balise <font&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#basefont" name="basefont" id="basefont"></a>c. La balise &lt;basefont&gt;
+         </h5>
+         <p>Elle est à déconseiller. Elle définit la taille du texte du conteneur dans laquelle elle est citée (seul attribut <code class="code">size</code>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_basefont" title="Retour à la TdM (La balise <basefont&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#autresphysique" name="autresphysique" id="autresphysique"></a>d. Autres balises
+         </h5>
+         <table class="tableau" summary="Balises de formatage physique." border="1">
+            <tr>
+               <th id="baliseb">
+                  <p>Balise</p>
+               </th>
+               <th id="sensb">
+                  <p>Signification</p>
+               </th>
+               <th id="effectb">
+                  <p>Effet</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;b&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>gras</p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/b.gif" alt="b" width="122" height="22" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;i&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>italique</p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/i.gif" alt="i" width="121" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;tt&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>télétype&nbsp;: police à pas fixe</p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/tt.gif" alt="tt" width="158" height="17" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;big&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>taille supérieure à la taille courante</p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/big.gif" alt="big" width="135" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;small&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>taille inférieure à la taille courante</p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/small.gif" alt="small" width="100" height="17" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;s&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>ou <code class="code">&lt;strike&gt;</code></p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/s.gif" alt="s" width="107" height="20" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td headers="baliseb">
+                  <p><code class="code">&lt;u&gt; </code></p>
+               </td>
+               <td headers="sensb">
+                  <p>underline/soulignement</p>
+               </td>
+               <td headers="effectb"><span class="image"><img src="exemples/u.gif" alt="u" width="114" height="24" class="normal"></span></td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;6. Balises de formatage physique.</p>
+         <p>La balise <code class="code">&lt;center&gt;</code> permet de centrer son contenu. Il est recommandé d'utiliser plutôt l'attribut <code class="code">align="center"</code> ou, mieux, une feuille de style.
+         </p>
+         <p><code class="code">&lt;blockquote&gt;</code>, prévu pour des citations de plusieurs lignes, cette balise permet de produire un effet d'indentation sur les deux marges
+            latérales.
+         </p>
+         <p class="retourtdm"><a href="#tdm_police" title="Retour à la TdM (Mise en forme de la police)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="entites" href="#entites" id="entites"></a>IV. Les entités de caractères
+         </h3>
+         <h4><a name="rappel" id="rappel" href="#rappel"></a>1. Rappel
+         </h4>
+         <p>Il existe plusieurs codifications des caractères&nbsp;: ASCII sous MS-DOS, ANSI sous Windows&nbsp;; les Macintosh ont leur propre système
+            et les grosses machines IBM se servent de l'EBCDIC.
+         </p>
+         <p class="retourtdm"><a href="#tdm_rappel" title="Retour à la TdM (Rappel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="diacritiques" id="diacritiques" href="#diacritiques"></a>2. Nécessité d'un codage supplémentaire: les diacritiques
+         </h4>
+         <p>Les diacritiques sont les caractères constitués d'une lettre modifiée par un signe particulier&nbsp;: accent, tréma, cédille comme
+            é, ï, ç <span lang="latin" class="autrelangue">etc</span>.
+         </p>
+         <p><code class="langage">HTML</code> utilise la codification ASCII qui ne comporte aucun caractère accentué. Il faut donc définir une convention de codage supplémentaire
+            pour faire apparaître ces caractères.
+         </p>
+         <p class="retourtdm"><a href="#tdm_diacritiques" title="Retour à la TdM (Nécessité d'un codage supplémentaire: les diacritiques)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="presentation" id="presentation" href="#presentation"></a>3. Présentation d'une entité de caractère
+         </h4>
+         <p>Une entité de caractère débute par "<code class="code">&amp;</code>", et finit par "<code class="code">;</code>". Exemple le "é" est codé "<code class="code">&amp;eacute;</code>".
+         </p>
+         <p>Voici une petite liste des principaux caractères accentués&nbsp;:</p>
+         <table class="tableau" summary="Principales entités de caractères utilisées en français." border="1">
+            <tr>
+               <th id="carac1">
+                  <p>Caractère</p>
+               </th>
+               <th id="abbr1">
+                  <p>Entité</p>
+               </th>
+               <th id="carac2">
+                  <p>Caractère</p>
+               </th>
+               <th id="abbr2">
+                  <p>Entité</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>à</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;agrave;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>â</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;acirc;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>ä</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;auml;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>æ</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;aelig;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>é</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;eacute;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>è</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;egrave;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>ê</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;ecirc;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>ë</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;euml;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>ù</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;ugrave;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>û</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;ucirc;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>ü</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;uuml;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>ö</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;ouml;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>ï</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;iuml;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>î</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;icirc;</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="carac1">
+                  <p>ç</p>
+               </td>
+               <td headers="abbr1">
+                  <p><code class="code">&amp;ccedil;</code></p>
+               </td>
+               <td headers="carac2">
+                  <p>&#339;</p>
+               </td>
+               <td headers="abbr2">
+                  <p><code class="code">&amp;oelig;</code></p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;7. Principales entités de caractères utilisées en français.</p>
+         <p class="retourtdm"><a href="#tdm_presentation" title="Retour à la TdM (Présentation d'une entité de caractère)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="reserves" id="reserves" href="#reserves"></a>4. Les caractères réservés
+         </h4>
+         <p>Les caractères comme "<code class="code">&lt;</code>", "<code class="code">&gt;</code>" et "<code class="code">&amp;</code>" ont une signification spécifique&nbsp;: le inférieur désigne le début d'une balise, etc. Codés tels quels, le navigateur est
+            incapable de les faire apparaître. Il a donc fallu leur adjoindre une codification supplémentaire&nbsp;: "<code class="code">&lt;</code>" est codé <code class="code">&amp;lt;</code>, "<code class="code">&gt;</code>" est codé <code class="code">&amp;gt;</code>, "<code class="code">&amp;</code>" est codé <code class="code">&amp;amp;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_reserves" title="Retour à la TdM (Les caractères réservés)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="nbsp" id="nbsp" href="#nbsp"></a>5. L'entité &amp;nbsp;
+         </h4>
+         <p>Ce caractère permet d'interdire la césure entre deux mots, par exemple&nbsp;: "<code class="code">100&amp;#160;&amp;euro;</code>" ou d'ajouter des blancs contigus.
+         </p>
+         <p class="retourtdm"><a href="#tdm_nbsp" title="Retour à la TdM (L'entité &amp;nbsp;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="couleur" href="#couleur" id="couleur"></a>V. Codage de la couleur
+         </h3>
+         <p><code class="langage">HTML</code> propose deux façons de coder unecouleur&nbsp;:
+         </p>
+         <h4><a name="couleurnom" id="couleurnom" href="#couleurnom"></a>1. Par son nom
+         </h4>
+         <p>Il existe une liste de couleurs reconnues par la plupart des navigateurs. Les seize couleurs simples sont données dans le
+            tableau ci-dessous donné dans la section <a href="#couleurssimples">"Les seize couleurs simples"</a>. Il en existe d'autres aux noms plus poétiques comme&nbsp;:
+         </p><span class="image"><img src="exemples/couleurs.png" alt="exemples de couleurs complexes" width="542" height="38" class="normal"></span><p>Cependant, le rendu de ces couleurs dépend parfois fortement du navigateur et de la plateforme utilisée.</p>
+         <p class="retourtdm"><a href="#tdm_couleurnom" title="Retour à la TdM (Par son nom)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="couleurrgb" id="couleurrgb" href="#couleurrgb"></a>2. Par le triplet RGB
+         </h4>
+         <p>Toute couleur peut être décomposée en trois couleurs&nbsp;: rouge, vert, bleu (Red, Green, Blue d'où RGB) d'intensité convenable.
+            Cette intensité est exprimée en un nombre compris entre 0 et 255. Ce nombre est codé en hexadécimal&nbsp;: il est alors compris
+            entre <code class="code">0</code> et <code class="code">FF</code>.
+         </p><span class="image"><img src="exemples/nuancier.gif" alt="Nuancier" width="200" height="166" class="normal"></span><p>Par exemple, <code class="code">#BA1B85</code> code une intensité de BA (186) pour le rouge, 1B (27) pour le vert, 85 (133) pour le bleu qui donne&nbsp;:
+         </p><span class="image"><img src="exemples/melange.png" alt="Melange de couleurs" width="494" height="37" class="normal"></span><p class="retourtdm"><a href="#tdm_couleurrgb" title="Retour à la TdM (Par le triplet RGB)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="couleurssimples" id="couleurssimples" href="#couleurssimples"></a>3. Les seize couleurs simples
+         </h4>
+         <p>Voici les seize couleurs de base&nbsp;:</p><span class="image"><img src="exemples/simples.png" alt="Couleurs simples" width="496" height="420" class="normal"></span><p>Vous aurez noté la couleur noire&nbsp;!</p>
+         <p class="retourtdm"><a href="#tdm_couleurssimples" title="Retour à la TdM (Les seize couleurs simples)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exotexte" href="#exotexte" id="exotexte"></a>1. Mise en forme de texte
+         </h4>
+         <h5><a href="exercices/td1.html" title="Énoncé de l'exercice 'Mise en forme de texte'">Énoncé</a></h5>
+         <h5><a href="exercices/td1cor2.html" title="Correction 'Mise en forme de texte'">
+               				Correction</a></h5>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours suivant&nbsp;: <a href="liens.html">Les liens hypertexte</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="texte.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples.</li>
+            <li>Le 16 juin 2004, version 1.04. Ajout des corrections des exercices.</li>
+            <li>Le 11 mars 2004, version 1.03. Ajout des liens vers les exercices</li>
+            <li>Le 19 septembre 2003, version 1.02. Correction de coquilles et quelques petits ajouts.</li>
+            <li>Le 29 octobre 2002, version 1.01. Correction de coquilles.</li>
+            <li>Le 13 octobre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

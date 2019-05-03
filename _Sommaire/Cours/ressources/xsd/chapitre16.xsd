@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  Version 1.60 du 01/12/2004
+  - L'attribut href de l'élément correction devient obligatoire.
+  - Ajout de l'attribut facultatif description de l'élément correction.
+  - L'attribut version de maj devient obligatoire.
+  - Remplacement de l'entité &nbsp; par l'élément vide <espace>.
+  - Remplacement de l'élément code type="logiciel" par l'élément logiciel.
+-->
+<!--
+  Version 1.57 du 28/06/2004
+  - Ajout de l'élément optionnel remarque à un exercice.
+-->
+<!--
+  Version 1.56 du 26/03/2004
+  - Ajout de l'entité &Schema, valant <code type="typefichier">Schema&nbsp;XML</code>.
+-->
+<!--
+  Version 1.55 du 06/03/2004
+  - L'élément exemplejavascript admet un élément vide sautligne supplémentaire
+-->
+<!--
+  Version 1.54 du 06/03/2004
+  - L'élément fonction admet maintenant aussi comme enfant un élément propriete.
+-->
+<!--
+  Version 1.53 du 05/03/2004
+  - Ajout des éléments propriete et bloc, fils de l'élément exemplejavascript.
+-->
+<!--
+  Version 1.52 du 23/02/2004
+  - L'attribut titre de paragraphe devient obtionnel.
+  - Une section peut contenir un exercice.
+-->
+<!--
+  Version 1.51 du 06/02/2004
+  - Ajout de l'attribut optionnel version de l'élément maj.
+-->
+<!--
+  Version 1.5 du 05/12/2003
+  - L'élément item peut contenir tout élément de l'entité bloc.
+-->
+<!--
+  Version 1.42 du 05/12/2003
+  - Ajout de l'entité SVG.
+-->
+<!--
+  Version 1.41 du 29/11/2003
+  - Création de l'élément exemplejavascript.
+-->
+<!--
+  Version 1.4 du 28/11/2003
+  - Les éléments cours, entete et corpus deviennent obligatoires.
+-->
+<!--
+  Version 1.31 du 13/11/2003
+  - Ajout de l'élément optionnel groupecolonne à l'élément tableau.
+-->
+<!--
+  Version 1.3 du 30/07/2003
+  - Ajout de l'attribut requis titre à l'élément acronyme.
+  - L'attribut type de l'élément exemple devient requis (était HTML par défaut).
+-->
+<!--
+  Version 1.23 du 29/07/2003
+  - Ajouts des valeurs html, prologue, cdat, dtdexterne, dtdinterne, dtdelement, dtdattribut, dtdattributmilieu,
+  	dtdattributfin, xsl, html à l'attribut type de l'élément tag.
+  - Ajout de l'attribut vide à l'élément tag.
+  - Ajout des entités XPATH, XSL et SMIL.
+  - Correction du nombre d'éléments quand, qui et quoi acceptables par élément maj.
+-->
+<!--
+  Version 1.22 du 24/06/2003
+  - L'attribut ancre de l'élément paragraphe devient optionnel.
+-->
+<!--
+  Version 1.21 du 26/11/2002
+  - Ajout de la valeur css de l'élément exemple.
+  - Ajout de l'élément csselt comme enfant de l'élément exemple.
+  - Ajout des éléments selecteur et prop comme enfants de l'élément csselt
+-->
+<!--
+  Version 1.2 du 31/10/2002
+  - Ajout de l'élément imagereactive.
+  - Ajout de l'élément imagereactive à l'entité bloc.
+  - L'attribut alt de image devient requis.
+-->
+<!--
+  Version 1.11 du 29/10/2002
+  - Ajout de l'attribut *requis* nomfichier à l'élément-racine cours.
+-->
+<!--
+  Version 1.1 du 23/10/2002
+  - La balise reference est maintenant de type ANY.
+  - Ajout d'une liste "sans puce".
+  - Une image peut maintenant être utilisée à l'intérieur de texte.
+  - Création de l'entité bloc, qui référence image, texte, tableau, exemple, liste.
+  - Ajout de l'attribut type de l'élément image.
+  - Suppression de l'attribut vide de l'élément tag.
+  - Le type par défaut de l'élément exemple est HTML.
+  - Ajout de la balise acronyme en ligne.
+  - Changement des valeurs de l'attribut type de exemple.
+  - Suppression des _ dans les identifiants de type (conformité XHTML).
+-->
+<!-- ================ Declarations d'entites ============================= -->
+<!-- <!ENTITY % HTMLspecial PUBLIC "-//W3C//ENTITIES Special for XHTML//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml-special.ent"> -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="URI">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:group name="enligne">
+    <xs:sequence>
+      <xs:choice minOccurs="0">
+        <xs:element ref="definition"/>
+        <xs:element ref="valeur"/>
+        <xs:element ref="index"/>
+        <xs:element ref="autrelangue"/>
+        <xs:element ref="code"/>
+        <xs:element ref="reference"/>
+        <xs:element ref="acronyme"/>
+        <xs:element ref="image"/>
+        <xs:element ref="espace"/>
+        <xs:element ref="logiciel"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bloc">
+    <xs:choice>
+      <xs:element ref="image"/>
+      <xs:element ref="texte"/>
+      <xs:element ref="liste"/>
+      <xs:element ref="exemple"/>
+      <xs:element ref="exemplejavascript"/>
+      <xs:element ref="tableau"/>
+      <xs:element ref="imagereactive"/>
+    </xs:choice>
+  </xs:group>
+  <!-- ======================== Declarations d'elements ======================================= -->
+  <xs:element name="chapitre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cours"/>
+        <xs:element ref="entete"/>
+        <xs:element ref="corpus"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cours">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.cours"/>
+    </xs:complexType>
+  </xs:element>
+  <!-- Nom du fichier XML sans l'extension -->
+  <xs:attributeGroup name="attlist.cours">
+    <xs:attribute name="nomfichier" use="required"/>
+  </xs:attributeGroup>
+  <!-- Declarations des elements de l'entete -->
+  <xs:element name="entete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="titre"/>
+        <xs:element ref="auteur"/>
+        <xs:element ref="miseajour"/>
+        <xs:element ref="resume"/>
+        <xs:element ref="motsclefs"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="titre" type="xs:string"/>
+  <xs:element name="auteur">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.auteur"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.auteur">
+    <xs:attribute name="email"/>
+  </xs:attributeGroup>
+  <xs:element name="miseajour">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="maj"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="maj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="quand"/>
+        <xs:element ref="qui"/>
+        <xs:element ref="quoi"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.maj"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="quand" type="xs:string"/>
+  <xs:element name="qui" type="xs:string"/>
+  <xs:element name="quoi" type="xs:string"/>
+  <xs:attributeGroup name="attlist.maj">
+    <xs:attribute name="version" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="resume" type="xs:string"/>
+  <xs:element name="motsclefs" type="xs:string"/>
+  <!-- Declarations des elements du corps du cours -->
+  <xs:element name="corpus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="partie"/>
+        <xs:element minOccurs="0" ref="bibliographie"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="partie">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="section"/>
+        <xs:element ref="exercice"/>
+        <xs:element ref="paragraphe"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.partie"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="section">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="paragraphe"/>
+        <xs:element ref="liste"/>
+        <xs:element ref="exercice"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.section"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="paragraphe">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="bloc"/>
+      <xs:attributeGroup ref="attlist.paragraphe"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.paragraphe">
+    <xs:attribute name="titre"/>
+    <xs:attribute name="auteur" default=""/>
+    <xs:attribute name="date" default=""/>
+    <xs:attribute name="href" default="" type="URI"/>
+    <xs:attribute name="ancre" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:element name="liste">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="item"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.liste"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="bloc"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.liste">
+    <xs:attribute name="type" default="envrac">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="envrac"/>
+          <xs:enumeration value="ordonnee"/>
+          <xs:enumeration value="sanspuce"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="tableau">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="groupecolonne"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ligne"/>
+        <xs:element minOccurs="0" ref="legende"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.tableau"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="groupecolonne">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.groupecolonne"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.groupecolonne">
+    <xs:attribute name="nombre" default="1"/>
+    <xs:attribute name="largeur"/>
+  </xs:attributeGroup>
+  <xs:element name="ligne">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="colonne"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.ligne"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="colonne">
+    <xs:complexType>
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="bloc"/>
+      <xs:attributeGroup ref="attlist.colonne"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.colonne">
+    <xs:attribute name="type" default="normal">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="header"/>
+          <xs:enumeration value="normal"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.ligne">
+    <xs:attribute name="type" default="normal">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="header"/>
+          <xs:enumeration value="normal"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="legende">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="enligne"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.tableau">
+    <xs:attribute name="largeur" default=""/>
+    <xs:attribute name="bordure" default="1"/>
+  </xs:attributeGroup>
+  <xs:element name="image">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="legende"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.image"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.image">
+    <xs:attribute name="src" use="required" type="URI"/>
+    <xs:attribute name="hauteur" default=""/>
+    <xs:attribute name="largeur" default=""/>
+    <xs:attribute name="alt" use="required"/>
+    <xs:attribute name="classe" default="normal">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="illustration"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="imagereactive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="zone"/>
+        <xs:element minOccurs="0" ref="legende"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.imagereactive"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.imagereactive">
+    <xs:attribute name="src" use="required" type="URI"/>
+    <xs:attribute name="hauteur" default=""/>
+    <xs:attribute name="largeur" default=""/>
+    <xs:attribute name="alt" use="required"/>
+    <xs:attribute name="nom" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="zone">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.zone"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.zone">
+    <xs:attribute name="forme" default="rect">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="rect"/>
+          <xs:enumeration value="circle"/>
+          <xs:enumeration value="poly"/>
+          <xs:enumeration value="default"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="coords"/>
+    <xs:attribute name="href" type="URI"/>
+    <xs:attribute name="alt" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="texte">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="enligne"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.section">
+    <xs:attribute name="titre" use="required"/>
+    <xs:attribute name="auteur" default=""/>
+    <xs:attribute name="date" default=""/>
+    <xs:attribute name="href" default="" type="URI"/>
+    <xs:attribute name="ancre" use="required" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:element name="exercice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="remarque"/>
+        <xs:element minOccurs="0" ref="enonce"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="correction"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.exercice"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="remarque" type="xs:string"/>
+  <xs:element name="enonce">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.enonce"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.enonce">
+    <xs:attribute name="href" default="" type="URI"/>
+  </xs:attributeGroup>
+  <xs:element name="correction">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.correction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.correction">
+    <xs:attribute name="href" use="required" type="URI"/>
+    <xs:attribute name="description"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.exercice">
+    <xs:attribute name="titre" use="required"/>
+    <xs:attribute name="auteur" default=""/>
+    <xs:attribute name="date" default=""/>
+    <xs:attribute name="ancre" use="required" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.partie">
+    <xs:attribute name="titre" use="required"/>
+    <xs:attribute name="auteur" default=""/>
+    <xs:attribute name="date" default=""/>
+    <xs:attribute name="href" default="" type="URI"/>
+    <xs:attribute name="ancre" use="required" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:element name="bibliographie">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="author"/>
+        <xs:element ref="titre"/>
+        <xs:element ref="editeur"/>
+        <xs:element ref="lien"/>
+        <xs:element ref="commentaire"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.bibliographie"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="author" type="xs:string"/>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="editeur" type="xs:string"/>
+  <xs:element name="lien" type="xs:string"/>
+  <xs:element name="commentaire" type="xs:string"/>
+  <xs:attributeGroup name="attlist.bibliographie">
+    <xs:attribute name="auteur" default=""/>
+    <xs:attribute name="date" default=""/>
+    <xs:attribute name="href" default="" type="URI"/>
+  </xs:attributeGroup>
+  <!-- Definitions d'elements en-ligne -->
+  <xs:element name="acronyme">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.acronyme"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.acronyme">
+    <xs:attribute name="titre" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="index">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.index"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.index">
+    <xs:attribute name="type" default="hidden">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="visible"/>
+          <xs:enumeration value="hidden"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="id" use="required" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:element name="definition">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.definition"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.definition">
+    <xs:attribute name="clef" use="required"/>
+  </xs:attributeGroup>
+  <!--  espace insécable -->
+  <xs:element name="espace">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="autrelangue">
+    <xs:complexType mixed="true">
+      <xs:group minOccurs="0" maxOccurs="unbounded" ref="enligne"/>
+      <xs:attributeGroup ref="attlist.autrelangue"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.autrelangue">
+    <xs:attribute name="type" default="en"/>
+  </xs:attributeGroup>
+  <xs:element name="valeur" type="any"/>
+  <xs:element name="code">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.code"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.code">
+    <xs:attribute name="type" default="code">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="langage"/>
+          <xs:enumeration value="code"/>
+          <xs:enumeration value="typefichier"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="option" default="no">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+          <xs:enumeration value="no"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="logiciel">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="espace"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exemple">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="contenu"/>
+        <xs:element ref="tag"/>
+        <xs:element ref="propriete"/>
+        <xs:element ref="csselt"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.exemple"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tag">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.tag"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.tag">
+    <xs:attribute name="pos" default="debut">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="debut"/>
+          <xs:enumeration value="fin"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="niveau" default="0"/>
+    <xs:attribute name="type" default="general">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="general"/>
+          <xs:enumeration value="commentaire"/>
+          <xs:enumeration value="html"/>
+          <xs:enumeration value="doctype"/>
+          <xs:enumeration value="prologue"/>
+          <xs:enumeration value="cdat"/>
+          <xs:enumeration value="dtdexterne"/>
+          <xs:enumeration value="dtdinterne"/>
+          <xs:enumeration value="dtdinternefin"/>
+          <xs:enumeration value="dtdelement"/>
+          <xs:enumeration value="dtdattribut"/>
+          <xs:enumeration value="dtdattributmilieu"/>
+          <xs:enumeration value="dtdattributfin"/>
+          <xs:enumeration value="xsl"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="vide" default="no">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="yes"/>
+          <xs:enumeration value="no"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="contenu">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.contenu"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.contenu">
+    <xs:attribute name="niveau" default="0"/>
+    <xs:attribute name="pos" default="debut">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="debut"/>
+          <xs:enumeration value="fin"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="csselt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="selecteur"/>
+        <xs:element maxOccurs="unbounded" ref="prop"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="selecteur" type="xs:string"/>
+  <xs:element name="prop">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.prop"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.prop">
+    <xs:attribute name="nom" use="required"/>
+    <xs:attribute name="valeur" use="required"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="attlist.exemple">
+    <xs:attribute name="type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="XML"/>
+          <xs:enumeration value="HTML"/>
+          <xs:enumeration value="illustration"/>
+          <xs:enumeration value="CSS"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ancre" type="xs:ID"/>
+  </xs:attributeGroup>
+  <xs:element name="exemplejavascript">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="fonction"/>
+        <xs:element ref="instruction"/>
+        <xs:element ref="variable"/>
+        <xs:element ref="propriete"/>
+        <xs:element ref="declaration"/>
+        <xs:element ref="autres"/>
+        <xs:element ref="finligne"/>
+        <xs:element ref="sautligne"/>
+        <xs:element ref="bloc"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bloc">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="fonction"/>
+        <xs:element ref="instruction"/>
+        <xs:element ref="variable"/>
+        <xs:element ref="propriete"/>
+        <xs:element ref="declaration"/>
+        <xs:element ref="autres"/>
+        <xs:element ref="finligne"/>
+        <xs:element ref="sautligne"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fonction">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="variable"/>
+        <xs:element ref="autres"/>
+        <xs:element ref="propriete"/>
+      </xs:choice>
+      <xs:attributeGroup ref="attlist.fonction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.fonction">
+    <xs:attribute name="name" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="instruction">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.instruction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.instruction">
+    <xs:attribute name="name" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="variable">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.variable"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.variable">
+    <xs:attribute name="name" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="propriete">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.propriete"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.propriete">
+    <xs:attribute name="name" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="declaration">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.declaration"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.declaration">
+    <xs:attribute name="nomvariable" use="required"/>
+    <xs:attribute name="valeur" use="required"/>
+  </xs:attributeGroup>
+  <xs:element name="autres" type="xs:string"/>
+  <xs:element name="finligne">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="sautligne">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="reference">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="any">
+          <xs:attributeGroup ref="attlist.reference"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.reference">
+    <xs:attribute name="href" use="required" type="URI"/>
+  </xs:attributeGroup>
+  <xs:complexType name="any" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

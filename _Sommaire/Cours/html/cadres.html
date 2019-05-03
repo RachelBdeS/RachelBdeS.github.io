@@ -1,0 +1,581 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les cadres (frames)</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, frame, frameset">
+      <meta name="description" content="Même s'ils ont tendance à disparaître, les cadres (ou frames) restent encore présents sur nombre de pages Web.">
+      <link rel="next" href="video.html">
+      <link rel="prev" href="images.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les cadres (frames)</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#gen" title="Généralités">Généralités</a><ol>
+                     <li><a href="#fonction" title="Fonction">Fonction</a></li>
+                     <li><a href="#avinc" title="Avantages/Inconvénients">Avantages/Inconvénients</a></li>
+                     <li><a href="#structure" title="Structure de la page HTML">Structure de la page HTML</a><ol>
+                           <li><a href="#dtd" title="Un nouveau type de document">Un nouveau type de document</a></li>
+                           <li><a href="#squelette" title="Le squelette d'une page-cadre">Le squelette d'une page-cadre</a></li>
+                           <li><a href="#noframes" title="La balise <noframes&gt;">La balise &lt;noframes&gt;</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#frameset" title="La balise <frameset&gt;">La balise &lt;frameset&gt;</a><ol>
+                     <li><a href="#decoupage" title="Définition du découpage de la page: les attributs rows et cols">Définition du découpage de la page: les attributs rows et cols</a></li>
+                     <li><a href="#jeuxvaleurs" title="Jeux de valeurs possibles">Jeux de valeurs possibles</a></li>
+                     <li><a href="#irregulier" title="Découpage irrégulier">Découpage irrégulier</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#frame" title="La balise <frame&gt;">La balise &lt;frame&gt;</a><ol>
+                     <li><a href="#frameutilisation" title="Utilisation de la balise">Utilisation de la balise</a></li>
+                     <li><a href="#frameattributs" title="Les attributs">Les attributs</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>IV. <a href="#iframe" title="La balise <iframe&gt;">La balise &lt;iframe&gt;</a><ol>
+                     <li><a href="#iframeutilisation" title="Utilisation de la balise">Utilisation de la balise</a></li>
+                     <li><a href="#iframeattributs" title="Les attributs">Les attributs</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>V. <a href="#target" title="L'attribut target">L'attribut target</a><ol>
+                     <li><a href="#targethtml" title="L'attribut target en HTML Transitionnel">L'attribut target en HTML Transitionnel</a></li>
+                     <li><a href="#targetcadres" title="L'attribut target avec des cadres">L'attribut target avec des cadres</a></li>
+                     <li>Exercice&nbsp;: <a href="#exoframes">Construire des frames</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="gen" href="#gen" id="gen"></a>I. Généralités
+         </h3>
+         <h4><a name="fonction" id="fonction" href="#fonction"></a>1. Fonction
+         </h4>
+         <p>Les cadres (<span lang="en" class="autrelangue">frames</span> dans la terminologie anglo-saxonne) découpent la fenêtre principale en autant de petits cadres, chacun d'eux jouant le même
+            rôle qu'une fenêtre&nbsp;: document <code class="typefichier">HTML</code> propre, barres de défilement indépendantes...
+         </p>
+         <p>Ces <span lang="en" class="autrelangue">frames</span> peuvent être chargés de manière totalement indépendante&nbsp;: un cadre sera modifié et l'autre maintenu. Ils peuvent interargir
+            entre eux&nbsp;: un choix dans un premier cadre pourra provoquer le chargement d'une nouvelle page dans un deuxième.
+         </p>
+         <p>Examiner l'exemple au bout de <a href="exemples/cadres1.html">ce lien</a>.
+         </p>
+         <p>Puis admirer la magnifique réalisation du Site officiel du musée du Louvre <a href="http://www.louvre.fr/">http://www.louvre.fr/</a>&nbsp;: Observer la navigation.
+         </p>
+         <p class="retourtdm"><a href="#tdm_fonction" title="Retour à la TdM (Fonction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="avinc" id="avinc" href="#avinc"></a>2. Avantages/Inconvénients
+         </h4>
+         <p>Les cadres permettent de créer rapidement une mise en page simple pour un site. L'utilisation classique consiste ainsi à présenter
+            sur un cadre à gauche une liste de liens vers les différentes parties d'un site, qui s'affichent dans la fenêtre principale
+            au centre. Cela facilite de plus la maintenance des différentes pages.
+         </p>
+         <p>Cependant, les moteurs de recherche indexent les pages à l'intérieur des cadres autant que les autres. Il y a donc un risque
+            pour qu'une page indexée de la sorte soit "orpheline", et ne donne pas accès au reste du site. Plus généralement, une telle
+            page ne se suffit souvent pas à elle-même (il y manque parfois les outils de navigation à l'intérieur du site). Enfin, la
+            présence de cadres s'accompagne souvent de celles de barres de défilement horizontales.
+         </p>
+         <p class="retourtdm"><a href="#tdm_avinc" title="Retour à la TdM (Avantages/Inconvénients)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="structure" id="structure" href="#structure"></a>3. Structure de la page HTML
+         </h4>
+         <h5><a href="#dtd" name="dtd" id="dtd"></a>a. Un nouveau type de document
+         </h5>
+         <p>Nous avions déjà rencontré les déclarations de type de document suivantes&nbsp;:</p>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE html PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/strict.dtd"</span>&gt;<br></span></p>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE html PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01 Transitional//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/loose.dtd"</span>&gt;<br></span></p>
+         <p>L'appel à des cadres ne peut se faire qu'à l'aide de balises qui nécessitent une troisième forme de déclaration&nbsp;:</p>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE html PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01 Frameset//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/frameset.dtd"</span>&gt;<br></span></p>
+         <p>Ce type de document étant une extension de la recommandation <code class="langage">HTML</code> Transitionnel, les balises de présentation sont également acceptées, même s'il vaut mieux éviter de faire appel à elles.
+         </p>
+         <p class="retourtdm"><a href="#tdm_dtd" title="Retour à la TdM (Un nouveau type de document)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#squelette" name="squelette" id="squelette"></a>b. Le squelette d'une page-cadre
+         </h5>
+         <p>Une page destinée à recevoir plusieurs cadres a une structure légèrement différente d'une page "habituelle". Cette dernière,
+            on s'en souvient, possède la structure suivante...
+         </p>
+         <p class="html"><span class="tag">&lt;html&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>Premiers pas<span class="tag">&lt;/title&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span><br>(contenu de la page)&nbsp;&nbsp;<span class="tag">&lt;/body&gt;</span><br>
+            				<span class="tag">&lt;/html&gt;</span><br></p>
+         <p>Cette fois-ci, la balise <code class="code">&lt;body&gt;</code> est remplacée par la balise <code class="code">&lt;frameset&gt;</code>&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;html&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>Premiers pas<span class="tag">&lt;/title&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;frameset&gt;</span><br>
+            						(déclaration des cadres)
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;noframes&gt;</span>contenu alternatif pour les navigateurs ne supportant pas les cadres.<span class="tag">&lt;/noframes&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/frameset&gt;</span><br>
+            				<span class="tag">&lt;/html&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_squelette" title="Retour à la TdM (Le squelette d'une page-cadre)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#noframes" name="noframes" id="noframes"></a>c. La balise &lt;noframes&gt;
+         </h5>
+         <p>L'objectif est d'avertir l'utilisateur d'une vieille version de navigateur (2), ou bien d'un navigateur ne supportant pas
+            les cadres (navigateur texte ou <span lang="en" class="autrelangue">PDA</span>) qu'il n'a pas accès au contenu du document sous la forme de cadres. le contenu de cet élément doit fournir une méthode alternative
+            d'accéder à l'intégralité des informations contenues dans les cadres.
+         </p>
+         <p>La balise <code class="code">&lt;noframes&gt;</code> est fille de la balise <code class="code">&lt;frameset&gt;</code>. Un navigateur reconnaissant <code class="code">&lt;/frameset&gt;</code> ignore le contenu du conteneur <code class="code">&lt;noframes&gt;</code>. Cette balise peut contenir un élément <code class="code">&lt;body&gt;</code>. Réciproquement, un navigateur de vieille version sautera les balises dont il ne connaît pas la signification&nbsp;: <code class="code">&lt;frameset&gt;</code>, <code class="code">&lt;frame&gt;</code>, <code class="code">&lt;noframes&gt;</code> et affichera la suite du document. Le cas est prévu dans l'<a href="exemples/cadres1.html">exemple</a>. Examiner son source.
+         </p>
+         <p class="retourtdm"><a href="#tdm_structure" title="Retour à la TdM (Structure de la page HTML)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="frameset" href="#frameset" id="frameset"></a>II. La balise &lt;frameset&gt;
+         </h3>
+         <h4><a name="decoupage" id="decoupage" href="#decoupage"></a>1. Définition du découpage de la page: les attributs rows et cols
+         </h4>
+         <p>Les attributs <code class="code">rows</code> et <code class="code">cols</code> définissent un quadrillage dont chaque élément sera un cadre (<span lang="en" class="autrelangue">frame</span>). <code class="code">rows</code> définit le découpage horizontal et <code class="code">cols</code> le découpage vertical. Exemples (l'illustration est au bout de chaque lien)&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">&lt;frameset rows="150,200,300" cols="100,300,500"&gt;</code>&nbsp;: <a href="exemples/cadres9.html">rendu à l'écran</a>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">&lt;frameset rows="150,200,300"&gt;</code>&nbsp;: <a href="exemples/cadres7.html">rendu à l'écran</a>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">&lt;frameset cols="100,300,500"&gt;</code>&nbsp;: <a href="exemples/cadres5.html">rendu à l'écran</a>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_decoupage" title="Retour à la TdM (Définition du découpage de la page: les attributs rows et cols)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="jeuxvaleurs" id="jeuxvaleurs" href="#jeuxvaleurs"></a>2. Jeux de valeurs possibles
+         </h4>
+         <p>Les valeurs peuvent s'exprimer par&nbsp;:</p>
+         <ul>
+            <li>
+               <p>Par un nombre entier de pixels (voir les exemples précédents).</p>
+            </li>
+            <li>
+               <p>Par un pourcentage (ex&nbsp;: 20%) de la fenêtre du navigateur&nbsp;: lorsque l'utilisateur modifie la taille de sa fenêtre, la taille
+                  du cadre se modifie en proportion. Exemple&nbsp;: <code class="code">&lt;frameset cols="20%,50%,30%"&gt;</code></p>
+               <p>Si la somme ne fait pas 100%, les pourcentages sont ajustés par règle de trois.</p>
+            </li>
+            <li>
+               <p>Par le caractère astérisque <code class="code">*</code>. Deux usages sont possibles&nbsp;: 
+               </p>
+               <ul>
+                  <li>
+                     <p><code class="code">*</code> peut signifier ce qui reste de libre. Exemple&nbsp;: <code class="code">&lt;frameset rows="150,*,100"&gt;</code>. <a href="exemples/cadres8.html">Rendu à l'écran.</a></p>
+                  </li>
+                  <li>
+                     <p><code class="code">*</code> peut signifier&nbsp;: le facteur multiplicatif nécessaire pour que l'ensemble soit à la taille de la fenêtre. Exemple&nbsp;: <code class="code">&lt;frameset cols="2*,*,5*"&gt;</code>. <a href="exemples/cadres6.html">Rendu à l'écran</a>.
+                     </p>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+         <p>De manière générale, si le jeu de paramètres est incohérent, le navigateur trouve toujours un moyen de les ajuster (ce qui
+            peut produire une apparence parfois fluctuante au gré des interprétations&nbsp;!).
+         </p>
+         <p class="retourtdm"><a href="#tdm_jeuxvaleurs" title="Retour à la TdM (Jeux de valeurs possibles)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="irregulier" id="irregulier" href="#irregulier"></a>3. Découpage irrégulier
+         </h4>
+         <p>Le découpage peut ne pas être un quadrillage mais un simple pavage de rectangles. Ce pavage est obtenu en insérant une nouvelle
+            fois la balise <code class="code">&lt;frameset&gt;</code> à l'intérieur du conteneur <code class="code">&lt;frameset&gt;&lt;/frameset&gt;</code>. La structure de l'<a href="exemples/cadres1.html">exemple</a> est la suivante&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;frameset<span class="nomattribut"> cols</span>="<span class="valeurattribut">218,*</span>"&gt;</span><br>
+            					
+            					&nbsp;&nbsp;<span class="tag">&lt;frame<span class="nomattribut"> name</span>="<span class="valeurattribut">menu</span>"<span class="nomattribut"> src</span>="<span class="valeurattribut">Cadre_ex11.htm</span>"&gt;</span><span class="tag">&lt;/frame&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;frame<span class="nomattribut"> name</span>="<span class="valeurattribut">bandeau</span>"<span class="nomattribut"> src</span>="<span class="valeurattribut">Cadre_ex12.htm</span>"&gt;</span><span class="tag">&lt;/frame&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;frame<span class="nomattribut"> name</span>="<span class="valeurattribut">principal</span>"<span class="nomattribut"> src</span>="<span class="valeurattribut">Cadre_ex13.htm</span>"&gt;</span><span class="tag">&lt;/frame&gt;</span><br>
+            				<span class="tag">&lt;/frameset&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_irregulier" title="Retour à la TdM (Découpage irrégulier)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="frame" href="#frame" id="frame"></a>III. La balise &lt;frame&gt;
+         </h3>
+         <h4><a name="frameutilisation" id="frameutilisation" href="#frameutilisation"></a>1. Utilisation de la balise
+         </h4>
+         <p>Il doit y avoir autant de conteneurs <code class="code">&lt;frame&gt;</code> qu'il y a de régions définies dans la balise <code class="code">&lt;frameset&gt;</code>. L'ordre est imposé de gauche à droite, puis de haut en bas (voir les numérotations des régions dans les exemples précédents).
+         </p>
+         <p class="retourtdm"><a href="#tdm_frameutilisation" title="Retour à la TdM (Utilisation de la balise)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="frameattributs" id="frameattributs" href="#frameattributs"></a>2. Les attributs
+         </h4>
+         <table class="tableau" summary="Attributs de la balise <frame&gt;." border="1">
+            <tr>
+               <th id="attr_frame">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_frame">
+                  <p>Effet</p>
+               </th>
+               <th id="val_frame">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">src</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>URL du document à charger initialement dans le cadre.</p>
+               </td>
+               <td headers="val_frame">
+                  <p>Une URL. Facultatif, le chargement peut avoir lieu plus tard.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>Nom du cadre.</p>
+               </td>
+               <td headers="val_frame">
+                  <p>Une chaîne de caractères. Obligatoire si son contenu doit être modifié après le chargement initial. Répond à l'attribut <code class="code">target</code> de l'appel de lien <code class="code">&lt;a&gt;</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">longdesc</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>Renvoie vers un fichier contenant une "longue" description du contenu de la fenêtre.</p>
+               </td>
+               <td headers="val_frame">
+                  <p>Une URL.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">frameborder</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>Présence d'une bordure de séparation entre les cadres. Reprendre le premier exemple.</p>
+               </td>
+               <td headers="val_frame">
+                  <p><code class="code">1</code> (présence) ou <code class="code">0</code> (absence). Valeur par défaut <code class="code">1</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">marginwidth</code>, <code class="code">marginheight</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>Marge entre le contenu et le bord du cadre.</p>
+               </td>
+               <td headers="val_frame">
+                  <p>Un nombre de pixels.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">noresize</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>Gère le redimensionnement du cadre.</p>
+               </td>
+               <td headers="val_frame">
+                  <p>Si <code class="code">noresize="noresize"</code>, l'utilisateur ne peut pas redimensionner le cadre.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_frame">
+                  <p><code class="code">scrolling</code></p>
+               </td>
+               <td headers="eff_frame">
+                  <p>Gère l'apparition des barres de défilement.</p>
+               </td>
+               <td headers="val_frame">
+                  <ul>
+                     <li>
+                        <p><code class="code">yes</code>&nbsp;: le navigateur crée toujours des barres.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">no</code>&nbsp;: les barres sont interdites.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">auto</code>&nbsp;: le navigateur crée des barres si besoin. Valeur par défaut.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Attributs de la balise <code class="code">&lt;frame&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_frameattributs" title="Retour à la TdM (Les attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="iframe" href="#iframe" id="iframe"></a>IV. La balise &lt;iframe&gt;
+         </h3>
+         <h4><a name="iframeutilisation" id="iframeutilisation" href="#iframeutilisation"></a>1. Utilisation de la balise
+         </h4>
+         <p>Il ne s'agit plus du quadrillage de la fenêtre du navigateur de la balise <code class="code">&lt;frameset&gt;</code> mais d'une petite lucarne insérée dans le document <code class="typefichier">HTML</code>. Le document lui-même garde la structure habituelle&nbsp;: entête (<code class="code">&lt;head&gt;</code>) et corps (<code class="code">&lt;body&gt;</code>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_iframeutilisation" title="Retour à la TdM (Utilisation de la balise)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="iframeattributs" id="iframeattributs" href="#iframeattributs"></a>2. Les attributs
+         </h4>
+         <table class="tableau" summary="Attributs de la balise <iframe&gt;." border="1">
+            <tr>
+               <th id="attr_iframe">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_iframe">
+                  <p>Effet</p>
+               </th>
+               <th id="val_iframe">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">src</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>URL du document à charger initialement dans le cadre.</p>
+               </td>
+               <td headers="val_iframe">
+                  <p>Une URL. Facultatif, le chargement peut avoir lieu plus tard.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Nom du cadre.</p>
+               </td>
+               <td headers="val_iframe">
+                  <p>Une chaîne de caractères. Obligatoire si son contenu doit être modifié après le chargement initial. Répond à l'attribut <code class="code">target</code> de l'appel de lien <code class="code">&lt;a&gt;</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">longdesc</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Renvoie vers un fichier contenant une "longue" description du contenu de la fenêtre.</p>
+               </td>
+               <td headers="val_iframe">
+                  <p>Une URL.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">frameborder</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Présence d'un encadrement.</p>
+               </td>
+               <td headers="val_iframe">
+                  <p><code class="code">1</code> (présence) ou <code class="code">0</code> (absence). Valeur par défaut <code class="code">1</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">marginwidth</code>, <code class="code">marginheight</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Marge entre le contenu et le bord du cadre.</p>
+               </td>
+               <td headers="val_iframe">
+                  <p>Un nombre de pixels.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">scrolling</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Gère l'apparition des barres de défilement.</p>
+               </td>
+               <td headers="val_iframe">
+                  <ul>
+                     <li>
+                        <p><code class="code">yes</code>&nbsp;: le navigateur crée toujours des barres.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">no</code>&nbsp;: les barres sont interdites.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">auto</code>&nbsp;: le navigateur crée des barres si besoin. Valeur par défaut.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">align</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Détermine la position du cadre par rapport au texte qui l'entoure. Le cadre peut suivre le flot du texte ou être enveloppée
+                     par ce texte. Par défaut la valeur est à <code class="code">bottom</code>.
+                  </p>
+               </td>
+               <td headers="val_iframe">
+                  <ul>
+                     <li>
+                        <p><code class="code">left</code> (valeur par défaut)
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">right</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">top</code>&nbsp;: l'alignement se fait par rapport au sommet du cadre.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">bottom</code>&nbsp;: l'alignement se fait par rapport au bas du cadre.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">middle</code>&nbsp;: l'alignement se fait par rapport au centre du cadre.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_iframe">
+                  <p><code class="code">width</code>, <code class="code">height</code></p>
+               </td>
+               <td headers="eff_iframe">
+                  <p>Largeur et hauteur du cadre.</p>
+               </td>
+               <td headers="val_iframe">
+                  <p>Un nombre de pixels ou un pourcentage.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Attributs de la balise <code class="code">&lt;iframe&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_iframeattributs" title="Retour à la TdM (Les attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="target" href="#target" id="target"></a>V. L'attribut target
+         </h3>
+         <h4><a name="targethtml" id="targethtml" href="#targethtml"></a>1. L'attribut target en HTML Transitionnel
+         </h4>
+         <p>La balise <code class="code">&lt;a&gt;</code> permettant de créer un lien possède en <code class="langage">HTML</code> Transitionnel un attribut supplémentaire, <code class="code">target</code> ("cible" en anglais), qui permet de spécifier la fenêtre dans laquelle le document lié doit s'ouvrir.
+         </p>
+         <p><code class="code">target</code> ne peut prendre qu'une seule valeur pertinente possible en <code class="langage">HTML</code> Transitionnel, la valeur <code class="code">target="_blank"</code>. Cela permet d'ouvrir le lien dans une nouvelle fenêtre. Par exemple, <code class="code">&lt;a href="http://dam.cicrp.jussieu.fr" target="_blank"&gt;</code> permet d'ouvrir une seconde fenêtre du navigateur, à l'intérieur de laquelle s'affiche le document spécifié par l'attribut
+            <code class="code">href</code>, ici la page d'accueil du DEUST.
+         </p>
+         <p class="retourtdm"><a href="#tdm_targethtml" title="Retour à la TdM (L'attribut target en HTML Transitionnel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="targetcadres" id="targetcadres" href="#targetcadres"></a>2. L'attribut target avec des cadres
+         </h4>
+         <p>Par défaut, l'appel de lien par la balise <code class="code">&lt;a href="url_du_source"&gt;</code> charge la fenêtre courante par le document désigné par <code class="code">href</code>.
+         </p>
+         <p>L'attribut <code class="code">target</code> permet de spécifier dans quel cadre (au sens large) va se charger le document. Il peut prendre quatre valeurs prédéfinies,
+            ou bien une valeur déterminée par l'auteur.
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">target="_self"</code>&nbsp;: fenêtre ou cadre d'appel (valeur par défaut).
+               </p>
+            </li>
+            <li>
+               <p>
+                  						<code class="code">target="_parent"</code>&nbsp;: fenêtre ouvrant le <code class="code">&lt;frameset&gt;</code> du <code class="code">&lt;frame&gt;</code>.
+                  					
+               </p>
+            </li>
+            <li>
+               <p><code class="code">target="_top"</code>&nbsp;: fenêtre entière du navigateur.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">target="_blank"</code>&nbsp;: nouvelle fenêtre.
+               </p>
+            </li>
+            <li>
+               <p>Valeur de l'attribut <code class="code">name</code> du cadre visé.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_targetcadres" title="Retour à la TdM (L'attribut target avec des cadres)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoframes" href="#exoframes" id="exoframes"></a>1. Construire des frames
+         </h4>
+         <h5><a href="exercices/td3.html" title="Énoncé de l'exercice 'Construire des frames'">Énoncé</a></h5>
+         <h5><a href="exercices/td3/index.html" title="Correction 'Construire des frames'">
+               				Correction</a></h5>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="images.html">Les images dans une page Web</a><br>Cours suivant&nbsp;: <a href="video.html">Contrôle du son et de la vidéo</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="cadres.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples. Complément sur l'élément noframes.</li>
+            <li>Le 28 janvier 2005, version 1.04. Correction des prologues.</li>
+            <li>Le 16 juin 2004, version 1.03. Ajout de la correction des exercices.</li>
+            <li>Le 11 mars 2004, version 1.02. Ajout de liens vers les exercices.</li>
+            <li>Le 1er octobre 2003, version 1.01. Correction de coquilles. Correction de la place de la balise noframes.</li>
+            <li>Le 1er novembre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

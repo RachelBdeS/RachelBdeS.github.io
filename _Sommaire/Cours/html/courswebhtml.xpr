@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <filters directoryPatterns="" filePatterns=""
+            positiveFilePatterns="" showHiddenFiles="false"/>
+        <options/>
+    </meta>
+    <projectTree name="courswebhtml.xpr">
+        <folder name="DTDs">
+            <file name="../ressources/chapitre22.dtd"/>
+            <file name="../ressources/cours30.dtd"/>
+        </folder>
+        <folder name="Feuilles XSL">
+            <file name="../ressources/accueilcours20.xsl"/>
+            <file name="../ressources/chapitreweb20.xsl"/>
+            <file name="../ressources/exercices10.xsl"/>
+            <file name="../ressources/general11.xsl"/>
+            <file name="../ressources/historique20.xsl"/>
+            <file name="../ressources/toc10.xsl"/>
+        </folder>
+        <folder name="Fichiers XML">
+            <file name="cadres.xml"/>
+            <file name="cours.xml"/>
+            <file name="css1.xml"/>
+            <file name="css2.xml"/>
+            <file name="cssintro.xml"/>
+            <file name="elements.xml"/>
+            <file name="forms.xml"/>
+            <file name="historique.xml"/>
+            <file name="htmlrapide.xml"/>
+            <file name="images.xml"/>
+            <file name="intro.xml"/>
+            <file name="liens.xml"/>
+            <file name="listes.xml"/>
+            <file name="modeles.xml"/>
+            <file name="tableaux.xml"/>
+            <file name="texte.xml"/>
+            <file name="video.xml"/>
+        </folder>
+        <folder name="Schémas">
+            <file name="historique10.xsd"/>
+        </folder>
+    </projectTree>
+</project>

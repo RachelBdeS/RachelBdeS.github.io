@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <meta>
+        <lastOpenedFiles>
+            <file name="css1.xml"/>
+            <file name="css2.xml"/>
+            <file focused="true" name="cours.xml"/>
+        </lastOpenedFiles>
+    </meta>
+    <projectTree name="courshtml.xpr">
+        <folder name="DTDs">
+            <file name="chapitre15.dtd"/>
+            <file name="cours20.dtd"/>
+        </folder>
+        <folder name="Feuilles XSL">
+            <file name="chapitre15.xsl"/>
+            <file name="cours20.xsl"/>
+        </folder>
+        <folder name="Sources XML">
+            <file name="cadres.xml"/>
+            <file name="cours.xml"/>
+            <file name="css1.xml"/>
+            <file name="css2.xml"/>
+            <file name="cssintro.xml"/>
+            <file name="forms.xml"/>
+            <file name="intro.xml"/>
+            <file name="liens.xml"/>
+            <file name="listes.xml"/>
+            <file name="modeles.xml"/>
+            <file name="texte.xml"/>
+            <file name="video.xml"/>
+        </folder>
+    </projectTree>
+</project>

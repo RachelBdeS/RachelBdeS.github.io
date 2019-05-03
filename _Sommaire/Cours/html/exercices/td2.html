@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<title>Travaux dirigés</title>
+</head>
+
+<body>
+
+<h1>Travaux dirigés</h1>
+
+<h2>I&nbsp;Les liens</h2>
+
+<h3>I.1.&nbsp;Lien externe</h3>
+
+<p>Créer une page HTML "basique" comportant un paragraphe contenant un lien
+externe</p>
+
+<p><a href="../liens.html#exoliens">Retour au cours</a></p>
+
+<h3>I.2&nbsp;Liens relatifs et listes</h3>
+
+<p> Créer une structure de répertoires en arbre à deux branches&nbsp;:<p>
+<table border="1">
+	   <tr>
+	   	   <th colspan="2"><p>répertoire <code>racine</code><br><small><i>index.html</i></small><br>
+		   <big><big><big><big>&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;\&nbsp;&nbsp;&nbsp;</big></big></big></big></p></th>
+	   </tr>
+	   <tr>
+	   	   <td align="center"><p>répertoire <code>dossier1</code><br><small><i>fic1.html</i></small></p>
+		   				  <p>|</p>
+			   <p>répertoire <code>dossier3</code><br><small><i>fic3.html</i></small></p></td>
+		   <td align="center"><p>répertoire <code>dossier2</code><br><small><i>fic2.html</i></small></p>
+		   				  <p>|</p>
+			   <p>répertoire <code>dossier4</code><br><small><i>fic4.html</i></small></p></td>
+</table>
+
+<p>Créer, pour chaque fichier, une liste non ordonnée de liens relatifs vers chacun des autres fichiers.</p>
+
+<p>Créer une liste non ordonnée imbriquée dans une liste numérotée imbriquée dans une liste non ordonnée.</p>
+
+<p><a href="../listes.html#exolistes">Retour au cours</a></p>
+
+<h2>II.&nbsp;Tableaux</h2>
+
+<h3>II.1&nbsp;Manipulation de cellules en long, en large et... non, pas en travers</h3>
+
+<p>Reconstituer le tableau suivant&nbsp;:</p><!--, utilisant&nbsp;:
+<ol>
+	<li>les balises
+			<ul>
+				<li><code>&lt;thead&gt;</code></li>
+				<li><code>&lt;tbody&gt;</code>,</li>
+				<li><code>&lt;th&gt;</code></li>
+				<li><code>&lt;td&gt;</code></li>
+			</ul>
+	</li>
+	<li>les attributs
+			<ul>
+				<li><code>width</code></li>
+				<li><code>align</code></li>
+				<li><code>valign</code></li>
+				<li><code>border</code></li>
+				<li><code>colspan</code></li>
+				<li><code>rowspan</code></li>
+			</ul>
+	</li>
+</ol>-->
+
+<table align="center" border="1" width="90%">
+	   	   <thead>
+		   	   <tr>
+	   	   		  <th>Titre1</th><th>Titre2</th><th>Titre3</th>
+			   </tr>				  
+			</thead>
+			<tbody>
+					<tr>
+						<td>Cellule simple</td>
+						<td>Cellule simple</td>
+						<td>Cellule simple</td>
+					</tr>
+				   <tr>
+		   			   <td colspan="2" align="right">Deux colonnes assemblées</td>
+					   <td>Cellule simple</td>
+					</tr>
+					<tr>
+						<td>Cellule simple</td>
+						<td>Cellule simple</td>
+						<td rowspan="2" valign="bottom">Deux lignes assemblées</td>			
+					</tr>
+					<tr>
+						<td>Cellule simple</td>
+						<td>Cellule simple</td>
+					</tr>
+					<tr>
+						<td>Cellule simple</td>
+						<td colspan="2" rowspan="2" align="center" valign="top">Deux lignes et deux colonnes</td>
+					</tr>
+					<tr>
+						<td>Cellule simple</td>
+					</tr>										
+			</tbody>
+</table>
+
+<p>On n'essaiera pas de tout faire à la fois&nbsp;!</p>
+
+<ol>
+	<li> Déclarer un tableau de largeur 90% de la largeur de la fenêtre, aligné au centre, avec une bordure de 1</li>
+	<li> Déclarer un entête au tableau (balise <code>&lt;thead&gt;</code>), constitué d'une ligne de trois colonnes
+		 de type header</li>
+	<li> Déclarer un <code>&lt;tbody&gt;</code></li>
+	<li> Déclarer une première ligne constituée de trois cellules simples</li>
+	<li> Déclarer la deuxième ligne constituée de deux colonnes assemblées, et d'une troisième colonne</li>
+	<li> Aligner le texte à droite dans la première cellule de la ligne</li>
+	<li> Déclarer une troisième "ligne" constituée de deux cellules simples, et d'une cellule assemblant deux lignes</li>
+	<li> Aligner le texte en bas dans la dernière colonne</li>
+	<li> Déclarer une quatrième ligne constituée de deux cellules simples (expérimenter ce qui se passe en déclarant une cellule de moins, ou une cellule de plus&nbsp;; interpréter)</li>
+	<li> Déclarer une cinquième ligne constituée d'une cellule simple et d'une cellule regroupant deux colonnes et deux lignes</li>
+	<li> Aligner le texte au centre et en haut dans la dernière cellule</li>
+	<li> Compléter le tableau par une dernière ligne. Combien faut-il de cellules&nbsp;?</li>
+</ol>
+
+<p>Essayer sur le tableau précédent les effets des balises et attributs vus en cours.</p>
+
+<p><a href="../listes.html#exotableau">Retour au cours</a></p>
+
+
+</body>
+</html>

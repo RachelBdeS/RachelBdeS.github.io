@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <link href="./css/AFPA_Web_Partie3_a.css" rel="stylesheet">
+        <title>Affichage du navigateur (obsolete)</title>
+    </head>
+    <body>
+      <a href="#" class="lien" onMouseOver="show_msg_in_Status()"></a>
+      <h3>Ceci est une technique désuète et peu recommendable selon <a href="https://developer.mozilla.org/fr/docs/Web/HTTP/Detection_du_navigateur_en_utilisant_le_user_agent">developer.mozilla.org</a></h3>
+      <p>Votre navigateur est de la marque <span></span></p>
+      <p>Son numéro de version est <span></span></p>
+      <span class="statusbar"></span>
+    </body>
+    <script>
+      window.onload=function() {
+        
+        if (document.querySelector("p span")!=null && document.querySelector("p span")!=undefined) {
+          document.querySelector("p span").innerHTML=navigator.userAgent;
+          if (document.querySelectorAll("p span")[1]!=null && document.querySelectorAll("p span")[1]!=undefined) {
+            document.querySelectorAll("p span")[1].innerHTML=navigator.appVersion;
+          }
+        }
+        show_msg_in_Status("la définition de votre écran est de "+screen.width+" par "+screen.height);
+      }
+      
+      function show_msg_in_Status(msg) {
+        window.status=msg;
+        document.body.innerHTML+="<span class='statusbar'>"+msg+"</span>";
+        return msg;
+      }
+    </script>
+</html>

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="texte">Cours de HTML</cours>
+	<entete>
+		<titre>Mise en forme de texte</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre présente le formatage du texte en HTML.</resume>
+		<motsclefs>html, base, concept, introduction, balise, texte, font</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="intro" titre="Introduction">
+			<paragraphe>
+				<texte>À l'origine, <code type="langage">HTML</code> devait décrire la structure du texte sans imposer sa représentation&#160;physique qui devait rester le choix de l'utilisateur et de son navigateur (voir <reference href="intro.html">le premier chapitre</reference>). Pour décrire la structure du texte, c'est à-dire la nature du contenu (nom, adresse...) on parle de formatage logique. Pour décrire la représentation physique du texte (gras, italique, taille des caractères...) on parle de formatage physique. Ce second type de formatage, on le rappelle, n'est pas à conseiller, sauf s'il faut assurer la compatibilité avec les plus vieux navigateurs.</texte>
+				<texte>Ce cours va présenter ces deux types de formatage et les balises qui leur sont associées.</texte>
+			</paragraphe>
+		</partie>
+		<partie ancre="logique" titre="Formatage logique">
+			<section ancre="titres" titre="Titre et sous-titre">
+				<paragraphe>
+					<texte>Il s'agit ici des titres qui s'afficheront dans la page (et non dans la barre de titre comme la balise <code><![CDATA[<title>]]></code> précédemment)&#160;: ce sont les en-têtes de sections ou paragraphes.</texte>
+					<texte>Il existe six niveaux de titres d'importance décroissante&#160;: <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>.</texte>
+				</paragraphe>
+				<paragraphe>
+					<texte>Exemple et code source avec chaque balise TITRE&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="niveau"><texte>Niveau de titre</texte></colonne>
+							<colonne id="effet"><texte>Effet en Times New Roman</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="niveau"><texte><code><![CDATA[<h6>Titre de niveau 6</h6>]]></code></texte></colonne>
+							<colonne headers="effet"><image alt="Titre 6" hauteur="15" largeur="80" src="exemples/titre6.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="niveau"><texte><code><![CDATA[<h5>Titre de niveau 5</h5>]]></code></texte></colonne>
+							<colonne headers="effet"><image alt="Titre 5" hauteur="17" largeur="97" src="exemples/titre5.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="niveau"><texte><code><![CDATA[<h4>Titre de niveau 4</h4>]]></code></texte></colonne>
+							<colonne headers="effet"><image alt="Titre 4" hauteur="19" largeur="120" src="exemples/titre4.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="niveau"><texte><code><![CDATA[<h3>Titre de niveau 3</h3>]]></code></texte></colonne>
+							<colonne headers="effet"><image alt="Titre 3" hauteur="21" largeur="137" src="exemples/titre3.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="niveau"><texte><code><![CDATA[<h2>Titre de niveau 2</h2>]]></code></texte></colonne>
+							<colonne headers="effet"><image alt="Titre 2" hauteur="27" largeur="185" src="exemples/titre2.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="niveau"><texte><code><![CDATA[<h1>Titre de niveau 1</h1>]]></code></texte></colonne>
+							<colonne headers="effet"><image alt="Titre 1" hauteur="38" largeur="245" src="exemples/titre1.gif"/></colonne>
+						</ligne>
+						<legende>Les niveaux de titre.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<section ancre="paragraphes" titre="Paragraphes">
+				<paragraphe ancre="p" titre="La balise &lt;p&gt;">
+					<liste type="ordonnee">
+						<item>
+							<texte><valeur>Fonction</valeur>&#160;: Un paragraphe comme celui que vous lisez est délimité par les balises <code><![CDATA[<p>]]></code> et <code><![CDATA[</p>]]></code> (voir le source de cette page). La balise <code><![CDATA[<p>]]></code> provoque un saut de ligne avant le paragraphe. Un paragraphe ne peut en contenir un autre (le navigateur les interprète comme des paragraphes successifs...).</texte>
+						</item>
+						<item><texte><valeur>Attributs</valeur>&#160;: Attributs de la balise <code><![CDATA[<p>]]></code></texte>
+							<tableau>
+								<ligne type="header">
+									<colonne id="attr_p"><texte> Attribut </texte></colonne>
+									<colonne id="valeur_p"><texte> Valeur(s) </texte></colonne>
+								</ligne>
+								<ligne>
+									<colonne headers="attr_p"><texte><code>align</code></texte></colonne>
+									<colonne headers="valeur_p">
+										<texte><code>left</code>(par défaut)</texte>
+										<texte><code>right</code></texte>
+										<texte><code>center</code></texte>
+										<texte><code>justify</code></texte>
+									</colonne>
+								</ligne>
+								<legende>Attribut de la balise <code><![CDATA[<p>]]></code>. Cet attribut n'est pas conforme au <code type="langage">HTML</code> strict.</legende>
+							</tableau>
+						</item>
+					</liste>
+				</paragraphe>
+				<paragraphe ancre="br" titre="Rupture de ligne: la balise &lt;br&gt;">
+					<liste type="ordonnee">
+						<item>
+							<texte><valeur>Fonction</valeur>&#160;: Force un retour en début de ligne suivante à l'intérieur d'un même paragraphe. La balise fermante est facultative.</texte>
+						</item>
+						<item>
+							<texte><valeur>Attributs</valeur>&#160;: Attributs de la balise <code><![CDATA[<br>]]></code></texte>
+							<tableau>
+								<ligne type="header">
+									<colonne id="attr_br"><texte>Attribut</texte></colonne>
+									<colonne id="effet_br"><texte>Effet</texte></colonne>
+									<colonne id="valeur_br"><texte>Valeur(s)</texte></colonne>
+								</ligne>
+								<ligne>
+									<colonne headers="attr_br"><texte><code>clear</code></texte></colonne>
+									<colonne headers="effet_br"><texte>répartit le texte autour d'une image flottante ou d'un autre objet</texte></colonne>
+									<colonne headers="valeur_br">
+										<texte><code>all</code></texte>
+										<texte><code>left</code></texte>
+										<texte><code>right</code></texte>
+									</colonne>
+								</ligne>
+								<legende>Attribut de la balise <code><![CDATA[<br>]]></code>. Cet attribut n'est pas conforme au <code type="langage">HTML</code> strict.</legende>
+							</tableau>
+						</item>
+					</liste>
+				</paragraphe>
+			</section>
+			<section ancre="div" titre="Les balises &lt;div&gt; et &lt;span&gt;">
+				<paragraphe>
+					<texte>Ces balises jouent un rôle particulier. Elles permettent de découper l'information en unités logiques, et sont fortement utilisées avec des feuilles de style. Par exemple, on peut scinder un document <code type='typefichier'>HTML</code> avec deux balises <code><![CDATA[<div>]]></code> en deux parties, une présentant... une table des matières, et l'autre présentant un contenu de cours (<autrelangue>cf</autrelangue>. le code source de cette page&#160;!). La balise <code><![CDATA[span]]></code> permet quant à elle une structuration interne à un paragraphe. Par exemple, on peut indiquer un changement momentané de langage utilisé avec l'exemple suivant&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="p">Hamlet a dit <element nom="span" enligne="oui"><attribut nom="lang">en</attribut>"To be or not to be"</element>.</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section ancre="autresbalises" titre="Autres balises">
+				<paragraphe>
+					<tableau>
+						<ligne type="header">
+							<colonne id="balise"><texte>Balise</texte></colonne>
+							<colonne id="sens"><texte>Signification</texte></colonne>
+							<colonne id="effect"><texte>Effet</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;em&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>emphasis</texte></colonne>
+							<colonne headers="effect"><image alt="emphasis" hauteur="20" largeur="112" src="exemples/em.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;strong&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>fort</texte></colonne>
+							<colonne headers="effect"><image alt="strong" hauteur="19" largeur="121" src="exemples/strong.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;cite&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>citation brève</texte></colonne>
+							<colonne headers="effect"><image alt="cite" hauteur="19" largeur="113" src="exemples/cite.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;dfn&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>définition</texte></colonne>
+							<colonne headers="effect"><image alt="dfn" hauteur="18" largeur="113" src="exemples/dfn.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;code&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>extrait de programme</texte></colonne>
+							<colonne headers="effect"><image alt="code" hauteur="15" largeur="156" src="exemples/code.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;samp&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>sample&#160;: échantillon</texte></colonne>
+							<colonne headers="effect"><image alt="samp" hauteur="18" largeur="158" src="exemples/samp.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;kbd&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte> Keyboard(clavier)</texte></colonne>
+							<colonne headers="effect"><image alt="kbd" hauteur="20" largeur="156" src="exemples/kbd.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;var&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>variable ou argument</texte></colonne>
+							<colonne headers="effect"><image alt="var" hauteur="21" largeur="119" src="exemples/var.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;abbr&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>abréviation</texte></colonne>
+							<colonne headers="effect"><image alt="abbr" hauteur="21" largeur="104" src="exemples/abbr.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;acronym&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>acronyme</texte></colonne>
+							<colonne headers="effect"><image alt="acronym" hauteur="23" largeur="108" src="exemples/acronym.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;sub&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>subscript/indice</texte></colonne>
+							<colonne headers="effect"><image alt="sub" hauteur="25" largeur="98" src="exemples/sub.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;sup&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>superscript/exposant</texte></colonne>
+							<colonne headers="effect"><image alt="sup" hauteur="26" largeur="94" src="exemples/sup.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="balise"><texte><code>&lt;pre&gt;</code></texte></colonne>
+							<colonne headers="sens"><texte>preformatted</texte></colonne>
+							<colonne headers="effect"><image alt="pre" hauteur="23" largeur="156" src="exemples/pre.gif"/></colonne>
+						</ligne>
+						<legende>Balises de formatage logique.</legende>
+					</tableau>
+					<texte>La touche "Entrée" (le "retour chariot" du temps des machines à écrire) est codée en <code type="langage">ASCII</code> par <code>13</code>. Le navigateur ne le considère pas comme un retour à la ligne mais comme un simple séparateur comme un blanc. Sans demande particulière, le navigateur ignore votre formatage initial.</texte>
+					<texte><code><![CDATA[<PRE> ]]></code> force le navigateur à respecter les retours à la ligne et les blancs consécutifs.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="hr" titre="La balise &lt;hr&gt;">
+				<paragraphe>
+					<texte>Elle est destinée à séparer différentes parties d'un document au moyen d'un trait horizontal de longueur et d'épaisseur variables, et généralement pourvu d'un ombrage. Il s'agit d'un conteneur vide dont la balise fermante est facultative (et même jamais utilisée en <code type="langage">HTML</code>).</texte>
+					<texte>Cette balise possède des attributs, mais leur emploi est déconseillé par le W3C&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_hr"><texte>attribut</texte></colonne>
+							<colonne id="effet_hr"><texte>effet</texte></colonne>
+							<colonne id="valeur_hr"><texte>valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_hr"><texte><code>noshade</code></texte></colonne>
+							<colonne headers="effet_hr"><texte>suppression de l'ombrage</texte></colonne>
+							<colonne headers="valeur_hr"><texte>booléen, sa présence seule supprime l'ombrage</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_hr"><texte><code>align</code></texte></colonne>
+							<colonne headers="effet_hr"><texte>alignement</texte></colonne>
+							<colonne headers="valeur_hr">
+								<texte><code>left</code> (valeur par défaut)</texte>
+								<texte><code>right</code></texte>
+								<texte><code>center</code></texte>
+								<texte><code>justify</code></texte>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_hr"><texte><code>size</code></texte></colonne>
+							<colonne headers="effet_hr"><texte>épaisseur du trait</texte></colonne>
+							<colonne headers="valeur_hr"><texte>nombre en pixels</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_hr"><texte><code>width</code></texte></colonne>
+							<colonne headers="effet_hr"><texte>largeur du trait</texte></colonne>
+							<colonne headers="valeur_hr"><texte>en pixels ou en pourcentage de la fenêtre du navigateur (ajouter le symbole %)</texte></colonne>
+						</ligne>
+						<legende>Les attributs (obsolètes) de la balise <code><![CDATA[<hr>]]></code>.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<exercice titre="Formatage logique" ancre="exoformatagelogique">
+				<enonce href="exercices/td1.html"/>
+				<correction href="exercices/td1cor.html"/>
+			</exercice>
+		</partie>
+		<partie ancre="physique" titre="Formatage physique">
+			<paragraphe>
+				<texte>Toutes les balises de cette partie sont obsolètes dans le <code type="langage">HTML 4.01</code> strict.</texte>
+			</paragraphe>
+			<section ancre="police" titre="Mise en forme de la police">
+				<paragraphe ancre="policedefaut" titre="Police par défaut">
+					<texte>Les navigateurs utilisent par défaut une police proportionnelle&#160;: Times Roman sur les Macintosh, et Times New Roman sur les PC. En tant qu'utilisateur (surfeur&#160;!), il vous est possible de modifier cette police par défaut. Cela rend la tâche des développeurs de site d'autant plus ardue...</texte>
+				</paragraphe>
+				<paragraphe ancre="font" titre="La balise &lt;font&gt;">
+					<texte>Cette balise est déconseillée, utiliser plutôt les feuilles de style.</texte>
+					<texte>Pour modifier une partie du texte, on écrira par exemple&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="font"><attribut nom="face">Verdana, Arial, Helvetica, sans-serif</attribut><attribut nom="size">5</attribut><attribut nom="color">red</attribut>mon exemple</element>
+					</exemple>
+					<texte>qui produira l'effet suivant&#160;:</texte>
+					<image alt="Utilisation de la balise font" hauteur="36" largeur="172" src="exemples/font.gif"/>
+					<liste>
+						<item><texte>L'attribut <code>face</code>&#160;: sa valeur est une liste de polices séparées par des virgules, c'est la première de cette liste présente sur le navigateur qui sera utilisée. Il est recommandé de spécifier en dernier lieu une famille de polices dite "générique" (nous y reviendrons dans le cours sur le <code type="langage">CSS</code>).</texte></item>
+						<item><texte>L'attribut <code>size</code>&#160;: Il existe 7 tailles, la taille par défaut est 3. On peut spécifier une taille relative à l'aide d'un incrément signé, par exemple <code>size="+2"</code>, <code>size="-1"</code>.</texte></item>
+						<item><texte>L'attribut <code>color</code>&#160;: A l'aide d'un nom de couleur ou d'un code RGB (voir <reference href="#couleur">paragraphe sur la couleur</reference>).</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe ancre="basefont" titre="La balise &lt;basefont&gt;">
+					<texte>Elle est à déconseiller. Elle définit la taille du texte du conteneur dans laquelle elle est citée (seul attribut <code>size</code>).</texte>
+				</paragraphe>
+				<paragraphe ancre="autresphysique" titre="Autres balises">
+					<tableau>
+						<ligne type="header">
+							<colonne id="baliseb"><texte>Balise</texte></colonne>
+							<colonne id="sensb"><texte>Signification</texte></colonne>
+							<colonne id="effectb"><texte>Effet</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<b> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>gras</texte></colonne>
+							<colonne headers="effectb"><image alt="b" hauteur="22" largeur="122" src="exemples/b.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<i> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>italique</texte></colonne>
+							<colonne headers="effectb"><image alt="i" hauteur="21" largeur="121" src="exemples/i.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<tt> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>télétype&#160;: police à pas fixe</texte></colonne>
+							<colonne headers="effectb"><image alt="tt" hauteur="17" largeur="158" src="exemples/tt.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<big> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>taille supérieure à la taille courante</texte></colonne>
+							<colonne headers="effectb"><image alt="big" hauteur="21" largeur="135" src="exemples/big.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<small> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>taille inférieure à la taille courante</texte></colonne>
+							<colonne headers="effectb"><image alt="small" hauteur="17" largeur="100" src="exemples/small.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<s> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>ou <code>&lt;strike&gt;</code></texte></colonne>
+							<colonne headers="effectb"><image alt="s" hauteur="20" largeur="107" src="exemples/s.gif"/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="baliseb"><texte><code><![CDATA[<u> ]]></code></texte></colonne>
+							<colonne headers="sensb"><texte>underline/soulignement</texte></colonne>
+							<colonne headers="effectb"><image alt="u" hauteur="24" largeur="114" src="exemples/u.gif"/></colonne>
+						</ligne>
+						<legende>Balises de formatage physique.</legende>
+					</tableau>
+					<texte>La balise <code><![CDATA[<center>]]></code> permet de centrer son contenu. Il est recommandé d'utiliser plutôt l'attribut <code><![CDATA[align="center"]]></code> ou, mieux, une feuille de style.</texte>
+					<texte><code><![CDATA[<blockquote>]]></code>, prévu pour des citations de plusieurs lignes, cette balise permet de produire un effet d'indentation sur les deux marges latérales.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie ancre="entites" titre="Les entités de caractères">
+			<section ancre="rappel" titre="Rappel">
+				<paragraphe>
+					<texte>Il existe plusieurs codifications des caractères&#160;: ASCII sous MS-DOS, ANSI sous Windows&#160;; les Macintosh ont leur propre système et les grosses machines IBM se servent de l'EBCDIC.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="diacritiques" titre="Nécessité d'un codage supplémentaire: les diacritiques">
+				<paragraphe>
+					<texte>Les diacritiques sont les caractères constitués d'une lettre modifiée par un signe particulier&#160;: accent, tréma, cédille comme é, ï, ç <autrelangue type="latin">etc</autrelangue>.</texte>
+					<texte><code type="langage">HTML</code> utilise la codification ASCII qui ne comporte aucun caractère accentué. Il faut donc définir une convention de codage supplémentaire pour faire apparaître ces caractères.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="presentation" titre="Présentation d'une entité de caractère">
+				<paragraphe>
+					<texte>Une entité de caractère débute par "<code><![CDATA[&]]></code>", et finit par "<code><![CDATA[;]]></code>". Exemple le "é" est codé "<code><![CDATA[&eacute;]]></code>".</texte>
+					<texte>Voici une petite liste des principaux caractères accentués&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="carac1"><texte>Caractère</texte></colonne>
+							<colonne id="abbr1"><texte>Entité</texte></colonne>
+							<colonne id="carac2"><texte>Caractère</texte></colonne>
+							<colonne id="abbr2"><texte>Entité</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>à</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&agrave;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>â</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&acirc;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ä</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&auml;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>æ</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&aelig;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>é</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&eacute;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>è</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&egrave;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ê</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&ecirc;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>ë</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&euml;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ù</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&ugrave;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>û</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&ucirc;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ü</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&uuml;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>ö</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&ouml;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ï</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&iuml;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>î</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&icirc;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ç</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&ccedil;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>œ</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&oelig;]]></code></texte></colonne>
+						</ligne>
+						<legende>Principales entités de caractères utilisées en français.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<section ancre="reserves" titre="Les caractères réservés">
+				<paragraphe>
+					<texte>Les caractères comme "<code><![CDATA[<]]></code>", "<code><![CDATA[>]]></code>" et "<code><![CDATA[&]]></code>" ont une signification spécifique&#160;: le inférieur désigne le début d'une balise, etc. Codés tels quels, le navigateur est incapable de les faire apparaître. Il a donc fallu leur adjoindre une codification supplémentaire&#160;: "<code><![CDATA[<]]></code>" est codé <code><![CDATA[&lt;]]></code>, "<code><![CDATA[>]]></code>" est codé <code><![CDATA[&gt;]]></code>, "<code><![CDATA[&]]></code>" est codé <code><![CDATA[&amp;]]></code>.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="nbsp" titre="L'entité &amp;nbsp;">
+				<paragraphe>
+					<texte>Ce caractère permet d'interdire la césure entre deux mots, par exemple&#160;: "<code><![CDATA[100&#160;&euro;]]></code>" ou d'ajouter des blancs contigus.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie ancre="couleur" titre="Codage de la couleur">
+			<paragraphe>
+				<texte><code type="langage">HTML</code> propose deux façons de coder unecouleur&#160;:</texte>
+			</paragraphe>
+			<section ancre="couleurnom" titre="Par son nom">
+				<paragraphe>
+					<texte>Il existe une liste de couleurs reconnues par la plupart des navigateurs. Les seize couleurs simples sont données dans le tableau ci-dessous donné dans la section <reference href="#couleurssimples">"Les seize couleurs simples"</reference>. Il en existe d'autres aux noms plus poétiques comme&#160;:</texte>
+					<image alt="exemples de couleurs complexes" hauteur="38" largeur="542" src="exemples/couleurs.png"/>
+					<texte>Cependant, le rendu de ces couleurs dépend parfois fortement du navigateur et de la plateforme utilisée.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="couleurrgb" titre="Par le triplet RGB">
+				<paragraphe>
+					<texte>Toute couleur peut être décomposée en trois couleurs&#160;: rouge, vert, bleu (Red, Green, Blue d'où RGB) d'intensité convenable. Cette intensité est exprimée en un nombre compris entre 0 et 255. Ce nombre est codé en hexadécimal&#160;: il est alors compris entre <code>0</code> et <code>FF</code>.</texte>
+					<image alt="Nuancier" hauteur="166" largeur="200" src="exemples/nuancier.gif"/>
+					<texte>Par exemple, <code>#BA1B85</code> code une intensité de BA (186) pour le rouge, 1B (27) pour le vert, 85 (133) pour le bleu qui donne&#160;:</texte>
+					<image alt="Melange de couleurs" hauteur="37" largeur="494" src="exemples/melange.png"/>
+				</paragraphe>
+			</section>
+			<section ancre="couleurssimples" titre="Les seize couleurs simples">
+				<paragraphe>
+					<texte>Voici les seize couleurs de base&#160;:</texte>
+					<image alt="Couleurs simples" hauteur="420" largeur="496" src="exemples/simples.png"/>
+					<texte>Vous aurez noté la couleur noire&#160;!</texte>
+				</paragraphe>
+			</section>
+			<exercice titre="Mise en forme de texte" ancre="exotexte">
+				<enonce href="exercices/td1.html"/>
+				<correction href="exercices/td1cor2.html"/>
+			</exercice>
+		</partie>
+	</corpus>
+</chapitre>

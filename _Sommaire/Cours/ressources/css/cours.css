@@ -1,0 +1,360 @@
+A:link		{	color: blue;
+				background: transparent;
+				text-decoration: none}
+
+A:visited	{	color: maroon;
+				background: transparent;
+				text-decoration: none}
+
+A:active	{	color: green;
+				background: transparent;
+				text-decoration: none}
+
+A:hover		{	text-decoration: underline;
+				background-color: #99CC00;
+				color: blue}
+
+body		{
+	font-family: Verdana, Arial, sans-serif;
+}
+
+H1			{	margin: 0em 0% 0em 0%;
+				font-family: Arial,sans-serif;
+				font-size: 40px;
+				text-align: left}
+				
+H2{
+	background-color : transparent;
+}
+
+h4, h5{
+	display: block;
+}
+
+img	{
+	border : none;
+	position: relative;
+	left: 33%;
+	margin-bottom : 10px;
+	margin-top : 10px;
+}
+
+P			{	margin: 0em 2% 0em 2%;
+				line-height: 110%;
+				text-align: justify;
+				text-indent: 2%;			
+				font-size: 15px;
+				font-family: Verdana, Arial, sans-serif;
+}
+
+table		{
+	margin: 1em;
+}
+				
+TD			{	line-height: 1;
+				font-size: 14px;
+				font-family: Verdana, Arial, sans-serif}
+				
+TH			{	font-size: 17px;
+				font-family: Arial, sans-serif}
+				
+ul,ol			{
+	font-size: 14px;
+	font-family: Verdana, Arial, sans-serif;
+	list-style-position : outside;
+}
+
+/* Classes */
+
+div.entete{
+/*	position: absolute;
+	height: 120px;*/
+}
+
+.basdepage		{	text-indent: 0%;
+						font-style: italic;
+						position: relative;
+						top: 0px;
+						left: 0px;
+					}
+
+.index		{	display:	none
+			}
+
+.entreeindex	{
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-indent: 0
+}
+
+caption, p.legende	{
+	font-size: 12px;
+	margin-bottom: 1em;
+}
+
+p.basdepage	{	text-indent: 0%;
+				}
+
+code.langage	{
+	background-color: #CCFFFF;
+	color : Black;
+}
+
+code.code		{
+	font-family: Courier, Monotype, monospace;
+	color: green;
+	background : transparent;
+}
+
+code.logiciel	{
+					font-family: Arial, sans-serif;
+					font-weight: bold;
+				}
+
+code.typefichier	{
+	background-color: #FFCCCC;
+	color : Black;
+}
+
+p.css	{
+	background-color : #99FF99;
+	font-family: "Courier New", Courier, Monotype, monospace;
+	text-indent: 0%;
+	border-style: inset;
+	border-width: 3px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color : black;
+}
+
+p.css span.selecteur{
+	color : blue;
+	font-weight : bold;
+	background-color : transparent;
+}
+
+p.css span.csspropriete{
+	color: black;
+	background-color : transparent;
+}
+
+p.css span.cssvaleur{
+	color: red;
+	background-color : transparent;
+}
+
+p.html				{
+	background-color: #EEFFEE;
+	font-family: "Courier New", Courier, Monotype, monospace;
+	text-indent: 0%;
+	border-style: inset;
+	border-width: 3px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	color : Black;
+}
+
+p.html span.tag		{
+	color: red;
+	background-color : transparent;
+	font-size: 80%;
+}
+
+p.html span.commentaire	{
+	color: gray;
+	background-color : transparent;
+}
+
+p.html span.doctype{
+	color: green;
+	background-color : transparent;
+}
+
+p.html span.contenu		{
+	color: black;
+	background-color : transparent;
+}
+
+p.javascript{
+	background-color: #CCCC66;
+	color: Black;
+	font-family: monospace;
+/*	font-size: 80%;*/
+	text-indent: 0%;
+	border-style: inset;
+	border-width: 3px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+p.javascript span.declaration{
+	color: Blue;
+	font-weight: bold;
+}
+
+p.javascript span.variable{
+	font-style: italic;
+}
+
+p.javascript span.propriete{
+	font-weight: bold;
+	color: Maroon;
+}
+
+p.javascript span.instruction{
+	font-weight: bold;
+}
+
+p.javascript span.fonction{
+	color: blue;
+	font-weight: bold;
+}
+
+table.tableau		{	text-align: center;
+					}
+
+.valeur		{
+	font-weight: bold;
+	color: maroon;
+	background-color : transparent;
+}
+
+.autrelangue	{	font-style: italic;
+				}
+				
+tr.titreentete
+{
+	text-align : left;
+}
+
+img.illustration{
+	border : double;
+	margin : 10px;
+	position: relative;
+	left: 0%;
+}
+
+span.image{
+	text-align : center;
+}
+
+span.tableau{
+	text-align: center;
+}
+
+ul.sanspuce{
+	list-style-type : none;
+}
+
+p.lienxml{
+	float: right;
+}
+
+td.lienxml{
+	text-align : right;
+}
+
+span.lienxml{
+	color : red;
+	background-color : transparent;
+	font-weight : bolder;
+	font-size: 120%;
+	font-family : cursive;
+	float: right;
+	border-color : red;
+	border-top-style : solid;
+	border-bottom-style: solid;
+	cursor : pointer;
+}
+
+/* Gestion de l'affichage ou non des lignes de la TdM */
+h4.tablematieres{
+	display: none;
+	background-color: silver;
+	position: relative;
+	left: 33%;
+	top: 0%;
+	color : inherit;
+}
+
+h5.tablematieres{
+	display: none;
+	background-color: silver;
+	position: relative;
+	left: 66%;
+	top: 0%;
+	color : inherit;
+}
+
+p.xml				{	background-color: #EEFFEE;
+						color: black;
+						font-family: Courier, Monotype, monospace;
+						font-size: 80%;
+						text-indent: 0%;
+						border-right: 3px inset;
+						border-top: 3px inset;
+						border-left: 3px inset;
+						border-bottom: 3px inset;
+						margin-top: 1em;
+						margin-bottom: 1em;
+}
+
+p.xml	span.enteteexemplexml	{
+	color: blue;
+	background : transparent;
+}
+
+p.xml span.tag		{
+	color: red;
+	background : transparent;
+}
+
+p.xml span.commentaire	{
+	color: gray;
+	background : transparent;
+}
+
+p.xml span.contenu		{
+	color: black;
+	background : transparent;
+}
+
+p.xml span.exemplecdata	{
+	color: gray;
+	background : transparent;
+}
+
+p.xml span.exempledtdexterne	{
+	color: green;
+	background : transparent;
+}
+
+p.xml span.exempledtdinterne	{
+	color: green;
+	background : transparent;
+}
+
+p.xml span.exempledtdelement	{
+	color: green;
+	background : transparent;
+}
+
+p.xml span.exempledtdattribut	{
+	color: teal;
+	background : transparent;
+}
+
+p.xml span.exemplexsl			{
+	color: navy;
+	background : transparent;
+}
+
+p.xml span.exemplehtml			{
+	color: maroon;
+	background : transparent;
+}
+
+p.html				{
+	background-color: #EEEEFF;
+	color : Black;
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <link href="./css/AFPA_Web_Partie2.css" rel="stylesheet">
+  <!-- Chemin absolue avec WAMP: /rbaretto/AFPA_Web_Partie2_InscriptionAstro/css/style.css -->
+  <title>InscriptionAstros</title> 
+</head>
+<body>
+  <header>
+    <a href="#"><h1>Astro</h1></a>
+    <h2>Inscription</h2>
+  </header>
+  <main>
+    <form name="infos", class="cadre">
+      <p><input id="NomUtilisateur" type="text" tabindex="1" placeholder="Nom" autofocus></p>
+      <p><input id="PrenomUtilisateur" type="text" tabindex="2" placeholder="Prénom"></p>
+
+      <div class="date" tabindex="99">
+        <select id="Jour" tabindex="3">
+          <option selected disabled>Jour</option>
+          <OPTION>1</OPTION>
+          <OPTION>2</OPTION>
+          <OPTION>3</OPTION>
+          <OPTION>4</OPTION>
+          <OPTION>5</OPTION>
+          <OPTION>6</OPTION>
+          <OPTION>7</OPTION>
+          <OPTION>8</OPTION>
+          <OPTION>9</OPTION>
+          <OPTION>10</OPTION>
+          <OPTION>11</OPTION>
+          <OPTION>12</OPTION>
+          <OPTION>13</OPTION>
+          <OPTION>14</OPTION>
+          <OPTION>15</OPTION>
+          <OPTION>16</OPTION>
+          <OPTION>17</OPTION>
+          <OPTION>18</OPTION>
+          <OPTION>19</OPTION>
+          <OPTION>20</OPTION>
+          <OPTION>21</OPTION>
+          <OPTION>22</OPTION>
+          <OPTION>23</OPTION>
+          <OPTION>24</OPTION>
+          <OPTION>25</OPTION>
+          <OPTION>26</OPTION>
+          <OPTION>27</OPTION>
+          <OPTION>28</OPTION>
+          <OPTION>29</OPTION>
+          <OPTION>30</OPTION>
+          <OPTION>31</OPTION>
+        </select>
+        <select id="Mois" tabindex="4">
+          <option selected disabled>Mois</option>
+          <option>janvier</option>
+          <OPTION>février</OPTION>
+          <OPTION>mars</OPTION>
+          <OPTION>avril</OPTION>
+          <OPTION>mai</OPTION>
+          <OPTION>juin</OPTION>
+          <OPTION>juillet</OPTION>
+          <OPTION>août</OPTION>
+          <OPTION>septembre</OPTION>
+          <OPTION>octobre</OPTION>
+          <OPTION>novembre</OPTION>
+          <OPTION>décembre</OPTION>
+        </select>
+        <select id="Annee" tabindex="5">
+          <option>1930</option>
+          <option>1931</option>
+          <option>1932</option>
+          <option>1933</option>
+          <option>1934</option>
+          <option>1935</option>
+          <option>1936</option>
+          <option>1937</option>
+          <option>1938</option>
+          <option>1939</option>
+          <option>1940</option>
+          <option>1941</option>
+          <option>1942</option>
+          <option>1943</option>
+          <option>1944</option>
+          <option>1945</option>
+          <option>1946</option>
+          <option>1947</option>
+          <option>1948</option>
+          <option>1949</option>
+          <option>1950</option>
+          <option>1951</option>
+          <option>1952</option>
+          <option>1953</option>
+          <option>1954</option>
+          <option>1955</option>
+          <option>1956</option>
+          <option>1957</option>
+          <option>1958</option>
+          <option>1959</option>
+          <option>1960</option>
+          <option>1961</option>
+          <option>1962</option>
+          <option>1963</option>
+          <option>1964</option>
+          <option>1965</option>
+          <option>1966</option>
+          <option>1967</option>
+          <option>1968</option>
+          <option>1969</option>
+          <option>1970</option>
+          <option>1971</option>
+          <option>1972</option>
+          <option>1973</option>
+          <option>1974</option>
+          <option>1975</option>
+          <option>1976</option>
+          <option>1977</option>
+          <option>1978</option>
+          <option>1979</option>
+          <option>1980</option>
+          <option>1981</option>
+          <option>1982</option>
+          <option>1983</option>
+          <option>1984</option>
+          <option>1985</option>
+          <option>1986</option>
+          <option>1987</option>
+          <option>1988</option>
+          <option>1989</option>
+          <option selected disabled>Année de naissance</option>
+          <option>1990</option>
+          <option>1991</option>
+          <option>1992</option>
+          <option>1993</option>
+          <option>1994</option>
+          <option>1995</option>
+          <option>1996</option>
+          <option>1997</option>
+          <option>1998</option>
+          <option>1999</option>
+          <option>2000</option>
+          <option>2001</option>
+          <option>2002</option>
+          <option>2003</option>
+          <option>2004</option>
+          <option>2005</option>
+          <option>2006</option>
+          <option>2007</option>
+          <option>2008</option>
+          <option>2009</option>
+          <option>2010</option>
+          <option>2011</option>
+          <option>2012</option>
+          <option>2013</option>
+          <option>2014</option>
+          <option>2015</option>
+          <option>2016</option>
+          <option>2017</option>
+          <option>2018</option>
+          <option>2019</option>
+        </select>
+      </div>
+
+      <p><input id="Pseudo" type="text" tabindex="99" placeholder="Pseudo (automatique)" readonly></p>
+
+      <div class="buttons">
+        <button id="Validation" type="button" tabindex="6" disabled>Valider</button>
+        <button id="Reset" type="reset" tabindex="7">Effacer</button>
+      </div>
+    </form>
+    Veuillez saisir, ci-dessus, vos infomations personnelles.
+  </main>
+</body>
+  
+<script>
+  
+// Déclarations
+  
+var show_errors=false;
+var nom, prenom, date, pseudo;
+var fenAccueil;
+
+// Handlers
+  
+document.forms.infos.NomUtilisateur.onfocus = function() {
+
+  this.style.color = "black";
+  this.style.fontVariant= "none";
+  
+}
+document.forms.infos.NomUtilisateur.onkeyup = function() {
+
+  document.forms.infos.Pseudo.value = calculerPseudo();
+  if (document.forms.infos.Pseudo.value!="")
+  {
+    document.forms.infos.Validation.disabled=false;
+  }
+  else {
+    document.forms.infos.Validation.disabled=true;
+  }
+  
+}
+
+document.forms.infos.PrenomUtilisateur.onfocus = function() {
+
+  this.style.color = "black";
+  this.style.fontVariant= "none";
+}
+document.forms.infos.PrenomUtilisateur.onkeyup = function() {
+
+  document.forms.infos.Pseudo.value = calculerPseudo();
+  if (document.forms.infos.Pseudo.value!="")
+  {
+    document.forms.infos.Validation.disabled=false;
+  }
+  else {
+    document.forms.infos.Validation.disabled=true;
+  }
+}
+
+document.forms.infos.Jour.onchange = function() {
+
+  this.style.color = "black";
+  if (this.value != "Jour")
+  {
+    this.style.color = "black";
+  } 
+  else {
+    this.style.color = "grey";
+  }
+  
+  document.forms.infos.Pseudo.value = calculerPseudo();
+  if (document.forms.infos.Pseudo.value!="")
+  {
+    document.forms.infos.Validation.disabled=false;
+  }
+}
+
+document.forms.infos.Mois.onchange = function() {
+
+  this.style.color = "black";
+  if (this.value != "Mois")
+  {
+    this.style.color = "black";
+  } 
+  else {
+    this.style.color = "grey";
+  }
+  
+  document.forms.infos.Pseudo.value = calculerPseudo();
+  if (document.forms.infos.Pseudo.value!="")
+  {
+    document.forms.infos.Validation.disabled=false;
+  } 
+  else {
+    document.forms.infos.Validation.disabled=true;
+  }
+}
+
+document.forms.infos.Annee.onchange = function() {
+
+  show_errors = true;
+  this.style.color = "black";
+  if (this.value != "Année de naissance") 
+  {
+    this.style.color = "black";
+  } 
+  else {
+    this.style.color = "grey";
+  }
+  
+  document.forms.infos.Pseudo.value = calculerPseudo();
+  if (document.forms.infos.Pseudo.value!="")
+  {
+    document.forms.infos.Validation.disabled=false;
+  }
+  
+}
+
+document.forms.infos.Validation.onclick = function() {
+  
+  calculValider();
+}
+
+document.forms.infos.Reset.onclick = function() {
+  document.forms.infos.NomUtilisateur.style.color = "grey";
+  document.forms.infos.PrenomUtilisateur.style.color = "grey";
+  document.forms.infos.Jour.style.color = "grey";
+  document.forms.infos.Mois.style.color = "grey";
+  document.forms.infos.Annee.style.color = "grey";
+}
+
+// Fonctions par appel
+
+function valNum(chaine) {
+  chaine = chaine.toUpperCase();
+  var valeur_de_la_lettre = "";
+  var somme_des_lettres = 0;
+  for (var i = 0; i < chaine.length; i++) {
+    valeur_de_la_lettre = chaine.charCodeAt(i);
+    somme_des_lettres += valeur_de_la_lettre - 64;
+  };
+  return somme_des_lettres;
+}
+
+function calculerSigne() {
+  var signes = new Array("Verseau", "Poisson", "Belier", "Taureau", "Gémeaux", "Cancer", "Lion", "Vierge", "Balance", "Scorpion", "Sagittaire", "Capricorne", "Verseau");
+  if (document.forms.infos.Mois.selectedIndex>0){
+    return signes[document.forms.infos.Mois.selectedIndex - 1];
+  }
+}
+
+function formOK(nom_form) {  
+  with (nom_form.NomUtilisateur)
+  {
+    value=value.trim();
+    if (value=="") 
+    {
+      if (show_errors) {style.borderColor="red"}
+      return false;
+    }
+    style.borderColor="transparent";
+  }
+  
+  with (nom_form.PrenomUtilisateur)
+  {
+    value=value.trim();
+    if (value=="") 
+    {
+      if (show_errors) {style.borderColor="red"}
+      return false;
+    }
+    style.borderColor="transparent";
+  }
+  
+  with (nom_form.Jour)
+  {
+    if (value=="Jour") 
+    {
+      if (show_errors) {style.borderColor="red"}
+      return false;
+    }
+    style.borderColor="transparent";
+  }
+  
+  with (nom_form.Mois)
+  {
+    if (value=="Mois") 
+    {
+      if (show_errors) { style.borderColor="red" }
+      return false;
+    }
+    style.borderColor="transparent";
+  }
+    
+  with (nom_form.Annee)
+  {
+    if (value=="Année de naissance") 
+    {
+      if (show_errors) { style.borderColor="red" }
+      return false;
+    }
+    style.borderColor="transparent";
+  }
+  
+  return true;
+} 
+  // Fonction à refaire selon les consignes.
+
+function calculerPseudo() {
+  
+  if (formOK(document.forms.infos)) 
+  {
+    return calculerSigne() + valNum(document.forms.infos.NomUtilisateur.value) + valNum(document.forms.infos.PrenomUtilisateur.value);
+  }
+  else {
+    return "";
+  }
+}
+  
+function calculValider() {
+  nom = document.forms.infos.NomUtilisateur.value;
+  prenom = document.forms.infos.PrenomUtilisateur.value;
+  date = document.forms.infos.Jour.value + "/" + document.forms.infos.Mois.value + "/" + document.forms.infos.Annee.value;
+  pseudo = document.forms.infos.Pseudo.value;
+  document.cookie = "infos=&nom=" + nom + "&prenom=" + prenom + "&anniv=" + date + "&pseudo=" + pseudo;
+  fenAccueil = window.open("", "_self");
+  fenAccueil.document.write(ecrireAccueil());
+}
+
+function nbJoursAnniv() {
+  
+  var strDate = getCookie("anniv");
+  var dateAnniv = parseFrenchDate (strDate, "JJ/MM/YYYY");
+  var dateCourante = new Date();
+  
+  var dAenJours = dateAnniv.getTime() / 86400000; // Code copié sans comprendre suffisement.
+  var dCenJours = dateCourante.getTime() / 86400000; // Code copié sans comprendre suffisement.
+  
+  var joursRestants = new Number(dCenJours - dAenJours).toFixed(0); // Code copié sans comprendre suffisement.
+  return joursRestants;
+}
+function parseFrenchDate(strDate, format) {
+  if (format == "JJ/MM/YYYY" && strDate.includes("/")) 
+  {
+    strDate = strDate.split("/");
+    strDate[1] = convertirMois(strDate[1]);
+    return new Date(strDate[2], strDate[1], strDate[0]);
+  } 
+  else 
+  {
+    return false;
+  }
+}
+function convertirMois(mois) {
+  
+  switch (mois.toLowerCase())
+  {
+    case "janvier": return "0";
+    case "février": return "1";
+    case "mars": return "2";
+    case "avril": return "3";
+    case "mai": return "4";
+    case "juin": return "5";
+    case "juillet": return "6";
+    case "août": return "7";
+    case "septembre": return "8";
+    case "octobre": return "9";
+    case "novembre": return "10";
+    case "décembre": return "11";
+  }
+}
+  
+function getCookie(identifier) {
+  
+  var valeur = document.cookie.split("&");
+  valeur.shift(); // (NB: Supprime le premier element d'un tableau et retourne sa valeur.)
+  var i=0;
+  
+  while (i < valeur.length && valeur[i].split("=")[0] != identifier) 
+  {
+    i++;
+  }
+  if (i < valeur.length) 
+  {
+    return valeur[i].split("=")[1];
+  } 
+  else {
+    return false;
+  }
+}
+  
+function ecrireAccueil() { 
+  contenu = "<!DOCTYPE html>";
+  contenu += "<html lang='fr'>";
+  contenu += "  <head>";
+  contenu += "    <meta charset='utf-8'>";
+  contenu += "    <link href='./css/style.css' rel='stylesheet'>";
+  contenu += "    <title>Accueil</title>";
+  contenu += "</head>";
+  contenu += "<body>";
+  contenu += "  <header>";
+  contenu += "    <a href='/'><h1>Accueil</h1></a>";
+  contenu += "  </header>";
+  contenu += "  <main>";
+  contenu += "    <table class='cadre'>";
+  contenu += "      <th colspan='2'>Vos informations</th>";
+  contenu += "      <tr>";
+  contenu += "        <td>";
+  contenu += "        Nom";
+  contenu += "        </td>";
+  contenu += "        <td>";
+  contenu += "          "+getCookie('nom');
+  contenu += "        </td>";
+  contenu += "      </tr>";
+  contenu += "      <tr>";
+  contenu += "        <td>";
+  contenu += "        Prénom";
+  contenu += "        </td>";
+  contenu += "        <td>";
+  contenu += "          "+getCookie('prenom');
+  contenu += "        </td>";
+  contenu += "      </tr>";
+  contenu += "      <tr>";
+  contenu += "        <td>";
+  contenu += "        Date de naissance";
+  contenu += "        </td>";
+  contenu += "        <td>";
+  contenu += "          " + getCookie('anniv');
+  contenu += "        </td>";
+  contenu += "      </tr>";
+  contenu += "      <tr>";
+  contenu += "        <td>";
+  contenu += "        Pseudo";
+  contenu += "        </td>";
+  contenu += "        <td>";
+  contenu += "          " + getCookie('pseudo');
+  contenu += "        </td>";
+  contenu += "      </tr>";
+  contenu += "      <tr>";
+  contenu += "        <td>";
+  contenu += "        Nombre de jours restants jusqu'au prochain anniversaire";
+  contenu += "        </td>";
+  contenu += "        <td>";
+  contenu += "          "+ nbJoursAnniv();
+  contenu += "        </td>";
+  contenu += "      </tr>";
+  contenu += "    </table>";
+  contenu += "  </main>";
+  contenu += "</body>";
+  contenu += "</html>";
+  return contenu;
+}
+</script>
+</html>

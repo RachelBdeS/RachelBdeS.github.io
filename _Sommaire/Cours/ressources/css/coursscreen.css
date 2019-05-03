@@ -1,0 +1,32 @@
+a{
+	border-bottom-width: 1px;
+	border-bottom-color: #999999;
+	border-bottom-style: dashed;
+}
+
+a:hover{
+	border: none;
+}
+
+div.tablemat{
+	position : fixed;
+	top: 10px;
+	left: 0px;
+	width: 20%;	
+	background-color: #FFFFDB;
+	color : Black;
+}
+
+.tablematieres				{
+	background-color: #FFFFDB;
+	color : Black;
+	font-family: Arial, sans-serif;
+	z-index: 2;
+}
+
+div.corpus	{
+	position: absolute;
+	left: 25%;
+	top: 10px;
+	z-index: 1;
+}

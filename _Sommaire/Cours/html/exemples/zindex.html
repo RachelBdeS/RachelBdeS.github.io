@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <title>Utilisation de z-index</title>
+    <style type="text/css">
+      <!--
+        #pile1  { 
+                    position: absolute; 
+                    left: 1cm; 
+                    top: 0cm;
+                }
+
+        #pile2  { 
+                    position: absolute; 
+                    left: 1cm;
+                    top: 7cm;
+                }
+
+        .pile   {    position: absolute;
+                     left: 0cm;
+                     top: 1cm;
+                }
+
+        .textpile{    position: absolute;
+                     left: 0cm;
+                     top: 2cm;
+                     color: black;
+                     font-weight: bold;
+                }
+
+        body    {   font-family: Verdana, Aria, sans-serif;
+                }
+      -->
+    </style>
+  </head>
+  <body>
+    <p id="pile1">Premier exemple de superposition, avec un texte en arrière-plan de deux images superposées&nbsp;:
+      <img class="pile" src="../images/a.png" alt="A" style="z-index: 3" width="160" height="160">
+      <img class="pile" src="../images/b.png" alt="B" style="z-index: 2" width="200" height="165">
+      <span class="textpile" style="z-index: 1;color:red">Avec du texte en arrière plan.</span>
+    </p>
+    <p id="pile2">Deuxième exemple, avec un texte intercalé entre les deux images&nbsp;:
+      <img class="pile" src="../images/a.png" alt="A" style="z-index: 1" width="160" height="160">
+      <img class="pile" src="../images/b.png" alt="B" style="z-index: 3" width="200" height="165">
+      <span class="textpile" style="z-index: 2;color:red">Avec du texte intercalé.</span>
+    </p>
+  </body>
+</html>
+

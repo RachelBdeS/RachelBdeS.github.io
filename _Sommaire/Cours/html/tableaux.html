@@ -1,0 +1,839 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les tableaux dans une page Web</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, concept, introduction, table, tableau, td, th, thead, tbody, tfoot, caption">
+      <meta name="description" content="Ce chapitre présente les balises nécessaires pour correctement définir et utiliser un tableau en HTML.">
+      <link rel="next" href="images.html">
+      <link rel="prev" href="listes.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les tableaux dans une page Web</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#tablegene" title="Généralités">Généralités</a><ol>
+                     <li><a href="#tableintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#tablestructure" title="Structure d'un tableau">Structure d'un tableau</a><ol>
+                           <li><a href="#structintro" title="Introduction">Introduction</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#tableelements" title="Les éléments d'un tableau">Les éléments d'un tableau</a><ol>
+                     <li><a href="#balisetable" title="La balise <table&gt;">La balise &lt;table&gt;</a></li>
+                     <li><a href="#caption" title="La balise <caption&gt;">La balise &lt;caption&gt;</a></li>
+                     <li><a href="#col" title="Les balises <col&gt; et <colgroup&gt;">Les balises &lt;col&gt; et &lt;colgroup&gt;</a><ol>
+                           <li><a href="#colintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#colattributs" title="Attributs">Attributs</a></li>
+                           <li><a href="#colexemples" title="Exemples">Exemples</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#structcontenu" title="Structure du contenu">Structure du contenu</a><ol>
+                           <li><a href="#thead" title="Les balises <thead&gt; et <tfoot&gt;">Les balises &lt;thead&gt; et &lt;tfoot&gt;</a></li>
+                           <li><a href="#tbody" title="La balise <tbody&gt;">La balise &lt;tbody&gt;</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#tr" title="Les lignes: la balise <tr&gt;">Les lignes: la balise &lt;tr&gt;</a><ol>
+                           <li><a href="#trgene" title="Généralités">Généralités</a></li>
+                           <li><a href="#tdth" title="Balises <td&gt; et <th&gt;">Balises &lt;td&gt; et &lt;th&gt;</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#tablesremarques" title="Remarques">Remarques</a><ol>
+                     <li><a href="#cellulesvides" title="Cellules vides">Cellules vides</a></li>
+                     <li><a href="#tableauximbriques" title="Tableaux imbriqués">Tableaux imbriqués</a></li>
+                     <li><a href="#presentation" title="Des tableaux pour la présentation">Des tableaux pour la présentation</a></li>
+                     <li>Exercice&nbsp;: <a href="#exotableau">Formatages de cellules</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="tablegene" href="#tablegene" id="tablegene"></a>I. Généralités
+         </h3>
+         <h4><a name="tableintro" id="tableintro" href="#tableintro"></a>1. Introduction
+         </h4>
+         <p>Usuellement un tableau est constitué de lignes et de colonnes. Ce n'est pas tout à fait le cas en <code class="langage">HTML</code>&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p>Un tableau est un conteneur <code class="code">&lt;table&gt;</code></p>
+            </li>
+            <li>
+               <p>Un tableau est constitué de lignes <code class="code">&lt;tr&gt;</code> (pour <span lang="en" class="autrelangue">table row</span>)
+               </p>
+            </li>
+            <li>
+               <p>Un tableau est constitué de cellules<code class="code">&lt;td&gt;</code> (pour <span lang="en" class="autrelangue">table data</span>)
+               </p>
+            </li>
+         </ol>
+         <p>Il est également possible de fournir une légende au tableau. Tous ces éléments se structurent globalement dans un entête,
+            un pied de tableau, et un corps de tableau.
+         </p>
+         <p class="retourtdm"><a href="#tdm_tableintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="tablestructure" id="tablestructure" href="#tablestructure"></a>2. Structure d'un tableau
+         </h4>
+         <h5><a href="#structintro" name="structintro" id="structintro"></a>a. Introduction
+         </h5>
+         <p>Un tableau se déclare grâce à la balise <code class="code">&lt;table&gt;</code>. Cette balise peut avoir plusieurs balises-enfants. La plupart sont facultatives, mais si elles sont présentes, elles <em>doivent être utilisées dans cet ordre&nbsp;:</em></p>
+         <ol>
+            <li>
+               <p><code class="code">&lt;caption&gt;</code></p>
+            </li>
+            <li>
+               <p><code class="code">&lt;col&gt;</code> ou <code class="code">&lt;colgroup&gt;</code></p>
+            </li>
+            <li>
+               <p><code class="code">&lt;thead&gt;</code></p>
+            </li>
+            <li>
+               <p><code class="code">&lt;tfoot&gt;</code></p>
+            </li>
+            <li>
+               <p><code class="code">&lt;tbody&gt;</code></p>
+            </li>
+         </ol>
+         <p class="retourtdm"><a href="#tdm_tablestructure" title="Retour à la TdM (Structure d'un tableau)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="tableelements" href="#tableelements" id="tableelements"></a>II. Les éléments d'un tableau
+         </h3>
+         <h4><a name="balisetable" id="balisetable" href="#balisetable"></a>1. La balise &lt;table&gt;
+         </h4>
+         <p>La notion de table étant complexe, le nombre d'attributs de cette balise est important.</p>
+         <table class="tableau" summary="Attributs de la balise <table&gt;." border="1">
+            <tr>
+               <th id="attr_table">
+                  <p>Attribut</p>
+               </th>
+               <th id="effet_table">
+                  <p>Effet</p>
+               </th>
+               <th id="valeur_table">
+                  <p>Valeur</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">summary</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>donne un rapide résumé du contenu du tableau. Cela améliore l'accessbilité de la page.</p>
+               </td>
+               <td headers="valeur_table">
+                  <p>une chaîne de caractères</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">width</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>largeur du tableau</p>
+               </td>
+               <td headers="valeur_table">
+                  <p> une longueur, qui peut s'exprimer en nombre de pixels ou en pourcentage de la largeur de la fenêtre du navigateur </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">border</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>épaisseur de la bordure extérieure</p>
+               </td>
+               <td headers="valeur_table">
+                  <p>en pixel (par défaut, 0, sans bordure)</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">frame</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p> (rien à voir avec la balise <code class="code">&lt;frame&gt;</code>, que l'on verra dans le cours sur <a href="cadres.html">les cadres</a>). Présence de l'encadrement extérieur 
+                  </p>
+               </td>
+               <td headers="valeur_table">
+                  <ul>
+                     <li>
+                        <p><code class="code">void</code>&nbsp;: aucune
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">above</code>&nbsp;: haut seulement
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">below</code>&nbsp;: bas seulement
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">hsides</code>&nbsp;: haut et bas
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">vsides</code>&nbsp;: gauche et droite
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">lhs</code>&nbsp;: gauche seulement
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">rhs</code>&nbsp;: droite seulement
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">box</code>&nbsp;: sur les 4 côtés
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">border</code>&nbsp;: sur les 4 côtés aussi
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">rules</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>comme l'attribut <code class="code">frame</code>, mais pour l'encadrement intérieur
+                  </p>
+               </td>
+               <td headers="valeur_table">
+                  <ul>
+                     <li>
+                        <p><code class="code">none</code>&nbsp;: aucun
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">groups</code>&nbsp;: seulement entre les groupes de lignes (<code class="code">&lt;thead&gt;</code>, <code class="code">&lt;tbody&gt;</code> et <code class="code">&lt;tfoot&gt;</code>) et les groupes de colonnes (<code class="code">&lt;colgroup&gt;</code> et <code class="code">&lt;col&gt;</code>) 
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">rows</code>&nbsp;: entre les lignes
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">cols</code>&nbsp;: entre les colonnes
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">all</code>&nbsp;: partout (valeur par défaut)
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">cellspacing</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>marge entre cellules consécutives</p>
+               </td>
+               <td headers="valeur_table">
+                  <p>en pixels</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">cellpadding</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>marge entre le bord et le contenu de la cellule</p>
+               </td>
+               <td headers="valeur_table">
+                  <p>en pixels</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">align</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p> position du tableau dans la fenêtre. Cet attribut est <em>obsolète</em> en <code class="langage">HTML</code>&nbsp;4.01 strict. 
+                  </p>
+               </td>
+               <td headers="valeur_table">
+                  <ul>
+                     <li>
+                        <p><code class="code">center</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">left</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">right</code></p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_table">
+                  <p><code class="code">bgcolor</code></p>
+               </td>
+               <td headers="effet_table">
+                  <p>couleur de fond du tableau. Cet attribut est<em>obsolète</em> en <code class="langage">HTML</code>&nbsp;4.01 strict.
+                  </p>
+               </td>
+               <td headers="valeur_table">
+                  <p>nom de couleur ou triplet RGB</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Attributs de la balise <code class="code">&lt;table&gt;</code>.
+         </p>
+         <p>Certains de ces attributs sont liés&nbsp;; ainsi si <code class="code">border="0"</code>, alors <code class="code">frame="void"</code> et <code class="code">rules="none"</code>.
+         </p>
+         <p>Par défaut la taille du tableau s'ajuste à son contenu. C'est cette gestion particulière de la taille qui fait du tableau
+            un moyen très utile de présentation.
+         </p>
+         <p class="retourtdm"><a href="#tdm_balisetable" title="Retour à la TdM (La balise <table&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="caption" id="caption" href="#caption"></a>2. La balise &lt;caption&gt;
+         </h4>
+         <p>Cette balise est facultative, et ne peut être présente qu'une seule fois dans le tableau. Son rôle est de lui donner une légende,
+            plus complète que le court résumé de l'attribut <code class="code">summary</code>.
+         </p>
+         <p>Elle possède un attribut <code class="code">align</code>, qui gère son alignement relativement au tableau. Cet attribut est <em>obsolète</em> en <code class="langage">HTML</code>&nbsp;4.01 strict.
+         </p>
+         <p> Exemple d'utilisation&nbsp;: </p>
+         <p class="html"><span class="tag">&lt;caption&gt;</span>Légende du tableau.<span class="tag">&lt;/caption&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_caption" title="Retour à la TdM (La balise <caption&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="col" id="col" href="#col"></a>3. Les balises &lt;col&gt; et &lt;colgroup&gt;
+         </h4>
+         <h5><a href="#colintro" name="colintro" id="colintro"></a>a. Introduction
+         </h5>
+         <p> Le rôle fondamental de ces balises est de définir des groupements de colonnes. <code class="code">&lt;colgroup&gt;</code> le fait de manière plus "structurelle". 
+         </p>
+         <ol>
+            <li>
+               <p><code class="code">&lt;col&gt;</code> permet à plusieurs colonnes de partager les mêmes attributs. C'est un <em>élément vide</em>. 
+               </p>
+            </li>
+            <li>
+               <p><code class="code">&lt;colgroup&gt;</code> permet de regrouper un ensemble de colonnes en une seule unité logique, et d'appliquer par exemple un style à cet ensemble
+                  de colonnes. 
+               </p>
+            </li>
+         </ol>
+         <p class="retourtdm"><a href="#tdm_colintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#colattributs" name="colattributs" id="colattributs"></a>b. Attributs
+         </h5>
+         <table class="tableau" summary="Attributs communs à <col&gt; et <colgroup&gt;." border="1">
+            <tr>
+               <th id="attr_col">
+                  <p>Attribut</p>
+               </th>
+               <th id="effet_col">
+                  <p>Effet</p>
+               </th>
+               <th id="valeur_col">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_col">
+                  <p><code class="code">span</code></p>
+               </td>
+               <td headers="effet_col">
+                  <p>Nombre de colonnes à regrouper</p>
+               </td>
+               <td headers="valeur_col">
+                  <p>un nombre</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_col">
+                  <p><code class="code">width</code></p>
+               </td>
+               <td headers="effet_col">
+                  <p>Largeur de chaque colonne</p>
+               </td>
+               <td headers="valeur_col">
+                  <p> une longueur, qui peut s'exprimer en nombre de pixels, en pourcentage, ou bien par exemple <code class="code">width="0.5*"</code>, en proportion relative 
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_col">
+                  <p><code class="code">valign</code></p>
+               </td>
+               <td headers="effet_col">
+                  <p>alignement vertical</p>
+               </td>
+               <td headers="valeur_col">
+                  <ul>
+                     <li>
+                        <p><code class="code">top</code>&nbsp;: alignement en haut de la cellule
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">middle</code>&nbsp;: alignement au milieu de la cellule (valeur par défaut) 
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">bottom</code>&nbsp;: alignement en bas de la cellule
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">baseline</code>&nbsp;: alignement sur la ligne du bas dela cellule
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_col">
+                  <p><code class="code">align</code></p>
+               </td>
+               <td headers="effet_col">
+                  <p>alignement horizontal</p>
+               </td>
+               <td headers="valeur_col">
+                  <ul>
+                     <li>
+                        <p><code class="code">left</code> (valeur par défaut)
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">right</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">center</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">justify</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">char</code>&nbsp;: l'alignement se fait sur un caractère particulier
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_col">
+                  <p><code class="code">char</code></p>
+               </td>
+               <td headers="effet_col">
+                  <p>spécifie quel caractère doit servir de base pour l'alignement</p>
+               </td>
+               <td headers="valeur_col">
+                  <p> un caractère. La valeur par défaut est celle du séparateur décimal défini par l'attribut de langage <code class="code">lang</code>, à savoir le "<code class="code">.</code>" pour la langue par défaut, et le "<code class="code">,</code>" si l'attribut définit le français comme langue (<code class="code">lang="fr"</code>). Il n'est pas demandé aux navigateurs de supporter cet attribut. 
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_col">
+                  <p><code class="code">charoff</code></p>
+               </td>
+               <td headers="effet_col">
+                  <p> spécifie le décalage en position horizontale imposé aucaractère d'alignement. </p>
+               </td>
+               <td headers="valeur_col">
+                  <p>un nombre.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Attributs communs à <code class="code">&lt;col&gt;</code> et <code class="code">&lt;colgroup&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_colattributs" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#colexemples" name="colexemples" id="colexemples"></a>c. Exemples
+         </h5>
+         <p>Par exemple, si on doit spécifier que quarante colonnes dans un tableau doivent être alignés à droite, au lieu d'écrire...</p>
+         <p class="html"><span class="tag">&lt;colgroup&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;col<span class="nomattribut"> width</span>="<span class="valeurattribut">20</span>"&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;col<span class="nomattribut"> width</span>="<span class="valeurattribut">20</span>"&gt;</span><br>
+            							... 40 éléments au total...
+            						<span class="tag">&lt;/colgroup&gt;</span><br></p>
+         <p>... on peut se contenter d'écrire...</p>
+         <p class="html"><span class="tag">&lt;colgroup<span class="nomattribut"> span</span>="<span class="valeurattribut">40</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">20</span>"&gt;</span><span class="tag">&lt;/colgroup&gt;</span><br></p>
+         <p>Quand il est nécessaire d'identifier une unique colonne sur ces quarante, par exemple la dernière, on peut regrouper sous
+            la forme...
+         </p>
+         <p class="html"><span class="tag">&lt;colgroup<span class="nomattribut"> width</span>="<span class="valeurattribut">20</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;col<span class="nomattribut"> span</span>="<span class="valeurattribut">39</span>"&gt;</span><span class="tag">&lt;/col&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;col<span class="nomattribut"> valign</span>="<span class="valeurattribut">top</span>"&gt;</span><span class="tag">&lt;/col&gt;</span><br>
+            						<span class="tag">&lt;/colgroup&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_col" title="Retour à la TdM (Les balises <col&gt; et <colgroup&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="structcontenu" id="structcontenu" href="#structcontenu"></a>4. Structure du contenu
+         </h4>
+         <h5><a href="#thead" name="thead" id="thead"></a>a. Les balises &lt;thead&gt; et &lt;tfoot&gt;
+         </h5>
+         <p>Le rôle de ces balises est de contenir les informations nécessaires à l'entête et au bas du tableau. Il s'agit essentiellement
+            des titres de colonnes. Ces balises contiennent des lignes (voir le paragraphe consacré à la <a href="#tr">balise <code class="code">&lt;tr&gt;</code> </a> pour plus de détails). Il est possible, pour peu que l'on ait déclaré la balise <code class="code">&lt;thead&gt;</code> (respectivement <code class="code">&lt;tfoot&gt;</code>), de dupliquer l'entête (respectivement le bas) d'un tableau en cas de saut de page.
+         </p>
+         <p>Les attributs de ces balises sont les attributs d'alignement des cellules (<code class="code">valign</code>, <code class="code">align</code>, <code class="code">char</code> et <code class="code">charoff</code>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_thead" title="Retour à la TdM (Les balises <thead&gt; et <tfoot&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#tbody" name="tbody" id="tbody"></a>b. La balise &lt;tbody&gt;
+         </h5>
+         <p>Son rôle est de définir le corps même d'un tableau. En dupliquant plusieurs <code class="code">&lt;tbody&gt;</code> au sein d'un même tableau, on peut définir plusieurs composantes structurelles d'apparences et de formats différents.
+         </p>
+         <p>Les attributs de cette balise sont les attributs d'alignement des cellules (<code class="code">valign</code>, <code class="code">align</code>, <code class="code">char</code> et <code class="code">charoff</code>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_structcontenu" title="Retour à la TdM (Structure du contenu)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="tr" id="tr" href="#tr"></a>5. Les lignes: la balise &lt;tr&gt;
+         </h4>
+         <h5><a href="#trgene" name="trgene" id="trgene"></a>a. Généralités
+         </h5>
+         <p>Les attributs de cette balise sont les attributs d'alignement des cellules (<code class="code">valign</code>, <code class="code">align</code>, <code class="code">char</code> et <code class="code">charoff</code>), ainsi que l'attribut <code class="code">bgcolor</code>, dont la fonction est de spécifier la couleur de fond de la ligne. Mais ce dernier attribut est <em>obsolète</em> en <code class="code">HTML 4.01</code> Strict.
+         </p>
+         <p>Cette balise permet de définir une ligne dans le tableau. Elle peut contenir une ou plusieurs balises <code class="code">&lt;th&gt;</code> ou <code class="code">&lt;td&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_trgene" title="Retour à la TdM (Généralités)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#tdth" name="tdth" id="tdth"></a>b. Balises &lt;td&gt; et &lt;th&gt;
+         </h5>
+         <p>Ces balises acceptent les mêmes contenus, ainsi que les mêmes attributs. Cependant, <code class="code">&lt;th&gt;</code> doit être utilisé pour indiquer des cellules destinées à être des entêtes de colonnes (<span lang="en" class="autrelangue">Table Header</span>).
+         </p>
+         <p>Ces balises peuvent contenir à peu près tous les types d'éléments, y compris les <code class="code">&lt;div&gt;</code> et les <code class="code">&lt;p&gt;</code>.
+         </p>
+         <table class="tableau" summary="Attributs des balises <th&gt; et <td&gt;." border="1">
+            <tr>
+               <th id="attr_cell">
+                  <p>Attribut</p>
+               </th>
+               <th id="effet_cell">
+                  <p>Effet</p>
+               </th>
+               <th id="valeur_cell">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">abbr</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>fournit un abrégé du contenu de la cellule</p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>une chaîne de caractères</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">axis</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p> indique à quelle catégorie appartient la cellule (voir sur <a href="http://www.w3.org/TR/html401/struct/tables.html#multi-dimension">le site du W3C</a> pour plus d'informations sur l'utilisation de cet attribut dans la structuration du contenu d'un tableau). 
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>une chaîne de caractères</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">headers</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>renvoi à(aux) l'identifiant(s) de la cellule "<span lang="en" class="autrelangue">header</span>" associée. Cela permet à un agent vocal de présenter le type de contenu de la cellule avant le contenu proprement dit. 
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>une liste d'indentifiants (séparés par des espaces)</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">scope</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>indique quel est le jeu de cellules auquel la cellule "<span lang="en" class="autrelangue">header</span>" courante s'applique 
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <ul>
+                     <li>
+                        <p><code class="code">row</code>&nbsp;: s'applique à la ligne courante
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">col</code>&nbsp;: s'applique à la colonne courante
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">rowgroup</code>&nbsp;: s'applique à l'ensemble du <code class="code">&lt;thead&gt;</code>, <code class="code">&lt;tfoot&gt;</code> ou <code class="code">&lt;tbody&gt;</code> courant 
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">colgroup</code>&nbsp;: s'applique au groupe de colonnes courant (spécifié par les balises <code class="code">&lt;colgroup&gt;</code> ou <code class="code">&lt;col&gt;</code>) 
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">rowspan</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>nombre de lignes concernées par la balise courante.</p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>un nombre. La valeur par défaut est 1. Si <code class="code">rowspan="0"</code>, la cellule s'applique à l'ensemble des lignes, depuis la ligne courante jusqu'à la dernière dans le <code class="code">&lt;thead&gt;</code>, <code class="code">&lt;tfoot&gt;</code> ou <code class="code">&lt;tbody&gt;</code> courant.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">colspan</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>nombre de colonnes concernées par la cellule courante.</p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>un nombre. La valeur par défaut est 1. Si <code class="code">rowspan="0"</code>, la cellule s'applique à l'ensemble des colonnes, depuis la ligne courante jusqu'à la dernière du <code class="code">&lt;colgroup&gt;</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">align</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>alignement horizontal</p>
+               </td>
+               <td headers="valeur_cell">
+                  <ul>
+                     <li>
+                        <p><code class="code">left</code> (valeur par défaut)
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">right</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">center</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">justify</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">char</code>&nbsp;: l'alignement se fait sur un caractère particulier
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">char</code></p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>spécifie quel caractère doit servir de base pour l'alignement</p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>un caractère. La valeur par défaut est celle du séparateur décimal défini par l'attribut de langage <code class="code">attr</code>, à savoir le "<code class="code">.</code>" pour la langue par défaut, et le "<code class="code">,</code>" si l'attribut définit le français comme langue (<code class="code">attr="fr"</code>). Il n'est pas demandé aux navigateurs de supporter cet attribut. 
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">charoff</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p> spécifie le décalage en position horizontale imposé au caractère d'alignement. </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>un nombre.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">valign</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>alignement vertical</p>
+               </td>
+               <td headers="valeur_cell">
+                  <ul>
+                     <li>
+                        <p><code class="code">top</code>&nbsp;: alignement en haut de la cellule
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">middle</code>&nbsp;: alignement au milieu de la cellule (valeur par défaut) 
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">bottom</code>&nbsp;: alignement en bas de la cellule
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">baseline</code>&nbsp;: alignement sur la ligne du bas de la cellule
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">nowrap</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p> empêche le retour à la ligne automatique dans les cellules quand le bord de la fenêtre du navigateur est atteint. <em>Obsolète</em> en <code class="langage">HTML 4.01</code> strict. 
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>valeur unique&nbsp;: <code class="code">nowrap</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">bgcolor</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>couleur de fond de la cellule. Cet attribut est <em>obsolète</em> en <code class="langage">HTML</code>&nbsp;4.01 strict.
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>nom de couleur ou triplet RGB</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">width</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>largeur de la cellule. Cet attribut est <em>obsolète</em> en <code class="langage">HTML 4.01</code> strict.
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>nombre de pixels ou pourcentage</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_cell">
+                  <p><code class="code">height</code></p>
+               </td>
+               <td headers="effet_cell">
+                  <p>hauteur de la cellule. Cet attribut est <em>obsolète</em> en <code class="langage">HTML 4.01</code> strict.
+                  </p>
+               </td>
+               <td headers="valeur_cell">
+                  <p>nombre de pixels ou pourcentage</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;3. Attributs des balises <code class="code">&lt;th&gt;</code> et <code class="code">&lt;td&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_tr" title="Retour à la TdM (Les lignes: la balise <tr&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="tablesremarques" href="#tablesremarques" id="tablesremarques"></a>III. Remarques
+         </h3>
+         <h4><a name="cellulesvides" id="cellulesvides" href="#cellulesvides"></a>1. Cellules vides
+         </h4>
+         <p>Si le nombre de cellules est différent d'une ligne à l'autre, les derniers emplacements sont vides. Par ailleurs, un conteneur
+            vide <code class="code">&lt;td&gt;&lt;/td&gt;</code> crée un emplacement vide alors qu'un conteneur contenant un espace insécable <code class="code">&amp;#160;</code> crée une cellule vide.
+         </p>
+         <p class="retourtdm"><a href="#tdm_cellulesvides" title="Retour à la TdM (Cellules vides)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="tableauximbriques" id="tableauximbriques" href="#tableauximbriques"></a>2. Tableaux imbriqués
+         </h4>
+         <p>Un tableau peut en contenir un autre qui peut en contenir un autre qui... Il n'y a pas de limitation.</p>
+         <p class="retourtdm"><a href="#tdm_tableauximbriques" title="Retour à la TdM (Tableaux imbriqués)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="presentation" id="presentation" href="#presentation"></a>3. Des tableaux pour la présentation
+         </h4>
+         <p>Créés au départ pour présenter des tables de données, les tableaux sont très vite devenus un moyen efficace de présentation
+            claire et ordonnée. Ils permettent, par exemple, de faire de manière souple du multicolonne. De nombreux sites les utilisent,
+            comme...
+         </p>
+         <ul>
+            <li>
+               <p>... le site du Monde&nbsp;: <a href="http://www.lemonde.fr">http://www.lemonde.fr</a>.
+               </p>
+            </li>
+            <li>
+               <p>... le site de Yahoo&nbsp;: <a href="http://www.yahoo.fr">http://www.yahoo.fr</a>.
+               </p>
+            </li>
+            <li>
+               <p>... le site de l'Université Pierre et Marie Curie&nbsp;: <a href="http://www.upmc.fr">http://www.upmc.fr</a>. 
+               </p>
+            </li>
+         </ul>
+         <p>Néanmoins, les performances des navigateurs les plus récents dans le support des feuilles de style rendent cette utilisation
+            des tableaux obsolète&nbsp;; il vaut mieux maintenant lui préférer ue mise en page à base d'éléments <code class="code">div</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_presentation" title="Retour à la TdM (Des tableaux pour la présentation)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exotableau" href="#exotableau" id="exotableau"></a>1. Formatages de cellules
+         </h4>
+         <h5><a href="exercices/td2.html" title="Énoncé de l'exercice 'Formatages de cellules'">Énoncé</a></h5>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="listes.html">Les listes</a><br>Cours suivant&nbsp;: <a href="images.html">Les images dans une page Web</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="tableaux.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples.</li>
+            <li>Le 7 juillet 2005, version 1.02. Corrections typographiques.</li>
+            <li>Le 1er octobre 2003, version 1.01. Corrections typographiques; considérations sur l'accessibilité.</li>
+            <li>Le 23 octobre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Modèles de documents et de codes</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, modele, modeles">
+      <meta name="description" content="Ce chapitre propose des modèles de documents et de code HTML.">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Modèles de documents et de codes</h1>
+         <p><span class="version">version 1.12</span>, dernière mise à jour le 24 octobre 2008.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#documents" title="Modèles de documents">Modèles de documents</a><ol>
+                     <li><a href="#docintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#docstrict" title="Modèle de document HTML strict">Modèle de document HTML strict</a></li>
+                     <li><a href="#doctransitional" title="Modèle de document HTML transitionnel">Modèle de document HTML transitionnel</a></li>
+                     <li><a href="#docframes" title="Modèle de document HTML à cadres">Modèle de document HTML à cadres</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#codes" title="Modèles de codes">Modèles de codes</a><ol>
+                     <li><a href="#codestexte" title="Mise en forme de texte">Mise en forme de texte</a><ol>
+                           <li><a href="#parettitre" title="Paragraphes et titres">Paragraphes et titres</a></li>
+                           <li><a href="#divspan" title="Balises div et span">Balises div et span</a></li>
+                           <li><a href="#font" title="La balise <font&gt;">La balise &lt;font&gt;</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#liens" title="Les liens">Les liens</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="documents" href="#documents" id="documents"></a>I. Modèles de documents
+         </h3>
+         <h4><a name="docintro" id="docintro" href="#docintro"></a>1. Introduction
+         </h4>
+         <p>Cette partie présente des modèles de documents-types. Il va de soi que ces modèles doivent être complétés. Ils donnent les
+            bases pour fournir des documents pouvant être traités par le <a href="http://validator.w3.org/file-upload.html">validateur du W3C</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_docintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="docstrict" id="docstrict" href="#docstrict"></a>2. Modèle de document HTML strict
+         </h4>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE HTML PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/strict.dtd"</span>&gt;<br></span><span class="commentaire">&lt;!--&nbsp;Déclaration de type de document.&nbsp;--&gt;</span><br><span class="tag">&lt;html<span class="nomattribut"> lang</span>="<span class="valeurattribut">fr</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentaire">&lt;!--&nbsp;Déclaration du codage de caractères&nbsp;--&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;meta<span class="nomattribut"> http-equiv</span>="<span class="valeurattribut">Content-Type</span>"<span class="nomattribut"> content</span>="<span class="valeurattribut">text/html; charset=ISO-8859-1</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>(...)<span class="tag">&lt;/title&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span>(...)<span class="tag">&lt;/body&gt;</span><br>
+            						<span class="tag">&lt;/html&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_docstrict" title="Retour à la TdM (Modèle de document HTML strict)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="doctransitional" id="doctransitional" href="#doctransitional"></a>3. Modèle de document HTML transitionnel
+         </h4>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE HTML PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01 Transitional//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/loose.dtd"</span>&gt;<br></span><span class="commentaire">&lt;!--&nbsp;Déclaration de type de document.&nbsp;--&gt;</span><br><span class="tag">&lt;html<span class="nomattribut"> lang</span>="<span class="valeurattribut">fr</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentaire">&lt;!--&nbsp;Déclaration du codage de caractères&nbsp;--&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;meta<span class="nomattribut"> http-equiv</span>="<span class="valeurattribut">Content-Type</span>"<span class="nomattribut"> content</span>="<span class="valeurattribut">text/html; charset=ISO-8859-1</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>(...)<span class="tag">&lt;/title&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span>(...)<span class="tag">&lt;/body&gt;</span><br>
+            						<span class="tag">&lt;/html&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_doctransitional" title="Retour à la TdM (Modèle de document HTML transitionnel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="docframes" id="docframes" href="#docframes"></a>4. Modèle de document HTML à cadres
+         </h4>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE HTML PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01 Frameset//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/frameset.dtd"</span>&gt;<br></span><span class="commentaire">&lt;!--&nbsp;Déclaration de type de document.&nbsp;--&gt;</span><br><span class="tag">&lt;html<span class="nomattribut"> lang</span>="<span class="valeurattribut">fr</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="commentaire">&lt;!--&nbsp;Déclaration du codage de caractères&nbsp;--&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;meta<span class="nomattribut"> http-equiv</span>="<span class="valeurattribut">Content-Type</span>"<span class="nomattribut"> content</span>="<span class="valeurattribut">text/html; charset=ISO-8859-1</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>(...)<span class="tag">&lt;/title&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span>(...)<span class="tag">&lt;/body&gt;</span><br>
+            						<span class="tag">&lt;/html&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_docframes" title="Retour à la TdM (Modèle de document HTML à cadres)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="codes" href="#codes" id="codes"></a>II. Modèles de codes
+         </h3>
+         <h4><a name="codestexte" id="codestexte" href="#codestexte"></a>1. Mise en forme de texte
+         </h4>
+         <h5><a href="#parettitre" name="parettitre" id="parettitre"></a>a. Paragraphes et titres
+         </h5>
+         <p>Voici par exemple un paragraphe précédé d'un titre&nbsp;; ces éléments sont des enfants directs de la balise <code class="code">&lt;body&gt;</code>.
+         </p>
+         <p class="html"><span class="tag">&lt;h3&gt;</span>Titre de niveau 3<span class="tag">&lt;/h3&gt;</span><br><span class="tag">&lt;p&gt;</span>Petit paragraphe, avec un<span class="tag">&lt;br&gt;</span><br>retour à la ligne.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_parettitre" title="Retour à la TdM (Paragraphes et titres)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#divspan" name="divspan" id="divspan"></a>b. Balises div et span
+         </h5>
+         <p>La balise <code class="code">&lt;div&gt;</code> est un enfant direct de <code class="code">&lt;body&gt;</code>, la balise <code class="code">&lt;span&gt;</code> est à l'intérieur d'un texte&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;body&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;div<span class="nomattribut"> id</span>="<span class="valeurattribut">premierdiv</span>"&gt;</span><br>
+            								
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>Un paragraphe avec un <span class="tag">&lt;span&gt;</span>élément span<span class="tag">&lt;/span&gt;</span>.<span class="tag">&lt;/p&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;div<span class="nomattribut"> id</span>="<span class="valeurattribut">seconddiv</span>"&gt;</span><br>
+            								
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>Un deuxième paragraphe.<span class="tag">&lt;/p&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/div&gt;</span><br>
+            						<span class="tag">&lt;/body&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_divspan" title="Retour à la TdM (Balises div et span)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#font" name="font" id="font"></a>c. La balise &lt;font&gt;
+         </h5>
+         <p>Cette balise est obsolète.</p>
+         <p class="html"><span class="tag">&lt;font<span class="nomattribut"> face</span>="<span class="valeurattribut">Verdana, Arial, Helvetica, sans-serif</span>"<span class="nomattribut"> size</span>="<span class="valeurattribut">5</span>"<span class="nomattribut"> color</span>="<span class="valeurattribut">red</span>"&gt;</span>mon exemple.<span class="tag">&lt;/font&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_codestexte" title="Retour à la TdM (Mise en forme de texte)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="liens" id="liens" href="#liens"></a>2. Les liens
+         </h4>
+         <p>Les liens peuvent être de trois types&nbsp;: interne, relatif, absolu.</p>
+         <p class="html"><span class="commentaire">&lt;!--&nbsp;Lien interne&nbsp;--&gt;</span><br><span class="tag">&lt;p&gt;</span>Paragraphe avec un <span class="tag">&lt;a<span class="nomattribut"> href</span>="<span class="valeurattribut">#verslancre</span>"&gt;</span>lien interne<span class="tag">&lt;/a&gt;</span>.<span class="tag">&lt;/p&gt;</span><br><span class="commentaire">&lt;!--&nbsp;Lien relatif&nbsp;--&gt;</span><br><span class="tag">&lt;p&gt;</span>Paragraphe avec un <span class="tag">&lt;a<span class="nomattribut"> href</span>="<span class="valeurattribut">../index.html</span>"&gt;</span>lien relatif<span class="tag">&lt;/a&gt;</span> vers un fichier du répertoire parent.<span class="tag">&lt;/p&gt;</span><br><span class="commentaire">&lt;!--&nbsp;Lien absolu&nbsp;--&gt;</span><br><span class="tag">&lt;p&gt;</span>Paragraphe avec un <span class="tag">&lt;a<span class="nomattribut"> href</span>="<span class="valeurattribut">http://www.upmc.fr/</span>"&gt;</span>lien absolu<span class="tag">&lt;/a&gt;</span>.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_liens" title="Retour à la TdM (Les liens)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="modeles.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 24 octobre 2008, version 1.12. Correction de la position des commentaires dans les exemples de code.</li>
+            <li>Le 28 octobre 2005, version 1.11. Corrections typographiques.</li>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples.</li>
+            <li>Le 28 janvier 2005, version 1.01. Correction des prologues.</li>
+            <li>Le 5 octobre 2003, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

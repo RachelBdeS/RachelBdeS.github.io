@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+<chapitre typecourssiteweb="html">
+    <cours nomfichier="htmlrapide"/>
+    <entete>
+        <titre>HTML en quelques mots</titre>
+        <auteur>G. Chagnon</auteur>
+        <resume>Après un cours d'introduction, les étapes nécessaires pour la création et la mise en ligne d'un site Web.</resume>
+        <motsclefs>HTML, accessibilité, w3c, xhtml</motsclefs>
+    </entete>
+    <corpus>
+        <partie titre="Création d'un site" ancre="creation">
+            <section titre="Les étapes initiales" ancre="etapes">
+                <paragraphe>
+                    <texte>Avant de créer un site, il faut choisir un <valeur>hébergeur</valeur>. Il s'agira d'un <valeur>serveur</valeur>, "quelque part" dans le monde, sur lequel seront hébergés les fichiers que vos proposerez à la communauté. il en existe de multiples (il suffit de faire une recherche Internet <reference href="http://www.google.com/search?hl=fr&amp;q=hebergeur&amp;btnG=Rechercher&amp;lr=">sur le sujet</reference> pour s'en rendre compte&#160;!).</texte>
+                    <texte>Une fois cela fait, selon l'hébergeur choisi, vous disposerez d'un certain nombre d'outils pour <valeur>mettre en ligne</valeur> votre site. en général, la fonction de base est le serveur FTP. Vous allez pouvoir déposer sur le serveur les fichiers que vous désirez mettre en ligne. Mais il existe plusieurs outils qui permettent de faciliter cette opération.</texte>
+                </paragraphe>
+            </section>
+        	<section titre="Outils de production de pages Web" ancre="outils">
+        		<paragraphe titre="Introduction" ancre="outilsintro">
+        			<texte>Ainsi que vous le constaterez, il est possible de créer un site Web entier à l'aide d'un simple éditeur de texte, et d'un client <acronyme titre="File Transfer Protocole" lang="en">FTP</acronyme>. Fort heureusement, si cette solution reste encore possible pour un dépannage ponctuel sur un fichier, il existe des outils dédiés qui permettent d'automatiser bon nombre des opérations fastidieuses.</texte>
+        		</paragraphe>
+        		<paragraphe titre="Éditeurs" ancre="outilsediteurs">
+        			<texte>Les éditeurs HTML sont des logiciels qui aident à la saisie des balises <code type="langage">HTML</code>. Il en existe de deux types&#160;:</texte>
+        			<liste>
+        				<item><texte>les éditeurs de code proprement dits, similaires à un "environnement intégré de développement" (EDI) pour un langage de programmation, qui permettent de coder les balises directement. Ils permettent de garder un contrôle plus fin et précis sur le code que...</texte></item>
+        				<item><texte>... les éditeurs dits WYSIWYG, qui offrent un environnement ressemblant plus à celui d'un logiciel de traitement de texte.</texte></item>
+        			</liste>
+        			<texte>Ces éditeurs modernes offrent de plus des facilités de gestion de site (notion de modèle de document, de projet, gestion efficace des liens internes aux documents, intégration de langages de scripts comme PHP, etc.).</texte>
+        		</paragraphe>
+        		<paragraphe titre="Les Weblogs" ancre="outilsweblogs">
+        			<texte>Ces outils, comme <reference href="http://www.dotclear.net/"><logiciel>DotClear</logiciel></reference> ou <reference href="http://www.blogger.com"><logiciel>Blogger</logiciel></reference>, par exemple, permettent la saisie, la mise en forme et la mise en ligne automatisée de "journaux" personnels. Conçus à l'origine comme des outils de publication rapide à destination de quelques internautes désireux de mettre rapidement en ligne leurs impressions quotidiennes, ils ont évolué en interfaces complexes, mais toujours sur le même principe&#160;:</texte>
+        			<liste type="ordonnee">
+        				<item><texte>Un auteur initial écrit un article à l'aide de l'outil, qu'il met en ligne&#160;;</texte></item>
+        				<item><texte>Les visiteurs du journal peuvent soit ajouter des commentaires, soit placer des <autrelangue type="en">trackbacks</autrelangue> sur l'article, afin de créer un lien entre un article qu'ils écrivent sur leur propre <autrelangue type="en">blog</autrelangue>, et l'article qu'ils sont en train de lire.</texte></item>
+        			</liste>
+        			<texte>Ces fonctions de base peuvent être étendues, mais on aborde là une autre catégorie d'outils de production&#160;: les outils de publication de contenu proprement dits.</texte>
+        		</paragraphe>
+        		<paragraphe titre="Outils de publication de contenu" ancre="outilspubli">
+        			<texte>On rencontre principalement deux types de tels outils&#160;:</texte>
+        			<liste type="ordonnee">
+        				<item><texte>les outils entièrement ouverts, comme le format Wiki. n'importe quel internaute peut modifier la page qu'il est en train de lire. Vous pouvez consulter par exemple la <reference href="http://fr.wikipedia.org/wiki/Accueil">Wikipedia</reference>, une encyclopédie en ligne maintenue et modifiée uniquement par ses lecteurs.</texte></item>
+        				<item><texte>les outils de publication de contenu proprement dits, tels que le populaire <reference href="http://www.spip.net/">SPIP</reference>, <reference href="http://ez.no/ez_publish">eZPublish</reference>, <reference href="http://phpnuke.org/">PHPNuke</reference>. Ces outils proposent des interfaces utilisateurs plus ou moins complexes, permettant à des personnes ne connaissant pas le format HTML de publier du contenu sur le Web, sous un forme paramétrable.</texte></item>
+        			</liste>
+        			<texte>Ces outils sont cependant loin d'offrir les mêmes fonctionnalités que ce que peut produire un webmestre expérimenté&#160;; il s'agit de contenu facilement publiable, préformatté. Pour aller plus loin, il est nécessaire de faire appel à un développeur spécialisé.</texte>
+        		</paragraphe>
+        	</section>
+            <section titre="Quel format choisir?" ancre="format">
+                <paragraphe titre="Format de document" ancre="formatdocument">
+                    <texte>La question peut sembler étrange. Néanmoins, si vous décidez de créer votre site sans passer par un outil de publication de contenu êtes donc amené à utiliser un éditeur HTML, il va vous falloir opter pour un (ou plusieurs) formats de fichiers. Ce format doit être indiqué d'une manière ou d'une autre à l'outil qui sera utilisé pour consulter le document que vous êtes en train d'écrire. Il se trouve que dans le fichier d'un fichier (X)HTML, cela est réalisé par l'ajout d'une ligne au tout début du fichier, dans le <valeur>prologue</valeur>.</texte>
+                    <texte>Vous pouvez choisir de réaliser un site entièrement sous Flash. Cela n'est cependant pas recommandé dans le cas général, dans la mesure où cela empêche notamment le référencement correct de votre site. De plus, de récentes modifications à la manière dont <logiciel>Internet Explorer</logiciel> gère les animations Flash rend ces dernières beaucoup moins ergonomiques.</texte>
+                	<texte>L'autre alternative est d'opter pour un format <code type="langage">HTML</code> ou dérivé (certains d'entre vous ont peut-être entendu parler du langage de script PHP&#160;; mais ce langage, en fait, produit du <code type="langage">HTML</code>). En fait, quatre choix sont possibles, articulés autour du couple <code type="langage">HTML</code>/<code type="langage">XHTML</code>&#160;:</texte>
+                    <liste type="ordonnee">
+                        <item><texte><code type="langage">HTML Transitionnel</code>: il se déclare avec le prologue <code><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">]]></code>. Cela permet d'avoir accès aux balises d'apparence.</texte></item>
+                        <item><texte><code type="langage">HTML Strict</code>, déclaré avec le prologue <code><![CDATA[<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">]]></code>. Il oblige à séparer "strictement" contenu et mise en forme.</texte></item>
+                        <item><texte><code type="langage">XHTML Transitionnel</code>: il se déclare avec le prologue <code><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">>]]></code>. Cela permet d'avoir accès aux balises d'apparence, tout en respectant une syntaxe plus adaptée à un traitement et une procédure de mise à jour plus automatisée.</texte></item>
+                        <item><texte><code type="langage">XHTML Strict</code>, déclaré avec le prologue <code><![CDATA[<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">]]></code>. Il oblige à séparer "strictement" contenu et mise en forme, tout en respectant une syntaxe plus adaptée à un traitement et une procédure de mise à jour plus automatisée.</texte></item>
+                    </liste>
+                    <texte>La différence entre <code type="langage">HTML</code> et <code type="langage">XHTML</code> réside essentiellement, lors de la phase d'écriture, dans une légère modification de la manière d'utiliser les balises <code type="langage">HTML</code>. Par exemple, au lieu d'écrire une balise de saut de ligne <code><![CDATA[<br>]]></code> en <code type="langage">HTML</code>, on écrira <code><![CDATA[<br/>]]></code> en <code type="langage">XHTML</code>. Du point de vue de la maintenance du code, cependant, utiliser le format <code type="langage">XHTML</code> permet d'anticiper sur de possibles mises à jour du contenu, et à terme, lorsque l'ensemble des navigateurs en supportera toutes les propriétés, de faciliter l'insertion de documents d'origines diverses dans la page Web.</texte>
+                    <texte>Indiquer un "doctype" pour un document facilite notamment le "travail" des navigateurs chargés d'interpréter le code <code type="langage">HTML</code>. Avant de lire un document en entier, ils "savent" à quoi s'attendre, ce qui leur permet de passer, éventuellement, d'un mode d'affichage à un autre (nous y reviendrons quand nous parlerons du langage <code type="langage">CSS</code>).</texte>
+                </paragraphe>
+                <paragraphe titre="Format de caractères" ancre="formatcarac">
+                    <texte>En interne, sur son disque dur, un ordinateur stocke un fichier sous la forme d'une succession de 1 et de 0. Le nombre de 0 et de 1 autorisés pour le stockage d'un caractère est limité. Le nombre total de combinaisons de 1 et 0 possibles est bien inférieur au nombre total de caractères et de glyphes existant dans les alphabets du monde. L'ordinateur peut donc ne pas "reconnaître" un caractère 'a' latin, d'un caractère cyrillique ou hébreu. Pour le lui permettre, il est nécessaire d'indiquer un <valeur>encodage</valeur> de caractères pour l'ensemble du document. Cela se fait grâce à la balise <code><![CDATA[<meta>]]></code> dans l'entête du document <code type="typefichier">(X)HTML</code>. Par exemple, <code><![CDATA[<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">]]></code> indique un codage de caractères ISO-8859-1, permettant de taper au clavier et d'enregistrer comme tels les caractères latins occidentaux (par exemple ceux adaptés au français). Un codage de caractère <code><![CDATA[<META http-equiv="Content-Type" content="text/html; charset=CP-936">]]></code> code le chinois simplifié, etc.</texte>
+                </paragraphe>
+            </section>
+            <section titre="Validité" ancre="validite">
+                <paragraphe>
+                    <texte>Spécifier un "doctype" pour un document offre un avantage supplémentaire, un atout dans les mains du développeur qui a appris à s'en servir.</texte>
+                    <texte>Beaucoup de temps est perdu, parfois, dans la correction d'un fichier <code type="typefichier">HTML</code>, en raison d'une faute de frappe ou d'une balise non fermée. Cela arrive même aux éditeurs WYSIWYG. Indiquer un "doctype" et un encodage de caractères permet d'avoir accès à un outil en ligne, également téléchargeable, le <reference href="http://validator.w3.org/">validateur HTML</reference> du W3C. Cet outil permet de vérifier rapidement les erreurs de syntaxe dans un document.</texte>
+                    <texte>Avoir un document <valeur>valide</valeur> est la première étape dans le débogage d'un site Web. Il faut savoir en effet que les navigateurs ne sont pas tenus de respecter les mêmes conventions d'affichage d'un code invalide. Un code valide, au contraire, est le minimum nécessaire pour assurer qu'un site Web apparaisse de la même manière sur un Mac, un PC sous Windows ou une station Unix. Et cela ne suffit pas...</texte>
+                </paragraphe>
+            </section>
+            <section titre="Accessibilité" ancre="accessibilite">
+                <paragraphe>
+                    <texte>L'accessibilité est un vaste domaine, qui n'a commencé que récemment à être exploré. On peut y voir une conséquence de l'amélioration progressive du support des standards du Web par les navigateurs. Aux temps pas si lointains de la "Balkanisation" du Web, lorsque <logiciel>Netscape</logiciel> et <logiciel>Internet Explorer</logiciel> se livraient une guerre sans merci à coups de balises et d'effets propriétaires, la priorité numéro 1 des développeurs était de s'assurer que leur site s'affichait grossièrement de la même manière dans les deux navigateurs.</texte>
+                    <texte>Maintenant que les standards du Web se sont répandus et sont mieux supportés (à la date de révision de ce cours, mai 2006, au contraire de ce qui se passait il y a encore seulement quatre ans, le facteur limitant est incontestablement, dans ce domaine, <logiciel>Internet Explorer</logiciel> qui est de loin à la traîne), la classe de problèmes à résoudre pour les développeurs s'est déplacée. Il s'agit maintenant de faire en sorte que le plus grand nombre de personnes possibles aient accès à leur site.</texte>
+                    <texte>Il ne faut pas entendre par là un accès ADSL ou par modem... mais bien de la lecture possible du site et des informations qui s'y trouvent. Cela passe, par exemple, par l'ajout de contenu alternatif aux images pour les personnes ayant choisi de ne pas les afficher, ou incapables de les examiner en détails, mais aussi par la présentation soignée de données dans un tableau (fournir un résumé du tableau, des entêtes de colonnes reconnus comme tels par des navigateurs-lecteurs de contenu), la structuration du contenu, des aides à la navigation, etc.</texte>
+                    <texte>Avoir un code valide est, là aussi, la première étape. Des outils existent ainsi en ligne afin de faciliter ce genre de tests:</texte>
+                    <liste>
+                        <item><texte><reference href="http://www.contentquality.com/">Cynthia Says</reference></texte></item>
+                        <item><texte><reference href="http://www.wave.webaim.org/index.jsp">Wave</reference></texte></item>
+                        <item><texte><reference href="http://aprompt.snow.utoronto.ca/">A-Prompt</reference>...</texte></item>
+                    </liste>
+                </paragraphe>
+            	<paragraphe>
+            		<texte>Récemment, la <reference href="http://www.legifrance.gouv.fr/WAspad/UnTexteDeJorf?numjo=SANX0300217L">loi n° 2005-102 du 11 février 2005</reference> "pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées" est parue dans le Journal Officiel. Cette loi, qui entrera en application dès la signature du décret et sa publication au Journal Officiel, stipule ainsi que "Les services de communication publique en ligne des services de l'Etat, des collectivités territoriales et des établissements publics qui en dépendent doivent être accessibles aux personnes handicapées." Les sites des administrations et collectivités territoriales devront se mettre en conformité avec la loi dans un délai de trois suivant la parution du décret.</texte>
+            		<texte>Pour plus d'informations sur ce sujet, vous pouvez consulter <reference href="http://www.webaim.org/">WebAIM</reference> (en anglais), ou <reference href="http://www.accessiweb.org/">AccessiWeb</reference> (en français).</texte>
+            	</paragraphe>
+            </section>
+        	<section ancre="briques" titre="Les briques: balises et attributs, commentaires">
+        		<paragraphe ancre="balises" titre="Balises">
+        			<texte>Les briques élémentaires d'un document <code type='typefichier'>HTML</code> sont les balises, dotées ou non d'attributs. Ces balises permettent de structurer l'information. Une balise, sauf exceptions, s'ouvre et se ferme. Par exemple, pour déclarer un paragraphe, on écrira...</texte>
+        			<exemple type="HTML">
+        				<element nom="p">Ceci est un paragraphe.</element>
+        			</exemple>
+        			<texte>Il est possible également de déclarer un texte souligné&#160;:</texte>
+        			<exemple type="HTML">
+        				<element nom="p"><element nom="u" enligne="oui">Ceci est un paragraphe souligné.</element></element>
+        			</exemple>
+        			<texte>Le navigateur ne fera pas apparaître les balises (ou <autrelangue>tags</autrelangue> ou marqueurs) <code><![CDATA[<p>]]></code>, <code><![CDATA[</p>]]></code>, <code><![CDATA[<u>]]></code> ou <code><![CDATA[</u>]]></code> mais interprétera leurs effets. Le deuxième exemple apparaît comme suit&#160;:</texte>
+        			<image alt="Exemple de soulignement" classe="illustration" hauteur="30" largeur="207" src="exemples/soulignement.gif"/>
+        			<texte><valeur>La balise est le moyen de communiquer avec le navigateur.</valeur> Elle apparaît entre les caractères réservés <code><![CDATA[<]]></code> et <code><![CDATA[>]]></code>.</texte>
+        		</paragraphe>
+        		<paragraphe ancre="attributs" titre="Attributs">
+        			<texte>Par exemple,</texte>
+        			<exemple type="HTML">
+        				<element nom="p"><attribut nom="align">right</attribut>Ceci est un paragraphe aligné à droite.</element>
+        			</exemple>
+        			<texte>a pour effet d'aligner le texte à droite.</texte>
+        			<texte>La syntaxe utilisée est la suivante&#160;:</texte>
+        			<exemple type="HTML">
+        				<element nom="balise"><attribut nom="attribut1">valeur1</attribut><attribut nom="attribut2">valeur2</attribut><attribut nom="attribut3">valeur3</attribut>blabla</element>
+        			</exemple>
+        			<texte>Le séparateur est un espace, l'ordre n'a pas d'importance. La valeur de l'attribut doit être tapée en minuscules, et mise entre guillemets (pour des raisons de compatibilité XHTML). Certains navigateurs acceptent une écriture sous la forme <code>align=Right</code>, par exemple, mais cela n'est pas conforme aux recommandations du W3C, et les navigateurs récents ne sont pas tenus de respecter cette syntaxe.</texte>
+        			<texte>Les attributs permettent de modifier le comportement par défaut d'une balise, ou bien de spécifier des informations indispensables (comme l'adresse d'une image intégrée à la page, ou bien celle d'un lien externe).</texte>
+        		</paragraphe>
+        		<paragraphe ancre="commentaires" titre="Commentaires">
+        			<texte>Indispensables dans certains cas, ils alourdissent cependant le temps de chargement d'une page. Ils n'apparaissent pas dans la fenêtre du navigateur. La syntaxe est la suivante&#160;:</texte>
+        			<exemple type="HTML">
+        				<commentaire>Commentaire</commentaire>
+        			</exemple>
+        		</paragraphe>
+        	</section>
+        </partie>
+        <partie titre="Le corps d'un document" ancre="corps">
+            <section titre="Structure" ancre="structure">
+                <paragraphe titre="Titres et paragraphes" ancre="titpara">
+                    <texte><code type="langage">HTML</code> définit quelques niveaux de titres. Ces titres se codent à l'aide des balises <code><![CDATA[<hn>]]></code>, où <code>n</code> peut valoir de 1 à 6. Un titre h1 est plus important qu'un titre h2, etc.</texte>
+                    <texte>Un paragraphe se code entre des balises <code><![CDATA[<p>]]></code>. On obtient ainsi, par exemple</texte>
+                	<exemple type="HTML">
+                		<element nom="h1">Titre de niveau 1</element>
+                		<element nom="p">Et voici un paragraphe...</element>
+                	</exemple>
+                    <texte>Vous noterez la présence des balises ouvrantes et fermantes, encadrant le texte.</texte>
+                    <texte>Il est possible d'aligner un paragraphe à droite, au centre, ou de le justifier, à l'aide de l'attribut <code>align</code>. Ainsi, <code><![CDATA[<p align="justify">(...)</p>]]></code> permet de justifier le paragraphe. Cet attribut est néanmoins obsolète, et utilisable uniquement avec les types de documents transitionnels.</texte>
+                </paragraphe>
+                <paragraphe titre="Listes" ancre="listes">
+                    <texte>Il existe plusieurs types de listes en <code type="langage">HTML</code>&#160;:</texte>
+                    <liste>
+                        <item>
+                            <texte>les listes à puces , avec les balises <code><![CDATA[<ul>]]></code>. Chaque élément de liste se place dans une balise <code><![CDATA[<li>]]></code>. Par exemple&#160;:</texte>
+                        	<exemple type="HTML">
+                        		<element nom="ul">
+                        			<element nom="li">Premier élément</element>
+                        			<element nom="li">Deuxième élément</element>
+                        			<element nom="li">Troisième élément</element>
+                        		</element>
+                        	</exemple>
+                        </item>
+                        <item><texte>Les listes ordonnées, à numéros, se codent à l'aide d'une balise <code><![CDATA[<ol>]]></code>; les éléments de liste s'utilisent de la même manière.</texte></item>
+                    </liste>
+                    <texte>Il existe aussi des listes de définitions, des listes de menus, etc.</texte>
+                </paragraphe>
+                <paragraphe titre="Tableaux" ancre="tableaux">
+                    <texte>C'est un vaste sujet. Il y a quelques années, beaucoup utilisaient des tableaux pour mettre en page des sites Web. Cette pratique est aujourd'hui dépassée grâce à la souplesse d'emploi des feuilles de style <code type="langage">CSS</code>, et à proscrire car elle met en péril l'accessibilité de la page.</texte>
+                    <texte>Un tableau est encadré par des balises <code><![CDATA[<table>]]></code>, avec un attribut obligatoire <code>summary</code>, permettant de donner des informations sur le contenu du tableau. Chaque ligne d'un tableau est entourée par des balises <code><![CDATA[<tr>]]></code>. Chaque cellule est entourée de balises <code><![CDATA[<td>]]></code> (pour des cellules de données), ou des balises <code><![CDATA[<th>]]></code> (pour des cellules de titre -<autrelangue type="en">header</autrelangue>). L'encombrement de ces cellules est donné par les attributs <code>colspan</code> (nombre de colonnes) et <code>rowspan</code> (nombre de lignes).</texte>
+                </paragraphe>
+            </section>
+            <section titre="Éléments « enligne »" ancre="enligne">
+                <paragraphe titre="Liens" ancre="liens">
+                    <texte>On fait un lien avec une balise <code><![CDATA[<a>]]></code>. L'URL du lien est donnée par l'attribut <code>href</code>. Par exemple, <code><![CDATA[<a href="http://www.monsite.com">Ceci est un lien</a>]]></code>.</texte>
+                </paragraphe>
+            	<paragraphe titre="Quelques balises courantes pour le texte" ancre="danstexte">
+            		<tableau>
+            			<ligne type="header">
+            				<colonne><texte>Balise</texte></colonne>
+            				<colonne><texte>Signification</texte></colonne>
+            				<colonne><texte>Effet</texte></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;em&gt;</code></texte></colonne>
+            				<colonne><texte>emphasis</texte></colonne>
+            				<colonne><image alt="emphasis" hauteur="20" largeur="112" src="exemples/em.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;strong&gt;</code></texte></colonne>
+            				<colonne><texte>fort</texte></colonne>
+            				<colonne><image alt="strong" hauteur="19" largeur="121" src="exemples/strong.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;cite&gt;</code></texte></colonne>
+            				<colonne><texte>citation brève</texte></colonne>
+            				<colonne><image alt="cite" hauteur="19" largeur="113" src="exemples/cite.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;dfn&gt;</code></texte></colonne>
+            				<colonne><texte>définition</texte></colonne>
+            				<colonne><image alt="dfn" hauteur="18" largeur="113" src="exemples/dfn.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;code&gt;</code></texte></colonne>
+            				<colonne><texte>extrait de programme</texte></colonne>
+            				<colonne><image alt="code" hauteur="15" largeur="156" src="exemples/code.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;samp&gt;</code></texte></colonne>
+            				<colonne><texte>sample: échantillon</texte></colonne>
+            				<colonne><image alt="samp" hauteur="18" largeur="158" src="exemples/samp.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;kbd&gt;</code></texte></colonne>
+            				<colonne><texte>Keyboard(clavier)</texte></colonne>
+            				<colonne><image alt="kbd" hauteur="20" largeur="156" src="exemples/kbd.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;var&gt;</code></texte></colonne>
+            				<colonne><texte>variable ou argument</texte></colonne>
+            				<colonne><image alt="var" hauteur="21" largeur="119" src="exemples/var.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;abbr&gt;</code></texte></colonne>
+            				<colonne><texte>abréviation</texte></colonne>
+            				<colonne><image alt="abbr" hauteur="21" largeur="104" src="exemples/abbr.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;acronym&gt;</code></texte></colonne>
+            				<colonne><texte>acronyme</texte></colonne>
+            				<colonne><image alt="acronym" hauteur="23" largeur="108" src="exemples/acronym.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;sub&gt;</code></texte></colonne>
+            				<colonne><texte>subscript/indice</texte></colonne>
+            				<colonne><image alt="sub" hauteur="25" largeur="98" src="exemples/sub.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;sup&gt;</code></texte></colonne>
+            				<colonne><texte>superscript/exposant</texte></colonne>
+            				<colonne><image alt="sup" hauteur="26" largeur="94" src="exemples/sup.gif"/></colonne>
+            			</ligne>
+            			<ligne>
+            				<colonne><texte><code>&lt;pre&gt;</code></texte></colonne>
+            				<colonne><texte>preformatted</texte></colonne>
+            				<colonne><image alt="pre" hauteur="23" largeur="156" src="exemples/pre.gif"/></colonne>
+            			</ligne>
+            			<legende>Balises de formatage logique.</legende>
+		</tableau>
+            	</paragraphe>
+	<paragraphe titre="Images" ancre="images">
+		<texte>On insère une image à l'aide de la balise (vide) <code><![CDATA[<img>]]></code>, de son attribut <code>src</code> et de son attribut <code>alt</code> qui donne un texte de substitution. Les attributs <code>width</code> et <code>height</code>, donnant largeur et hauteur en pixels sont conseillés. Par exemple, <code><![CDATA[<img src="ours.jpg" alt="Une tête d'ours en gros plan" width="100" height="90">]]></code> affiche... une tête d'ours, probablement.</texte>
+	</paragraphe>
+
+            </section>
+        </partie>
+    </corpus>
+</chapitre>

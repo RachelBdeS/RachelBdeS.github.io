@@ -1,0 +1,216 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Contrôle du son et de la vidéo</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, object, embed, param">
+      <meta name="description" content="Comment insérer du contenu multimédia dans une page Web&nbsp;?">
+      <link rel="next" href="forms.html">
+      <link rel="prev" href="cadres.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Contrôle du son et de la vidéo</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#plugin" title="Les modules externes">Les modules externes</a><ol>
+                     <li><a href="#definition" title="Qu'appelle-t-on ''module externe'' ou ''plug-in''?">Qu'appelle-t-on ''module externe'' ou ''plug-in''?</a></li>
+                     <li><a href="#nn" title="Visualiser ses ''plug-ins'' sous NN">Visualiser ses ''plug-ins'' sous NN</a></li>
+                     <li><a href="#nnie" title="Des dispositions différentes sous NN et IE">Des dispositions différentes sous NN et IE</a></li>
+                     <li><a href="#activex" title="Visualiser les objets ActiveX sous IE">Visualiser les objets ActiveX sous IE</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#balises" title="Balises d'insertion de contenu multimédia">Balises d'insertion de contenu multimédia</a><ol>
+                     <li><a href="#embed" title="La balise <embed&gt;">La balise &lt;embed&gt;</a></li>
+                     <li><a href="#object" title="La balise <object&gt;">La balise &lt;object&gt;</a><ol>
+                           <li><a href="#syntaxeobject" title="Syntaxe">Syntaxe</a></li>
+                           <li><a href="#param" title="Elément <param&gt;">Elément &lt;param&gt;</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="plugin" href="#plugin" id="plugin"></a>I. Les modules externes
+         </h3>
+         <h4><a name="definition" id="definition" href="#definition"></a>1. Qu'appelle-t-on ''module externe'' ou ''plug-in''?
+         </h4>
+         <p>Bien que le son et la vidéo soient le propre du multimédia, les navigateurs ne sont pas capables de les exécuter seuls&nbsp;: ils
+            disposent d'une architecture ouverte qui leur permet de faire appel à des programmes supplémentaires externes. Ce sont les
+            <span lang="en" class="autrelangue">plug-in</span>.
+         </p>
+         <p>Par exemple, cliquer sur ce point d'interrogation <a href="sons/ringin.wav"><span class="image"><img src="images/b2_help.gif" alt="Point d'interrogation" width="18" height="18" class="normal"></span></a>. Vous ferez appel implicitement au <span lang="en" class="autrelangue">plug-in</span> par défaut de lecture d'un son du type <code class="typefichier">wav</code>. Ce <span lang="en" class="autrelangue">plug-in</span> par défaut dépend des configurations de la machine de l'utilisateur&nbsp;: selon les installations, ce pourra être <code class="logiciel">MédiaPlayer</code>, le magnétophone de Windows...
+         </p>
+         <p>Ces programmes sont souvent installés avec le navigateur ou bien disponibles, généralement gratuitement, sur Internet.</p>
+         <p class="retourtdm"><a href="#tdm_definition" title="Retour à la TdM (Qu'appelle-t-on ''module externe'' ou ''plug-in''?)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="nn" id="nn" href="#nn"></a>2. Visualiser ses ''plug-ins'' sous NN
+         </h4>
+         <p>Il est possible de visualiser sous <code class="logiciel">Netscape Navigator</code>, l'ensemble des <span lang="en" class="autrelangue">plug-in</span> disponibles pour ce navigateur. Il suffit d'effectuer le cheminement suivant&nbsp;: <code class="code">Help&gt;A propos des modules externes</code>. Cet enchaînement lance un <code class="langage">JavaScript</code> capable d'analyser ce qui est disponible. Lancer cette commande et examiner le résultat.
+         </p>
+         <p class="retourtdm"><a href="#tdm_nn" title="Retour à la TdM (Visualiser ses ''plug-ins'' sous NN)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="nnie" id="nnie" href="#nnie"></a>3. Des dispositions différentes sous NN et IE
+         </h4>
+         <p>L'apparition des <span lang="en" class="autrelangue">plug-ins</span> revient à NetScape avec la version 2 de <code class="logiciel">Navigator</code>&nbsp;: grâce aux <span lang="en" class="autrelangue">plug-ins</span>, il est devenu alors possible de lire n'importe quel type de fichier à même la fenêtre du navigateur. La réaction de MicroSoft
+            fut alors de reprendre le concept de <span lang="en" class="autrelangue">plug-in</span> et de l'approfondir&nbsp;: ce fut la technologie <code class="langage">ActiveX</code> (<code class="langage">ActiveX</code> est un langage de script utilisant les technologies Visual Basic et OLE). Les détails techniques sur cette différence d'approche
+            et de mise en oeuvre sortent du cadre de ce cours&nbsp;; nous retiendrons simplement que <code class="logiciel">Netscape Navigator</code> et <code class="logiciel">Internet Explorer</code> ne partagent pas la même approche des modules externes. L'effet principal est de nous compliquer (encore une fois&nbsp;!) la tâche.
+         </p>
+         <p class="retourtdm"><a href="#tdm_nnie" title="Retour à la TdM (Des dispositions différentes sous NN et IE)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="activex" id="activex" href="#activex"></a>4. Visualiser les objets ActiveX sous IE
+         </h4>
+         <p>Il est possible de visualiser sous <code class="logiciel">Internet Explorer,</code> l'ensemble des objets Active disponibles pour ce navigateur. Il suffit d'effectuer le cheminement suivant&nbsp;: <code class="code">Outils&gt;Option Internet&gt;Paramètres (sous l'onglet Général)&gt; Afficher les Objets</code>.
+         </p>
+         <p>On pourra visualiser les propriétés de ces objets par un clic droit de la souris. On notera l'identifiant de classe (classid)
+            utile pour l'appel de l'objet ActiveX dans la page HTML.
+         </p>
+         <p class="retourtdm"><a href="#tdm_activex" title="Retour à la TdM (Visualiser les objets ActiveX sous IE)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="balises" href="#balises" id="balises"></a>II. Balises d'insertion de contenu multimédia
+         </h3>
+         <h4><a name="embed" id="embed" href="#embed"></a>1. La balise &lt;embed&gt;
+         </h4>
+         <p>Cette balise, initialement introduite par Netscape, ne fait même plus partie de la recommandation <code class="langage">HTML</code> Transitionnel du W3C. Elle permettait d'insérer dans la page <code class="typefichier">HTML</code> l'exécution du <span lang="en" class="autrelangue">plug-in</span> correspondant au type du fichier.
+         </p>
+         <p>Le W3C recommande l'utilisation de la balise <code class="code">&lt;object&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_embed" title="Retour à la TdM (La balise <embed&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="object" id="object" href="#object"></a>2. La balise &lt;object&gt;
+         </h4>
+         <h5><a href="#syntaxeobject" name="syntaxeobject" id="syntaxeobject"></a>a. Syntaxe
+         </h5>
+         <p>La balise <code class="code">&lt;object&gt;</code> est utilisée pour inclure images, séquences video, applets Java et interfaces VRML. Cette balise est prévue pour remplacer
+            les balises à usage plus limité <code class="code">&lt;img&gt;</code> et <code class="code">&lt;applet&gt;</code>, ainsi que les éléments propriétaires <code class="code">&lt;embed&gt;</code> et <code class="code">&lt;bgsound&gt;</code>, en dépit de problèmes relatifs à son support par les navigateurs. Dans la mesure du possible, on continuera donc à utiliser
+            les balises <code class="code">&lt;img&gt;</code> et <code class="code">&lt;applet&gt;</code>.
+         </p>
+         <p>Cette balise accepte plusieurx attributs principaux&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">data</code>&nbsp;: spécifie l'URI (adresse) de l'objet inséré.
+               </p>
+            </li>
+            <li>
+               <p>Les attributs <code class="code">width</code> et <code class="code">height</code> définissent les dimensions de l'objet. La valeur peut être exprimée en nombre de pixels ou en pourcentages de la taille de
+                  l'élément contenant l'objet. <em>Attention&nbsp;:</em> la plupart des navigateurs requièrent la présence de ces attributs.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">classid&gt;</code> peut être utilisé pour définir une implémentation permettant la gestion de l'objet. Cela est le cas pour les applets Java
+                  et Python, les contrôles ActiveX, ainsi que le montre l'exemple suivant...
+               </p>
+            </li>
+         </ul>
+         <p class="html"><span class="tag">&lt;object<span class="nomattribut"> classid</span>="<span class="valeurattribut">yahtzee.py</span>"<span class="nomattribut"> codetype</span>="<span class="valeurattribut">application/x-python</span>"<span class="nomattribut"> standby</span>="<span class="valeurattribut">Prêt pour un petit Yahtzee?</span>"<span class="nomattribut"> title</span>="<span class="valeurattribut">Mon Yahtzee</span>"&gt;</span><br>
+            							
+            							
+            							
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;object<span class="nomattribut"> classid</span>="<span class="valeurattribut">java:Yahtzee.class</span>"<span class="nomattribut"> codetype</span>="<span class="valeurattribut">application/java</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">400</span>"<span class="nomattribut"> height</span>="<span class="valeurattribut">250</span>"<span class="nomattribut"> standby</span>="<span class="valeurattribut">Prêt pour un petit Yahtzee?</span>"<span class="nomattribut"> title</span>="<span class="valeurattribut">Mon Yahtzee</span>"&gt;</span><br>
+            								
+            								
+            								
+            								
+            								
+            								
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;object<span class="nomattribut"> data</span>="<span class="valeurattribut">yahtzee.gif</span>"<span class="nomattribut"> type</span>="<span class="valeurattribut">image/gif</span>"<span class="nomattribut"> title</span>="<span class="valeurattribut">Une animation Yahtzee</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">200</span>"<span class="nomattribut"> height</span>="<span class="valeurattribut">100</span>"&gt;</span>
+            									
+            									
+            									
+            									
+            									
+            									Yahtzee est mon <span class="tag">&lt;em&gt;</span>jeu favori<span class="tag">&lt;/em&gt;</span>.
+            								<span class="tag">&lt;/object&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/object&gt;</span><br>
+            						<span class="tag">&lt;/object&gt;</span><br></p>
+         <p>Cet exemple montre aussi une solution afin de permettre aux navigateurs qui ne peuvent supporter le type d'objet, d'afficher
+            une alternative. Dans cet exemple, le jeu écrit en <code class="langage">Python</code> est utilisé si le navigateur le supporte. Au cas où cela ne serait pas possible, une version Java est disponible. Une troisième
+            possibilité est offerte avec l'affichage d'une image, et enfin une dernière alternative est disponible avec du texte brut.
+            Cette possibilité préserve la compatibilité avec les plus anciens navigateurs, qui ignoreront les éléments <code class="code">&lt;object&gt;</code>, et se contenteront d'afficher le texte.
+         </p>
+         <p>L'exemple précédent utilise également les attributs <code class="code">type</code> et <code class="code">codetype</code> pour aider les navigateurs à déterminer la nature des fichiers en jeu&nbsp;: cela leur évite ainsi de tenter de charger un type
+            de fichier qu'ils ne savent pas gérer. L'attribut <code class="code">type</code> indique le type de média de la ressource référencée par l'attribut <code class="code">data</code>, tandis que l'attribut <code class="code">codetype</code> indique le type de média de la ressource référencée par l'attribut <code class="code">classid</code>.
+         </p>
+         <p>L'attribut <code class="code">standby</code> est aussi utilisé dans l'exemple précédent. Il fournit un court texte affiché dans la fenêtre pendant le chargement de l'objet.
+         </p>
+         <p class="retourtdm"><a href="#tdm_syntaxeobject" title="Retour à la TdM (Syntaxe)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#param" name="param" id="param"></a>b. Elément &lt;param&gt;
+         </h5>
+         <p>L'élément <code class="code">&lt;object&gt;</code> peut contenir des éléments <code class="code">&lt;param&gt;</code>, <em>avant</em> tout autre élément-enfant, permettant de spécifier un certain nombre de propriétés qui sont transmises aux objets multimédia
+            chargés. Par exemple,
+         </p>
+         <p class="html"><span class="tag">&lt;object<span class="nomattribut"> classid</span>="<span class="valeurattribut">java:Clock.class</span>"<span class="nomattribut"> codetype</span>="<span class="valeurattribut">application/java</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">100</span>"<span class="nomattribut"> height</span>="<span class="valeurattribut">100</span>"<span class="nomattribut"> title</span>="<span class="valeurattribut">Une horloge en temps réel!</span>"<span class="nomattribut"> standby</span>="<span class="valeurattribut">Quelle heure est-il?</span>"&gt;</span><br>
+            							
+            							
+            							
+            							
+            							
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;param<span class="nomattribut"> name</span>="<span class="valeurattribut">type</span>"<span class="nomattribut"> value</span>="<span class="valeurattribut">analog</span>"&gt;</span><span class="tag">&lt;/param&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;param<span class="nomattribut"> name</span>="<span class="valeurattribut">bgcolor</span>"<span class="nomattribut"> value</span>="<span class="valeurattribut">white</span>"&gt;</span><span class="tag">&lt;/param&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;param<span class="nomattribut"> name</span>="<span class="valeurattribut">fgcolor</span>"<span class="nomattribut"> value</span>="<span class="valeurattribut">navy</span>"&gt;</span><span class="tag">&lt;/param&gt;</span><br>
+            						<span class="tag">&lt;/object&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_object" title="Retour à la TdM (La balise <object&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="cadres.html">Les cadres (frames)</a><br>Cours suivant&nbsp;: <a href="forms.html">Les formulaires</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="video.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples.</li>
+            <li>Le 6 novembre 2003, version 1.01. Corrections de coquilles. Liste des attributs de la balise object.</li>
+            <li>Le 15 novembre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

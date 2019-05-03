@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cours SYSTEM "../ressources/cours30.dtd">
+
+<cours nomfichier="cours" typecoursenligne="html2" typecourssiteweb="html">
+	<titre>Cours de HTML</titre>
+	<auteur>
+		<identite>Gilles Chagnon</identite>
+		<email>Gilles.Chagnon@upmc.fr</email>
+		<adresse>
+			<organisme>Formation Continue - Université Paris VI</organisme>
+			<localisation>Couloir 24-25 - 3ème étage - salle 307</localisation>
+			<rue>4, Place Jussieu</rue>
+			<ville>75252 Paris Cedex 05</ville>
+		</adresse>
+		<telephone tel="01-44-27-60-11"/>
+	</auteur>
+	<motsclefs>html, css, feuille de style, cascading style sheet, w3c</motsclefs>
+	<resume>Cours de HTML 4.01. Feuilles de style CSS. Exercices corrigés.</resume>
+	<description>Ce cours a été initialement présenté à des étudiants de <lien href="http://www.licence.elec.upmc.fr/S_tec/">licence multimédia</lien> de l'Université Pierre et Marie Curie. Je suis convaincu du bien-fondé d'une approche respectueuse  de ce que l'on appelle les "standards Web", qu'il faut plutôt penser en termes de "bonnes pratiques". Vous le découvrirez au long de ces cours, qui vous présenteront le format HTML dans son détail, vous permettant de produire des pages Web facilement maintenables, ainsi que le format de mise en forme CSS. Bonne lecture&#160;!</description>
+	<prerequis>Maîtrise d'un éditeur de texte "basique".</prerequis>
+	<plan>
+		<thème titre="Pour débuter">
+			<intro>Quelques propos d'introduction et de présentation générale</intro>
+			<!--<chapitre href="htmlrapide"/>-->
+			<chapitre href="intro"/>
+			<chapitre href="elements"/>
+			<ARetenir></ARetenir>
+		</thème>
+		<thème titre="Ajouter du contenu aux pages Web&#160;: les éléments d'une page">
+			<intro>Une page Web peut être considérablement enrichie par l'emploi d'un certain nombre d'éléments. Ces chapitres les présentent.</intro>
+			<chapitre href="texte"/>
+			<chapitre href="liens"/>
+			<chapitre href="listes"/>
+			<chapitre href="tableaux"/>
+			<chapitre href="images"/>
+			<chapitre href="cadres"/>
+			<chapitre href="video"/>
+			<chapitre href="forms"/>
+			<ARetenir></ARetenir>
+		</thème>
+		<thème titre="Mettre en forme&#160;: le langage CSS">
+			<intro>Une page <acronyme titre="HyperText Markup Language">HTML</acronyme> peut être mise en forme à l'aide du langage <acronyme titre="Cascading StyleSheet">CSS</acronyme>. Ces pages offrent un aperçu de ses possibilités.</intro>
+			<!--<chapitre href="cssrapide"/>-->
+			<chapitre href="cssintro"/>
+			<chapitre href="css1"/>
+			<chapitre href="css2"/>
+			<ARetenir></ARetenir>
+		</thème>
+		<thème titre="Quelques pages-types et conseils généraux">
+			<intro>Pour terminer, voici quelques modèles de pages...</intro>
+			<chapitre href="modeles"/>
+			<ARetenir></ARetenir>
+		</thème>
+	</plan>
+</cours>

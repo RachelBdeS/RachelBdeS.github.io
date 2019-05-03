@@ -1,0 +1,268 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les listes</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, liste, ul, ol, li, dl, dd, dt, list">
+      <meta name="description" content="Ce chapitre présente la gestion des listes en HTML.">
+      <link rel="next" href="tableaux.html">
+      <link rel="prev" href="liens.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les listes</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#listes" title="Listes">Listes</a><ol>
+                     <li><a href="#listesintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#listestypes" title="Les types de listes">Les types de listes</a><ol>
+                           <li><a href="#li" title="la balise <li&gt;">la balise &lt;li&gt;</a></li>
+                           <li><a href="#puces" title="Listes à puces">Listes à puces</a></li>
+                           <li><a href="#numeros" title="Listes numérotées">Listes numérotées</a></li>
+                           <li><a href="#definition" title="Liste de définitions">Liste de définitions</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#imbriquees" title="Listes imbriquées">Listes imbriquées</a></li>
+                     <li>Exercice&nbsp;: <a href="#exolistes">Listes et liens</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="listes" href="#listes" id="listes"></a>I. Listes
+         </h3>
+         <h4><a name="listesintro" id="listesintro" href="#listesintro"></a>1. Introduction
+         </h4>
+         <p>Très tôt, en raison de l'historique du <code class="langage">HTML</code>, la notion de liste est apparue, car elle permet de structurer simplement un ensemble de données. Cinq types de listes différents
+            existent&nbsp;: les listes non ordonnées, les listes numérotées, les listes de définition d'une part, qui sont encore utilisées,
+            et les listes de type répertoire et de menu d'autre part, qui sont maintenant tombées en désuétude. Ce cours se limite aux
+            premiers types de listes.
+         </p>
+         <p class="retourtdm"><a href="#tdm_listesintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="listestypes" id="listestypes" href="#listestypes"></a>2. Les types de listes
+         </h4>
+         <h5><a href="#li" name="li" id="li"></a>a. la balise &lt;li&gt;
+         </h5>
+         <p>Cette balise sert à délimiter un élément de liste, et est toujours incluse dans un environnement de liste. Elle ne possède
+            qu'un unique attribut, valable uniquement en <code class="langage">HTML</code> transitionnel, <code class="code">type</code>.
+         </p>
+         <p><code class="code">type</code> peut prendre les valeurs <code class="code">disc</code> (valeur par défaut pour un premier niveau d'<a href="#imbriquees">imbrication</a> d'une <a href="#puces">liste à puces</a>), <code class="code">circle</code> ou <code class="code">square</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_li" title="Retour à la TdM (la balise <li&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#puces" name="puces" id="puces"></a>b. Listes à puces
+         </h5>
+         <p>C'est le type de liste le plus simple. Elle s'introduit en utilisant la balise <code class="code">&lt;ul&gt;</code>, qui signifie <span lang="en" class="autrelangue"> Unordered List</span>. Elle possède le même attribut que la balise <code class="code">&lt;li&gt;</code>, qui s'utilise dans les mêmes conditions, et est également <em>obsolète en HTML&nbsp;4.01 strict</em>&nbsp;:
+         </p>
+         <table class="tableau" summary="Attribut obsolète de la balise ul." border="1">
+            <tr>
+               <th id="attr_ul">
+                  <p>Attribut</p>
+               </th>
+               <th id="effet_ul">
+                  <p>Effet</p>
+               </th>
+               <th id="valeurs_ul">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_ul">
+                  <p><code class="code">type</code></p>
+               </td>
+               <td headers="effet_ul">
+                  <p>Choix du type de puce</p>
+               </td>
+               <td headers="valeurs_ul">
+                  <ul class="sanspuce">
+                     <li>
+                        <p><span class="image"><img src="exemples/disc.gif" alt="disc" width="15" height="15" class="normal"></span>disc (défaut)
+                        </p>
+                     </li>
+                     <li>
+                        <p><span class="image"><img src="exemples/circle.gif" alt="circle" width="15" height="15" class="normal"></span>circle
+                        </p>
+                     </li>
+                     <li>
+                        <p><span class="image"><img src="exemples/square.gif" alt="square" width="15" height="15" class="normal"></span>square
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Attribut <em>obsolète</em> de la balise ul.
+         </p>
+         <p> Exemple d'utilisation&nbsp;: </p>
+         <p class="html"><span class="tag">&lt;ul&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Premier élément<span class="tag">&lt;/li&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Deuxième élément<span class="tag">&lt;/li&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Troisième élément<span class="tag">&lt;/li&gt;</span><br>
+            						<span class="tag">&lt;/ul&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_puces" title="Retour à la TdM (Listes à puces)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#numeros" name="numeros" id="numeros"></a>c. Listes numérotées
+         </h5>
+         <p>Ce type de listes est ordonnée. Elle s'introduit en utilisant la balise <code class="code">&lt;ol&gt;</code>, qui signifie <span lang="en" class="autrelangue"> Ordered List</span>. Les éléments de la liste sont également déclarés par la balise <code class="code">&lt;li&gt;</code>. La "numérotation" peut se faire de cinq manières différentes, cela étant spécifié par la valeur de l'attribut <code class="code">type</code>. Elle peut débuter à n'importe quelle position (par exemple à 2...), grâce à la valeur de l'attribut obsolète <code class="code">start</code>.
+         </p>
+         <table class="tableau" summary="Attributs obsolètes de la balise <ol&gt;" border="1">
+            <tr>
+               <th id="attr_ol">
+                  <p>Attribut</p>
+               </th>
+               <th id="effet_ol">
+                  <p>Effet</p>
+               </th>
+               <th id="valeurs_ol">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_ol">
+                  <p><code class="code">type</code></p>
+               </td>
+               <td headers="effet_ol">
+                  <p>choix du type de numérotation</p>
+               </td>
+               <td headers="valeurs_ol">
+                  <ul class="sanspuce">
+                     <li>
+                        <p>1 (par défaut)</p>
+                     </li>
+                     <li>
+                        <p>a</p>
+                     </li>
+                     <li>
+                        <p>A</p>
+                     </li>
+                     <li>
+                        <p>i</p>
+                     </li>
+                     <li>
+                        <p>I</p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">start</code></p>
+               </td>
+               <td>
+                  <p>numéro de début de liste</p>
+               </td>
+               <td>
+                  <p>selon le type, un numéro ou une lettre</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Attributs <em>obsolètes</em> de la balise <code class="code">&lt;ol&gt;</code></p>
+         <p>La balise <code class="code">&lt;li&gt;</code> possède alors un autre attribut,<code class="code">value</code>, analogue au rôle de <code class="code">start</code>, qui permet de spécifier le rang de l'item, et donc d'imposer des sauts dans la numérotation.
+         </p>
+         <p class="retourtdm"><a href="#tdm_numeros" title="Retour à la TdM (Listes numérotées)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#definition" name="definition" id="definition"></a>d. Liste de définitions
+         </h5>
+         <p>Ce type de liste, peu usité, est une... liste de définitions&nbsp;! Elle est déclarée par la balise <code class="code">&lt;dl&gt;</code>. Par exemple&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;dl&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dt&gt;</span>basilic<span class="tag">&lt;/dt&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Annuelle. Peut dépasser un mètre de hauteur. Le parfum de ses petites fleurs blanches est divin.<span class="tag">&lt;/dd&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dt&gt;</span>origan<span class="tag">&lt;/dt&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Vivace. Propage ses stolons sous terre. Il est difficile de s'en débarrasser une fois bien établi.<span class="tag">&lt;/dd&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dt&gt;</span>coriandre<span class="tag">&lt;/dt&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Annuelle. Préfère une situation ombragée. Son huile est utilisée en parfumerie.<span class="tag">&lt;/dd&gt;</span><br>
+            						<span class="tag">&lt;/dl&gt;</span><br></p>
+         <p> Il n'y a pas d'attribut spécial pour cette balise. </p>
+         <p class="retourtdm"><a href="#tdm_listestypes" title="Retour à la TdM (Les types de listes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imbriquees" id="imbriquees" href="#imbriquees"></a>3. Listes imbriquées
+         </h4>
+         <p>Les puces et la numérotation varient selon le rang de la liste. Par exemple, pour des listes non ordonnées, on obtient&nbsp;:</p>
+         <ul>
+            <li>
+               <p>Premier niveau</p>
+               <ul>
+                  <li>
+                     <p>Deuxième niveau</p>
+                     <ul>
+                        <li>
+                           <p>Troisième niveau</p>
+                           <ul>
+                              <li>
+                                 <p>Quatrième niveau</p>
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </li>
+               </ul>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_imbriquees" title="Retour à la TdM (Listes imbriquées)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exolistes" href="#exolistes" id="exolistes"></a>1. Listes et liens
+         </h4>
+         <h5><a href="exercices/td2.html" title="Énoncé de l'exercice 'Listes et liens'">Énoncé</a></h5>
+         <h5><a href="exercices/td2cor.html" title="Correction 'Listes et liens'">
+               				Correction</a></h5>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="liens.html">Les liens hypertexte</a><br>Cours suivant&nbsp;: <a href="tableaux.html">Les tableaux dans une page Web</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="listes.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples.</li>
+            <li>Le 16 juin 2004, version 1.04. Ajout de la correction des exercices.</li>
+            <li>Le 11 mars 2004, version 1.03. Ajout des liens vers les exercices.</li>
+            <li>Le 1er octobre 2003, version 1.02. Correction de coquilles.</li>
+            <li>Le 22 septembre 2003, version 1.01. Correction de coquilles.</li>
+            <li>Le 23 octobre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

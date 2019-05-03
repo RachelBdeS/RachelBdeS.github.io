@@ -1,0 +1,101 @@
+/* Positionnement */
+
+#tablemat{
+	clear: both;
+	padding: 1em;
+	height: 100%;
+}
+
+body> #tablemat{
+	height: auto;
+	padding-bottom: 0%;
+	overflow: hidden;
+}
+
+#tablemat .impair{
+	float: left;
+	width: 45%;
+	padding: 1%;
+	margin: 1%;
+	clear: left;
+}
+
+#tablemat .pair{
+	float: left;
+	width: 45%;
+	padding: 1%;
+	margin: 1%;
+}
+
+/* Mise en forme de la table des matières courte*/
+
+#tablemat{
+	border: medium double #0082D6;
+}
+
+#tablemat .pair, #tablemat .impair{
+	border: thin solid #0082D6;
+}
+
+#tablemat li{
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+#tablemat h3, #tablemat h3 a{
+	color: #338200;
+	background-color: transparent;
+}
+
+#tablemat ol, #tablemat ol li a{
+	color: #338200;
+	list-style-type: none;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+#tablemat ol ol, #tablemat ol ol li a{
+	color: blue;
+	list-style-type: decimal;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+
+#tablemat ol ol ol, .tablemat ol ol ol, #tablemat ol ol ol li a, .tablemat ol ol ol li a{
+	/*font-size: 0.9em;*/
+	list-style-type: lower-alpha;
+	font-weight: normal;
+}
+
+#tablemat li, .tablemat li{
+	padding-left: 0.5em;
+}
+
+#tablemat p.intro, .tablemat p.intro{
+	border: thin solid #58A6D7;
+	padding: 0.3em;
+}
+
+/* Mise en forme de la table des matières longue */
+
+#tablemat2{
+	border: 1px solid #0082D6;
+	padding: 0em 1em;
+}
+
+#tablemat2 ol{
+	list-style-type: upper-roman;
+}
+
+#tablemat2 ol ol{
+	list-style-type: decimal;
+}
+
+#tablemat2 ol ol ol{
+	list-style-type: lower-alpha;
+}
+
+#tablemat2 .retourhaut{
+	font-style:italic;
+	font-size: .8em;
+}

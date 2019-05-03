@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+
+<cours nomfichier="css1">Cours de HTML</cours>
+
+<entete>
+	<titre>Les règles du CSS1</titre>
+	<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+	<resume>Ce chapitre présente les concepts généraux des feuilles de style CSS, et en particulier les recommandations CSS1.</resume>
+	<motsclefs>html, css, base, concept, introduction, propriete</motsclefs>
+</entete>
+
+<corpus>
+
+<partie titre="Polices de caractères" ancre="polices" >
+	<section titre="Introduction" ancre="policesintro" >
+		<paragraphe>
+			<texte>La mise en forme du texte est réalisée grâce à l'utilisation de quelques propriétés, gérant notamment la police (<autrelangue>font</autrelangue> en anglais).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer de police&#160;: font-family" ancre="fontfamily" >
+		<paragraphe>
+			<texte><code>font-family</code> permet de spécifier quelle est la police à utiliser. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="font-family" valeur="Verdana, Arial, sans-serif"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Il faut indiquer au moins un nom de police. Si la police n'est pas trouvée dans le système d'exploitation, la police par défaut est utilisée. Cette police est la <code>Times New Roman</code> sur un PC, et <code>Times Roman</code> sur un Mac. C'est la raison pour laquelle il est recommandé de spécifier plusieurs noms de polices, ainsi qu'une famille de polices générale&#160;:</texte>
+			<liste type="ordonnee">
+				<item><texte>La police préférentielle en premier</texte></item>
+				<item><texte>Une police plus généralement répandue</texte></item>
+				<item><texte>Éventuellement d'autres choix de polices</texte></item>
+				<item><texte>Une famille de polices générale</texte></item>
+			</liste>
+			<texte>Les familles de police générales sont</texte>
+			<liste>
+				<item><texte><code>serif</code>, les polices avec empattement&#160;</texte></item>
+				<item><texte><code>sans-serif</code>, les polices sans empattement&#160;</texte></item>
+				<item><texte><code>monospace</code>, les polices à espacement fixe&#160;</texte></item>
+				<item><texte><code>cursive</code>, les polices imitant grossièrement l'écriture manuelle&#160;</texte></item>
+				<item><texte><code>fantasy</code>, les polices de fantaisie.</texte></item>
+			</liste>
+			<texte>Dans le cas où aucune police spécifique ne peut être trouvée, ce dernier choix permet de se reposer sur les polices définies par défaut sur le système, sans pour autant trop dégrader le rendu visuel.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer la taille des caractères&#160;: font-size" ancre="fontsize" >
+		<paragraphe>
+			<texte><code>font-size</code> permet de spécifier la taille de la police à utiliser. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt >
+					<selecteur >h4</selecteur>
+					<prop nom="font-size" valeur="1.2em" ></prop>
+				</csselt>
+				<csselt >
+					<selecteur >h3</selecteur>
+					<prop nom="font-size" valeur="120%" ></prop>
+				</csselt>
+				<csselt >
+					<selecteur >h2</selecteur>
+					<prop nom="font-size" valeur="bigger" ></prop>
+				</csselt>
+			</exemple_css>
+			<texte>La syntaxe des trois possibilités de spécification de la taille suit celle <reference href="cssintro.html#unitessyntaxe">des unités</reference>, et il est possible d'utiliser de plus les mots-clefs <code>smaller</code>, <code>small</code>, <code>normal</code>, <code>big</code> et <code>bigger</code> qui changent la taille des caractères d'un facteur prédéterminé.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer l'orientation des caractères&#160;: font-style" ancre="fontstyle" >
+		<paragraphe>
+			<texte><code>font-style</code> permet de spécifier le «&#160;style&#160;» (normal ou italique) de la police à utiliser. Les trois valeurs possibles sont <code>normal</code>, <code>italic</code> et <code>oblique</code>&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>span.definition</selecteur>
+					<prop nom="font-style" valeur="italic" ></prop>
+				</csselt>
+				<csselt>
+					<selecteur>span.penche</selecteur>
+					<prop nom="font-style" valeur="oblique" ></prop>
+				</csselt>
+				<csselt>
+					<selecteur>span.normal</selecteur>
+					<prop nom="font-style" valeur="normal" ></prop>
+				</csselt>
+			</exemple_css>
+			<texte><code>normal</code> est la valeur par défaut. <code>oblique</code> est un style où la police est inclinée. Le rendu à l'écran est parfois similaire au style italique, mais en toute rigueur il devrait en être différent.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Mettre un texte en petites capitales&#160;: font-variant" ancre="fontvariant" >
+		<paragraphe>
+			<texte><code>font-variant</code> permet de spécifier une «&#160;variante&#160;» de la police à utiliser. Les valeurs possibles sont <code>normal</code> et <code>small-caps</code>&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h4</selecteur>
+					<prop nom="font-variant" valeur="normal" ></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h4.grandtitre</selecteur>
+					<prop nom="font-variant" valeur="small-caps" ></prop>
+				</csselt>
+			</exemple_css>
+			<texte><code>small-caps</code> permet de spécifier que le texte doit être écrit en «&#160;petites capitales&#160;».</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer la graisse de la police&#160;: font-weight" ancre="fontweight" >
+		<paragraphe>
+			<texte><code>font-weight</code> permet de spécifier la graisse de la police à utiliser. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>b.tresgras</selecteur>
+					<prop nom="font-weight" valeur="bolder" ></prop>
+				</csselt>
+				<csselt>
+					<selecteur>span.important</selecteur>
+					<prop nom="font-weight" valeur="300" ></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles peuvent être&#160;:</texte>
+			<liste>
+				<item><texte>Des nombres entiers de centaines (100, 200, (...), 800, 900) compris entre 100 et 900.</texte></item>
+				<item><texte><code>normal</code>, <code>bold</code> qui indiquent une graisse respectivement par défaut et moyenne.</texte></item>
+				<item><texte><code>bolder</code>, <code>lighter</code> qui permettent d'augmenter ou de diminuer la graisse par rapport à la valeur par défaut.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Le résumé&#160;: font" ancre="font" >
+		<paragraphe>
+			<texte>Il est possible de réunir plusieurs de ces propriétés en utilisant le raccourci <code>font</code>, à condition de respecter toujours un ordre précis (style, graisse, taille puis famille). Par exemple...</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p.introduction</selecteur>
+					<prop nom="font" valeur="italic bold 12pt Times, serif"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>	
+	</section>
+	<exercice titre="Mise en forme de police" ancre="exopolice">
+		<enonce href="exercices/td5.html#police"/>
+		<correction href="exercices/td5_cor.html"/>
+	</exercice>
+</partie>
+
+<partie titre="Texte" ancre="texte" >
+	<section titre="Spécifier l'interligne&#160;: line-height" ancre="lineheight" >
+		<paragraphe>
+			<texte><code>line-height</code> permet de spécifier l'écart entre deux lignes dans le texte. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="line-height" valeur="200%"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont <code>normal</code>, un nombre positif (l'espacement entre deux lignes est égal à la valeur par défaut multipliée par le nombre), ou bien toute mesure de taille (une longueur ou un pourcentage).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer l'alignement horizontal d'un texte&#160;: text-align" ancre="textalign" >
+		<paragraphe>
+			<texte><code>text-align</code> permet de spécifier l'alignement horizontal du texte. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="text-align" valeur="center"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p.journal</selecteur>
+					<prop nom="text-align" valeur="justify"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont <code>left</code> (valeur par défaut), <code>right</code>, <code>center</code> et <code>justify</code>.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Surligner, souligner, barrer&#160;: text-decoration" ancre="textdecoration" >
+		<paragraphe>
+			<texte><code>text-decoration</code> permet de spécifier quel type de soulignement doit être appliqué au texte. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>a:active, a:link, a:visited</selecteur>
+					<prop nom="text-decoration" valeur="none"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont <code>none</code> (pas de soulignement), <code>underline</code> (soulignement), <code>overline</code> (un trait au-dessus du texte), <code>line-through</code> (un trait au milieu du texte) et <code>blink</code> (clignotement&#160;; à éviter dans la mesure du possible pour ne pas faire fuir l'internaute&#160;!).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Mettre un alinéa, indenter le texte&#160;: text-indent" ancre="textindent" >
+		<paragraphe>
+			<texte><code>text-indent</code> permet de spécifier quelle indentation (ou retrait de première ligne) appliquer à la première ligne du texte. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="text-indent" valeur="5em"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>La syntaxe de l'indentation à appliquer suit celle <reference href="cssintro.html#unitessyntaxe">des unités</reference>. Elle peut être une longueur ou un pourcentage.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Manipuler les majuscules et les minuscules&#160;: text-transform" ancre="texttransform" >
+		<paragraphe>
+			<texte><code>text-transform</code> permet de spécifier quelle transformation appliquer à la police. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="text-transform" valeur="uppercase"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h2</selecteur>
+					<prop nom="text-transform" valeur="capitalize"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont&#160;:</texte>
+			<liste>
+				<item><texte><code>none</code>, la valeur par défaut.</texte></item>
+				<item><texte><code>capitalize</code>&#160;: chaque première lettre de mot est en majuscule.</texte></item>
+				<item><texte><code>uppercase</code>&#160;: chaque mot est en majuscules.</texte></item>
+				<item><texte><code>lowercase</code>&#160;: chaque mot est en minuscules.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Changer l'alignement vertical&#160;: vertical-align" ancre="verticalalign" >
+		<paragraphe>
+			<texte><code>vertical-align</code> permet de spécifier quel alignement vertical appliquer au texte par rapport à la ligne de base. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>img</selecteur>
+					<prop nom="vertical-align" valeur="50%"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>img.middle</selecteur>
+					<prop nom="vertical-align" valeur="middle"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>.exponent</selecteur>
+					<prop nom="vertical-align" valeur="super"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont&#160;:</texte>
+			<liste>
+				<item><texte><code>baseline</code>, la valeur par défaut. L'alignement est fait relativement à la ligne de base de l'élément-parent.</texte></item>
+				<item><texte><code>middle</code>&#160;: le milieu de l'élément est aligné avec la moitié de la hauteur de ligne (le x-height) de l'élément-parent.</texte></item>
+				<item><texte><code>sub</code>&#160;: alignement en indice.</texte></item>
+				<item><texte><code>super</code>&#160;: alignement en exposant.</texte></item>
+				<item><texte><code>text-top</code>&#160;: alignement du haut de l'élément avec le point le plus haut de la police de l'élément-parent.</texte></item>
+				<item><texte><code>text-bottom</code>&#160;: alignement du bas de l'élément avec le point le plus bas de la police de l'élément-parent.</texte></item>
+				<item><texte><code>top</code>&#160;: alignement du haut de l'élément avec le point le plus haut de la ligne courante.</texte></item>
+				<item><texte><code>bottom</code>&#160;: alignement du bas de l'élément avec le point le plus bas de la ligne courante.</texte></item>
+				<item><texte>Un pourcentage&#160;: ce pourcentage se réfère au <code>line-height</code> de l'élément-parent.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Changer l'espace entre les mots&#160;: word-spacing" ancre="wordspacing" >
+		<paragraphe>
+			<texte><code>word-spacing</code> permet de spécifier l'espacement entre les mots du texte. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p em</selecteur>
+					<prop nom="word-spacing" valeur="0.4em"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p.note</selecteur>
+					<prop nom="word-spacing" valeur="-0.2em"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Cette propriété a comme valeur une longueur. Il est à noter qu'une valeur négative est possible.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer l'espace entre les lettres&#160;: letter-spacing" ancre="letterspacing" >
+		<paragraphe>
+			<texte><code>letter-spacing</code> permet de spécifier l'espacement entre les lettres du texte. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="letter-spacing" valeur="0.1em"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p.note</selecteur>
+					<prop nom="letter-spacing" valeur="-0.1em"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Cette propriété a comme valeur une longueur. Il est à noter qu'une valeur négative est possible, mais le résultat est évidemment peu lisible. Une valeur de 0 empêche la justification.</texte>
+		</paragraphe>
+	</section>
+	<exercice titre="Mise en forme de texte" ancre="exotexte">
+		<enonce href="exercices/td5.html#texte"/>
+		<correction href="exercices/td5_cor.html"/>
+	</exercice>
+</partie>
+
+	<partie titre="Couleurs et fonds" ancre="couleurs" >
+		<section titre="Spécifier la couleur du texte&#160;: color" ancre="color" >
+			<paragraphe>
+				<texte><code>color</code> permet de spécifier la couleur du texte. Exemples d'utilisation&#160;:</texte>
+				<exemple_css>
+					<csselt>
+						<selecteur>h1</selecteur>
+						<prop nom="color" valeur="blue"></prop>
+					</csselt>
+					<csselt>
+						<selecteur>h2</selecteur>
+						<prop nom="color" valeur="#000080"></prop>
+					</csselt>
+					<csselt>
+						<selecteur>h3</selecteur>
+						<prop nom="color" valeur="rgb(25%,50%,75%)"></prop>
+					</csselt>
+				</exemple_css>
+				<texte>Afin d'éviter d'aboutri à un texte illisible (par exemple, blanc sur blanc) quand l'utilisateur a personnalisé sa feuille de style dans les préférences de son navigateur, <reference href="#backgroundcolor"><code>background-color</code></reference> doit être spécifié en même temps que <code>color</code>.</texte>
+				<texte>Cette propriété est compatible avec tous les navigateurs.</texte>
+			</paragraphe>
+		</section>
+	<section titre="Spécifier une couleur de fond&#160;: background-color" ancre="backgroundcolor" >
+		<paragraphe titre="Propriété" ancre="bgcolorprop">
+			<texte><code>background-color</code> permet de spécifier la couleur de fond de l'élément. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>body</selecteur>
+					<prop nom="background-color" valeur="white"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="background-color" valeur="#000080"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Afin d'éviter des conflits avec des feuilles de style personnelles spécifiées par des utilisateurs, il est recommandé de spécifier également la propriété <reference href="#backgroundimage"><code>background-image</code></reference> à chaque fois que <code>background-color</code> est utilisé. Souvent, <code>background-image: none</code> suffit.</texte>
+			<texte>De plus, il est recommandé de spécifier à chaque fois la propriété <reference href="#color"><code>color</code></reference> de telle manière que le texte soit lisible sur le fond.</texte>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="compatbgcolor">
+			<texte>Il n'y a pas de problème de compatibilité avec les navigateurs compatibles CSS (même <logiciel>Internet Explorer 4</logiciel> et <logiciel>Netscape 4</logiciel>), à une réserve près.</texte>
+			<texte><logiciel>Netscape 4</logiciel>, en effet, ne remplit pas correctement un élément de type bloc avec la couleur choisie, à moins de spécifier une bordure (même une bordure de largeur nulle). Ajouter une bordure laisse un espace transparent entre le remplissage par la couleur et la bordure. <logiciel>Netscape 4</logiciel> possède une propriété... propriétaire, <code>layer-background-color</code>, qui corrige ce problème.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Spécifier une image de fond&#160;: background-image" ancre="backgroundimage" >
+		<paragraphe titre="Propriété" ancre="bgimageprop">
+			<texte><code>background-image</code> permet de spécifier une image de fond pour l'élément. Il faut indiquer l'URL de l'image par rapport à l'emplacement de la feuille de style. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>body</selecteur>
+					<prop nom="background-image" valeur="url(/images/ombrages.gif)"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="background-image" valeur="url(http://www.wpdfd.com/images/bluebg.gif)"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="compatbgimage">
+			<texte>Il n'y a pas de problème de compatibilité avec les navigateurs compatibles CSS (même <logiciel>Internet Explorer 4</logiciel> et <logiciel>Netscape 4</logiciel>), à une réserve près.</texte>
+			<texte><logiciel>Netscape 4</logiciel>, en effet, ne remplit pas correctement un élément de type bloc avec l'image choisie, à moins de spécifier une bordure (même une bordure de largeur nulle). Ajouter une bordure laisse un espace transparent entre le remplissage par la couleur et la bordure. <logiciel>Netscape 4</logiciel> possède une propriété... propriétaire, <code>layer-background-color</code>, qui corrige ce problème.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer la position par défaut de l'image de fond&#160;: background-position" ancre="backgroundposition" >
+		<paragraphe titre="Propriété" ancre="bgposprop">
+			<texte><code>background-position</code> permet de spécifier la position initiale d'une image de fond. Le moyen le plus simple est d'utiliser des mots-clefs&#160;:</texte>
+			<liste>
+				<item><texte>horizontaux, comme <code>left, center, right</code>.</texte></item>
+				<item><texte>verticaux, comme <code>top, center, bottom</code>.</texte></item>
+			</liste>
+			<exemple_css>
+				<csselt>
+					<selecteur>p.introduction</selecteur>
+					<prop nom="background-image" valeur="url(images/fond1.jpg)"></prop>
+					<prop nom="background-position" valeur="top center"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Dans chaque paragraphe de <code>class="introduction"</code>, l'image de fond est localisée par l'URL relative <code>images/fond.jpg</code>. Elle est positionnée en haut et au milieu horizontal du paragraphe.</texte>
+			<texte>Les pourcentages et les longueurs sont aussi autorisés. Les pourcentages se réfèrent à la taille de l'élément, et non à celle de l'image lui servant de fond. Les longueurs, bien que possibles, ne sont pas conseillées car l'affichage est alors trop dépendant des conditions précises de visualisation du document.</texte>
+			<texte>Quand les pourcentages ou les longueurs sont utilisés, on indique d'abord la position horizontale, puis la position verticale. Par exemple&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p.conclusion</selecteur>
+					<prop nom="background-image" valeur="url(images/fond2.jpg)"></prop>
+					<prop nom="background-position" valeur="20% 65%"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Dans chaque paragraphe de <code>class="introduction"</code>, l'image de fond est localisée par l'URL relative <code>images/fond.jpg</code>. L'image est positionnée de telle sorte que le point situé à 20% de la largeur de l'image, comptée à partir de la gauche, et à 65% de sa hauteur, comptée à partir du haut, est placé à 20% de la largeur du paragraphe, compté à partir de la gauche, et à 65% de la hauteur de ce dernier, comptée à partir du haut.</texte>
+			<texte>Si on donne uniquement la position horizontale, la position verticale est fixée à 50%. On peut combiner pourcentages et longueurs&#160;: <code>background-position: 33% 2cm</code> est autorisé. En revanche, on ne peut combiner mots-clefs et pourcentages ou longueurs.</texte>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="compatbgpos">
+			<texte>Cette propriété fonctionne avec <logiciel>Internet Explorer 4</logiciel> et suivants, <logiciel>Netscape 6</logiciel> et suivants, <logiciel>Opera</logiciel> et <logiciel>Mozilla.</logiciel></texte>
+			<texte>Affecter une propriété différente de la valeur par défaut, sous <logiciel>Internet Explorer 4</logiciel> pour Windows déclenche un <reference href="#compatbgrepeat">bogue dans le support de ce navigateur pour la propriété <code>background-repeat</code></reference>.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Contrôler la répétition d'une image de fond&#160;: background-repeat" ancre="backgroundrepeat" >
+		<paragraphe titre="Propriété" ancre="bgrepeatprop">
+			<texte><code>background-repeat</code> permet de spécifier la manière dont une image de fond va être répétée. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p.introduction</selecteur>
+					<prop nom="background-image" valeur="url(images/fond1.jpg)"></prop>
+					<prop nom="background-repeat" valeur="repeat"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p.conclusion</selecteur>
+					<prop nom="background-image" valeur="url(images/fond2.jpg)"></prop>
+					<prop nom="background-repeat" valeur="repeat-y"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont&#160;:</texte>
+			<liste>
+				<item><texte><code>repeat</code>&#160;: l'image est répétée verticalement et horizontalement.</texte></item>
+				<item><texte><code>repeat-x</code>&#160;: l'image est répétée horizontalement.</texte></item>
+				<item><texte><code>repeat-y</code>&#160;: l'image est répétée verticalement.</texte></item>
+				<item><texte><code>no-repeat</code>&#160;: l'image n'est pas répétée.</texte></item>
+			</liste>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="compatbgrepeat">
+			<texte>Il n'y a pas de gros problème de compatibilité avec les navigateurs compatibles CSS (même <logiciel>Internet Explorer 4</logiciel> et <logiciel>Netscape 4</logiciel>).</texte>
+			<texte><logiciel>Internet Explorer 4</logiciel> pour Windows, cependant, ne place les images que de la gauche vers la droite, et du haut vers le bas. Il s'ensuit qu'en spécifiant une propriété <reference href="#backgroundposition"><code>background-position</code></reference> différente de la valeur par défaut, l'affichage reste incomplet.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Contrôler le défilement de l'image de fond&#160;: background-attachment" ancre="backgroundattachment" >
+		<paragraphe titre="Propriété" ancre="attachprop">
+			<texte><code>background-attachment</code> permet de spécifier la manière dont l'image de fond est «&#160;attachée&#160;» au défilement de la fenêtre. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>body</selecteur>
+					<prop nom="background-image" valeur="url(images/fond0.jpg)"></prop>
+					<prop nom="background-attachment" valeur="fixed"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les deux valeurs possibles sont <code>fixed</code> (quand on agit sur les barres de défilement, l'image ne bouge pas), et <code>scroll</code>, valeur par défaut (le défilement de l'image suit celui du texte).</texte>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="compatattach">
+			<texte>Le support pour cette propriété varie selon les navigateurs&#160;:</texte>
+			<liste>
+				<item><texte><logiciel>Internet Explorer</logiciel> à partir de la version 4</texte></item>
+				<item><texte><logiciel>Netscape</logiciel> à partir de la version 6</texte></item>
+				<item><texte><logiciel>Opera</logiciel> à partir de la version 5</texte></item>
+				<item><texte><logiciel>Mozilla</logiciel>&#160;: tous.</texte></item>
+			</liste>
+			<texte><logiciel>Internet Explorer</logiciel> pour Windows (jusqu'à la version 6), et les navigateurs <logiciel>Opera</logiciel> (jusqu'à la version 6) ne supportent pas correctement la valeur <code>fixed</code> pour d'autres éléments que l'élément <code><![CDATA[<body>]]></code>. <logiciel>Opera 7</logiciel>, <logiciel>Internet Explorer 5</logiciel> pour Macintosh, <logiciel>Netscape 6.2.1</logiciel> et suivants, toutes les versions de <logiciel>Mozilla</logiciel> ont un support correct.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Le résumé&#160;: background" ancre="background" >
+		<paragraphe titre="La propriété" ancre="backgroundprop">
+			<texte>Il est possible de réunir plusieurs de ces propriétés en utilisant le raccourci <code>background</code>. Par exemple...</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>#supplement</selecteur>
+					<prop nom="background" valeur="#0c0 url(feuilles.jpg) no-repeat bottom right"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>La déclaration précédente permet de spécifier que l'élément d'identifiant <code>supplement</code> a une couleur de fond par défaut, <code>#00cc00</code>, associée à une image de fond <code>feuilles.jpg</code>, alignée en bas à droite de l'élément, et ne se répétant pas.</texte>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="compatbackground">
+			<texte>Le support pour ce raccourci varie selon les navigateurs&#160;:</texte>
+			<liste>
+				<item><texte><logiciel>Internet Explorer</logiciel> à partir de la version 4</texte></item>
+				<item><texte><logiciel>Netscape</logiciel> à partir de la version 6</texte></item>
+				<item><texte><logiciel>Opera</logiciel> à partir de la version 5</texte></item>
+				<item><texte><logiciel>Mozilla</logiciel>&#160;: tous.</texte></item>
+			</liste>
+			<texte>Ce raccourci est partiellement supporté par <logiciel>Netscape 4</logiciel>&#160;; mais cela n'est pas documenté officiellement et n'est donc pas fiable.</texte>
+		</paragraphe>
+	</section>
+	<exercice titre="Couleurs et fond" ancre="exocouleur">
+		<enonce href="exercices/td5.html#couleursfonds"/>
+		<correction href="exercices/td5_cor.html"/>
+	</exercice>
+</partie>
+
+	<partie titre="Les «&#160;boîtes&#160;»" ancre="boites" >
+	<section titre="Généralités" ancre="boitesgen" >
+		<paragraphe titre="Introduction&#160;:  le modèle de boîte" ancre="boitesintro" >
+			<texte>La recommandation <code type="langage">CSS1</code> indique que tous les éléments <code>HTML</code> (sauf ceux qui ne figurent que par leurs adresses&#160;: images, son, objets multimédia en général, plug-in...) puissent être considérés comme des blocs rectangulaires. Ce bloc est constitué de plusieurs couches (en pelures d'oignon en quelque sorte)&#160;; on a de l'intérieur vers l'extérieur&#160;: </texte>
+			<liste>
+				<item><texte>un contenu (<code>content</code>)</texte></item>
+				<item><texte>une zone d'ajustement (<code>padding</code>)</texte></item>
+				<item><texte>un encadrement (<code>border</code>)</texte></item>
+				<item><texte>une marge (<code>margin</code>)</texte></item>
+			</liste>
+			<image src="exemples/boites.gif" largeur="259" hauteur="270" alt="Pelures d'oignon"></image>
+			<texte>Cette terminologie est décomposée selon le côté concerné&#160;: droite (<autrelangue>right</autrelangue>), gauche (<autrelangue>left</autrelangue>), dessus (<autrelangue>top</autrelangue>), dessous (<autrelangue>bottom</autrelangue>).</texte>
+		</paragraphe>
+		<paragraphe titre="Règles d'attribution" ancre="regles" >
+			<texte>Pour tous les éléments définis ci-dessus, une propriété définit son épaisseur, il s'agit&#160;:</texte>
+			<tableau>
+				<ligne>
+					<colonne><texte><code>margin</code></texte></colonne>
+					<colonne><texte><code>padding</code></texte></colonne>
+					<colonne><texte><code>border-width</code></texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne><texte><code>margin-top</code></texte></colonne>
+					<colonne><texte><code>padding-top</code></texte></colonne>
+					<colonne><texte><code>border-top-width</code></texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne><texte><code>margin-right</code></texte></colonne>
+					<colonne><texte><code>padding-right</code></texte></colonne>
+					<colonne><texte><code>border-right-width</code></texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne><texte><code>margin-bottom</code></texte></colonne>
+					<colonne><texte><code>padding-bottom</code></texte></colonne>
+					<colonne><texte><code>border-bottom-width</code></texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne><texte><code>margin-left</code></texte></colonne>
+					<colonne><texte><code>padding-left</code></texte></colonne>
+					<colonne><texte><code>border-left-width</code></texte></colonne>
+				</ligne>
+				<legende>Propriétés pour l'ajustement de la taille des boîtes.</legende>
+			</tableau>
+			<texte>Chacune des propriétés citées en en-tête permet d'énoncer celles de la colonne entière selon un protocole que nous allons illustrer par les exemples suivants&#160;:</texte>
+			<liste>
+				<item><texte><code>margin : 2em</code> signifie  <code>margin-top: 2em; margin-right: 2em; margin-bottom: 2em; margin-left: 2em</code></texte></item>
+				<item><texte><code>margin: 1em 2em</code> signifie <code>margin-top : 1em; margin-right : 2em; margin-bottom : 1em; margin-left : 2em</code></texte></item>
+				<item><texte><code>margin: 1em 2em 3em</code> signifie <code>margin-top : 1em; margin-right : 2em; margin-bottom : 3em; margin-left : 2em</code></texte></item>
+				<item><texte><code>margin: 1em 2em 3em -2em</code> signifie <code>margin-top : 1em; margin-right : 2em; margin-bottom : 3em; margin-left : -2em</code></texte></item>
+			</liste>
+			<texte>La règle est donc la suivante&#160;: les valeurs sont attribuées à partir du sommet (<code>top</code>) dans le sens des aiguilles d'une montre (<code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>). Lorsqu'une valeur est manquante, on lui attribue celle du côté qui lui fait face. </texte>
+		</paragraphe>
+	</section>
+	<section titre="Les propriétés de la marge extérieure&#160;: margin" ancre="margin" >
+		<paragraphe>
+			<texte>Les valeurs possibles de la propriété sont un pourcentage, une longueur ou <code>auto</code>. Le pourcentage est une fraction de la largeur de l'élément parent contenant le bloc. Des valeurs négatives sont possibles dans les limites définies par l'implémentation. Le mot clé <code>auto</code> laisse au navigateur la gestion de cette épaisseur.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Les propriétés de la marge intérieure&#160;: padding" ancre="padding" >
+		<paragraphe>
+			<texte>Les valeurs possibles de cette propriété sont un pourcentage ou une longueur.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Les propriétés de la bordure&#160;: border" ancre="border" >
+		<paragraphe titre="Propriétés de largeur: border-width" ancre="borderwidth" >
+			<texte>Les valeurs possibles de cette propriété sont une longueur, ou bien <code>thin</code> (mince), <code>medium</code> ou <code>thick</code> (gros). Cette propriété est compatible avec tous les navigateurs.</texte>
+		</paragraphe>
+		<paragraphe titre="Spécifier la couleur de la bordure&#160;: border-color" ancre="bordercolor" >
+			<texte><code>border-color</code> permet de spécifier la couleur de la bordure.</texte>
+			<texte>La répartition des couleurs s'organise en commençant au sommet, puis en tournant dans le sens des aiguilles d'une montre. Si une couleur est manquante, on prend celle qui lui fait face.</texte>
+			<texte>Si l'encadrement est présent mais pas la propriété <code>border-color</code>, le navigateur reprend par défaut la couleur du texte (<code>color</code>).</texte>
+			<texte>Cette propriété est compatible avec tous les navigateurs, à la réserve près que <logiciel>Netscape 4</logiciel> n'accepte qu'une seule valeur de couleur.</texte>
+		</paragraphe>
+		<paragraphe titre="Spécifier le type de trait de la bordure&#160;: border-style" ancre="borderstyle" >
+			<texte><code>border-style</code> permet de spécifier le style de la bordure.</texte>
+			<texte>Les valeurs possibles sont&#160;:</texte>
+			<liste>
+				<item><texte><code>none</code>, la valeur par défaut (absence de bordure)</texte></item>
+				<item><texte><code>dotted</code>, bordure en pointillés</texte></item>
+				<item><texte><code>dashed</code>, bordure en tirets</texte></item>
+				<item><texte><code>solid</code>, bordure continue</texte></item>
+				<item><texte><code>double</code>, bordure double</texte></item>
+				<item><texte><code>groove</code>, bordure 3D en creux</texte></item>
+				<item><texte><code>ridge</code>, bordure 3D en saillie</texte></item>
+				<item><texte><code>inset</code>, bloc 3D en arrière</texte></item>
+				<item><texte><code>outset</code>, bloc 3D en avant</texte></item>
+				<item><texte><code>hidden</code>, bordure cachée</texte></item>
+			</liste>
+			<texte>La compatibilité dépend de la valeur de la propriété choisie&#160;:</texte>
+			<liste>
+				<item><texte><code>dashed</code>, <code>dotted</code> et <code>hidden</code> ne sont supportées que par <logiciel>Netscape 6</logiciel> et suivants, <logiciel>Mozilla</logiciel>, <logiciel>Opera</logiciel>, <logiciel>Internet Explorer 4</logiciel> sur Macintosh et <logiciel>Internet Explorer 5.5</logiciel> et suivants sous Windows.</texte></item>
+				<item><texte>Les autres propriétés sont supportées par tous les navigateurs à partir des versions 4. <logiciel>Netscape 4</logiciel>, cependant, définit une largeur de bordure nulle par défaut&#160;: pour appliquer un style de bordure, il faut donc pour ce navigateur, indiquer une bordure de largeur non nulle.</texte></item>
+			</liste>
+		</paragraphe>
+		<paragraphe titre="Raccourcis&#160;: border-top, border-right, border-bottom, border-left" ancre="bordertop" >
+			<texte><code>border-top, border-right, border-bottom, border-left</code> et <code>border</code> permettent des raccourcis&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p.intro</selecteur>
+					<prop nom="border-top" valeur="thick blue double"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p.conclu</selecteur>
+					<prop nom="border-left" valeur="medium red dotted"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>p.corps</selecteur>
+					<prop nom="border" valeur="thin medium thick red blue blue inset"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>On peut également choisir de n'appliquer un style particulier qu'à une bordure&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>a:hover</selecteur>
+					<prop nom="border-bottom-style" valeur="dashed"></prop>
+					<prop nom="border-bottom-color" valeur="gray"></prop>
+					<prop nom="border-bottom-width" valeur="1px"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Ces raccourcis sont supportés par tous les navigateurs, sauf <code>Netscape 4</code> qui ne supporte que <code>border-xxx-width</code>, pour laquelle il fixe la valeur par défaut à 0, et non <code>medium</code>.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Placement d'un élément de type bloc par rapport au contenu environnant&#160;: float" ancre="float" >
+		<paragraphe>
+			<texte><code>float</code> permet de spécifier la position d'un texte par rapport au flux de la page, c'est-à-dire sans position «&#160;naturelle&#160;». L'élément est alors sorti du flux. Cela permet par exemple de placer une image de manière à ce que le texte dans lequel elle se trouve la contourne.</texte>
+			<texte>Cette propriété peut prendre les valeurs <code>none</code>, <code>right</code> ou <code>left</code>. Dans l'exemple suivant, le paragraphe de classe <code>note</code> sera «&#160;calé&#160;» à droite de la fenêtre.</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p.note</selecteur>
+					<prop nom="float" valeur="right"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+	</section>
+	<section titre="Nettoyer les éléments flottants&#160;: clear" ancre="clear" >
+		<paragraphe>
+			<texte><code>clear</code> permet de spécifier si l'élément peut admettre un élément «&#160;flottant&#160;» sur un de ses côtés.</texte>
+			<texte>Cette propriété peut prendre les valeurs <code>none</code> (la valeur par défaut), <code>left</code>, <code>right</code> ou <code>both</code>. Si <code>clear="left"</code>, l'élément est positionné en-dessous de tout élément «&#160;flottant&#160;» sur sa gauche. Si <code>clear="both"</code>, l'élément est positionné en-dessous de tout élément «&#160;flottant&#160;» sur sa gauche ou sa droite. Par exemple...</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="clear" valeur="left"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>... signifie qu'aucun élément flottant ne pourra se placer à gauche d'un titre de niveau 1.</texte>
+			<texte>Cette propriété est supportée par tous les navigateurs.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Spécifier largeur et hauteur d'un élément&#160;: height, width" ancre="height" >
+		<paragraphe ancre="widthheightintro" titre="Le comportement théorique">
+			<texte>Ces propriétés s'appliquent à tout élément de type bloc mais aussi aux éléments insérés (dont ne figure que l'adresse url) comme les images.</texte>
+			<texte>Les valeurs possibles de ces propriétés sont une longueur, un pourcentage (seulement pour <code>width</code>) et <code>auto</code>. Le pourcentage est une fraction de la taille du conteneur parent. L'option <code>auto</code> se réfère aux dimensions intrinsèques du contenu (par exemple la taille intrinsèque d'une image).</texte>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="widthheightcompat">
+			<texte>Les recommandations du W3C stipulent que la largeur totale occupée à l'écran par un élément est égale à la somme de <code>width</code>, du double de <code>padding-width</code> et du double de <code>border-width</code>. Ce modèle de boîte standard est respecté par tous les navigateurs sauf <logiciel>Internet Explorer</logiciel>, pour qui la largeur à l'écran n'est égale qu'à <code>width</code>. C'est une source classique d'incompatibilités d'affichages entre navigateurs.</texte>
+		</paragraphe>
+	</section>
+	<exercice titre="Boîtes" ancre="exoboites">
+		<enonce href="exercices/td5.html#boites"/>
+		<correction href="exercices/td5_cor.html"/>
+	</exercice>
+</partie>
+
+<partie titre="Listes" ancre="listes" >
+	<section titre="Spécifier une image comme puce dans une liste&#160;: list-style-image" ancre="liststyleimage" >
+		<paragraphe>
+			<texte><code>list-style-image</code> permet de spécifier une puce pour une liste. Il faut indiquer l'URL de l'image à utiliser. Exemple d'utilisation&#160;:</texte>	
+			<exemple_css>
+				<csselt>
+					<selecteur>ul.index</selecteur>
+					<prop nom="list-style-image" valeur="url(../images/rond_rouge.gif)"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+	</section>
+	<section titre="Changer l'alignement du texte après la puce dans une liste&#160;: list-style-position" ancre="liststyleposition" >
+		<paragraphe>
+			<texte><code>list-style-position</code> permet de spécifier la position de la puce ou du numéro. Exemple d'utilisation&#160;:</texte>	
+			<exemple_css>
+				<csselt>
+					<selecteur>ul.dedans</selecteur>
+					<prop nom="list-style-position" valeur="inside"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont <code>inside</code> et <code>outside</code>. Avec <code>list-style-position: inside</code>, le numéro ou la puce est aligné avec le texte. Avec <code>list-style-position: outside</code>, le numéro ou la puce est en marge du texte.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Changer la forme de la puce ou le type de numérotation&#160;: list-style-type" ancre="liststyletype" >
+		<paragraphe>
+			<texte><code>list-style-type</code> permet de spécifier le type de puce ou de numéro selon le type de liste. Exemple d'utilisation&#160;:</texte>	
+			<exemple_css>
+				<csselt>
+					<selecteur>ul.carres</selecteur>
+					<prop nom="list-style-type" valeur="square"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Pour une liste non ordonnée, les valeurs possibles sont <code>disc</code>, <code>circle</code>, <code>square</code> et <code>none</code>.</texte>
+			<texte>Pour une liste ordonnée, les valeurs possibles sont <code>decimal</code> (1, 2...), <code>lower roman</code> (i, ii...), <code>upper-roman</code> (I, II...), <code>lower-alpha</code> (a, b...), <code>upper-alpha</code> (A, B...) et <code>none</code>.</texte>
+		</paragraphe>
+	</section>
+	<exercice titre="Mise en forme de listes" ancre="exolistes">
+		<enonce href="exercices/td5.html#listes"/>
+		<correction href="exercices/td5_cor.html"/>
+	</exercice>
+</partie>
+
+<partie titre="Autres propriétés" ancre="autres" >
+	<section titre="Contrôle de l'affichage ou de la disparition d'un élément&#160;: display" ancre="display" >
+		<paragraphe>
+			<texte><code>display</code> permet de spécifier le mode d'affichage de l'élément. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h4</selecteur>
+					<prop nom="display" valeur="inline"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont&#160;:</texte>
+			<liste>
+				<item><texte><code>block</code>&#160;: l'élément est traité comme un nouveau bloc comme le sont, par défaut, les titres et les paragraphes. Valeur compatible avec tous les navigateurs, y compris <logiciel>Netscape 4</logiciel>.</texte></item>
+				<item><texte><code>inline</code>&#160;: l'élément sera affiché dans le cours de la ligne courante. Valeur compatible avec tous les navigateurs, y compris <logiciel>Netscape 4</logiciel>.</texte></item>
+				<item><texte><code>list-item</code>&#160;: la présentation sera celle d'une liste. Valeur supportée par <logiciel>Netscape&#160;4+</logiciel>, <logiciel>Internet Explorer&#160;6+</logiciel> sous Windows, <logiciel>IE&#160;5+</logiciel> pour Macintosh, <logiciel>Mozilla</logiciel>, <logiciel>Opera</logiciel>.</texte></item>
+				<item><texte><code>none</code>&#160;: l'élément sera invisible. Valeur compatible avec tous les navigateurs, y compris <logiciel>Netscape&#160;4</logiciel>.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Prise en charge des blancs&#160;: white-space" ancre="whitespace" >
+		<paragraphe>
+			<texte><code>white-space</code> permet de spécifier la manière dont les blancs sont pris en compte. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>div.telque</selecteur>
+					<prop nom="white-space" valeur="pre"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les valeurs possibles sont&#160;:</texte>
+			<liste>
+				<item><texte><code>normal</code>&#160;: le navigateur gère les retours à la ligne normalement en interprétant les "blancs" comme des coupures possibles et en ignorant ceux du texte source.</texte></item>
+				<item><texte><code>pre</code>&#160;: comme l'élément <code>pre</code>, pour préformaté. Le texte sera reproduit tel quel dans la fenêtre en respectant tous les blancs et les retours à la ligne du texte source.</texte></item>
+				<item><texte><code>nowrap</code>&#160;: interdit le retour à la ligne automatique. Il ne pourra être que volontaire par l'élément <code>br</code>.</texte>
+				</item>
+			</liste>
+		</paragraphe>
+	</section>
+</partie>
+
+</corpus>
+
+</chapitre>

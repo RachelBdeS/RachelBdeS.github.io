@@ -1,0 +1,218 @@
+<!-- 
+------------------------------------------------------------
+Squelette HTML5 (à copier-coller dans les nouveaux fichiers)
+------------------------------------------------------------
+<!DOCTYPE html>
+  <!-- <html lang="fr"> -->
+  <head>
+    <meta charset="utf-8">
+    <!-- <link href="./css/style.css" rel="stylesheet"> -->
+    <!-- OR <link href="http://localhost/path_to_this_folder/css/style.css" rel="stylesheet"> -->
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=yes"> -->
+    <!-- <link rel="icon" href="icone.ico"> -->
+    <!-- <title></title> -->
+    <!-- <meta name="description" content=""> -->
+    <!-- <meta name="keywords" content=""> -->
+    <!-- <meta name="author" content=""> -->
+  </head>
+  <body>
+    <header id="header">
+      <a href="/"><img src="Logo" alt=""></a>
+      <h1>Titre de la page</h1>
+      <input type="text" role="search"><button>Rechercher</button>      
+      <nav role="menubar"><ul><li>Lien</li><li>Lien</li><li>Lien</li></ul></nav> // Menu principal horizontal
+    </header>
+    <main>
+    
+      <nav role="sidebar"> // Menu principal vertical
+      <h2>Titre</h2>
+        <ul role="menu">
+          <li><a href="">Lien</a></li>
+          <li><a href="">Lien</a>
+            <ul>
+            <li><a href="">Lien</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <section role="main">
+      <h2>Titre</h2>
+      <p>Corps</p>
+      </section>
+
+      <aside>
+        <section role="note">
+          <h2>Titre</h2>
+          <p>Corps</p>
+        </section>
+        <section role="note">
+          <h2>Titre</h2>
+          <p>Corps</p>
+        </section>
+      </aside>
+    
+    </main>
+    <footer id="footer">
+    <nav role="navigation"> // Menu secondaire
+    </nav>
+    </footer>
+  </body>
+</html>
+------------------------------------------------------------
+Squelette CSS (à copier-coller dans les nouveaux fichiers)
+------------------------------------------------------------
+  // Pour définir des variables
+  :root 
+  {
+    --<nom_variable>: <valeur>;
+  }
+  
+  // Concernera tous les elements present dans les pages html utilisant ce style
+  *
+  { 
+    box-sizing: border-box; // Permet de définir les tailles en incluant les bordures (indispensable pour que tous les navigateurs affichent les memes proportions).
+  }
+  
+    // Agencement intuitif de page en responsive (html5 seulement) : 
+    body 
+    {
+      margin: 0; // Du fait d'un vieil accident du html: par défaut, le body a une marge. 
+      min-height: 100%; // Du fait d'un vieil accident du html: le body peut etre inférieur à la hauteur de la fenetre.
+      font-family: police_préférée, police_alternative; // De préférence: "font-family: Arial, Helvetica, sans-serif;"
+      min-height: 100%;
+      <propriété>: var(--<nom_variable>);
+    
+      display: grid;
+      grid-template-rows: taille_px taille_fraction taille_px;
+      grid-template-columns: taille_px taille_fraction taille_px;
+      grid-template-areas:  "H H H"
+                            "N M A"
+                            "F F F";
+    }
+    header {
+      grid-area: H;
+    }
+    nav {
+      grid-area: N;
+    }
+    main {
+      border: solid #333 1px;
+      grid-area: M;
+      display: flex;
+      min-height: 100vh;
+      min-width: 100vw;
+    }
+    aside {
+      grid-area: A;
+    }
+    footer {
+      grid-area: F;
+    }
+    
+    // Mesures relatives : 
+    • 1%, 1fr, 1vw/vh, 
+    • calc() // permet d'affecter le resultat d'un calcul), 
+    • attr(<propriété>) // (permet d'affecter la valeur d'une propriété css existante).
+    
+------------------------------------------------------------
+NBs
+- Certaines fonctions ne fonctionneront que sile serveur WAMP est demarré, et que les pages web sont lancées depuis "http://localhost/rbaretto/www" dans le navigateur. (Les url commencant par "/", refferent à la racine du serveur WAMP, seront cassés dans les pages lancées  localement.)
+------------------------------------------------------------
+Rediger ces trucs dans ma FAQ
+------------------------------------------------------------
+• <strong></strong> remplace <b></b>
+• <section></section> remplace <div>
+• Couleurs en hexadecimal 
+  - Du plus foncé (0) au plus clair (F): #RVB
+  - Du plus foncé (00) au plus clair (FF): #RRVVBB
+• NB: écrire les CSS dans des fichiers externes pour que le navigateur les chargent qu'une fois, indépendament des pages web (fichiers html, php, asp, etc.). 
+
+• JS: foreach { <instruction>; } devient for (<variable_en_declaration> of <tableau>) { <instruction>; }
+• const <variable> // est readonly
+• let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}
+• var <variable> // a une portée limitée à la fonction dans lesquelle elle se trouve
+
+• document.querySelector("#id") <=> document.getElementById("id")
+• document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
+• var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")
+• Syntax avancée : 
+  <dom_element>.querySelector (
+  "#identifiant" OU ".<classe>" OU "<balise>" OU <balise>[<propriété>='<valeur>'] OU "<element> <element_enfant>" );
+  Exemple: Affichera en marron tous les passage en italique dans les paragraphes: 
+  var mon_element = document.querySelector("p");
+  mon_element.querySelector("i").color="brown");
+  
+• CSS: Priorité des styles en cas de conflit : #element > .element > tag
+• CSS: element {
+  display: flex;
+  justify-content: center; Centre verticalement son contenu (si display=flex)
+  align-items: center;Centre horizontalement son contenu (si display=flex)
+  }
+  
+• DOM acess (in css and querySelector and etc.) : 
+  element + element
+  element > premier_enfant_seulement
+  element enfant1 + enfant2
+  element enfant1 enfant_de_enfant1
+  element[champs]
+  element[champs='valeur_du_champs']
+  
+• placeholder = <TAG valeur_par_defaut_souhaitée="valeur affichée comme background dans le champs seulement quand il est vide"></TAG>
+
+• console.log("Hello") = alert("Hello") qui ne bloque pas l'execution du code et s'affiche  dans les outils de developpement de Google Chrome.
+
+• <script type="./fichier.json">
+  écriture de la structure du json
+  </script>
+  
+• Balises HTML5: Normes pour le Référencement
+<!DOCTYPE html>
+  <html lang="fr"> 
+  <head>
+    Indispensable
+    <meta charset="utf-8"> La reconnaissance de caractères en utf-8 comprend tous les languages existants 
+    Nécessaire
+    <title>Titre du site web</title>
+    <link rel="icon" href="icone.ico">
+    Préférable
+    <link href="./css/fixed.css" rel="stylesheet">
+    <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
+    <meta name="keywords" content="mot-clé de la page web, mot clé 2">
+    <meta name="description" content="Description de la page web">
+  </head>
+  <body>
+    <header> -> Doit être placé directement après BODY.
+      <a href="/"><img src="Logo" alt="Texte nécessaire qui sera lu par les logiciels pour aveugles. S'affichera si l'image ne le peut."></a>
+      <h1>Titre de la page</h1> -> Une seule balise H1 par page web. (245 characters maximum.)
+      <input type="text"> Barre de recherche.
+    </header>
+    <nav>
+      Menu horizontal ou vertical.
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href="">Element 1 de la liste</a>
+          <ul>
+          <li><a href="">Sous element 1 de la liste 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Titre de la section</h2> -> Il peut y avoir un maximum de 5 titres section imbriquées (h2 à h6).
+      <section>
+        Replacement de la balise DIV.
+      </section>
+      <article> 
+        Section vraiment independante. 
+        (Avec du contenu statique capable de s'afficher de facon optimale depuis n'importe où.)
+        Ne pas utiliser dans le doute. 
+      </article>
+    </main>
+    <footer>
+      Liens utiles (Mentions legales, Plan du site, Coordonnées de contact)
+      Copyright
+    </footer>
+  </body>
+</html>
+-->

@@ -1,0 +1,27 @@
+#menugeneral{
+	display: none;
+}
+
+#recherche{
+	display: none;
+}
+
+#menu{
+	display: none;
+}
+
+.retourtdm, .retourhaut{
+	display: none;
+}
+
+#historique{
+	display: none;
+}
+
+#navigation{
+	display: none;
+}
+
+#contenu p{
+    text-align:justify;
+}

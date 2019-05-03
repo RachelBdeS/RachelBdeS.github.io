@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="images">Cours de HTML</cours>
+	<entete>
+		<titre>Les images dans une page Web</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Les images sont une apparition relativement récente dans la recommandation HTML. Elles sont maintenant indispensables, mais leur usage dans une page doit répondre à certaines exigences, que ce chapitre expose.</resume>
+		<motsclefs>html, base, image, img</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="imagesgeneralites" titre="Généralités">
+			<section ancre="imagesintro" titre="Introduction">
+				<paragraphe>
+					<texte>Ce qui suit n'est pas un cours d'infographie mais simplement un panorama de ce qui est nécessaire à un cours <code type="langage">HTML</code>. Nous n'aborderons pas tous les formats d'images ni les moyens de les créer et les traiter. Nous manipulerons au maximum un éditeur d'images comme <logiciel>Paint Shop Pro</logiciel> ou <logiciel>PhotoShop</logiciel>pour mettre en oeuvre les différents formats évoqués.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="imagescompromis" titre="Compromis entre nombre d'images et temps de chargement">
+				<paragraphe>
+					<texte>Les images sont incontournables pour créer un impact visuel mais insupportables pour le temps de chargement. Il n'y a rien de plus fastidieux que de lire un texte sans illustration. L'illustration et l'image bien utilisées, permettent de structurer le document présenté. Elles le rendent attrayant, accessible, lisible. L'emploi d'images est incontournable pour construire une page Web qui retiendra son lecteur.</texte>
+					<texte>En revanche, les images qui doivent être téléchargées ont une certaine taille, qui augmente d'autant le temps de chargement d'une page.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="imageaccessiblite" titre="Images et accessibilité">
+				<paragraphe>
+					<texte>Il ne faut néanmoins pas perdre de vue qu'en aucun cas, une image ne doit être absolument nécessaire pour comprendre une page, ou bien sa navigation.</texte>
+					<texte>A l'extrême, on pourrait ainsi imaginer écrire tout un paragraphe avec une police particulière, le sauvegarder avec un éditeur graphique sous forme d'une image, et l'ajouter à une page Web. Une personne malvoyante ou bien ayant désactivé l'affichage des images, serait ainsi gravement pénalisée dans sa lecture de la page, puisqu'une partie de l'information de celle-ci lui serait inaccessible.</texte>
+					<texte>De même, il faut se garder de limiter le dispositif de navigation à l'intérieur d'un site à des icônes&#160;; celles-ci permettent certes de parfois améliorer l'ergonomie du site, mais si elles ne sont pas doublées par un système de navigation alternatif, rendent le site inacessible à toute une catégorie d'internautes.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="imagesformat" titre="Les formats du Web">
+				<paragraphe titre="Introduction" ancre="formatinto">
+					<texte>Pour limiter le temps de chargement, on s'est efforcé très tôt d'utiliser des formats d'images conduisant à des fichiers de taille réduite. Les méthodes reposent sur la compression de l'information à transmettre. On distingue 2 types de compression&#160;:</texte>
+					<liste>
+						<item><texte>La compression sans perte d'information. Elle repose sur le repérage dans le fichier à traiter des successions d'octets identiques ou de profils de bits fréquents. Ce sont les compressions des formats <code type="langage">ZIP</code> ou <code type="langage">RAR</code>. Elles permettent la compression de fichiers de programmes où le moindre bit perdu peut induire une catastrophe.</texte></item>
+						<item><texte>La compression où on accepte la perte d'information&#160;: réduction du nombre de couleurs, perte des détails. On réduit ainsi l'encombrement tout en maintenant une simplification acceptable de l'image. Ce sont les compressions des formats <code type="langage">JPEG</code> ou <code type="langage">PNG</code>.</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Les formats d'image" ancre="formats">
+					<texte>Trois formats principaux sont acceptés par la plupart des navigateurs.</texte>
+					<liste type="ordonnee">
+						<item>
+							<texte>Format <code type="langage">GIF</code>, <acronyme titre="Graphics Interchange Format">GIF</acronyme> pour Graphic Interchange Format. L'entreprise CompuServe Information Service et Unisys en produit deux versions&#160;: 87a et 89a (année de création). La dernière est la plus avantageuse et la plus répandue. Elle ne tolère pas plus de 256 couleurs (2^8).</texte>
+							<texte>C'est un format de compression sans perte, qui est très utilisée pour le stockage et le transfert d'images. Son mode de compression est particulièrement adapté à la création d'images simples, des schémas avec des traits ou de larges zones de couleurs.</texte>
+							<texte>Il existe une méthode d'encodage particulière, appelée <autrelangue>interlacing</autrelangue> (GIF entrelacé), où l'image est transférée en quatre passes au lieu d'une et qui permet donc au lecteur d'avoir un aperçu progressif de l'ensemble de l'image globale (si l'utilisateur dispose d'un navigateur ancien, il ne verra pas de différence&#160;!). Il faut noter qu'il n'y a pas vraiment augmentation de la vitesse de transfert, mais lisibilité de l'image globale plus rapide. Cette différence n'apparaît d'ailleurs que la première fois que le lecteur charge l'image si le navigateur a son propre cache (sinon raffraîchir l'affichage de la page).</texte>
+							<texte>Le format <code type="langage">gif89a</code> permet de rendre une couleur transparente&#160;; il est alors possible de la superposer à un arrière-plan.</texte>
+						</item>
+						<item>
+							<texte>Format <code type="langage">JPEG</code>, <acronyme titre="Joint Photographic Experts Group">JPEG</acronyme> pour Joint Photographic Experts Group. Comme son nom l'indique, <code type="langage">JPEG</code> a été développé pour les images photographiques. Ce format convient aux images obtenues à partir de scanner ou d'un appareil photo numérique. Mais il est déconseillé pour les schémas et les bannières. Créé en 1990 pour s'affranchir des limitations du format <code type="langage">GIF</code>, il compense le maintien des couleurs (jusqu'à seize millions) par une perte de la qualité de l'image et un temps de décompression assez important. Cette perte de qualité affecte surtout les schémas.</texte>
+							<texte>Il existe également un <code type="langage">JPEG</code> progressif (même effet que le <code type="langage">gif</code> entrelacé), malheureusement peu de navigateurs actuellement l'affichent.</texte>
+						</item>
+						<item>
+							<texte>Format <code type="langage">PNG</code>, pour Portable Network Graphics. Il s'agit d'un nouveau format libre de tous droits, qui devrait supplanter <code type="langage">GIF</code>. (Code source <reference href="http://www.libpng.org/pub/png/pngcode.html">http://www.libpng.org/pub/png/pngcode.html</reference>).</texte>
+							<texte>Le format PNG présente les propriétés suivantes&#160;:</texte>
+							<liste>
+								<item><texte>Transparence&#160;; alors que cette transparence est limitée à une seule couleur pour le <code type="langage">GIF</code> (une seule combinaison RGB), le format <code type="langage">PNG</code> utilise un quatrième paramètre, dénommé <valeur>alpha</valeur>. Il permet d'appliquer un effet de transparence progressive à une gamme de couleurs. Plus d'informations sont disponibles sur le site de WebReview (<reference href="http://www.webreview.com/1997/05_09/designers/05_09_97_1.shtml">http://www.webreview.com/1997/05_09/designers/05_09_97_1.shtml</reference>).</texte></item>
+								<item><texte>Progressivité (entrelacement ou interlacing)</texte></item>
+								<item><texte>Image 24 bits d'information par pixel pour créer les couleurs (chaque pixel contient 256 nuances de rouge, de vert et de bleu. Une image 24 bits peut ainsi comporter jusqu'à 16,7 millions de couleurs). Cette capacité peut monter à 48 bits par pixel.</texte></item>
+								<item><texte>La compression <code type="langage">PNG</code> est habituellement 25% meilleure que la compression <code type="langage">GIF</code>.</texte></item>
+							</liste>
+							<texte>Tous ces avantages sont développés par le consortium du W3C&#160;: <reference href="http://www.w3.org/TR/PNG-Rationale.html">http://www.w3.org/TR/PNG-Rationale.html</reference>.</texte>
+						</item>
+					</liste>
+				</paragraphe>
+				<paragraphe ancre="formatsexemples" titre="Exemples">
+					<texte>La réduction du nombre de couleurs se fait bien sentir quand on passe de 16 millions de couleurs à 256&#160;:</texte>
+					<tableau>
+						<ligne>
+							<colonne>
+								<image alt="exemple 16 millions de couleurs" hauteur="192" largeur="256" src="images/perroquet_couleurs.jpg">
+									<legende>Image à 16 millions de couleurs.</legende>
+								</image>
+							</colonne>
+							<colonne>
+								<image alt="exemple 256 couleurs" hauteur="192" largeur="256" src="images/perroquet_couleurs256.jpg">
+									<legende>Image à 256 couleurs.</legende>
+								</image>
+							</colonne>
+						</ligne>
+						<legende>Effet de la diminution du nombre de couleurs.</legende>
+					</tableau>
+					<texte>On peut appliquer un effet de transparence sur une image au format <code type="langage">GIF</code>. L'image suivante possède ainsi un fond transparent&#160;; pour vous en convaincre, copiez-la et testez-la en l'incorporant à des pages de fonds différents&#160;:</texte>
+					<image alt="Gif transparent" hauteur="151" largeur="202" src="images/citron_transp.gif"/>
+					<texte>Un GIF animé est constitué de plusieurs images séparées&#160;:</texte>
+					<image alt="Gif anime'" hauteur="41" largeur="85" src="images/panthere.gif"/>
+					<texte>Voici maintenant plusieurs exemples d'images <code type="langage">JPEG</code> avec différents taux de compression...</texte>
+					<tableau>
+						<ligne>
+							<colonne>
+								<image alt="taille 228ko" hauteur="192" largeur="256" src="images/paon.jpg">
+									<legende>Taille du fichier 228ko.</legende>
+								</image>
+							</colonne>
+							<colonne>
+								<image alt="taille 72ko" hauteur="192" largeur="256" src="images/paon25.jpg">
+									<legende>Taille du fichier 72ko.</legende>
+								</image>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne>
+								<image alt="taille 30ko" hauteur="192" largeur="256" src="images/paon75.jpg">
+									<legende>Taille du fichier 30ko.</legende>
+								</image>
+							</colonne>
+							<colonne>
+								<image alt="taille 6ko" hauteur="192" largeur="256" src="images/paon99.jpg">
+									<legende>Taille du fichier 6ko.</legende>
+								</image>
+							</colonne>
+						</ligne>
+						<legende>Compression des images <code type="langage">JPEG</code>.</legende>
+					</tableau>
+					<texte>La compression <code type="langage">JPEG</code> est efficace pour conserver le rendu des couleurs. Cependant, quand il s'agit de schémas, composés de larges zones de couleurs "plates", la compression <code type="langage">GIF</code> est plus adaptée&#160;:</texte>
+					<tableau>
+						<ligne>
+							<colonne>
+								<image alt="schema simple, gif" hauteur="200" largeur="200" src="images/schema.gif">
+									<legende>Schéma au format <code type="langage">GIF</code>. Taille du fichier 2ko.</legende>
+								</image>
+							</colonne>
+							<colonne>
+								<image alt="schema simple, jpeg" hauteur="200" largeur="200" src="images/schema.jpg">
+									<legende>Schéma au format <code type="langage">JPEG</code>. Taille du fichier 7ko, compression 10%.</legende>
+								</image>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne>
+								<image alt="zoom sur le schema simple, gif" hauteur="240" largeur="180" src="images/zoomgif.png">
+									<legende>Zoom sur le schéma au format <code type="langage">GIF</code>.</legende>
+								</image>
+							</colonne>
+							<colonne>
+								<image alt="zoom sur le schema simple, jpeg" hauteur="240" largeur="180" src="images/zoomjpg.png">
+									<legende>Zoom sur le schéma au format <code type="langage">JPEG</code>.</legende>
+								</image>
+							</colonne>
+						</ligne>
+						<legende>Efficacité des algorithmes de compression pour un schéma simple. La taille du fichier <code type="typefichier">JPEG</code> est plus grande, et les couleurs dans ce dernier sont "délavées"&#160;; il n'y a pas de délimitation claire entre les zones.</legende>
+					</tableau>
+					<texte><code type="langage">JPEG</code> et <code type="langage">PNG</code> ont le même rendu des couleurs, mais la compression JPEG est plus efficace&#160;:</texte>
+					<tableau>
+						<ligne>
+							<colonne>
+								<image alt="16 format JPEG" hauteur="192" largeur="256" src="images/toucan.jpg">
+									<legende>Image JPEG, taille du fichier 14ko.</legende>
+								</image>
+							</colonne>
+							<colonne>
+								<image alt="format PNG" hauteur="192" largeur="256" src="images/toucan.png">
+									<legende>Format PNG, taille 74ko.</legende>
+								</image>
+							</colonne>
+						</ligne>
+						<legende>Comparaison des compressions JPEG et PNG.</legende>
+					</tableau>
+					<texte>En revanche, <code type="langage">PNG</code> permet un effet de transparence (ici sans l'effet de transparence graduelle)...</texte>
+					<image alt="PNG avec transparence" hauteur="192" largeur="256" src="images/toucan_transp.png"/>
+				</paragraphe>
+			</section>
+			<section ancre="gifanimes" titre="Les ''GIFs animés''">
+				<paragraphe>
+					<texte>Il s'agit d'une façon très simple de créer une animation&#160;: un artifice permet de loger plusieurs images dans un seul et même fichier, ces images étant rapidement affichées les unes à la suite des autres. À la création du <code type="langage">GIF</code> animé, on peut paramétrer la répétition en boucle du <code type="langage">GIF</code>.</texte>
+					<texte>Remarque&#160;: Les <code type="langage">GIF</code> animés sont volumineux et alourdissent le téléchargement de la page.</texte>
+					<texte>L'insertion dans la page Web se fait à l'identique de n'importe quelle autre image <code type="langage">GIF</code>. Certains (très vieux) navigateurs ne supportent pas ce format, et n'affichent que la première image de la boucle.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie ancre="img" titre="La balise &lt;img&gt;">
+			<section ancre="imgusage" titre="Usage">
+				<paragraphe>
+					<texte>La balise <code><![CDATA[<img>]]></code> est le moyen le plus simple d'insérer une image dans une page Web mais on pourra aussi lui préférer la balise <code><![CDATA[<object>]]></code> qui est d'un usage beaucoup plus général et qui permet d'insérer d'autres objets multimédia.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="imgsyntaxe" titre="Syntaxe minimale">
+				<paragraphe>
+					<texte>La balise fermante est facultative&#160;: de fait elle est toujours omise. La syntaxe minimale est&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="img" vide="oui"><attribut nom="src">monimage.gif</attribut><attribut nom="alt">courte description</attribut></element>
+					</exemple>
+					<texte>L'attribut <code>src</code> comme SouRCe attend pour valeur une URL relative ou absolue. L'attribut <code>alt</code> donne une courte description texte de l'image, qui peut s'afficher fugacement au survol de la souris.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="imgattributs" titre="Attributs">
+				<paragraphe>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr"><texte>Attribut</texte></colonne>
+							<colonne id="eff"><texte>Effet</texte></colonne>
+							<colonne id="val"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>src</code></texte></colonne>
+							<colonne headers="eff"><texte>où trouver l'image à afficher. Cet attribut est <valeur>requis</valeur>.</texte></colonne>
+							<colonne headers="val"><texte>une URL (relative ou absolue).</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>alt</code></texte></colonne>
+							<colonne headers="eff"><texte>étiquette affichée à la place de l'image si par exemple l'utilisateur a désactivé l'affichage des images. Cet attribut est <valeur>requis</valeur>.</texte></colonne>
+							<colonne headers="val"><texte>une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>longdesc</code></texte></colonne>
+							<colonne headers="eff"><texte>Renvoie vers un fichier contenant une "longue" description de l'image. Permet d'améliorer l'accessibilité en offrant aux malvoyants la possibilité de consulter une description détaillée d'une image riche en information.</texte></colonne>
+							<colonne headers="val"><texte>une URL</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>width</code> et <code>height</code></texte></colonne>
+							<colonne headers="eff"><texte>Largeur et hauteur réservées par le navigateur pour l'image dans la page Web. Permet de réserver cette place même si l'image n'est pas encore chargée. Par défaut ces valeurs sont celles de l'image (voir paragraphe suivant).</texte></colonne>
+							<colonne headers="val"><texte>nombre de pixels ou en pourcentage de la fenêtre du navigateur.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>ismap</code></texte></colonne>
+							<colonne headers="eff"><texte>Indique qu'il s'agit d'une image réactive "server-side" (voir <reference href="#imgreac">image réactive</reference>).</texte></colonne>
+							<colonne headers="val"><texte>un booléen. S'utilise <code>ismap="ismap"</code>.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>usemap</code></texte></colonne>
+							<colonne headers="eff"><texte>Indique qu'il s'agit d'une image réactive "cient-side" (voir <reference href="#imgreac">image réactive</reference>).</texte></colonne>
+							<colonne headers="val"><texte>un lien vers une <code>map</code> identifiée par l'attribut <code>name</code>.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>align</code></texte></colonne>
+							<colonne headers="eff"><texte>Détermine la position de l'image par rapport au texte qui l'entoure. L'image peut suivre le flot du texte ou être enveloppée par ce texte. Par défaut la valeur est à <code>bottom</code>. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML</code> strict.</texte></colonne>
+							<colonne headers="val">
+								<liste>
+									<item><texte><code>left</code> (valeur par défaut)</texte></item>
+									<item><texte><code>right</code></texte></item>
+									<item><texte><code>top</code>&#160;: l'alignement se fait par rapport au sommet de l'image.</texte></item>
+									<item><texte><code>bottom</code>&#160;: l'alignement se fait par rapport au bas de l'image.</texte></item>
+									<item><texte><code>middle</code>&#160;: l'alignement se fait par rapport au centre de l'image.</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>border</code></texte></colonne>
+							<colonne headers="eff"><texte>épaisseur de la bordure entourant l'image. Par défaut zéro. On ne peut pas en choisir la couleur. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML</code> strict.</texte></colonne>
+							<colonne headers="val"><texte>un nombre</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>hspace</code> et <code>vspace</code></texte></colonne>
+							<colonne headers="eff"><texte>Définit une marge autour de l'image. <code>hspace</code> définit une marge à droite et à gauche. <code>vspace</code> définit une marge avant et après l'image. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML</code> strict.</texte></colonne>
+							<colonne headers="val"><texte>un nombre de pixels</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code><![CDATA[<img>]]></code>.</legende>
+					</tableau>
+					<texte>Les attributs <code>width</code> et <code>height</code>, même s'ils ne sont pas obligatoires, sont cependant recommandés. En effet, lorsqu'une image est en chargement dans la fenêtre du navigateur, ils permettent à ce dernier de réserver la place qu'elle va occuper. S'ils ne sont pas spécifiés, le client attend d'avoir téléchargé l'image entière pour réserver la place&#160;; cela peut résulter en un changement de l'apparence d'une page en cours de téléchargement, ce qui n'est pas forcément esthétique. Ces attributs permettent également de modifier la taille de l'image affichée, même s'il ne faut pas oublier qu'un navigateur n'est fondamentalement pas un éditeur graphique, qui permet de redimensionner de manière plus efficace la taille d'une image. Par exemple, voici notre perroquet redimensionné&#160;:</texte>
+					<image alt="Redimensionnement d image" hauteur="100" largeur="500" src="images/perroquet_couleurs.jpg">
+						<legende>La taille normale de cette image est de 256x192, mais les attributs <code>width</code> et <code>height</code> valent <code>width="500"</code> et <code>height="100"</code>.</legende>
+					</image>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie ancre="imgreac" titre="Image réactive">
+			<section ancre="imgreacintro" titre="Introduction">
+				<paragraphe>
+					<texte>Ce concept recouvre plusieurs aspects différents, notamment celui d'une simple <reference href="#imglien">image-lien</reference>, mais également celui, plus complexe, de <reference href="#imgclientside">carte réactive</reference>. Il s'agit d'une fonctionnalité intéressante, mais qu'il faut manipuler avec attention&#160;; comme d'habitude, on n'utilise pas un outil pour la simple raison qu'il existe. Il faut qu'il apporte quelque chose de plus à la page.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Image-lien" ancre="imglien">
+				<paragraphe>
+					<texte>La forme la plus simple d'image réactive est obtenue en plaçant une image à l'intérieur du conteneur <code><![CDATA[<a></a>]]></code>. Par exemple, cette icône <reference href="#img"><image alt="Retour" hauteur="21" largeur="21" src="images/fleche_haut.gif"/></reference> remonte au début de la section consacrée à la balise <code><![CDATA[<img>]]></code>.</texte>
+					<exemple type="HTML">
+						<element nom="a"><attribut nom="href">#img</attribut><element nom="img" vide="oui" enligne="oui"><attribut nom="src">images/fleches_haut.gif</attribut><attribut nom="alt">Retour</attribut><attribut nom="height">21</attribut><attribut nom="width">21</attribut></element></element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section ancre="imgclientside" titre="Image réactive ''client-side''">
+				<paragraphe ancre="imgclientsideintro" titre="Introduction">
+					<texte>Aux premiers temps du <autrelangue>Web</autrelangue>, l'analyse de la position du pointeur de souris sur l'image était effectuée par le serveur et non localement par le navigateur de l'utilisateur. Puis cette fonctionnalité a été développée d'abord par Netscape pour être effectuée localement par la machine du surfeur. On oppose ces deux situations en parlant de "server-side" et "client-side".</texte>
+					<texte>L'organisation "server-side" demande un échange supplémentaire avec le serveur&#160;: c'est donc une solution lourde aujourd'hui abandonnée par les auteurs de pages Web, car elle surcharge à la fois le réseau lui-même et le serveur. Nous ne développerons que l'organisation "client-side".</texte>
+				</paragraphe>
+				<paragraphe ancre="mapping" titre="Découper l'image en zones sensibles">
+					<texte>Le découpage de l'image est assuré par le conteneur <code><![CDATA[<map>]]></code>. Ce conteneur contient la description de plusieurs zones sensibles&#160;: une zone est décrite par un conteneur <code><![CDATA[<area>]]></code>. <code><![CDATA[<map>]]></code> possède un unique attribut, <code>name</code>, qui est obligatoire.</texte>
+					<texte>Ce lien est fait à l'aide du nom du conteneur <code><![CDATA[<map>]]></code>. L'attribut <code>name</code> du conteneur <code><![CDATA[<map>]]></code> permet de lui donner un nom. L'attribut <code>usemap</code> du conteneur <code><![CDATA[<img>]]></code> prend pour valeur ce même nom précédé du <code>#</code> (ou de manière générale l'URL du <code>map</code>).</texte>
+					<texte> Le code suivant... </texte>
+					<exemple type="HTML">
+						<element nom="img"><attribut nom="src">images/homeparoi.jpg</attribut><attribut nom="width">500</attribut><attribut nom="height">250</attribut><attribut nom="alt">Paroi de Lascaux</attribut><attribut nom="usemap">#lascaux</attribut></element>
+						<element nom="map" indent="oui">
+							<attribut nom="name">lascaux</attribut>
+							<element nom="area" niveau="1"><attribut nom="shape">rect</attribut><attribut nom="coords">23, 106, 107, 179</attribut><attribut nom="href">#mapping</attribut><attribut nom="Zones sensibles"></attribut></element>
+							<element nom="area" niveau="1"><attribut nom="shape">circle</attribut><attribut nom="coords">230,131,46</attribut><attribut nom="href">#img</attribut><attribut nom="balise img"></attribut></element>
+							<element nom="area" niveau="1"><attribut nom="shape">poly</attribut><attribut nom="coords">375, 42, 381, 140, 433, 150, 465, 117, 468, 63, 425, 39, 374, 40</attribut><attribut nom="href">#imglien</attribut><attribut nom="Image-lien"></attribut></element>
+						</element>
+					</exemple>
+					<texte>... donne le résultat ci-dessous&#160;:</texte>
+					<imagereactive alt="Paroi de Lascaux" hauteur="250" largeur="500" nom="lascaux" src="images/homeparoi.jpg">
+						<zone alt="Zones sensibles" coords="23, 106, 107, 179" forme="rect" href="#mapping"/>
+						<zone alt="balise img" coords="230, 131, 46" forme="circle" href="#img"/>
+						<zone alt="Image-lien" coords="375, 42, 381, 140, 433, 150, 465, 117, 468, 63, 425, 39, 374, 40" forme="poly" href="#imglien"/>
+						<legende>Exemple d'image réactive.</legende>
+					</imagereactive>
+				</paragraphe>
+			</section>
+			<section ancre="mappingremarque" titre="Remarque">
+				<paragraphe>
+					<texte>La description des zones "à la main" est fastidieuse&#160;: il est recommandé de les programmer à l'aide d'un éditeur généraliste comme <logiciel>Dreamweaver</logiciel> ou <logiciel>FrontPage</logiciel>, ou bien des outils gratuits spécialisés comme les logiciels <reference href="http://www.zoniez.com/Newbie/mapthis/mapthis.html">MapThis</reference> ou <reference href="http://www.fegi.ru/geohtml/">GeoHTML</reference>, ou l'utilitaire gratuit en ligne <reference href="http://www.pcoward.com/imagemapper/">ImageMapper</reference>.</texte>
+				</paragraphe>
+				<exercice titre="Image map" ancre="exoimagemap">
+					<enonce href="exercices/td3.html"/>
+					<correction href="exercices/dauphine.html"/>
+				</exercice>
+			</section>
+		</partie>
+	</corpus>
+</chapitre>

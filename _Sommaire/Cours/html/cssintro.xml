@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+
+<cours nomfichier="cssintro">Cours de HTML</cours>
+
+<entete>
+	<titre>Feuilles de style, introduction</titre>
+	<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+	<resume>Le langage CSS permet de mettre en forme un document HTML. Voici ses principes de base.</resume>
+	<motsclefs>html, css, base, concept, introduction, propriete</motsclefs>
+</entete>
+
+<corpus>
+
+<partie titre="Généralités" ancre="gen" >
+	<section titre="«&#160;Philosophie&#160;» de l'utilisation des feuilles de style" ancre="philo" >
+		<paragraphe titre="Principe" ancre="principe">
+			<texte>Nous l'avons largement évoqué en introduction à ce cours&#160;: à l'origine le langage <code type="langage">HTML</code> est conçu pour structurer le document (titre, citation, exemple, adresse...) en qualifiant la nature du contenu et non pour présenter le texte (gras, italique, en retrait, taille...). Au fil du temps, les créateurs de navigateurs s'étaient éloignés de ce point de départ pour en arriver à définir un langage de présentation.</texte>
+			<texte>Avec les feuilles de style, le consortium du <reference href="http://www.w3c.org">W3C</reference> est revenu à cette conception initale&#160;: le <code type="langage">HTML</code> structure le texte, la feuille de style le présente.</texte>
+		</paragraphe>
+		<paragraphe titre="Avantages et inconvénients" ancre="avinc" >
+			<texte>Dans une conception raisonnée d'un site Web, le style de présentation fait partie des choix stratégiques de la communication de l'entreprise ou de l'institution. Il en va de même de l'organisation des liens, des arborescences... Or ces choix sont susceptibles d'évoluer rapidement. Il est alors hors de question d'avoir à reprendre l'ensemble des pages Web lors d'un changement de style de présentation, car la maintenance deviendrait dans cette situation impossible et son coût rédhibitoire.</texte>
+			<texte>Pour rationaliser le développement et la maintenance il faut au maximum tendre vers le principe simple suivant&#160;: une information ne doit être mémorisée qu'à un seul endroit dans la base d'informations de l'entreprise. C'est ce que permet la feuille de style. Par exemple la taille des titres de niveau 3 peut être définie une seule fois pour tout le site et l'ensemble des pages qui le constituent, dans une seule feuille de style pour tout le site. Un exemple frappant de mise en pratique de cette souplesse d'emploi est le site <reference href="http://www.csszengarden.com/">CSSZenGarden</reference>.</texte>
+			<texte>Le <reference href="../xml/index.html"><code type="langage">XML</code></reference> va au bout de cette logique&#160;: il organise l'information et permet d'aller la chercher par une requête qui s'apparente à celle des bases de données courantes. Il laisse aux feuilles de style <code type="typefichier">XSL</code> le soin de transformer cette information pour la rendre présentable.</texte>
+			<texte>Il faut néanmoins reconnaître que le support des feuilles de style, même s'il est maintenant largement répandu parmi les navigateurs, laisse parfois à désirer, en particulier en ce qui concerne le positionnement des éléments.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Historique" ancre="csshistorique" >
+		<paragraphe>
+			<texte>Les spécifications des feuilles de style devinrent une recommandation du <reference href="http://www.w3c.org">consortium W3C</reference> en décembre 1996 sous l'appellation <code type="langage">CSS1</code> pour <autrelangue>Cascading Style Sheets, level 1</autrelangue>. Ce même niveau 1 a été révisé en janvier 1999. Ce sont ces recommandations que nous allons étudier de manière exhaustive.</texte>
+			<texte>Entre-temps, ces spécifications ont été élargies sous la forme du <code type="langage">CSS2</code> pour <autrelangue>Cascading Style Sheets, level 2</autrelangue> en mai 1998. Elles précisent entre autres&#160;:</texte>
+			<liste>
+				<item><texte>des styles différents pour les médias différents (écran, impression, synthétiseur de parole, braille...)&#160;;</texte></item>
+				<item><texte>les polices de caractères téléchargeables&#160;;</texte></item>
+				<item><texte>le positionnement des éléments <code type="langage">HTML</code> (appelé par ailleurs <code type="langage">CSS-P</code>).</texte></item>
+			</liste>
+			<texte>On abordera la <reference href="css2.html">recommandation <code type="langage">CSS2</code></reference> dans un cours moins détaillé.</texte>
+			<texte>Les recommandations sont consultables sur le site du W3C aux adresses suivantes&#160;: </texte>
+			<liste>
+				<item><texte><reference href="http://www.w3.org/Style/CSS">http://www.w3.org/Style/CSS</reference>&#160;;</texte></item>
+				<item><texte><reference href="http://www.w3.org/TR/REC-CSS1">http://www.w3.org/TR/REC-CSS1</reference>&#160;;</texte></item>
+				<item><texte><reference href="http://www.w3.org/TR/REC-CSS2">http://www.w3.org/TR/REC-CSS2</reference>.</texte></item>
+			</liste>
+			<texte>Des travaux sont en cours afin de définir le niveau 3, construit sur une base modulaire (par exemple un module consacré à l'apparence du texte, un autre à celle des images, etc.).</texte>
+		</paragraphe>
+		<paragraphe>
+			<texte>De même qu'il existe un <reference href="http://validator.w3.org/file-upload.html">validateur</reference> <code type="langage">HTML</code> sur le site du W3C, il y est également possible de <reference href="http://jigsaw.w3.org/css-validator/">valider une feuille de style</reference>.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Support par les navigateurs" ancre="navigateurs" >
+		<paragraphe titre="Introduction" ancre="navigintro">
+			<texte>La situation est bien moins catastrophique qu'elle l'était voici quelques années.</texte>
+			<texte>Les navigateurs de niveau 4 (<logiciel>IE4</logiciel> et <logiciel>NN4</logiciel>) supportent la majorité des instructions <code type="langage">CSS1</code>. <code type="langage">CSS</code> a eu l'immense avantage d'unifier et de réduire les particularités des deux navigateurs. Ils supportent aussi une partie du <code type="langage">CSS2</code>, entre autres celle du positionnement <code type="langage">CSS-P</code> mais pas celle des "médias".</texte>
+			<texte><logiciel>IE5</logiciel> et la version 6 de <logiciel>Netscape</logiciel> supportent la totalité de <code type="langage">CSS1</code>, ainsi que la version 6 d'<logiciel>Opera</logiciel>.</texte>
+			<texte>Le support de <code type="langage">CSS2</code> s'est grandement amélioré depuis quelques années. <reference href="http://www.microsoft.com/france/internet/produits/ie/default.mspx"><logiciel>Internet Explorer&#160;7</logiciel></reference> sous Windows est le navigateur récent présentant le support de ce format le moins étendu. Les autres navigateurs comme <reference href="http://www.opera.com"><logiciel>Opera</logiciel></reference>, <reference href="http://www.frenchmozilla.org"><logiciel>Mozilla</logiciel></reference> ou <reference href="http://www.apple.com/fr/safari/"><logiciel>Safari</logiciel></reference>, présentent des performances comparables. Il reste néanmoins nécessaire, avant leur implémentation, de tester le comportement des propriétés des feuilles de style sur les navigateurs les plus anciens utilisés par le public visé.</texte>
+		</paragraphe>
+		<paragraphe titre="Stratégie de développement" ancre="strategie">
+			<texte>En conséquence, compte tenu du bon support des standards par les navigateurs récents, depuis quelques années se généralise une démarche relativement nouvelle en matière de développement Web.</texte>
+			<texte>Traditionnellement en effet, l'usage était de développer un site en vérifiant au fur et à mesure de son avancement son rendu dans <logiciel>Internet Explorer</logiciel>&#160;; on contrôlait ensuite le résultat avec les navigateurs moins répandus et, éventuellement, les autres plateformes. C'était une démarche très gourmande en temps. Maintenant que sur la plupart des plateformes, PC sous Windows exclus, les navigateurs dominants respectent correctement les standards, et qu'il existe sur PC des alternatives plus fiables sur ce sujet à <logiciel>Internet Explorer</logiciel>, il est devenu plus productif de  développer un site en respectant les standards, puis en s'arrangeant pour que le résultat final reste acceptable sous <logiciel>Internet Explorer</logiciel> (autrement dit, ne remette en danger ni fonctionnalités, ni ergonomie du site). On utilise pour ce faire par exemple la technique des <reference href="http://www.blog-and-blues.org/articles/Les_syntaxes_de_commentaires_conditionnels_pour_IE_Windows">commentaires conditionnels</reference> afin de réserver certains contenus aux utilisateurs d'<logiciel>Internet Explorer</logiciel>.</texte>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="Comment appliquer un style&#160;?" ancre="appli" >
+	<section titre="Appel à l'attribut style" ancre="applistyle" >
+		<paragraphe>
+			<texte>Le moyen le plus simple d'appliquer un style est l'utilisation de l'attribut <code>style</code> dans une balise. Par exemple, <code>&lt;h2 style="text-decoration: overline"&gt;</code> permet de déclarer que cet élément de titre aura une barre de surlignement. Cette solution présente l'inconvénient majeur d'encore mêler des informations sur la présentation d'un document (le style), et la structure de ce dernier. Cela complique les mises à jour du code dans le cas d'une refonte de l'apparence graphique. Enfin, utiliser cet attribut est susceptible d'empêcher les utilisateurs de modifier l'apparence de la page qu'il consulte par l'intermédiaire d'une feuille de style personnalisée.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Feuille de style interne" ancre="appliinterne" >
+		<paragraphe>
+			<texte>Il est également possible de spécifier une feuille de style dite interne. Elle se place alors entre deux balises <code><![CDATA[<style>]]></code> et <code><![CDATA[</style>]]></code>, dans l'entête (<code><![CDATA[<head>]]></code>) du document <code type='typefichier'>HTML</code>.</texte>
+			<exemple type="XML">
+				<typedocument nomracine="html" type="PUBLIC" href="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" identifiant="-//W3C//DTD XHTML 1.0 Strict//EN"/>
+				<element nom="html" indent="oui">
+					<attribut nom="xmlns">http://www.w3.org/1999/xhtml</attribut>
+					<attribut nom="xml:lang">fr</attribut>
+					<attribut nom="lang">fr</attribut>
+					<element nom="head" niveau="1" indent="oui">
+						<element nom="title" niveau="2">Premiers pas</element>
+						<element nom="meta" niveau="2" vide="oui"><attribut nom="http-equiv">Content-Type</attribut><attribut nom="content">text/html; charset=ISO-8859-1</attribut></element>
+						<element nom="style" niveau="2" enligne="non">
+							<attribut nom="type">text/css</attribut>
+							(...)
+						</element>
+					</element>
+					<element nom="body" niveau="1" enligne="non">
+						(...)
+					</element>
+				</element>
+			</exemple>
+			<texte>L'attribut <code>type</code> est obligatoire&#160;; il précise le type <acronyme titre="Multipurpose Internet Mail Extensions" lang="en">MIME</acronyme> de feuille de style utilisé. En général, il vaut <code>type="text/css"</code>. L'attribut <code>media</code> permet de spécifier le type de media auquel la feuille de style est destinée&#160;:</texte>
+			<liste>
+				<item><texte><code>screen</code>, la valeur par défaut.</texte></item>
+				<item><texte><code>tty</code>, pour les «&#160;vieux&#160;» systèmes d'affichage à police de caractère fixe (comme le navigateur texte <logiciel>Lynx</logiciel>).</texte></item>
+				<item><texte><code>tv</code>, pour les afficheurs de type télévision avec une faible résolution.</texte></item>
+				<item><texte><code>projection</code>, pour les projecteurs.</texte></item>
+				<item><texte><code>handheld</code>, pour les afficheurs de poche.</texte></item>
+				<item><texte><code>print</code>, pour les imprimantes.</texte></item>
+				<item><texte><code>braille</code>, pour les lecteurs braille.</texte></item>
+				<item><texte><code>aural</code>, pour les navigateurs à synthèse vocale</texte></item>
+				<item><texte><code>all</code>, pour tous les systèmes d'affichage.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Feuille de style externe" ancre="appliexterne" >
+		<paragraphe>
+			<texte>Une troisième possibilité consiste en l'appel d'un fichier externe. L'appel se fait via l'élément <code>link</code>, placé dans l'entête du document <code type='typefichier'>HTML</code>. L'URL de la feuille de style externe est spécifiée par la valeur de l'attribut <code>href</code>...</texte>
+			<exemple type="HTML">
+				<typedocument nomracine="HTML" type="PUBLIC" href="http://www.w3.org/TR/html4/strict.dtd" identifiant="-//W3C//DTD HTML 4.01//EN"/>
+				<element nom="html" indent="oui">
+					<attribut nom="lang">fr</attribut>
+					<element nom="head" niveau="1" indent="oui">
+						<element nom="title" niveau="2">Premiers pas</element>
+						<element nom="link" niveau="2" vide="oui"><attribut nom="rel">stylesheet</attribut><attribut nom="type">text/css</attribut><attribut nom="href">../styles/site.css</attribut></element>
+						<element nom="meta" niveau="2" vide="oui"><attribut nom="http-equiv">Content-Type</attribut><attribut nom="content">text/html; charset=ISO-8859-1</attribut></element>
+					</element>
+					<element nom="body" niveau="1" enligne="non">
+						(...)
+					</element>
+				</element>
+			</exemple>
+		</paragraphe>
+	</section>
+	<section titre="Notion de feuille de style en cascade" ancre="applicascade" >
+		<paragraphe>
+			<texte>Le sigle <acronyme titre="Cascading Style Sheet">CSS</acronyme> signifie <autrelangue>Cascading Style Sheet</autrelangue> ou encore Feuille de style en cascade. Pourquoi «&#160;cascade&#160;»&#160;?</texte>
+			<texte>Ce mot «&#160;cascade&#160;» fait référence à la méthode de résolution des conflits&#160;: puisqu'on peut placer plusieurs feuilles de style dans un même document (en lien, dans le <code>head</code>, en ligne dans la balise) les instructions de style successives peuvent s'opposer. Les ordres de style arrivent donc «&#160;en cascade&#160;». Comment résoudre les conflits&#160;?</texte>
+			<texte>Comme pour le HTML, le dernier qui parle a raison. On aura donc la hiérarchie&#160;:</texte>
+			<texte>feuille de style extérieure &lt;&lt; feuille de style dans le head &lt;&lt; style en attribut dans la balise </texte>
+		</paragraphe>
+	</section>
+	<exercice titre="Attribut style, feuilles de style interne et externe" ancre="exoappel">
+		<enonce href="exercices/td5.html"/>
+		<correction href="exercices/td5cor1.html"/>
+	</exercice>
+</partie>
+
+<partie titre="La syntaxe" ancre="syntaxe" >
+	<section titre="Structure générale" ancre="syntaxegenerale" >
+		<paragraphe ancre="reglegenerale" titre="Construction d'une règle">
+			<texte>Une feuille de style est une suite de règles. Voici un exemple de règle&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h2</selecteur>
+					<prop nom="text-align" valeur="center"></prop>
+					<prop nom="color" valeur="black"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Il est facile de décrypter le sens de cette règle&#160;: tous les titres de niveau 2 auront leur texte centré et de couleur noire.</texte>
+			<texte>Généralisons. Une règle a donc deux parties&#160;:</texte>
+			<liste>
+				<item><texte>Un sélecteur&#160;; dans l'exemple précédent il s'agit de <code>h2</code>&#160;;</texte></item>
+				<item><texte>Une déclaration&#160;; c'est une suite de paires <code>propriété: valeur</code> séparées par un point virgule, le tout placé entre accolades. Ici dans cet exemple il s'agit de <code>{text-align: center ; color: black}</code>.</texte></item>
+			</liste>
+		</paragraphe>
+		<paragraphe titre="Commentaires" ancre="comment">
+			<texte>Il est possible d'ajouter des commentaires dans une feuille de style. Une zone de commentaires commence par les caractères <code>/*</code> et se termine par les caractères <code>*/</code>. Elle peut s'étendre sur plusieurs lignes. Par exemple&#160;:</texte>
+			<exemple_css>
+				<commentaireCSS>Mise en forme des éléments h2</commentaireCSS>
+				<csselt>
+					<selecteur>h2</selecteur>
+					<prop nom="text-align" valeur="center"></prop>
+					<prop nom="color" valeur="black"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+	</section>
+	<section titre="Sélecteurs simples" ancre="selecsimples" >
+		<paragraphe titre="Balise" ancre="balise" >
+			<texte>Il s'agit du sélecteur le plus simple possible, où le sélcteur reprend le nom de l'élément auquel la propriété s'applique&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="text-align" valeur="justify"></prop>
+					<prop nom="color" valeur="black"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>En utilisant l'attribut <code>style</code>, l'exemple précédent devient <code><![CDATA[<p style="text-align: center; color: black">(...)</p>]]></code></texte>
+			<texte>Il est possible de <valeur>grouper</valeur> les balises à l'aide de virgules&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h2, h3, ul</selecteur>
+					<prop nom="text-align" valeur="center"></prop>
+					<prop nom="color" valeur="green"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Dans cet exemple, tous les titres de niveaux 2 et 3 et les listes non ordonnées seront centrés et de couleur verte.</texte>
+		</paragraphe>
+		<paragraphe titre="Classe" ancre="classe" >
+			<texte>L'attribut <code>class</code> est un attribut qui peut apparaître dans n'importe quelle balise. Exemple&#160;:</texte>
+			<exemple type="HTML">
+				<element nom="p"><attribut nom="class">truc</attribut>Ceci est un paragraphe d'introduction.</element>
+				<element nom="table" indent="oui">
+					<attribut nom="summary">Un tableau peu informatif</attribut>
+					<attribut nom="class">machin</attribut>
+					<element nom="tr" indent="oui" niveau="1">
+						<element nom="td" niveau="2">Et voici</element>
+						<element nom="td" niveau="2">un</element>
+						<element nom="td" niveau="2"><attribut nom="class">truc</attribut>tableau</element>
+					</element>
+					<element nom="tr" indent="oui" niveau="1">
+						<attribut nom="class">truc</attribut>
+						<element nom="td" niveau="2">de deux lignes</element>
+						<element nom="td" niveau="2">et</element>
+						<element nom="td" niveau="2"><attribut nom="class">truc</attribut>trois colonnes</element>
+					</element>
+				</element>
+				<element nom="ol" indent="oui">
+					<attribut nom="class">truc</attribut>
+					<element nom="li" niveau="1">Et ceci</element>
+					<element nom="li" niveau="1"><attribut nom="class">machin</attribut>est une</element>
+					<element nom="li" niveau="1"><attribut nom="class">truc</attribut>liste</element>
+				</element>
+			</exemple>
+			<texte>Cet attribut permet de regrouper des éléments différents en leur donnant un même nom de classe. Dans l'exemple précédent, deux classes apparaissent&#160;: <code>truc</code> et <code>machin</code>.</texte>
+			<texte>Pour que tous les éléments de classe <code>truc</code> s'affichent avec un texte rouge et que tous les éléments de classe <code>machin</code> s'affichent avec un texte bleu, il suffira d'énoncer les deux règles suivantes&#160;: </texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>.truc</selecteur>
+					<prop nom="color" valeur="red"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>.machin</selecteur>
+					<prop nom="color" valeur="blue"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Noter le <valeur>point</valeur> devant le sélecteur.</texte>
+			<texte>Cette règle de style aura pour effet d'afficher les éléments de classe <code>truc</code> en rouge et ceux de classe <code>machin</code> en bleu, comme ci-dessous (invisible à la photocopie noir et blanc)...</texte>
+			<image src="exemples/classes.jpg" largeur="275" hauteur="230" alt="Utilisation de classes"></image>
+			<texte>Constatons par cet exemple la propriété d'<valeur>héritage</valeur>&#160;: l'item <code>Et ceci</code> est écrit en rouge alors qu'il est dépourvu de l'attribut <code>class</code>... Ainsi, et de manière générale, les éléments insérés dans un conteneur héritent des propriétés de ce conteneur même si on ne leur applique pas explicitement de style.</texte>
+			<texte>Il est possible, également, de spécifier que certains éléments seulement d'une classe donnée soient concernés. Par exemple, le code suivant permet de sélectionner tous les éléments <code>div</code> de classe <code>menu</code>. S'il y a un élément <code>p</code> de classe menu, il ne sera pas concerné et conservera sa couleur de fond par défaut&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>div.menu</selecteur>
+					<prop nom="background-color" valeur="gray"/>
+				</csselt>
+			</exemple_css>
+			<texte>Il est également possible d'appliquer plusieurs classes à un élément. Ainsi, si dans la feuille de style on écrit...</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>.appartient_a_dupont</selecteur>
+					<prop nom="color" valeur="red"/>
+				</csselt>
+				<csselt>
+					<selecteur>.vehicule</selecteur>
+					<prop nom="font-style" valeur="italic"/>
+				</csselt>
+			</exemple_css>
+			<texte>... le code <abreviation titre="HyperText Markup Language" lang="en">HTML</abreviation> <code><![CDATA[<span class="vehicule appartient_a_dupont">bicyclette</span>]]></code> affichera le mot bicyclette en italique et en rouge.</texte>
+		</paragraphe>
+		<paragraphe titre="Identifiant" ancre="identifiant" >
+			<texte>L'attribut <code>id</code> est un attribut qui peut aussi apparaître dans n'importe quel élément. La très grande différence avec l'attribut <code>class</code> est qu'une valeur de <code>id</code> ne peut être prise qu'<valeur>une seule fois dans toute la page Web</valeur>. C'est un identifiant&#160;: par nature, sa valeur est unique. Exemple&#160;:</texte>
+			<exemple type="HTML">
+				<element nom="p"><attribut nom="id">monpar</attribut>Ceci est un paragraphe d'introduction.</element>
+				<element nom="ol" indent="oui">
+					<attribut nom="id">maliste</attribut>
+					<element nom="li" niveau="1">Et ceci</element>
+					<element nom="li" niveau="1"><attribut nom="id">item2</attribut>est une</element>
+					<element nom="li" niveau="1"><attribut nom="class">truc</attribut>liste<element nom="img" enligne="oui" vide="oui"><attribut nom="src">images/chapeaurond.gif</attribut><attribut nom="alt">Vive la Bretagne!</attribut><attribut nom="height">20</attribut><attribut nom="width">40</attribut><attribut nom="id">monimage</attribut></element></element>
+				</element>
+			</exemple>
+			<texte>On peut alors associer plusieurs règles à chaque <code>id</code> de la manière suivante&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>#monpar, #monimage</selecteur>
+					<prop nom="color" valeur="red"></prop>
+					<prop nom="border" valeur="solid 0.5em blue"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>#liste1, #monimage</selecteur>
+					<prop nom="background-color" valeur="yellow"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>#maliste</selecteur>
+					<prop nom="background-color" valeur="yellow"></prop>
+					<prop nom="color" valeur="orange"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>#item2</selecteur>
+					<prop nom="font-variant" valeur="small-caps"></prop>
+					<prop nom="font-style" valeur="oblique"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+		<exercice titre="Utilisation des classes et identifiants" ancre="exoclasses">
+			<enonce href="exercices/td5.html"/>
+			<correction href="exercices/td5_cor.html"/>
+		</exercice>
+	</section>
+	<section titre="Sélecteurs complexes" ancre="seleccomplexes" >
+		<paragraphe titre="Sélecteur contextuel" ancre="contextuel" >
+			<texte>Prenons un exemple&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h2 em</selecteur>
+					<prop nom="color" valeur="blue"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Cette règle ne s'appliquera que sur le contenu des éléments <code>em</code> lorsqu'ils seront eux-mêmes à l'intérieur d'un titre de niveau 2 (<code>h2</code>). Autrement dit, la consigne s'applique aux éléments <code>em</code> dans le contexte d'un élément <code>h2</code>.</texte>
+			<texte>Syntaxe&#160;: les sélecteurs simples sont séparés par des espaces. L'enchâssement est possible avec tous les types de sélecteurs, balise, identifiant, classe comme l'illustrent les exemples suivants&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>.copyright h4</selecteur>
+					<prop nom="color" valeur="blue"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>#toto b</selecteur>
+					<prop nom="font-size" valeur="large"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>ul ul</selecteur>
+					<prop nom="list-style" valeur="lower-alpha"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Les regroupements (signifiés par le séparateur virgule) restent possibles&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1 b, h2 b, b em</selecteur>
+					<prop nom="color" valeur="yellow"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+		<paragraphe titre="Pseudo-classes" ancre="pseudoclasses" >
+			<texte>Nous allons prendre l'exemple des liens. Un lien peut être dans trois états différents&#160;:</texte>
+			<liste>
+				<item><texte>actif (lors du clic de la souris)&#160;;</texte></item>
+				<item><texte>à visiter&#160;;</texte></item>
+				<item><texte>déjà visité.</texte></item>
+			</liste>
+			<texte>Pour les éléments <code>a</code>, on appelle pseudo-classes ces trois états possibles. Ce sont des classes prédéfinies. Voici un exemple&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>a:active</selecteur>
+					<prop nom="text-decoration" valeur="overline"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>a:link</selecteur>
+					<prop nom="color" valeur="blue"></prop>
+					<prop nom="font-style" valeur="italic"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>a:visited</selecteur>
+					<prop nom="color" valeur="green"></prop>
+					<prop nom="font-weight" valeur="bold"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>La syntaxe est donc <code>[selecteur]:[pseudo-classe] {declaration}</code></texte>
+			<texte>Une pseudo-classe intéressante est la pseudo-classe <code>hover</code>&#160;: elle permet d'affecter un style à un élément, lorsque celui-ci est survolé par la souris. Un usage classique consiste à désactiver le soulignement automatique des liens, qui est le comportement par défaut, et de ne le réactiver qu'au passage de la souris&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>a</selecteur>
+					<prop nom="text-decoration" valeur="none"/>
+				</csselt>
+				<csselt>
+					<selecteur>a:hover</selecteur>
+					<prop nom="text-decoration" valeur="underline"/>
+				</csselt>
+			</exemple_css>
+			<texte><code>:hover</code>, selon la norme, est applicable à n'importe quel élément d'une page, mais <logiciel>Internet Explorer</logiciel> jusqu'à la version&#160;6 incluse ne le supporte que pour les liens (éléments <code>&lt;a&gt;</code>).</texte>
+		</paragraphe>
+		<paragraphe titre="Pseudo-éléments" ancre="pseudoelements" >
+			<texte><code type="langage">CSS1</code> décrit plusieurs pseudo-éléments&#160;: </texte>
+			<liste>
+				<item><texte><code>first-line</code> modifie le style de la première ligne d'un paragraphe.</texte></item>
+				<item><texte><code>first-letter</code> modifie le style de la première lettre d'une phrase.</texte></item>
+				<item><texte><code>first-child</code> modifie le style du premier élément-enfant du sélecteur courant.</texte></item>
+				<item><texte><code>after</code> modifie le style de ce qui suit l'élément.</texte></item>
+				<item><texte><code>before</code> modifie le style de ce qui précède l'élément.</texte></item>
+			</liste>
+			<texte>Les trois derniers ne sont pas supportés par <logiciel>Internet Explorer</logiciel>. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p:first-letter</selecteur>
+					<prop nom="color" valeur="red"/>
+					<prop nom="font-size" valeur="200%"/>
+					<prop nom="font-weight" valeur="bold"/>
+				</csselt>
+			</exemple_css>
+			<texte>L'exemple précédent permet de colorer en rouge, doubler la taille et mettre en gras la première lettre de tous les paragraphes.</texte>
+		</paragraphe>
+		<exercice titre="Sélecteurs contextuels" ancre="exocontexte">
+			<enonce href="exercices/td5.html"/>
+			<correction href="exercices/td5_cor.html"/>
+		</exercice>
+	</section>
+	<section titre="Unités" ancre="unites" >
+		<paragraphe titre="Syntaxe" ancre="unitessyntaxe" >
+			<texte>Il ne faut laisser aucun blanc entre le nombre et l'unité. Une longueur peut être précédée d'un signe + ou -.</texte>
+		</paragraphe>
+		<paragraphe titre="Unités absolues de longueur" ancre="unitesabsolues" >
+			<tableau>
+				<ligne type="header">
+					<colonne id="unit"><texte>Unité</texte></colonne>
+					<colonne id="nota"><texte>Notation</texte></colonne>
+					<colonne id="conv"><texte>Conversion</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="unit"><texte><autrelangue type="en">inch</autrelangue> (pouce)</texte></colonne>
+					<colonne headers="nota"><texte><code>in</code></texte></colonne>
+					<colonne headers="conv"><texte>1in=2,54cm</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="unit"><texte>centimètre</texte></colonne>
+					<colonne headers="nota"><texte><code>cm</code></texte></colonne>
+					<colonne headers="conv"><texte></texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="unit"><texte>millimètre</texte></colonne>
+					<colonne headers="nota"><texte><code>mm</code></texte></colonne>
+					<colonne headers="conv"><texte></texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="unit"><texte>point</texte></colonne>
+					<colonne headers="nota"><texte><code>pt</code></texte></colonne>
+					<colonne headers="conv"><texte>1pt=1/72in=0,352778mm</texte></colonne>
+				</ligne>
+				<ligne>
+					<colonne headers="unit"><texte>pica</texte></colonne>
+					<colonne headers="nota"><texte><code>pc</code></texte></colonne>
+					<colonne headers="conv"><texte>1pc=12pt=4,233mm</texte></colonne>
+				</ligne>
+				<legende>Unités absolues.</legende>
+			</tableau>
+			<texte>Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="margin" valeur="0.5in"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h2</selecteur>
+					<prop nom="line-height" valeur="3cm"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h3</selecteur>
+					<prop nom="word-spacing" valeur="4mm"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h4</selecteur>
+					<prop nom="font-size" valeur="12pt"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h5</selecteur>
+					<prop nom="font-size" valeur="1pt"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Le point et le pica sont utilisés pour la taille des caractères.</texte>
+		</paragraphe>
+		<paragraphe titre="Unités relatives de longueur" ancre="unitesrelatives" >
+		<tableau>
+			<ligne type="header">
+				<colonne id="unitl"><texte>Unité</texte></colonne>
+				<colonne id="notal"><texte>Notation</texte></colonne>
+				<colonne id="convl"><texte>Conversion</texte></colonne>
+			</ligne>
+			<ligne>
+				<colonne headers="unitl"><texte>em</texte></colonne>
+				<colonne headers="notal"><texte><code>em</code></texte></colonne>
+				<colonne headers="convl"><texte><code>1em</code> est la hauteur d'un caractère (si la hauteur d'un caractère est fixée par l'auteur à <code>10pt</code> alors <code>1em=10pt</code>, si elle est fixée à <code>12pt</code> alors <code>1em=12pt</code>).</texte></colonne>
+			</ligne>
+			<ligne>
+				<colonne headers="unitl"><texte>x-height</texte></colonne>
+				<colonne headers="notal"><texte><code>ex</code></texte></colonne>
+				<colonne headers="convl"><texte><code>1ex</code> est la taille de la lettre 'x' minuscule.</texte></colonne>
+			</ligne>
+			<ligne>
+				<colonne headers="unitl"><texte>pixel</texte></colonne>
+				<colonne headers="notal"><texte><code>px</code></texte></colonne>
+				<colonne headers="convl"><texte>1pixel (<autrelangue>picture element</autrelangue>)&#160;: le plus petit élément sur un écran d'ordinateur. Cette unité dépend de l'écran et de son paramétrage.</texte></colonne>
+			</ligne>
+			<legende>Unités relatives.</legende>
+		</tableau>
+			<texte>Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1</selecteur>
+					<prop nom="margin" valeur="0.5em"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h2</selecteur>
+					<prop nom="line-height" valeur="1ex"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h3</selecteur>
+					<prop nom="font-size" valeur="15px"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>L'unité pixel est une unité relative, mais <logiciel>Internet Explorer</logiciel> la considère comme une unité absolue quand elle est appliquée à des tailles de caractères, ce qui interdit le redimensionnement de la taille de l'affichage sur ce navigateur quand une taille de caractères est indiquée en pixels.</texte>
+		</paragraphe>
+		<paragraphe titre="Pourcentages" ancre="unitespourcentages" >
+			<texte>C'est une fraction de la longueur d'un autre élément&#160;: largeur de l'écran, hauteur des caractères ou toute autre grandeur dépendant du contexte. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="line-height" valeur="120%"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>td.gauche</selecteur>
+					<prop nom="width" valeur="33%"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>L'interligne des paragraphes vaut 120% de la hauteur des caractères, tandis que les cellules de classe <code>gauche</code> occuperont 33% de la largeur du tableau où elles se trouvent.</texte>
+		</paragraphe>
+		<paragraphe titre="Couleurs" ancre="unitescouleurs" >
+			<texte>Les <reference href="texte.html#couleur">couleurs</reference> se codent de la même manière qu'en <code type="langage">HTML</code>, mais il est également possible de spécifier explicitement le codage RGB&#160;:</texte>
+			<liste>
+				<item><texte>une des seize couleurs standard&#160;: <code>aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white</code> et <code>yellow</code>.</texte></item>
+				<item><texte><code>#rrggbb</code> (par exemple, <code>#00cc00</code>).</texte></item>
+				<item><texte><code>#rgb</code> (par exemple, <code>#0c0</code>).</texte></item>
+				<item><texte><code>rgb(x1,x2,x3)</code>, où <code>x1, x2</code> et <code>x3</code> sont des entiers compris entre 0 et 255 inclus (par exemple <code>rgb(33,45,127)</code>).</texte></item>
+				<item><texte><code>rgb(x%,y%,z%)</code> où <code>x, y</code> et <code>z</code> sont des nombres compris entre 0.0 et 100.0 inclus (par exemple <code>rgb(56%,33%,0%)</code>).</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+</partie>
+
+</corpus>
+
+</chapitre>

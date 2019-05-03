@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 	Définition des zones et pages pour Weborama
+ -->
+
+<zone numero="7" historique="100" accueil="99" toc="20" exercices="98">
+	<page href="intro" numero="1"/>
+	<page href="texte" numero="2"/>
+	<page href="liens" numero="3"/>
+	<page href="listes" numero="4"/>
+	<page href="cadres" numero="5"/>
+	<page href="video" numero="6"/>
+	<page href="forms" numero="7"/>
+	<page href="cssintro" numero="8"/>
+	<page href="css1" numero="9"/>
+	<page href="css2" numero="10"/>
+	<page href="modeles" numero="11"/>
+	<page href="tableaux" numero="12"/>
+	<page href="images" numero="13"/>
+	<page href="htmlrapide" numero="14"/>
+	<page href="elements" numero="15"/>
+</zone>

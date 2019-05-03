@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+	<title>Exemple d'utilisation de la propriété visibility</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<style>
+		   span {	font-weight: bold;
+		   			visibility: hidden;} 
+		   .fruit	{ visibility: hidden;
+		   			  color: green;}
+		   .fruit2	{ visibility: visible;
+		   			  color: red}
+	</style>
+	<script type="text/JavaScript">
+			var i=0;
+			
+			function swap()
+				{						 
+					anglaise=document.getElementById("fruit");
+					galloise=document.getElementById("fruit2");
+					
+					if ((i%2)==0)
+					   {
+					   	   anglaise.className="fruit2";
+						   galloise.className="fruit";
+					   }
+					else
+					   {
+					   	   anglaise.className="fruit";
+						   galloise.className="fruit2";
+					   }
+										
+					i++;
+				}
+	</script>
+</head>
+
+<body>
+
+<p id="p1">
+Voici l'époque où les cerises vont se trouver en abondance sur nos
+marchés&nbsp;; profitons de leur prix abordable pour préparer de délicieuses
+cerises à l'eau-de-vie. Pour cette préparation, employez de préférence la <span id="fruit">cerise
+anglaise</span><span id="fruit2">cerise galloise</span>, la Montmorency, la griotte d'Etampes ou la tardive de Saint-Quentin.
+Enlevez les queues, dénoyautez. Prendre un litre de bonne eau-de-vie à 45° et
+procédez de la façon suivante&nbsp;: absorber une dizaine de cerises d'un seul
+coup, boire immédiatement la valeur d'un verre à bordeaux d'eau-de-vie et
+continuer ainsi jusqu'à épuisement des cerises et de l'eau-de-vie. Cette
+méthode, qui laisse à la cerise toute sa saveur, évite l'emploi toujours
+fastidieux des pèse-sirop et des bocaux de verre.
+</p>
+
+<p onClick="swap()" style="cursor: pointer">Permuter les affichages</p>
+
+
+</body>
+</html>

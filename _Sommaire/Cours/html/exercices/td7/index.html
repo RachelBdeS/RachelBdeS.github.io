@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Exercice : réalisation pas-à-pas d'un design</title>
+<style type="text/css">
+	.pourquoi{font-style:italic;font-size: smaller;}
+	.pourquoi:before{content:"Pourquoi : "}
+</style>
+</head>
+<body>
+
+<h1>Réalisation pas-à-pas d'un design</h1>
+
+<p>Pour cet exercice, nous allons nous inspirer d'un tutoriel <a href="http://css.alsacreations.com/Faire-une-mise-en-page-sans-tableaux/design-css">Réalisation d'un design complet (XHTML / CSS) en 5 étapes</a> par Olivier Patry sur le site d'<a href="http://alsacreations.com">Alsacreations</a>.</p>
+
+<h2>Initialisation de la page</h2>
+
+<p>Nous allons travailler sur le fichier <a href="etape1.html">etape1.html</a>. Le télécharger sur le disque dur, et en créer une copie sous le nom etape2.html</p>
+
+<h2>Mise en place des principaux éléments</h2>
+
+<p>Dans cette deuxième étape, nous allons placer les principaux éléments de la page (à l'exception du menu). </p>
+
+<ol>
+	<li>Mise en forme du body&nbsp;: spécifier une marge haute et basse de 10 pixels, pas de marge sur les côtés, un padding nul. Centrer le texte. <span class="pourquoi">Opera place par défaut un padding non nul sur le body&nbsp;; il faut donc le forcer à 0 si on veut préserver une apparence similaire. On centre le texte car sous Internet Explorer, c'est le seul moyen de centrer un élément de type bloc.</span></li>
+	<li>Positionnement de l'élément d'identifiant <code>conteneur</code>&nbsp;:
+		<ul>
+			<li>Définition de la largeur de la division à 770 pixels. <span class="pourquoi">Cette largeur est la largeur maximale possible pour un site en 800×600.</span></li>
+			<li>Définir des marges haute et basse nulles, et des marges droite et gauche "auto". <span class="pourquoi">C'est la méthode correcte pour centrer des éléments de type bloc. Voir l'article <a href="http://openweb.eu.org/articles/initiation_centrage/">Initiation au centrage</a> sur le site d'Openweb.</span></li>
+			<li>Aligner le texte à gauche.</li>
+		</ul>
+	</li>
+	<li>Positionnement de l'élément d'identifiant <code>header</code>. On fixe sa hauteur à 189 pixels.</li>
+</ol>
+
+<p>Sauverarder une copie sous le nom etape3.html</p>
+
+<h2>De la couleur et des images&nbsp;!</h2>
+
+<p>Nous allons mettre quelques touches de gaieté et de couleur dans ce cadre austère.</p>
+
+<ol>
+	<li>Police par défaut&nbsp;: elle doit être de 8 dixièmes de la taille par défaut, si possible de la police "MS Trebuchet", helvetica. Préciser une famille de police sans empattement. Définir une couleur de fond #E3DBB6.</li>
+	<li>Mise en forme du <code>header</code>&nbsp;: placer comme image de fond "<a href="ananas.png">ananas.png</a>". Cette image ne doit pas se répéter, et doit être placée en haut et à gauche. Les liens contenus dans le header doivent être positionnés en relatif à 70 pixels vers le bas et 30 pixels vers la droite de leur position par défaut. lls doivent être de couleur #8E4E1C.</li>
+	<li>Mise en forme du conteneur&nbsp;: placer une bordure de 2 pixels de large, solide et de couleur #8E4E1C, ainsi qu'un fond blanc.</li>
+	<li>Mise en forme de l'élément d'identifiant <code>contenu</code>&nbsp;: placer un padding supérieur et inférieur de 0, à droite de 30 pixels et à gauche de 100 pixels. Lui affecter comme image de fond "<a href="fond_page.png">fond_page.png</a>", sans répétition, à 15 pixels à droite et en bas du coin supérieur gauche.</li>
+	<li>Mise en forme des titres&nbsp;:
+		<ul>
+			<li>Les titres de niveau h2 du contenu doivent avoir un padding à gauche de 25 pixels, une hauteur de ligne de 40 pixels et être d'une taille égale à 1,4 fois la taille par défaut. Leur couleur doit être #8E4E1C. Ils doivent avoir une bordure inférieure fine, solide et de la même couleur. Enfin, le fond doit être l'image <a href="petit_ananas.png">petit_ananas.png</a>, non répétée, alignée sur la gauche et en bas.</li>
+			<li>Les titres de niveau h3 ont une marge à gauche de 15 pixels, un padding gauche de 5 pixels, une bordure inférieure fine, solide et de couleur #8E4E1C, comme le texte.</li>
+		</ul>
+	</li>
+	<li>Les paragraphes de l'élément d'identifiant contenu sont justifiés, avec un alinéa de 2em et une hauteur de ligne de 1.5em.</li>
+	<li>Mise en forme de l'élément d'identifiant <code>footer</code>&nbsp;:
+		<ul>
+			<li>Les liens sont par défaut soulignés et de couleur marron. Un lien survolé par la souris a une couleur de fond #E3DBB6.</li>
+			<li>Le footer lui-même a toutes ses marges nulles, sauf la marge inférieure qui est de 10 pixels. Il a un padding à droite de 10 pixels, un interligne de 1em. Il est aligné à droite et est de couleur #A76F44.</li>
+		</ul>
+	</li>
+</ol>
+
+<p>Sauvegarder le fichier sous le nom etape4.html.</p>
+
+<h2>Le titre et le menu</h2>
+
+<p>Les choses vont se compliquer un peu...</p>
+
+<h3>Le titre</h3>
+
+<p>Nous allons remplacer les précédentes propriétés définies sur les liens du header par les suivantes&nbsp;:</p>
+<ul>
+	<li>On fixe la propriété <code>display</code> à "block", puis la largeur à 339 pixels et la hauteur à 124 pixels. <span class="pourquoi">Il est en effet nécessaire de fixer le type d'élément à un élément de type bloc si l'on veut le redimensionner. La largeur et la hauteur correspondent à l'image de fond choisie...</span></li>
+	<li>Spécifier comme image de fond "<a href="titre.png">titre.png</a>", non répétée.</li>
+	<li>Placer le tout à 350 pixels à droite et 15 pixels en bas de la position par défaut.</li>
+	<li>Indenter le texte de -5000 pixels.<span class="pourquoi">Ce décalage important permet de ne plus avoir le texte dan sle champ de la fenêtre.</span></li>
+</ul>
+
+<h3>Le menu</h3>
+
+<p>Regarder l'image <a href="bg_menu2.gif">bg_menu2.gif.</a> Nous allons l'utiliser en la faisant "coulisser" au survol de la souris.</p>
+
+<ul>
+	<li>La liste d'identifiant "menu" a une hauteur de 35 pixels, une marge et un padding nuls. L'image de fond est bg_menu2.gif, qui se répète en x avec un décalage de 0 pixels par rapport au bord gauche, et de -25 pixels par rapport au bord supérieur. Désactiver les puces.</li>
+	<li>Les éléments de liste doivent flotter à gauche et leur texte doit être centré. <span class="pourquoi">Cela permettra de les "entasser" les uns à côté des autres.</span></li>
+	<li>Les liens contenus dans les éléments de liste du menu doivent avoir une largeur de 130 pixels, une hauteur de ligne de 25 pixels. La police doit être égale à 1.2em, grasse et blanche. On espacera les lettres de 2 pixels. Désactiver le soulignement. Placer une bordure à droite de 2 pixels de large, solide et de couleur #8E4E1C. Enfin, faire d'eux des éléments de type bloc. <span class="pourquoi">C'est ce qui permet de leur affecter une  largeur.</span></li>
+	<li>Au survol par la souris, spécifier comme image de fond de ces liens toujours l'image <a href="bg_menu2.gif">bg_menu2.gif</a>, répétée en x, décalée de 0 pixels par rapport aux bords gauche et supérieur.<span class="pourquoi">C'est ainsi que se place l'effet de "porte coulissante".</span></li>
+</ul>
+
+<p>Et voilà, c'est fini&nbsp;!</p>
+
+<p>Quelles sont les remarques que l'on peut faire sur l'accessibilité du résultat final&nbsp;?</p>
+
+</body>
+</html>

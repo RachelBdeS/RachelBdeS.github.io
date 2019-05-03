@@ -1,0 +1,394 @@
+/* Positionnement */
+
+#entete{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+}
+
+#tablemat{
+	position: absolute;
+	top: 120px;
+	right: 0px;	
+	width: 25%;
+}
+
+#main{
+	position: absolute;
+	top: 100px;
+	right: 26%;	
+}
+
+#corpus{
+	position: relative;
+	top: 0%;
+	left: 0%;
+}
+
+#maj{
+	position: relative;
+	left: 0%;
+	top: 0%;
+}
+
+#navigation1{
+	position: relative;
+	left: 0%;
+	top: 0%;
+	display: none;
+}
+
+#navigation2{
+	position: relative;
+	left: 0%;
+	top: 0%;
+}
+
+/* Polices et marges par défaut */
+body{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	margin: 0em 0% 0em 1%;
+}
+
+#tablemat{
+	padding: 0em 0px 0em 5px;
+}
+
+/* Fonds */
+body{
+	background-color: #f7f1b3;
+	color: black;
+}
+
+#entete{
+	
+}
+
+#tablemat{
+	
+}
+
+#main{
+}
+
+#corpus{
+	background-color: white;
+	color: black;
+}
+
+#maj{
+	background-color: #e7e1a3;
+	color: black;
+}
+
+#navigation1{
+	background-color: transparent;
+	color: black;
+}
+
+#navigation2{
+	background-color: #d7d193;
+	color: black;
+}
+
+/* Mise en forme de l'entête */
+
+#entete{
+	padding: 0% 0em 0% 1em;
+	text-align: center;
+}
+
+#entete a:hover{
+	color: #000080;
+ }
+
+/* Mise en forme de la table des matières */
+
+#tablemat{
+	border: thin solid maroon;
+}
+
+#tablemat h3{
+	font-size: small;
+}
+
+#tablemat h4{
+	font-size: x-small;
+}
+
+#tablemat h5{
+	font-size: xx-small;
+}
+
+#tablemat ol{
+	list-style-type: upper-roman;
+	position: relative;
+	left: -15px;
+}
+
+#tablemat ol ol {
+	list-style-type: decimal;
+	position: relative;
+	left: -15px;
+}
+
+#tablemat ol ol ol {
+	list-style-type: lower-alpha;
+	position: relative;
+	left: -15px;
+}
+
+#tablemat li a:hover{
+	color: maroon;
+	font-size: larger;
+	background-color: #f6f3de;
+}
+
+#tablemat p a:hover{
+	color: maroon;
+	background-color: #f6f3de;
+	font-size: larger;
+}
+
+/* Mise en forme du corpus */
+
+	#main{
+
+	}
+	
+	#corpus{
+		padding: 0em 1em 0em 1em;
+	}
+
+	/* Entrées d'index et de définitions */
+	.index {
+		display: none;
+	}
+
+	/* Tableaux */	
+	#corpus table.tableau{
+		text-align: center;
+	}
+	
+	#corpus th {
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	
+	/* Légendes */
+	caption, p.legende{
+		font-size: smaller;
+	}
+	
+	/* Eléments de type bloc */
+	#corpus p{
+		text-indent: 1em;
+		text-align: justify;
+	}
+	
+	/* Codes (langage, type de fichier, code)*/
+	#corpus code.code{
+		background-color: #EAFFCC;
+		color: green;
+		font-weight: bold;
+	}
+	
+	#corpus code.langage{
+		background-color: #D1FFCC;
+		color: black;
+	}
+	
+	#corpus code.logiciel{
+		background-color: #FFCFBF;
+		color: black;
+		font-weight: bold;
+	}
+	
+	#corpus code.typefichier{
+		background-color: #E1CCFF;
+		color: #1E3300;
+	}
+	
+	/* Eléments en-ligne */
+	#corpus .autrelangue{
+		font-style: italic;
+	}
+
+	#corpus a:hover{
+		background-color: #e5e5e5;
+		color: #121284;
+	}
+	
+	/* Exemples et images d'illustration */
+	#corpus img.illustration{
+		border : double;
+		margin : 10px;
+		position: relative;
+		left: 0%;
+	}
+	
+	/* Listes */
+	#corpus ul.sanpuce{
+		list-style-type: none;
+	}
+	
+	/* Mise en forme des exemples XML et HTML*/
+	#corpus p.xml{
+		font-family: "Courier New", Courier, monospace;
+		border: solid 1px navy;
+		background-color: #F0FFFF;
+		color: black;
+		text-indent: 0em;
+	}
+
+	#corpus p.html{
+		background-color: #FFFFF0;
+		color: black;
+		font-family: "Courier New", Courier, monospace;
+		border: thin purple solid;
+		text-indent: 0em;
+	}
+	
+	#corpus span.commentaire{
+		color: green;
+		background-color: transparent;
+	}
+	
+	#corpus span.contenu{
+		color: black;
+		background-color: transparent;
+	}
+	
+	#corpus span.doctype{
+		color: teal;
+		background-color: transparent;
+	}
+	
+	#corpus span.enteteexemplexml{
+		color: #3F0080;
+		background-color: transparent;
+	}
+	
+	#corpus span.exemplecdata{
+		color: blue;
+		background-color: transparent;
+	}
+	
+	#corpus span.exempledtdattribut{
+		color: #FF4500;
+		background-color: transparent;
+	}
+	
+	#corpus span.exempledtdelement{
+		color: #158DFF;
+		background-color: transparent;
+	}
+	
+	#corpus span.exempledtdexterne{
+		color: blue;
+		background-color: transparent;
+	}
+	
+	#corpus span.exempledtdinterne{
+		color: blue;
+		background-color: transparent;
+	}
+	
+	#corpus span.exemplehtml{
+		color: teal;
+		background-color: transparent;
+	}
+	
+	#corpus span.exemplexsl{
+		color: #DC143C;
+		background-color: transparent;
+	}
+	
+	#corpus span.tag{
+		color: navy;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	
+	/* Mise en forme des exemples CSS */
+	
+	#corpus p.css{
+		background-color: #FFEFD5;
+		color: black;
+		border: solid thin maroon;
+		font-family: "Courier New", Courier, monospace;
+		text-indent: 0em;
+	}
+	
+	#corpus p.css span.selecteur{
+		color: maroon;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	
+	#corpus p.css span.csspropriete{
+		background-color: transparent;
+		color: teal;
+	}
+	
+	#corpus p.css span.valeur{
+		color: black;
+		background-color: transparent;
+	}
+	
+	/* Mise en forme des exemples JavaScript */
+	
+	#corpus p.javascript{
+		font-family: "Courier New", Courier, monospace;
+		text-indent: 0em;
+		color: black;
+		background-color: #EEE8AA;
+		border: solid thin maroon;
+	}
+	
+	#corpus p.javascript span.declaration{
+		color: #D2691E;
+		background-color: transparent;
+	}
+	
+	#corpus p.javascript span.fonction{
+		color: #B22222;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	
+	#corpus p.javascript span.instruction{
+		color: blue;
+		background-color: transparent;
+		font-weight: bold;	
+	}
+	
+	#corpus p.javascript span.propriete{
+		color: maroon;
+		background-color: transparent;
+	}
+	
+	#corpus p.javascript span.variable{
+		font-style: italic;		
+	}
+
+/* Mise en forme de la zone des mises à jour */
+
+#maj{
+	font-size: x-small;
+}
+
+/* Mises en forme des zones de navigation */
+
+#navigation1 p{
+	text-align: right;
+}
+
+#navigation2 p{
+	text-align: right;
+}
+
+#listefichiers {
+	list-style-type: none;
+	text-align: right;
+}

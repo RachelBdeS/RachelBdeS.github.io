@@ -1,0 +1,13 @@
+h1 {
+    background-color: transparent;
+}
+
+h2 {
+    background-color: lightblue;
+    cursor: default;
+}
+
+h1, h2 {
+    border-bottom: inset darkgray 1px;
+    cursor: default;
+}

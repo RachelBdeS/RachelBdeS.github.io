@@ -1,0 +1,118 @@
+/* Positionnement */
+
+#entete{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+}
+
+#tablematcourte{
+	position: absolute;
+	top: 100px;
+	right: 0px;	
+	width: 25%;
+}
+
+#main{
+	position: absolute;
+	top: 100px;
+	right: 26%;	
+	width: 73%;
+}
+
+#tablematlongue{
+	position: relative;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+}
+
+#maj{
+	position: relative;
+	left: 0%;
+	top: 0%;	
+}
+
+/* Polices et marges par défaut */
+body{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 90%;
+	margin: 0em 0% 0em 1%;
+}
+
+/* Fonds */
+body{
+	background-color: #F7F1B3;
+	color: black;
+}
+
+#entete{
+	
+}
+
+#tablematcourte{
+	
+}
+
+#main{
+	background-color: white;
+	color: black;
+}
+
+#tablematlongue{
+}
+
+#maj{
+	background-color: #E7E1A3;
+	color: black;
+}
+
+/* Mise en forme de l'entête */
+
+#entete{
+	padding: 0% 0em 0% 1em;
+	text-align: center;
+}
+
+/* Mise en forme de la table des matières courte */
+
+#tablematcourte{
+	border: thin solid maroon;
+}
+
+#tablematcourte h3{
+	font-size: small;
+}
+
+#tablematcourte h4{
+	font-size: x-small;
+}
+
+#tablematcourte ol{
+	list-style-type: upper-alpha;
+	position: relative;
+	left: -15px;
+}
+
+#tablematcourte li a:hover{
+	background-color: #F6F3DE;
+	margin-left: 10px;
+}
+
+#tablematcourte p a:hover{
+	background-color: #F6F3DE;
+}
+
+/* Mise en forme de la table des matières longue */
+
+#tablematlongue{
+		padding: 0em 1em 0em 1em;
+}
+
+/* Mise en forme de la zone des mises à jour */
+
+#maj{
+	font-size: x-small;
+}
+

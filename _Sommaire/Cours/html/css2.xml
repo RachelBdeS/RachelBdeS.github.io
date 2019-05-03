@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+
+<cours nomfichier="css2">Cours de HTML</cours>
+
+<entete>
+	<titre>Règles supplémentaires du CSS2</titre>
+	<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+	<resume>Ce chapitre présente les concepts généraux des feuilles de style niveau 2 (CSS2).</resume>
+	<motsclefs>html, css, css2, css-p, introduction</motsclefs>
+</entete>
+
+<corpus>
+
+<partie titre="Généralités" ancre="gen" >
+	<section titre="Introduction" ancre="intro" >
+		<paragraphe>
+			<texte>Le <code type="langage">CSS2</code> est une recommandation du W3C définie en mai 1998. Elle est une extension du format <code type="langage">CSS1</code> permettant notamment une gestion améliorée de la prise en compte de nouveaux types de media (imprimante, navigateurs à synthèse vocale...), mais aussi de la présentation. Ce dernier ensemble de propriétés constitue ce que l'on nomme souvent le <code type="langage">CSS-P</code>, P pour <autrelangue>positioning</autrelangue>.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Limitations" ancre="limitations" >
+		<paragraphe>
+			<texte>Si la gestion du <code type="langage">CSS-P</code> est à peu près correcte pour les navigateurs récents, il n'en est pas de même pour les autres propriétés du <code type="langage">CSS2</code>. Bon nombre des propriétés innovantes ne sont pas prises en compte, et relèvent en l'état actuel des choses d'un pari sur l'avenir. Il est donc recommandé de limiter leur utilisation à des cas où elles seraient susceptibles d'apporter des fonctionnalités <valeur>supplémentaire</valeur> au site, et <valeur>non critiques</valeur>.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Flux d'un document" ancre="flux">
+		<paragraphe titre="Éléments en ligne, éléments de type bloc">
+			<texte>Il existe en <code type="langage">HTML</code> deux types d'éléments&#160;: les éléments en ligne et les éléments de type bloc.</texte>
+			<liste>
+				<item><texte>Les éléments en ligne sont destinés à être placés au fil du texte. Il s'agit par exemple des éléments d'emphase (<code>em</code>), des images (<code>img</code>), des liens (<code>a</code>)... Normalement, ces éléments n'ont pas vocation à être placés sur une page, mais à être affichés dans le contexte de l'élément parent qui les encadre. Un élément en ligne ne peut contenir que des éléments en ligne ou du texte.</texte></item>
+				<item><texte>Les éléments de type bloc sont ceux qui, par défaut, ont un rendu visuel "en bloc" sur un navigateur graphique&#160;: c'est le cas par exemple des titres (<code>h1...6</code>), des paragraphes (<code>p</code>), des tableaux (<code>table</code>)... Ils peuvent être positionnés sur une page. Les éléments de type bloc peuvent contenir des éléments en ligne. Tous les éléments de type bloc, sauf les paragraphes et les titres, peuvent de plus contenir d'autres éléments de type bloc.</texte></item>
+			</liste>
+			<texte>Attention&#160;: alors que les éléments en ligne n'ont pas de marge ou de padding prédéfini, il n'en est pas de même pour les éléments de type bloc. Or ces marges et paddings par défaut peuvent être différents d'un navigateur à l'autre&#160;; il est donc souvent nécessaire de les redéfinir.</texte>
+		</paragraphe>
+		<paragraphe titre="Le flux du document">
+			<texte>Sans feuille de style appliquée à un document, un navigateur graphique appliquera une mise en page par défaut au fur et à mesure qu'il rencontrera, au fil du code source du fichier <code type="typefichier">HTML</code> qu'il lit, les éléments qu'il doit placer. Le flux correspond à l'ordre dans lequel les éléments apparaissent dans ce code source, ce qui conditionne leur position. Par défaut, deux éléments de type bloc s'affichent l'un en-dessous de l'autre. Les éléments en ligne s'affichent les uns à la suite des autres., et un retour à la ligne est inséré quand l'affichage atteint le bord droit du cadre.</texte>
+			<texte>Certaines propriétés <code type="langage">CSS</code> permettent de sortir des éléments du flux pour les afficher ailleurs dans la fenêtre du navigateur. Il est possible d'inverser l'ordre d'élément de type bloc, de les afficher l'un à côté de l'autre&#160;; il est possible également de changer le type d'un élément, et de faire d'un élément en ligne un élément de type bloc et réciproquement.</texte>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="Gestion de l'apparence visuelle" ancre="visual" >
+	<section titre="Introduction" ancre="visualintroduction" >
+		<paragraphe>
+			<texte>Selon les recommandations du <reference href="http://www.w3.org">W3C</reference>, tous les éléments d'une page Web peuvent être placés à un endroit fixé dans la fenêtre du navigateur indépendamment des autres éléments de la page&#160;: c'est le <valeur>positionnement</valeur>.</texte>
+			<texte>Cette recommandation est intégralement respectée par <logiciel>Internet Explorer</logiciel> à partir de la version 4 et les versions du moteur Gecko à partir de <logiciel>Netscape&#160;7</logiciel> (ce qui inclut l'intégralité des versions de <logiciel>FireFox</logiciel>), ainsi qu'<logiciel>Opera</logiciel> à partir de la version 6.</texte>
+		</paragraphe>
+	</section>
+	<section titre="La propriété position" ancre="position" >
+		<paragraphe>
+			<texte><code>position</code> permet de spécifier le type de positionnement à appliquer à l'élément. Cette propriété peut prendre quatre valeurs&#160;:</texte>
+			<liste>
+				<item><texte><code>static</code>, la valeur par défaut. L'élément est traité "dans le flot". Il est posé dans la page à la suite des autres comme d'habitude.</texte></item>
+				<item>
+					<texte><code>absolute</code>, deux cas se présentent&#160;:</texte>
+					<liste type="ordonnee">
+						<item><texte>si l'élément n'est enchâssé dans aucun autre. Les propriétés de positionnement (voir <reference href="#bottom">plus loin</reference>) sont alors relatives au coin supérieur gauche de la fenêtre du navigateur.</texte></item>
+						<item><texte>si l'élément est enchâssé dans un autre élément pour lequel la propriété de position vaut <code>absolute</code> ou <code>relative</code>. Les propriétés de positionnement (voir <reference href="#bottom">plus loin</reference>) sont alors relatives au coin supérieur gauche de la boîte contenant l'élément-parent).</texte></item>
+					</liste>
+				</item>
+				<item><texte><code>relative</code>. Les propriétés de positionnement (voir <reference href="#bottom">plus loin</reference>) sont alors relatives à la position qu'aurait eue l'élément s'il avait été traité "dans le flot" (<code>position: static</code>).</texte></item>
+				<item><texte><code>fixed</code>. Dans ce cas, la position de l'élément reste fixe par rapport à la zone de visualisation. Cette propriété n'est pas supportée par <logiciel>Internet Explorer</logiciel>.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Positionner par rapport aux bords de l'élément contenant ou de la fenêtre&#160;: bottom, top, left, right" ancre="bottom" >
+		<paragraphe titre="Utilisation" ancre="bottomutilisation">
+			<texte><code>bottom</code>, <code>top</code>, <code>left</code> et <code>right</code> permettent de spécifier la position d'un élément. Ces propriétés prennent comme valeur les <reference href="cssintro.html#unites">unités de longueur</reference> vues précédemment, l'unité par défaut étant le pixel, mais aussi un pourcentage (qui renvoie alors aux dimensions de l'élément-parent ou de la fenêtre du navigateur suivant les valeurs de la propriété <code>position</code>). Par exemple</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>#copyright</selecteur>
+					<prop nom="position" valeur="absolute"></prop>
+					<prop nom="bottom" valeur="0%"></prop>
+					<prop nom="right" valeur="0%"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>#copyright span.nomauteur</selecteur>
+					<prop nom="position" valeur="absolute"></prop>
+					<prop nom="top" valeur="-10%"></prop>
+					<prop nom="left" valeur="10%"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Dans cet exemple, l'élément identifié par l'identifiant <code>copyright</code> est positionné en bas à droite de la fenêtre du navigateur (quelle que soit la taille de celle-ci), et son élément-enfant <code>span</code> de classe <code>nomauteur</code> est à 10% de sa marge gauche, et à 10% au-dessus de sa marge supérieure.</texte>
+		</paragraphe>
+		<paragraphe titre="Compatibilité" ancre="bottomcompat">
+			<liste>
+				<item><texte><code>bottom</code> est compatible avec <logiciel>IE&#160;5.5+</logiciel> pour Windows, <logiciel>Netscape&#160;6+</logiciel> et toutes les versions de <logiciel>Mozilla</logiciel>.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Gérer le dépassement d'affichage d'éléments superposés&#160;: overflow et clip" ancre="clipoverflow" >
+		<paragraphe titre="Introduction" ancre="clipoverflowintro">
+			<texte>Ces deux propriétés permettent de gérer la manière dont des éléments peuvent être "attachés" l'un à l'autre.</texte>
+		</paragraphe>
+		<paragraphe titre="overflow" ancre="overflow">
+			<texte><code>overflow</code> permet de spécifier de quelle manière le contenu d'un élément doit être affiché s'il dépasse de la boîte qui lui est réservée. Cette propriété peut prendre les valeurs suivantes&#160;:</texte>
+			<liste>
+				<item><texte><code>visible</code>, la valeur par défaut. Le contenu peut être affiché de telle sorte qu'il dépasse de la boîte réservée.</texte></item>
+				<item><texte><code>hidden</code>. Le contenu de l'élément est partiellement affiché. La position et la forme de la zone dont l'affichage est préservé sont spécifiées par la propriété <reference href="#clip"><code>clip</code></reference>.</texte></item>
+				<item><texte><code>scroll</code>. Des barres de défilement sont automatiquement ajoutées, que le contenu de l'élément dépasse ou non de la boîte, permettant l'affichage de la totalité de l'élément.</texte></item>
+				<item><texte><code>auto</code>. Des barres de défilement ne sont affichées que si le besoin s'en fait sentir.</texte></item>
+			</liste>
+			<texte>Dans l'exemple suivant, l'élément <code>&lt;blockquote&gt;</code> est trop grand pour être intégralement affiché dans l'élément <code><![CDATA[<div>]]></code> parent.</texte>
+			<exemple type="HTML">
+				<element nom="div" indent="oui">
+					<element nom="blockquote" niveau="1" indent="oui">
+						<element nom="p" niveau="2">La véritable modestie consiste à ne jamais se prendre pour moins que ce qu'on estime qu'on croit qu'on vaut.</element>
+						<element nom="p" niveau="2"><attribut nom="class">auteur</attribut>- Pierre DAC</element>
+					</element>
+				</element>
+			</exemple>
+			<exemple_css>
+				<csselt>
+					<selecteur>div</selecteur>
+					<prop nom="width" valeur="100px"></prop>
+					<prop nom="height" valeur="100px"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>blockquote</selecteur>
+					<prop nom="margin-top" valeur="50px"></prop>
+					<prop nom="margin-left" valeur="50px"></prop>
+					<prop nom="border" valeur="thin dashed black"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>div.auteur</selecteur>
+					<prop nom="text-align" valeur="right"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Comme <code>overflow</code> vaut <code>visible</code>, la citation apparaît en entier&#160;:</texte>
+			<image src="exemples/overflow.gif" hauteur="232" largeur="196" alt="Exemple d'overflow: visible"></image>
+			<texte>Si <code>overflow</code> vaut <code>hidden</code> pour l'élément contenant, ici l'élément <code><![CDATA[<div>]]></code>, alors la citation est tronquée&#160;:</texte>
+			<image src="exemples/overflowhidden.gif" hauteur="110" largeur="110" alt="Exemple d'overflow: hidden"></image>
+			<texte>Si <code>overflow</code> vaut <code>scroll</code> pour l'élément contenant, ici l'élément <code><![CDATA[<div>]]></code>, alors des barres de défilement apparaissent&#160;:</texte>
+			<image src="exemples/overflowscroll.gif" hauteur="112" largeur="111" alt="Exemple d'overflow: scroll"></image>
+			<texte><valeur>Remarque&#160;:</valeur> Sous <logiciel>Internet Explorer</logiciel> (même la version 6), il semblerait que la valeur <code>hidden</code> ne marche pas.</texte>
+		</paragraphe>
+		<paragraphe titre="clip" ancre="clip">
+			<texte><code>clip</code> permet de spécifier quelle portion du contenu de l'élément peut être affichée. Cette propriété s'applique aux éléments pour lesquels la propriété <code>overflow</code> vaut autre chose que <code>visible</code>. Exemples d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="clip" valeur="rect(5px, 10px, 10px, 5px)"></prop>
+				</csselt>
+			</exemple_css>
+			<exemple_css>
+				<csselt>
+					<selecteur>p</selecteur>
+					<prop nom="clip" valeur="rect(5px, -5px, 10px, 5px)"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>En <code type="langage">CSS2</code>, la seule forme possible est un rectangle. On donne les longueurs dans l'ordre suivant&#160;: haut, droite, bas et gauche. Les exemples précédents définissent ainsi les régions suivantes&#160;:</texte>
+			<image src="exemples/clip.gif" hauteur="446" largeur="222" alt="Exemples de deux regions definies a l'aide de clip"></image>
+			<texte>Cette propriété est supportée par tous les navigateurs à partir de la version 4. Attention cependant&#160;:</texte>
+			<liste>
+				<item><texte>Sous <logiciel>Internet Explorer&#160;4</logiciel> pour Macintosh, cette propriété est boguée&#160;;</texte></item>
+				<item><texte>Sous <logiciel>Netscape&#160;4</logiciel>, les éléments affectés par cette propriété peuvent être "oubliés" par le navigateur lorsqu'il doit calculer des barres de défilement.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Cacher/faire apparaître un élément&#160;: visibility" ancre="visibility">
+		<paragraphe>
+			<texte><code>visibility</code> permet de spécifier si la boîte contenant l'élément doit apparaître ou non. La place réservée à son apparition reste réservée, au contraire de la propriété <reference href="css1.html#display"><code>display</code></reference>, qui supprime cette réservation d'espace. Cette propriété peut prendre les valeurs suivantes&#160;:</texte>
+			<liste>
+				<item><texte><code>visible</code>, la valeur par défaut. La boîte est visible.</texte></item>
+				<item><texte><code>hidden</code>, la boîte est... invisible (complètement transparente), mais sa place reste réservée dans la fenêtre du navigateur. Il est possible, en <reference href="exemples/visibility.html">utilisant des scripts</reference>, de cacher ou de faire apparaître des portions de texte...</texte></item>
+				<item><texte><code>collapse</code>. Cette valeur n'est utile que lors de la manipulation de cellules d'un tableau. Dans le cas général, elle est équivalente à <code>hidden</code>.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="z-index" ancre="zindex" >
+		<paragraphe>
+			<texte><code>z-index</code> permet de gérer l'ordre d'"empilement" des boîtes contenant les éléments. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>img.derriere</selecteur>
+					<prop nom="position" valeur="absolute"></prop>
+					<prop nom="top" valeur="1cm"></prop>
+					<prop nom="left" valeur="1cm"></prop>
+					<prop nom="z-index" valeur="1"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>span.devant</selecteur>
+					<prop nom="position" valeur="absolute"></prop>
+					<prop nom="top" valeur="1cm"></prop>
+					<prop nom="left" valeur="1cm"></prop>
+					<prop nom="z-index" valeur="2"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Dans l'exemple précédent, la valeur du <code>z-index</code> de l'élément <code><![CDATA[<span class="devant">]]></code> étant supérieure, ce dernier sera devant l'image de classe <code>derriere</code>. Il est possible ainsi de combiner différents <reference href="exemples/zindex.html">niveaux de profondeurs</reference>.</texte>
+		</paragraphe>
+	</section>
+	<exercice titre="Positionnement" ancre="exoposition">
+		<enonce href="exercices/td6.html"/>
+		<correction href="exercices/td6_cor.html#repro1" description="positionnement de div"/>
+		<correction href="exercices/td6_cor2.html#repro2" description="positionnement avec images"/>
+	</exercice>
+	<section titre="max/min - height/width" ancre="maxminheightwidth" >
+		<paragraphe>
+			<texte>Les quatre propriétés <code>min-height</code>, <code>max-height</code>, <code>min-width</code> et <code>max-width</code> permettent de gérer les limites extrêmes de la boîte contenant l'élément.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Personnalisation de l'apparence: cursor et outline" ancre="cursoroutline" >
+		<paragraphe titre="cursor" ancre="cursor" >
+			<texte><code>cursor</code> permet de gérer l'apparence du curseur au moment où il survole l'élément. Les valeurs possibles de cette propriété sont&#160;:</texte>
+			<liste>
+				<item><texte><code>auto</code>, la valeur par défaut. La forme dépend du contexte.</texte></item>
+				<item><texte><code>default</code>, le curseur par défaut du système (sous Windows, une flèche).</texte></item>
+				<item><texte><code>crosshair</code>, en forme de croix (le signe "+").</texte></item>
+				<item><texte><code>pointer</code>, la forme indiquant un lien.</texte></item>
+				<item><texte><code>move</code>, réservé normalement au cas où l'élément peut être déplacé.</texte></item>
+				<item><texte><code>direction-resize</code>, où <code>direction</code> vaut <code>e, ne, nw, n, se, sw, s</code> ou <code>w</code>, qui est réservé normalement au cas où la taille de l'élément peut être modifiée.</texte></item>
+				<item><texte><code>texte</code>, réservé normalement au cas où le contenu de l'élément peut être sélectionné en mode texte (souvent rendu sous la forme du caractère |).</texte></item>
+				<item><texte><code>help</code>, réservé normalement au cas où l'élément doit fournir une aide (en forme de point d'interrogation souvent).</texte></item>
+				<item><texte>une url, ou une liste d'url indiquant où trouver un fichier de curseur. Si le curseur n'est pas accepté par le système, le navigateur "regarde" la deuxième adresse fournie, etc. Il est recommandé, comme pour les polices, de spécifier une forme de curseur par défaut en dernier choix.</texte></item>
+			</liste>
+			<texte>Cette propriété est supportée par tous les navigateurs, sauf <logiciel>Netscape&#160;4</logiciel>.</texte>
+		</paragraphe>
+		<paragraphe titre="outline" ancre="outline" >
+			<texte>Cette famille de propriétés permet de mettre en évidence des éléments en les encadrant. Les différences avec la propriété <code>border</code> résident dans les faits que&#160;:</texte>
+			<liste type="ordonnee">
+				<item><texte>Les encadrements ne prennent pas de place <valeur>en plus</valeur> dans l'apparence générale de la page.</texte></item>
+				<item><texte>Les encadrements ne sont pas limités à une forme rectangulaire.</texte></item>
+			</liste>
+			<texte>On distingue trois propriétés, qui peuvent être résumées par la propriété <code>outline</code>&#160;:</texte>
+			<liste type="ordonnee">
+				<item><texte><code>outline-width</code>&#160;: une unité de longueur, qui permet de gérer la largeur de l'encadrement.</texte></item>
+				<item><texte><code>outline-style</code>&#160;: respecte la même syntaxe que <reference href="css1.html#borderstyle"><code>border-style</code></reference>.</texte></item>
+				<item><texte><code>outline-color</code>&#160;: une couleur, ou bien la valeur <code>invert</code>, qui est équivalente à prendre automatiquement la couleur opposée des pixels de l'écran.</texte></item>
+			</liste>
+			<texte>La forme d'un encadrement n'est pas nécessairement rectangulaire, car elle suit le contour des boîtes contenues dans l'élément. Cette propriété est mal supportée.</texte>
+		</paragraphe>
+	</section>
+	<section titre="direction" ancre="direction" >
+		<paragraphe>
+			<texte>Le sens d'écriture du texte (de gauche à droite ou de droite à gauche) est géré par deux propriétés, <code>direction</code> et <code>unicode-bidi</code>.</texte>
+			<liste>
+				<item><texte><code>direction</code> peut prendre deux valeurs, <code>ltr</code> (<autrelangue>left to right</autrelangue>), la valeur par défaut, ou <code>rtl</code> (<autrelangue>right to left</autrelangue>).</texte></item>
+				<item><texte><code>unicode-bidi</code> reprend un algorithme complexe de gestion de la direction d'écriture défini dans la norme Unicode. Les valeurs possibles de cette propriété ne concernent l'immense majorité du temps pas les normes de l'écriture latine.</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="quotes" ancre="quotes" >
+		<paragraphe>
+			<texte><code>quotes</code> permet de spécifier les guillemets à utiliser en fonction du niveau de profondeur. Le type de guillemet est indiqué par une chaîne de caractères. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>q:lang(en)</selecteur>
+					<prop nom="quotes" valeur=" &#39;&#34;&#39; &#39;&#34;&#39; &#34;&#39;&#34; &#34;&#39;&#34;"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>q:lang(fr)</selecteur>
+					<prop nom="quotes" valeur=" &#34;&#171;&#34; &#34;&#187;&#34; &#34;&#8249;&#34; &#34;&#8250;&#34;"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>q:before</selecteur>
+					<prop nom="content" valeur="open-quote"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>q:after</selecteur>
+					<prop nom="content" valeur="close-quote"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Là encore, cette propriété est encore mal supportée. Pour information, les entités représentant les doubles guillemets français sont <code><![CDATA[&#171;]]></code> (pour &#171;) et <code><![CDATA[&#187;]]></code> (pour &#187;).</texte>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="Gestion du rendu à l'impression" ancre="imprime" >
+	<section titre="Introduction" ancre="imprimeintro" >
+		<paragraphe>
+			<texte>La spécification <code type="langage">CSS2</code> inclut aussi la prise en compte du rendu visuel à l'impression&#160;; en effet, selon le W3C, l'écran d'un ordinateur n'est qu'un media parmi d'autres, et notamment le support papier. Il était donc nécessaire d'inclure des propriétés spécialisées.</texte>
+		</paragraphe>
+	</section>
+	<section titre="@page" ancre="apage" >
+		<paragraphe titre="Généralités" ancre="pagegen">
+			<texte>Cette <valeur>règle</valeur> permet de spécifier le format général de la page. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>@page</selecteur>
+					<prop nom="size" valeur="21cm 29.7cm"></prop>
+					<prop nom="margin" valeur="2cm"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>L'exemple précédent permet de définir une taille de page A4, avec des marges de 2cm.</texte>
+		</paragraphe>
+		<paragraphe titre="size" ancre="pagesize">
+			<texte>La propriété <code>size</code> permet de spécifier la taille de la page à imprimer. Cette propriété peut prendre les valeurs suivantes&#160;:</texte>
+			<liste>
+				<item><texte><code>auto</code>, la valeur par défaut.</texte></item>
+				<item><texte>Deux longueurs donnant largeur et hauteur. Si une des deux longueurs seulement est donnée, la boîte d'impression est carrée.</texte></item>
+				<item><texte><code>portrait</code> ou <code>landscape</code>, qui sont normalement prioritaires par rapport à tout autre réglage d'impression.</texte></item>
+			</liste>
+			<texte>La gestion du cas où la taille spécifiée est plus grande que celle du support papier est du ressort du navigateur.</texte>
+		</paragraphe>
+		<paragraphe titre="Première page; pages gauches et droites" ancre="premierepage">
+			<texte><code>page:first</code> est un pseudo-élément, <code>page:left</code> et <code>page:right</code> sont des pseudo-classes qui permettent de spécifier une apparence différente respectivement pour la première page, les pages de gauche et de droite lors de l'impression. Cela est particulièrement utile lors des impressions recto-verso. Par exemple,</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>page:right</selecteur>
+					<prop nom="margin-left" valeur="2cm"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>page:left</selecteur>
+					<prop nom="margin-right" valeur="2cm"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>page:first</selecteur>
+					<prop nom="margin-top" valeur="5cm"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+	</section>
+	<section titre="Sauts de page" ancre="pagebreak" >
+		<paragraphe>
+			<texte>Trois propriétés gèrent les sauts de page.</texte>
+			<liste>
+				<item><texte><code>page-break-inside</code> peut prendre les valeurs <code>auto</code> (valeur par défaut) ou <code>avoid</code> (dans la mesure du possible, l'impression doit éviter un saut de page qui couperait l'élément).</texte></item>
+				<item><texte><code>page-break-before</code> et <code>page-break-before</code> peuvent prendre les valeurs <code>auto</code> (valeur par défaut), <code>avoid</code> (dans la mesure du possible, l'impression doit éviter un saut de page qui couperait l'élément), <code>always</code> (qui force le saut de page avant ou après l'élément), <code>left</code> ou <code>right</code> (qui force la page suivante à être une page de gauche ou de droite).</texte></item>
+			</liste>
+		</paragraphe>
+	</section>
+	<section titre="Lignes veuves et orphelines" ancre="orphans" >
+		<paragraphe>
+			<texte>Les propriétés <code>widows</code> et <code>orphans</code> permettent de spécifier le nombre minimum de lignes d'un élément qui peuvent être laissées en haut (respectivement en bas) d'une page imprimée.</texte>
+		</paragraphe>
+	</section>
+	<section titre="Nommer des pages" ancre="page" >
+		<paragraphe>
+			<texte>Il est possible de donner des noms à des pages particulières, et de les traiter de manière analogue à des éléments imbriqués. Exemple d'utilisation&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>@page tournee</selecteur>
+					<prop nom="size" valeur="landscape"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>table</selecteur>
+					<prop nom="page" valeur="tournee"></prop>
+					<prop nom="page-break-before" valeur="always"></prop>
+					<prop nom="page-break-after" valeur="always"></prop>
+				</csselt>
+			</exemple_css>
+		</paragraphe>
+	</section>
+</partie>
+
+<partie titre="Autres propriétés" ancre="autres" >
+	<section titre="content" ancre="content" >
+		<paragraphe>
+			<texte>Cette propriété s'applique aux pseudo-éléments <code>:before</code> et <code>:after</code>. Elle peut prendre les valeurs suivantes&#160;:</texte>
+			<liste>
+				<item><texte>Une chaîne de caractères (voir l'exemple plus loin).</texte></item>
+				<item><texte>Une URL, un lien vers une ressource externe donnant des détails sur l'élément.</texte></item>
+				<item>
+					<texte><code>counter</code>. Les compteurs (voir <reference href="#counter">plus loin</reference>) peuvent être spécifiés par l'appel à deux différentes fonctions, <code>counter()</code> ou <code>counters()</code>.
+					</texte>
+					<liste>
+						<item><texte>La première a deux formes&#160;: <code>counter(nom)</code> ou <code>counter(nom, style)</code>. Le texte produit est la valeur du compteur désigné par <code>nom</code>, en ce point précis du document. Il est formatté dans le style indiqué (ce sont les mêmes que pour les types de listes, la valeur par défaut est <code>decimal</code>).</texte></item>
+						<item><texte>La seconde possède aussi deux formes&#160;: <code>counters(nom, chaine)</code> ou <code>counters(nom, chaine, style)</code>. Le texte produit est la valeur de tous les compteurs désignés par <code>nom</code>, en ce point précis du document, séparés par la chaîne de caractères spécifiée. Les compteurs sont formattés dans le style indiqué.</texte></item>
+					</liste>
+				</item>
+				<item><texte><code>open-quote</code> et <code>close-quote</code> qui permettent de compléter l'action de la propriété <code>quotes</code>.</texte>
+				</item>
+				<item><texte><code>attr(X)</code>. Cette fonction retourne la valeur de l'attribut <code>X</code> pour le sélecteur. Si l'attribut <code>X</code> n'existe pas pour le sélecteur, la fonction retourne une chaîne vide.</texte></item>
+			</liste>
+			<texte>Par exemple&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1:before</selecteur>
+					<prop nom="text-align" valeur="center"></prop>
+					<prop nom="content" valeur="chapitre\A chapter"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>img:before</selecteur>
+					<prop nom="content" valeur="attr(alt)"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Attention, là encore, la propriété <code>content</code> n'est pas gérée par certains navigateurs (comme <logiciel>Internet Explorer&#160;6</logiciel>). <logiciel>Netscape&#160;6</logiciel>, <logiciel>Mozilla</logiciel>, <logiciel>Opera</logiciel> supportent quelques valeurs de cette propriété (affectation d'une chaîne de caractères quelconque, et gestion des guillemets).</texte>
+		</paragraphe>
+	</section>
+	<section titre="Compteurs" ancre="counter" >
+		<paragraphe titre="Introduction" ancre="counterintro" >
+			<texte><code type="langage">CSS2</code> permet une numérotation automatique par des compteurs, et l'utilisation des propriétés <code>counter-increment</code> et <code>counter-reset</code>.</texte>
+		</paragraphe>
+		<paragraphe titre="Propriétés" ancre="counterprop" >
+			<liste>
+				<item><texte><code>counter-increment</code> est la propriété permettant de déclarer un compteur et la manière dont il sera... incrémenté. La syntaxe est <code>counter-increment: nom_compteur incrémant</code>. <code>incrémant</code> est un entier (éventuellement négatif) indiquant de combien le compteur doit être incrémenté. Cet incrémant est facultatif, et la valeur par défaut est 1.</texte></item>
+				<item><texte><code>counter-reset</code> est la propriété permettant de ramener un compteur à une valeur donnée. La syntaxe est <code>counter-reset: nom_compteur valeur</code>. <code>valeur</code> est optionnel, la valeur par défaut étant 0.</texte></item>
+			</liste>
+			<texte>Par exemple&#160;:</texte>
+			<exemple_css>
+				<csselt>
+					<selecteur>h1:before</selecteur>
+					<prop nom="content" valeur='"Chapter " counter(chapter) ". "'></prop>
+					<prop nom="counter-increment" valeur="chapter"></prop>
+					<prop nom="counter-reset" valeur="section"></prop>
+				</csselt>
+				<csselt>
+					<selecteur>h2:before</selecteur>
+					<prop nom="content" valeur='counter(chapter) "." counter(section) " "'></prop>
+					<prop nom="counter-increment" valeur="section"></prop>
+				</csselt>
+			</exemple_css>
+			<texte>Malheureusement, ces compteurs ne sont pas implémentés sous Internet Explorer.</texte>
+		</paragraphe>
+	</section>
+</partie>
+<partie titre="Conclusion" ancre="css2conclusion">
+	<paragraphe>
+		<texte>Il existe de nombreux liens permettant de démontrer la remarquable souplesse d'utilisation qu'offrent les feuilles de style. Une des meilleures illustrations est le résultat d'un concours de <autrelangue type="en">design</autrelangue> <code type="langage">CSS</code>, à partir d'une version du site du W3C. Les résultats sont accessibles à partir de l'adresse <reference href="http://w3mix.web-graphics.com/win.php">http://w3mix.web-graphics.com/win.php</reference>, mais aussi le <reference href="http://www.csszengarden.com" lang="en">CSS Zen Garden</reference>.</texte>
+	</paragraphe>
+</partie>
+
+</corpus>
+
+</chapitre>

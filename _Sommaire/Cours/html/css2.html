@@ -1,0 +1,727 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Règles supplémentaires du CSS2</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, css, css2, css-p, introduction">
+      <meta name="description" content="Ce chapitre présente les concepts généraux des feuilles de style niveau 2 (CSS2).">
+      <link rel="prev" href="css1.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Règles supplémentaires du CSS2</h1>
+         <p><span class="version">version 1.20</span>, dernière mise à jour le 11 octobre 2006.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#gen" title="Généralités">Généralités</a><ol>
+                     <li><a href="#intro" title="Introduction">Introduction</a></li>
+                     <li><a href="#limitations" title="Limitations">Limitations</a></li>
+                     <li><a href="#flux" title="Flux d'un document">Flux d'un document</a><ol>
+                           <li>Éléments en ligne, éléments de type bloc</li>
+                           <li>Le flux du document</li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#visual" title="Gestion de l'apparence visuelle">Gestion de l'apparence visuelle</a><ol>
+                     <li><a href="#visualintroduction" title="Introduction">Introduction</a></li>
+                     <li><a href="#position" title="La propriété position">La propriété position</a></li>
+                     <li><a href="#bottom" title="Positionner par rapport aux bords de l'élément contenant ou de la fenêtre&nbsp;: bottom, top, left, right">Positionner par rapport aux bords de l'élément contenant ou de la fenêtre&nbsp;: bottom, top, left, right</a><ol>
+                           <li><a href="#bottomutilisation" title="Utilisation">Utilisation</a></li>
+                           <li><a href="#bottomcompat" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#clipoverflow" title="Gérer le dépassement d'affichage d'éléments superposés&nbsp;: overflow et clip">Gérer le dépassement d'affichage d'éléments superposés&nbsp;: overflow et clip</a><ol>
+                           <li><a href="#clipoverflowintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#overflow" title="overflow">overflow</a></li>
+                           <li><a href="#clip" title="clip">clip</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#visibility" title="Cacher/faire apparaître un élément&nbsp;: visibility">Cacher/faire apparaître un élément&nbsp;: visibility</a></li>
+                     <li><a href="#zindex" title="z-index">z-index</a></li>
+                     <li>Exercice&nbsp;: <a href="#exoposition">Positionnement</a></li>
+                     <li><a href="#maxminheightwidth" title="max/min - height/width">max/min - height/width</a></li>
+                     <li><a href="#cursoroutline" title="Personnalisation de l'apparence: cursor et outline">Personnalisation de l'apparence: cursor et outline</a><ol>
+                           <li><a href="#cursor" title="cursor">cursor</a></li>
+                           <li><a href="#outline" title="outline">outline</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#direction" title="direction">direction</a></li>
+                     <li><a href="#quotes" title="quotes">quotes</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#imprime" title="Gestion du rendu à l'impression">Gestion du rendu à l'impression</a><ol>
+                     <li><a href="#imprimeintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#apage" title="@page">@page</a><ol>
+                           <li><a href="#pagegen" title="Généralités">Généralités</a></li>
+                           <li><a href="#pagesize" title="size">size</a></li>
+                           <li><a href="#premierepage" title="Première page; pages gauches et droites">Première page; pages gauches et droites</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#pagebreak" title="Sauts de page">Sauts de page</a></li>
+                     <li><a href="#orphans" title="Lignes veuves et orphelines">Lignes veuves et orphelines</a></li>
+                     <li><a href="#page" title="Nommer des pages">Nommer des pages</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>IV. <a href="#autres" title="Autres propriétés">Autres propriétés</a><ol>
+                     <li><a href="#content" title="content">content</a></li>
+                     <li><a href="#counter" title="Compteurs">Compteurs</a><ol>
+                           <li><a href="#counterintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#counterprop" title="Propriétés">Propriétés</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>V. <a href="#css2conclusion" title="Conclusion">Conclusion</a></li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="gen" href="#gen" id="gen"></a>I. Généralités
+         </h3>
+         <h4><a name="intro" id="intro" href="#intro"></a>1. Introduction
+         </h4>
+         <p>Le <code class="langage">CSS2</code> est une recommandation du W3C définie en mai 1998. Elle est une extension du format <code class="langage">CSS1</code> permettant notamment une gestion améliorée de la prise en compte de nouveaux types de media (imprimante, navigateurs à synthèse
+            vocale...), mais aussi de la présentation. Ce dernier ensemble de propriétés constitue ce que l'on nomme souvent le <code class="langage">CSS-P</code>, P pour <span lang="en" class="autrelangue">positioning</span>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_intro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="limitations" id="limitations" href="#limitations"></a>2. Limitations
+         </h4>
+         <p>Si la gestion du <code class="langage">CSS-P</code> est à peu près correcte pour les navigateurs récents, il n'en est pas de même pour les autres propriétés du <code class="langage">CSS2</code>. Bon nombre des propriétés innovantes ne sont pas prises en compte, et relèvent en l'état actuel des choses d'un pari sur
+            l'avenir. Il est donc recommandé de limiter leur utilisation à des cas où elles seraient susceptibles d'apporter des fonctionnalités
+            <em>supplémentaire</em> au site, et <em>non critiques</em>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_limitations" title="Retour à la TdM (Limitations)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="flux" id="flux" href="#flux"></a>3. Flux d'un document
+         </h4>
+         <h5>a. Éléments en ligne, éléments de type bloc</h5>
+         <p>Il existe en <code class="langage">HTML</code> deux types d'éléments&nbsp;: les éléments en ligne et les éléments de type bloc.
+         </p>
+         <ul>
+            <li>
+               <p>Les éléments en ligne sont destinés à être placés au fil du texte. Il s'agit par exemple des éléments d'emphase (<code class="code">em</code>), des images (<code class="code">img</code>), des liens (<code class="code">a</code>)... Normalement, ces éléments n'ont pas vocation à être placés sur une page, mais à être affichés dans le contexte de l'élément
+                  parent qui les encadre. Un élément en ligne ne peut contenir que des éléments en ligne ou du texte.
+               </p>
+            </li>
+            <li>
+               <p>Les éléments de type bloc sont ceux qui, par défaut, ont un rendu visuel "en bloc" sur un navigateur graphique&nbsp;: c'est le
+                  cas par exemple des titres (<code class="code">h1...6</code>), des paragraphes (<code class="code">p</code>), des tableaux (<code class="code">table</code>)... Ils peuvent être positionnés sur une page. Les éléments de type bloc peuvent contenir des éléments en ligne. Tous les
+                  éléments de type bloc, sauf les paragraphes et les titres, peuvent de plus contenir d'autres éléments de type bloc.
+               </p>
+            </li>
+         </ul>
+         <p>Attention&nbsp;: alors que les éléments en ligne n'ont pas de marge ou de padding prédéfini, il n'en est pas de même pour les éléments
+            de type bloc. Or ces marges et paddings par défaut peuvent être différents d'un navigateur à l'autre&nbsp;; il est donc souvent
+            nécessaire de les redéfinir.
+         </p>
+         <p class="retourtdm"><a href="#tdm_" title="Retour à la TdM (Éléments en ligne, éléments de type bloc)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5>b. Le flux du document</h5>
+         <p>Sans feuille de style appliquée à un document, un navigateur graphique appliquera une mise en page par défaut au fur et à
+            mesure qu'il rencontrera, au fil du code source du fichier <code class="typefichier">HTML</code> qu'il lit, les éléments qu'il doit placer. Le flux correspond à l'ordre dans lequel les éléments apparaissent dans ce code
+            source, ce qui conditionne leur position. Par défaut, deux éléments de type bloc s'affichent l'un en-dessous de l'autre. Les
+            éléments en ligne s'affichent les uns à la suite des autres., et un retour à la ligne est inséré quand l'affichage atteint
+            le bord droit du cadre.
+         </p>
+         <p>Certaines propriétés <code class="langage">CSS</code> permettent de sortir des éléments du flux pour les afficher ailleurs dans la fenêtre du navigateur. Il est possible d'inverser
+            l'ordre d'élément de type bloc, de les afficher l'un à côté de l'autre&nbsp;; il est possible également de changer le type d'un
+            élément, et de faire d'un élément en ligne un élément de type bloc et réciproquement.
+         </p>
+         <p class="retourtdm"><a href="#tdm_flux" title="Retour à la TdM (Flux d'un document)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="visual" href="#visual" id="visual"></a>II. Gestion de l'apparence visuelle
+         </h3>
+         <h4><a name="visualintroduction" id="visualintroduction" href="#visualintroduction"></a>1. Introduction
+         </h4>
+         <p>Selon les recommandations du <a href="http://www.w3.org">W3C</a>, tous les éléments d'une page Web peuvent être placés à un endroit fixé dans la fenêtre du navigateur indépendamment des
+            autres éléments de la page&nbsp;: c'est le <em>positionnement</em>.
+         </p>
+         <p>Cette recommandation est intégralement respectée par <code class="logiciel">Internet Explorer</code> à partir de la version 4 et les versions du moteur Gecko à partir de <code class="logiciel">Netscape&nbsp;7</code> (ce qui inclut l'intégralité des versions de <code class="logiciel">FireFox</code>), ainsi qu'<code class="logiciel">Opera</code> à partir de la version 6.
+         </p>
+         <p class="retourtdm"><a href="#tdm_visualintroduction" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="position" id="position" href="#position"></a>2. La propriété position
+         </h4>
+         <p><code class="code">position</code> permet de spécifier le type de positionnement à appliquer à l'élément. Cette propriété peut prendre quatre valeurs&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">static</code>, la valeur par défaut. L'élément est traité "dans le flot". Il est posé dans la page à la suite des autres comme d'habitude.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">absolute</code>, deux cas se présentent&nbsp;:
+               </p>
+               <ol>
+                  <li>
+                     <p>si l'élément n'est enchâssé dans aucun autre. Les propriétés de positionnement (voir <a href="#bottom">plus loin</a>) sont alors relatives au coin supérieur gauche de la fenêtre du navigateur.
+                     </p>
+                  </li>
+                  <li>
+                     <p>si l'élément est enchâssé dans un autre élément pour lequel la propriété de position vaut <code class="code">absolute</code> ou <code class="code">relative</code>. Les propriétés de positionnement (voir <a href="#bottom">plus loin</a>) sont alors relatives au coin supérieur gauche de la boîte contenant l'élément-parent).
+                     </p>
+                  </li>
+               </ol>
+            </li>
+            <li>
+               <p><code class="code">relative</code>. Les propriétés de positionnement (voir <a href="#bottom">plus loin</a>) sont alors relatives à la position qu'aurait eue l'élément s'il avait été traité "dans le flot" (<code class="code">position: static</code>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">fixed</code>. Dans ce cas, la position de l'élément reste fixe par rapport à la zone de visualisation. Cette propriété n'est pas supportée
+                  par <code class="logiciel">Internet Explorer</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_position" title="Retour à la TdM (La propriété position)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="bottom" id="bottom" href="#bottom"></a>3. Positionner par rapport aux bords de l'élément contenant ou de la fenêtre&nbsp;: bottom, top, left, right
+         </h4>
+         <h5><a href="#bottomutilisation" name="bottomutilisation" id="bottomutilisation"></a>a. Utilisation
+         </h5>
+         <p><code class="code">bottom</code>, <code class="code">top</code>, <code class="code">left</code> et <code class="code">right</code> permettent de spécifier la position d'un élément. Ces propriétés prennent comme valeur les <a href="cssintro.html#unites">unités de longueur</a> vues précédemment, l'unité par défaut étant le pixel, mais aussi un pourcentage (qui renvoie alors aux dimensions de l'élément-parent
+            ou de la fenêtre du navigateur suivant les valeurs de la propriété <code class="code">position</code>). Par exemple
+         </p>
+         <p class="css"><span class="selecteur">#copyright</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">position</span>&nbsp;: <span class="cssvaleur">absolute</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">bottom</span>&nbsp;: <span class="cssvaleur">0%</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">right</span>&nbsp;: <span class="cssvaleur">0%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">#copyright span.nomauteur</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">position</span>&nbsp;: <span class="cssvaleur">absolute</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">top</span>&nbsp;: <span class="cssvaleur">-10%</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">left</span>&nbsp;: <span class="cssvaleur">10%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Dans cet exemple, l'élément identifié par l'identifiant <code class="code">copyright</code> est positionné en bas à droite de la fenêtre du navigateur (quelle que soit la taille de celle-ci), et son élément-enfant
+            <code class="code">span</code> de classe <code class="code">nomauteur</code> est à 10% de sa marge gauche, et à 10% au-dessus de sa marge supérieure.
+         </p>
+         <p class="retourtdm"><a href="#tdm_bottomutilisation" title="Retour à la TdM (Utilisation)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#bottomcompat" name="bottomcompat" id="bottomcompat"></a>b. Compatibilité
+         </h5>
+         <ul>
+            <li>
+               <p><code class="code">bottom</code> est compatible avec <code class="logiciel">IE&nbsp;5.5+</code> pour Windows, <code class="logiciel">Netscape&nbsp;6+</code> et toutes les versions de <code class="logiciel">Mozilla</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_bottom" title="Retour à la TdM (Positionner par rapport aux bords de l'élément contenant ou de la fenêtre&nbsp;: bottom, top, left, right)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="clipoverflow" id="clipoverflow" href="#clipoverflow"></a>4. Gérer le dépassement d'affichage d'éléments superposés&nbsp;: overflow et clip
+         </h4>
+         <h5><a href="#clipoverflowintro" name="clipoverflowintro" id="clipoverflowintro"></a>a. Introduction
+         </h5>
+         <p>Ces deux propriétés permettent de gérer la manière dont des éléments peuvent être "attachés" l'un à l'autre.</p>
+         <p class="retourtdm"><a href="#tdm_clipoverflowintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#overflow" name="overflow" id="overflow"></a>b. overflow
+         </h5>
+         <p><code class="code">overflow</code> permet de spécifier de quelle manière le contenu d'un élément doit être affiché s'il dépasse de la boîte qui lui est réservée.
+            Cette propriété peut prendre les valeurs suivantes&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">visible</code>, la valeur par défaut. Le contenu peut être affiché de telle sorte qu'il dépasse de la boîte réservée.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">hidden</code>. Le contenu de l'élément est partiellement affiché. La position et la forme de la zone dont l'affichage est préservé sont
+                  spécifiées par la propriété <a href="#clip"><code class="code">clip</code></a>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">scroll</code>. Des barres de défilement sont automatiquement ajoutées, que le contenu de l'élément dépasse ou non de la boîte, permettant
+                  l'affichage de la totalité de l'élément.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">auto</code>. Des barres de défilement ne sont affichées que si le besoin s'en fait sentir.
+               </p>
+            </li>
+         </ul>
+         <p>Dans l'exemple suivant, l'élément <code class="code">&lt;blockquote&gt;</code> est trop grand pour être intégralement affiché dans l'élément <code class="code">&lt;div&gt;</code> parent.
+         </p>
+         <p class="html"><span class="tag">&lt;div&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;blockquote&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>La véritable modestie consiste à ne jamais se prendre pour moins que ce qu'on estime qu'on croit qu'on vaut.<span class="tag">&lt;/p&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;p<span class="nomattribut"> class</span>="<span class="valeurattribut">auteur</span>"&gt;</span>- Pierre DAC<span class="tag">&lt;/p&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/blockquote&gt;</span><br>
+            				<span class="tag">&lt;/div&gt;</span><br></p>
+         <p class="css"><span class="selecteur">div</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">width</span>&nbsp;: <span class="cssvaleur">100px</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">height</span>&nbsp;: <span class="cssvaleur">100px</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">blockquote</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin-top</span>&nbsp;: <span class="cssvaleur">50px</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin-left</span>&nbsp;: <span class="cssvaleur">50px</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border</span>&nbsp;: <span class="cssvaleur">thin dashed black</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">div.auteur</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">right</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Comme <code class="code">overflow</code> vaut <code class="code">visible</code>, la citation apparaît en entier&nbsp;:
+         </p><span class="image"><img src="exemples/overflow.gif" alt="Exemple d'overflow: visible" width="196" height="232" class="normal"></span><p>Si <code class="code">overflow</code> vaut <code class="code">hidden</code> pour l'élément contenant, ici l'élément <code class="code">&lt;div&gt;</code>, alors la citation est tronquée&nbsp;:
+         </p><span class="image"><img src="exemples/overflowhidden.gif" alt="Exemple d'overflow: hidden" width="110" height="110" class="normal"></span><p>Si <code class="code">overflow</code> vaut <code class="code">scroll</code> pour l'élément contenant, ici l'élément <code class="code">&lt;div&gt;</code>, alors des barres de défilement apparaissent&nbsp;:
+         </p><span class="image"><img src="exemples/overflowscroll.gif" alt="Exemple d'overflow: scroll" width="111" height="112" class="normal"></span><p><em>Remarque&nbsp;:</em> Sous <code class="logiciel">Internet Explorer</code> (même la version 6), il semblerait que la valeur <code class="code">hidden</code> ne marche pas.
+         </p>
+         <p class="retourtdm"><a href="#tdm_overflow" title="Retour à la TdM (overflow)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#clip" name="clip" id="clip"></a>c. clip
+         </h5>
+         <p><code class="code">clip</code> permet de spécifier quelle portion du contenu de l'élément peut être affichée. Cette propriété s'applique aux éléments pour
+            lesquels la propriété <code class="code">overflow</code> vaut autre chose que <code class="code">visible</code>. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">clip</span>&nbsp;: <span class="cssvaleur">rect(5px, 10px, 10px, 5px)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">clip</span>&nbsp;: <span class="cssvaleur">rect(5px, -5px, 10px, 5px)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>En <code class="langage">CSS2</code>, la seule forme possible est un rectangle. On donne les longueurs dans l'ordre suivant&nbsp;: haut, droite, bas et gauche. Les
+            exemples précédents définissent ainsi les régions suivantes&nbsp;:
+         </p><span class="image"><img src="exemples/clip.gif" alt="Exemples de deux regions definies a l'aide de clip" width="222" height="446" class="normal"></span><p>Cette propriété est supportée par tous les navigateurs à partir de la version 4. Attention cependant&nbsp;:</p>
+         <ul>
+            <li>
+               <p>Sous <code class="logiciel">Internet Explorer&nbsp;4</code> pour Macintosh, cette propriété est boguée&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p>Sous <code class="logiciel">Netscape&nbsp;4</code>, les éléments affectés par cette propriété peuvent être "oubliés" par le navigateur lorsqu'il doit calculer des barres de
+                  défilement.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_clipoverflow" title="Retour à la TdM (Gérer le dépassement d'affichage d'éléments superposés&nbsp;: overflow et clip)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="visibility" id="visibility" href="#visibility"></a>5. Cacher/faire apparaître un élément&nbsp;: visibility
+         </h4>
+         <p><code class="code">visibility</code> permet de spécifier si la boîte contenant l'élément doit apparaître ou non. La place réservée à son apparition reste réservée,
+            au contraire de la propriété <a href="css1.html#display"><code class="code">display</code></a>, qui supprime cette réservation d'espace. Cette propriété peut prendre les valeurs suivantes&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">visible</code>, la valeur par défaut. La boîte est visible.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">hidden</code>, la boîte est... invisible (complètement transparente), mais sa place reste réservée dans la fenêtre du navigateur. Il est
+                  possible, en <a href="exemples/visibility.html">utilisant des scripts</a>, de cacher ou de faire apparaître des portions de texte...
+               </p>
+            </li>
+            <li>
+               <p><code class="code">collapse</code>. Cette valeur n'est utile que lors de la manipulation de cellules d'un tableau. Dans le cas général, elle est équivalente
+                  à <code class="code">hidden</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_visibility" title="Retour à la TdM (Cacher/faire apparaître un élément&nbsp;: visibility)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="zindex" id="zindex" href="#zindex"></a>6. z-index
+         </h4>
+         <p><code class="code">z-index</code> permet de gérer l'ordre d'"empilement" des boîtes contenant les éléments. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">img.derriere</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">position</span>&nbsp;: <span class="cssvaleur">absolute</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">top</span>&nbsp;: <span class="cssvaleur">1cm</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">left</span>&nbsp;: <span class="cssvaleur">1cm</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">z-index</span>&nbsp;: <span class="cssvaleur">1</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">span.devant</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">position</span>&nbsp;: <span class="cssvaleur">absolute</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">top</span>&nbsp;: <span class="cssvaleur">1cm</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">left</span>&nbsp;: <span class="cssvaleur">1cm</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">z-index</span>&nbsp;: <span class="cssvaleur">2</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Dans l'exemple précédent, la valeur du <code class="code">z-index</code> de l'élément <code class="code">&lt;span class="devant"&gt;</code> étant supérieure, ce dernier sera devant l'image de classe <code class="code">derriere</code>. Il est possible ainsi de combiner différents <a href="exemples/zindex.html">niveaux de profondeurs</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_zindex" title="Retour à la TdM (z-index)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoposition" href="#exoposition" id="exoposition"></a>1. Positionnement
+         </h4>
+         <h5><a href="exercices/td6.html" title="Énoncé de l'exercice 'Positionnement'">Énoncé</a></h5>
+         <h5><a href="exercices/td6_cor.html#repro1" title="Correction 'Positionnement' (positionnement de div)">
+               				Correction (positionnement de div)</a></h5>
+         <h5><a href="exercices/td6_cor2.html#repro2" title="Correction 'Positionnement' (positionnement avec images)">
+               				Correction (positionnement avec images)</a></h5>
+         <h4><a name="maxminheightwidth" id="maxminheightwidth" href="#maxminheightwidth"></a>7. max/min - height/width
+         </h4>
+         <p>Les quatre propriétés <code class="code">min-height</code>, <code class="code">max-height</code>, <code class="code">min-width</code> et <code class="code">max-width</code> permettent de gérer les limites extrêmes de la boîte contenant l'élément.
+         </p>
+         <p class="retourtdm"><a href="#tdm_maxminheightwidth" title="Retour à la TdM (max/min - height/width)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="cursoroutline" id="cursoroutline" href="#cursoroutline"></a>8. Personnalisation de l'apparence: cursor et outline
+         </h4>
+         <h5><a href="#cursor" name="cursor" id="cursor"></a>a. cursor
+         </h5>
+         <p><code class="code">cursor</code> permet de gérer l'apparence du curseur au moment où il survole l'élément. Les valeurs possibles de cette propriété sont&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">auto</code>, la valeur par défaut. La forme dépend du contexte.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">default</code>, le curseur par défaut du système (sous Windows, une flèche).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">crosshair</code>, en forme de croix (le signe "+").
+               </p>
+            </li>
+            <li>
+               <p><code class="code">pointer</code>, la forme indiquant un lien.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">move</code>, réservé normalement au cas où l'élément peut être déplacé.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">direction-resize</code>, où <code class="code">direction</code> vaut <code class="code">e, ne, nw, n, se, sw, s</code> ou <code class="code">w</code>, qui est réservé normalement au cas où la taille de l'élément peut être modifiée.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">texte</code>, réservé normalement au cas où le contenu de l'élément peut être sélectionné en mode texte (souvent rendu sous la forme du
+                  caractère |).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">help</code>, réservé normalement au cas où l'élément doit fournir une aide (en forme de point d'interrogation souvent).
+               </p>
+            </li>
+            <li>
+               <p>une url, ou une liste d'url indiquant où trouver un fichier de curseur. Si le curseur n'est pas accepté par le système, le
+                  navigateur "regarde" la deuxième adresse fournie, etc. Il est recommandé, comme pour les polices, de spécifier une forme de
+                  curseur par défaut en dernier choix.
+               </p>
+            </li>
+         </ul>
+         <p>Cette propriété est supportée par tous les navigateurs, sauf <code class="logiciel">Netscape&nbsp;4</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_cursor" title="Retour à la TdM (cursor)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#outline" name="outline" id="outline"></a>b. outline
+         </h5>
+         <p>Cette famille de propriétés permet de mettre en évidence des éléments en les encadrant. Les différences avec la propriété
+            <code class="code">border</code> résident dans les faits que&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p>Les encadrements ne prennent pas de place <em>en plus</em> dans l'apparence générale de la page.
+               </p>
+            </li>
+            <li>
+               <p>Les encadrements ne sont pas limités à une forme rectangulaire.</p>
+            </li>
+         </ol>
+         <p>On distingue trois propriétés, qui peuvent être résumées par la propriété <code class="code">outline</code>&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p><code class="code">outline-width</code>&nbsp;: une unité de longueur, qui permet de gérer la largeur de l'encadrement.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">outline-style</code>&nbsp;: respecte la même syntaxe que <a href="css1.html#borderstyle"><code class="code">border-style</code></a>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">outline-color</code>&nbsp;: une couleur, ou bien la valeur <code class="code">invert</code>, qui est équivalente à prendre automatiquement la couleur opposée des pixels de l'écran.
+               </p>
+            </li>
+         </ol>
+         <p>La forme d'un encadrement n'est pas nécessairement rectangulaire, car elle suit le contour des boîtes contenues dans l'élément.
+            Cette propriété est mal supportée.
+         </p>
+         <p class="retourtdm"><a href="#tdm_cursoroutline" title="Retour à la TdM (Personnalisation de l'apparence: cursor et outline)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="direction" id="direction" href="#direction"></a>9. direction
+         </h4>
+         <p>Le sens d'écriture du texte (de gauche à droite ou de droite à gauche) est géré par deux propriétés, <code class="code">direction</code> et <code class="code">unicode-bidi</code>.
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">direction</code> peut prendre deux valeurs, <code class="code">ltr</code> (<span lang="en" class="autrelangue">left to right</span>), la valeur par défaut, ou <code class="code">rtl</code> (<span lang="en" class="autrelangue">right to left</span>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">unicode-bidi</code> reprend un algorithme complexe de gestion de la direction d'écriture défini dans la norme Unicode. Les valeurs possibles
+                  de cette propriété ne concernent l'immense majorité du temps pas les normes de l'écriture latine.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_direction" title="Retour à la TdM (direction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="quotes" id="quotes" href="#quotes"></a>10. quotes
+         </h4>
+         <p><code class="code">quotes</code> permet de spécifier les guillemets à utiliser en fonction du niveau de profondeur. Le type de guillemet est indiqué par une
+            chaîne de caractères. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">q:lang(en)</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">quotes</span>&nbsp;: <span class="cssvaleur"> '"' '"' "'" "'"</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">q:lang(fr)</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">quotes</span>&nbsp;: <span class="cssvaleur"> "«" "»" "&#8249;" "&#8250;"</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">q:before</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">content</span>&nbsp;: <span class="cssvaleur">open-quote</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">q:after</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">content</span>&nbsp;: <span class="cssvaleur">close-quote</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Là encore, cette propriété est encore mal supportée. Pour information, les entités représentant les doubles guillemets français
+            sont <code class="code">&amp;#171;</code> (pour «) et <code class="code">&amp;#187;</code> (pour »).
+         </p>
+         <p class="retourtdm"><a href="#tdm_quotes" title="Retour à la TdM (quotes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="imprime" href="#imprime" id="imprime"></a>III. Gestion du rendu à l'impression
+         </h3>
+         <h4><a name="imprimeintro" id="imprimeintro" href="#imprimeintro"></a>1. Introduction
+         </h4>
+         <p>La spécification <code class="langage">CSS2</code> inclut aussi la prise en compte du rendu visuel à l'impression&nbsp;; en effet, selon le W3C, l'écran d'un ordinateur n'est qu'un
+            media parmi d'autres, et notamment le support papier. Il était donc nécessaire d'inclure des propriétés spécialisées.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imprimeintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="apage" id="apage" href="#apage"></a>2. @page
+         </h4>
+         <h5><a href="#pagegen" name="pagegen" id="pagegen"></a>a. Généralités
+         </h5>
+         <p>Cette <em>règle</em> permet de spécifier le format général de la page. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">@page</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">size</span>&nbsp;: <span class="cssvaleur">21cm 29.7cm</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin</span>&nbsp;: <span class="cssvaleur">2cm</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>L'exemple précédent permet de définir une taille de page A4, avec des marges de 2cm.</p>
+         <p class="retourtdm"><a href="#tdm_pagegen" title="Retour à la TdM (Généralités)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#pagesize" name="pagesize" id="pagesize"></a>b. size
+         </h5>
+         <p>La propriété <code class="code">size</code> permet de spécifier la taille de la page à imprimer. Cette propriété peut prendre les valeurs suivantes&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">auto</code>, la valeur par défaut.
+               </p>
+            </li>
+            <li>
+               <p>Deux longueurs donnant largeur et hauteur. Si une des deux longueurs seulement est donnée, la boîte d'impression est carrée.</p>
+            </li>
+            <li>
+               <p><code class="code">portrait</code> ou <code class="code">landscape</code>, qui sont normalement prioritaires par rapport à tout autre réglage d'impression.
+               </p>
+            </li>
+         </ul>
+         <p>La gestion du cas où la taille spécifiée est plus grande que celle du support papier est du ressort du navigateur.</p>
+         <p class="retourtdm"><a href="#tdm_pagesize" title="Retour à la TdM (size)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#premierepage" name="premierepage" id="premierepage"></a>c. Première page; pages gauches et droites
+         </h5>
+         <p><code class="code">page:first</code> est un pseudo-élément, <code class="code">page:left</code> et <code class="code">page:right</code> sont des pseudo-classes qui permettent de spécifier une apparence différente respectivement pour la première page, les pages
+            de gauche et de droite lors de l'impression. Cela est particulièrement utile lors des impressions recto-verso. Par exemple,
+         </p>
+         <p class="css"><span class="selecteur">page:right</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin-left</span>&nbsp;: <span class="cssvaleur">2cm</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">page:left</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin-right</span>&nbsp;: <span class="cssvaleur">2cm</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">page:first</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin-top</span>&nbsp;: <span class="cssvaleur">5cm</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_apage" title="Retour à la TdM (@page)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="pagebreak" id="pagebreak" href="#pagebreak"></a>3. Sauts de page
+         </h4>
+         <p>Trois propriétés gèrent les sauts de page.</p>
+         <ul>
+            <li>
+               <p><code class="code">page-break-inside</code> peut prendre les valeurs <code class="code">auto</code> (valeur par défaut) ou <code class="code">avoid</code> (dans la mesure du possible, l'impression doit éviter un saut de page qui couperait l'élément).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">page-break-before</code> et <code class="code">page-break-before</code> peuvent prendre les valeurs <code class="code">auto</code> (valeur par défaut), <code class="code">avoid</code> (dans la mesure du possible, l'impression doit éviter un saut de page qui couperait l'élément), <code class="code">always</code> (qui force le saut de page avant ou après l'élément), <code class="code">left</code> ou <code class="code">right</code> (qui force la page suivante à être une page de gauche ou de droite).
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_pagebreak" title="Retour à la TdM (Sauts de page)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="orphans" id="orphans" href="#orphans"></a>4. Lignes veuves et orphelines
+         </h4>
+         <p>Les propriétés <code class="code">widows</code> et <code class="code">orphans</code> permettent de spécifier le nombre minimum de lignes d'un élément qui peuvent être laissées en haut (respectivement en bas)
+            d'une page imprimée.
+         </p>
+         <p class="retourtdm"><a href="#tdm_orphans" title="Retour à la TdM (Lignes veuves et orphelines)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="page" id="page" href="#page"></a>5. Nommer des pages
+         </h4>
+         <p>Il est possible de donner des noms à des pages particulières, et de les traiter de manière analogue à des éléments imbriqués.
+            Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">@page tournee</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">size</span>&nbsp;: <span class="cssvaleur">landscape</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">table</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">page</span>&nbsp;: <span class="cssvaleur">tournee</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">page-break-before</span>&nbsp;: <span class="cssvaleur">always</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">page-break-after</span>&nbsp;: <span class="cssvaleur">always</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_page" title="Retour à la TdM (Nommer des pages)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="autres" href="#autres" id="autres"></a>IV. Autres propriétés
+         </h3>
+         <h4><a name="content" id="content" href="#content"></a>1. content
+         </h4>
+         <p>Cette propriété s'applique aux pseudo-éléments <code class="code">:before</code> et <code class="code">:after</code>. Elle peut prendre les valeurs suivantes&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>Une chaîne de caractères (voir l'exemple plus loin).</p>
+            </li>
+            <li>
+               <p>Une URL, un lien vers une ressource externe donnant des détails sur l'élément.</p>
+            </li>
+            <li>
+               <p><code class="code">counter</code>. Les compteurs (voir <a href="#counter">plus loin</a>) peuvent être spécifiés par l'appel à deux différentes fonctions, <code class="code">counter()</code> ou <code class="code">counters()</code>.
+                  					
+               </p>
+               <ul>
+                  <li>
+                     <p>La première a deux formes&nbsp;: <code class="code">counter(nom)</code> ou <code class="code">counter(nom, style)</code>. Le texte produit est la valeur du compteur désigné par <code class="code">nom</code>, en ce point précis du document. Il est formatté dans le style indiqué (ce sont les mêmes que pour les types de listes, la
+                        valeur par défaut est <code class="code">decimal</code>).
+                     </p>
+                  </li>
+                  <li>
+                     <p>La seconde possède aussi deux formes&nbsp;: <code class="code">counters(nom, chaine)</code> ou <code class="code">counters(nom, chaine, style)</code>. Le texte produit est la valeur de tous les compteurs désignés par <code class="code">nom</code>, en ce point précis du document, séparés par la chaîne de caractères spécifiée. Les compteurs sont formattés dans le style
+                        indiqué.
+                     </p>
+                  </li>
+               </ul>
+            </li>
+            <li>
+               <p><code class="code">open-quote</code> et <code class="code">close-quote</code> qui permettent de compléter l'action de la propriété <code class="code">quotes</code>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">attr(X)</code>. Cette fonction retourne la valeur de l'attribut <code class="code">X</code> pour le sélecteur. Si l'attribut <code class="code">X</code> n'existe pas pour le sélecteur, la fonction retourne une chaîne vide.
+               </p>
+            </li>
+         </ul>
+         <p>Par exemple&nbsp;:</p>
+         <p class="css"><span class="selecteur">h1:before</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">center</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">content</span>&nbsp;: <span class="cssvaleur">chapitre\A chapter</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">img:before</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">content</span>&nbsp;: <span class="cssvaleur">attr(alt)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Attention, là encore, la propriété <code class="code">content</code> n'est pas gérée par certains navigateurs (comme <code class="logiciel">Internet Explorer&nbsp;6</code>). <code class="logiciel">Netscape&nbsp;6</code>, <code class="logiciel">Mozilla</code>, <code class="logiciel">Opera</code> supportent quelques valeurs de cette propriété (affectation d'une chaîne de caractères quelconque, et gestion des guillemets).
+         </p>
+         <p class="retourtdm"><a href="#tdm_content" title="Retour à la TdM (content)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="counter" id="counter" href="#counter"></a>2. Compteurs
+         </h4>
+         <h5><a href="#counterintro" name="counterintro" id="counterintro"></a>a. Introduction
+         </h5>
+         <p><code class="langage">CSS2</code> permet une numérotation automatique par des compteurs, et l'utilisation des propriétés <code class="code">counter-increment</code> et <code class="code">counter-reset</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_counterintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#counterprop" name="counterprop" id="counterprop"></a>b. Propriétés
+         </h5>
+         <ul>
+            <li>
+               <p><code class="code">counter-increment</code> est la propriété permettant de déclarer un compteur et la manière dont il sera... incrémenté. La syntaxe est <code class="code">counter-increment: nom_compteur incrémant</code>. <code class="code">incrémant</code> est un entier (éventuellement négatif) indiquant de combien le compteur doit être incrémenté. Cet incrémant est facultatif,
+                  et la valeur par défaut est 1.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">counter-reset</code> est la propriété permettant de ramener un compteur à une valeur donnée. La syntaxe est <code class="code">counter-reset: nom_compteur valeur</code>. <code class="code">valeur</code> est optionnel, la valeur par défaut étant 0.
+               </p>
+            </li>
+         </ul>
+         <p>Par exemple&nbsp;:</p>
+         <p class="css"><span class="selecteur">h1:before</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">content</span>&nbsp;: <span class="cssvaleur">"Chapter " counter(chapter) ". "</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">counter-increment</span>&nbsp;: <span class="cssvaleur">chapter</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">counter-reset</span>&nbsp;: <span class="cssvaleur">section</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h2:before</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">content</span>&nbsp;: <span class="cssvaleur">counter(chapter) "." counter(section) " "</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">counter-increment</span>&nbsp;: <span class="cssvaleur">section</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Malheureusement, ces compteurs ne sont pas implémentés sous Internet Explorer.</p>
+         <p class="retourtdm"><a href="#tdm_counter" title="Retour à la TdM (Compteurs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="css2conclusion" href="#css2conclusion" id="css2conclusion"></a>V. Conclusion
+         </h3>
+         <p>Il existe de nombreux liens permettant de démontrer la remarquable souplesse d'utilisation qu'offrent les feuilles de style.
+            Une des meilleures illustrations est le résultat d'un concours de <span lang="en" class="autrelangue">design</span> <code class="langage">CSS</code>, à partir d'une version du site du W3C. Les résultats sont accessibles à partir de l'adresse <a href="http://w3mix.web-graphics.com/win.php">http://w3mix.web-graphics.com/win.php</a>, mais aussi le <a href="http://www.csszengarden.com">CSS Zen Garden</a>.
+         </p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="css1.html">Les règles du CSS1</a><br></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="css2.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 11 octobre 2006, version 1.20. Corrections syntaxiques, mises à jour sur le support de certaines propriétés par les navigateurs. Ajout d'une partie sur les
+               éléments de type bloc et en ligne.
+            </li>
+            <li>Le 16 juin 2004, version 1.11. Ajout de la correction des exercices.</li>
+            <li>Le 11 mai 2004, version 1.10. Ajout des problèmes de compatibilité pour chaque propriété.</li>
+            <li>Le 3 mai 2004, version 1.02. Ajout d'un appel à un exercice.</li>
+            <li>Le 11 décembre 2003, version 1.01. Correction de coquilles.</li>
+            <li>Le 15 décembre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

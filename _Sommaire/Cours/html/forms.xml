@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="forms">Cours de HTML</cours>
+	<entete>
+		<titre>Les formulaires</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre présente l'utilisation des formulaires en HTML.</resume>
+		<motsclefs>html, form, formulaire, interaction, script</motsclefs>
+	</entete>
+	<corpus>
+		<partie titre="Généralités" ancre="gene">
+			<section titre="Fonctionnement général" ancre="fonction">
+				<paragraphe>
+					<texte>Dans les premiers temps du Web, l'information ne circulait quasiment que dans un seul sens&#160;: du serveur vers l'internaute. Il n'existait alors aucun retour de l'utilisateur vers le serveur&#160;: l'arrivée des formulaires a comblé cette lacune. Un formulaire doit recueillir des informations de l'utilisateur, puis les transférer au serveur, qui à son tour doit les traiter. Or le traitement de cette information sur le serveur est effectué par des <autrelangue>scripts</autrelangue> (comprendre "petit programme généralement interprété") écrits en langage <code type="langage">C</code>, <code type="langage">Perl</code> ou <code type="langage">ASP</code>. Nous sortons ici du cadre de notre cours <code type="langage">HTML</code> statique&#160;: nous ne traiterons pas ici le côté traitement-serveur, cette partie est prévue plus tard dans l'année.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="La balise &lt;form&gt;" ancre="form">
+			<section titre="Où se place-t-elle?" ancre="formou">
+				<paragraphe>
+					<texte>Un formulaire débute par la balise <code><![CDATA[<form>]]></code> (et finit donc par <code><![CDATA[</form>]]></code>). Ce conteneur contient toutes les autres balises du formulaire. Il peut contenir aussi d'autres balises&#160;: <code><![CDATA[<p>]]></code>, <code><![CDATA[<table>]]></code>, etc., permettant la présentation du formulaire.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Fonction" ancre="formfonction">
+				<paragraphe>
+					<texte>Elle est destinée, essentiellement, à préciser où envoyer les données recueillies par le formulaire. Elle permet aussi d'indiquer au serveur la forme sous laquelle ces données lui seront transmises (mode de codification).</texte>
+				</paragraphe>
+			</section>
+			<section titre="Attributs" ancre="formattr">
+				<paragraphe>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_form"><texte>Attributs</texte></colonne>
+							<colonne id="eff_form"><texte>Effet</texte></colonne>
+							<colonne id="val_form"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>action</code></texte></colonne>
+							<colonne headers="eff_form"><texte>URL du script <code type="langage">CGI</code> (ou autre, fourni par le serveur), qui traite les données recueillies. Cet attribut est <valeur>obligatoire</valeur>.</texte></colonne>
+							<colonne headers="val_form">
+								<texte>URL, 2 types possibles&#160;:</texte>
+								<liste>
+									<item><texte><code>http</code>&#160;: pour un traitement immédiat.</texte></item>
+									<item><texte><code>mailto</code>&#160;: dans le cas d'un envoi à un courrier électronique, en vue d'un traitement différé.</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>method</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Indique sous quelle forme vont être codées les informations envoyées.</texte></colonne>
+							<colonne headers="val_form">
+								<liste>
+									<item><texte><code>get</code>&#160;: valeur par défaut. Les données sont adressées sous la forme d'une liste de valeurs accolées à l'URL avec interposition d'un séparateur particulier (point d'interrogation). Le nombre de caractères doit rester inférieur à 256. De plus elle ne permet pas d'envoyer les données à une boîte de courrier électronique. Il est donc préférable d'utiliser la seconde méthode.</texte></item>
+									<item><texte><code>post</code>&#160;: les données sont adressées sous la forme d'une liste nom/valeur accolées à l'URL mais ici, le script doit lire les données par défaut afin d'atteindre les véritables données du formulaires. La forme de cette liste dépend de l'attribut <code>enctype</code>.</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>enctype</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Précise la méthode MIME de codification de l'envoi. Permet au serveur d'anticiper sur l'objet à recevoir et de prévoir le protocole d'échange (Pour plus de <reference href="../html/Formulaire/MIME.htm">détails</reference>).</texte></colonne>
+							<colonne headers="val_form">
+								<liste>
+									<item><texte><code>application/x-www-form-urlencoded</code>&#160;: l'envoi se présente comme une chaîne de caractères formées de couples <code>nom=valeur</code> sépararés par un <code><![CDATA[&]]></code>, <code><![CDATA[nom1=valeur1&nom2=valeur2&nom3=valeur3]]></code> (c'est la valeur par défaut).</texte></item>
+									<item><texte><code>text/plain</code>&#160;: le séparateur précédent est remplacé par un retour chariot. C'est la forme à utiliser pour l'envoi au courrier électronique.</texte></item>
+									<item><texte><code>multipart/form-data</code>&#160;: lorsqu'un fichier est attaché à l'envoi (<code><![CDATA[<input type="file" ...>]]></code>).</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>accept</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Précise la méthode MIME de codification de l'envoi pour un fichier. Permet au serveur d'anticiper sur le fichier à recevoir et de prévoir le protocole d'échange (Pour plus de <reference href="../html/Formulaire/MIME.htm">détails</reference>).</texte></colonne>
+							<colonne headers="val_form"><texte>Chaîne de caractères donnant un code MIME reconnu.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>onsubmit</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Le code à exécuter lors de la soumission.</texte></colonne>
+							<colonne headers="val_form"><texte>Chaîne de caractères renvoyant vers une fonction script de traitement (par exemple une fonction JavaScript).</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>onreset</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Le code à exécuter lors de la remise à zéro du formulaire.</texte></colonne>
+							<colonne headers="val_form"><texte>Chaîne de caractères renvoyant vers une fonction script de traitement (par exemple une fonction JavaScript).</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>name</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Le nom du formulaire.</texte></colonne>
+							<colonne headers="val_form"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>accept-charsets</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Les codages de caractèrs acceptés dans les zones de texte.</texte></colonne>
+							<colonne headers="val_form"><texte>Une liste de codage de caractères, séparée par des espaces.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_form"><texte><code>target</code></texte></colonne>
+							<colonne headers="eff_form"><texte>Spécifie la cible du retour après traitement du serveur (voir le chapitre sur <reference href="cadres.html">les cadres</reference>).</texte></colonne>
+							<colonne headers="val_form"><texte>Une liste de codage de caractères, séparée par des espaces.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code><![CDATA[<form>]]></code>.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<section titre="Exemples" ancre="exemples">
+				<paragraphe>
+					<texte>Exemple pour un formulaire d'envoi de courrier électronique sur le serveur de Multimania&#160;: <code><![CDATA[<form method="get" action="/cgi-bin/mailer">]]>.</code></texte>
+					<texte>Exemple pour un formulaire classique sans l'aide de script <code type="langage">CGI</code>&#160;: <code><![CDATA[<forum action="mailto:webmaster@allhtml.com" method="post" enctype="text/plain">]]></code>.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="la balise &lt;input&gt;" ancre="input">
+			<section titre="Introduction" ancre="inputintro">
+				<paragraphe titre="Fonction" ancre="inputfonction">
+					<texte>Cette balise sert à spécifier comment s'effectue la saisie du formulaire&#160;: par cases à cocher, boutons radio, texte libre, etc. Tous ces éléments de saisie sont décrits à l'aide d'une seule balise&#160;: la balise <code><![CDATA[<input>]]></code>. C'est son attribut <code>type</code> qui permet de préciser s'il s'agit de cases à cocher, boutons radio, texte libre...</texte>
+					<texte>L'attribut <code>type</code> peut prendre les valeurs suivantes&#160;:</texte>
+					<liste>
+						<item><texte><code>text</code></texte></item>
+						<item><texte><code>password</code></texte></item>
+						<item><texte><code>chekbox</code></texte></item>
+						<item><texte><code>radio</code></texte></item>
+						<item><texte><code>submit</code></texte></item>
+						<item><texte><code>reset</code></texte></item>
+						<item><texte><code>image</code></texte></item>
+						<item><texte><code>button</code></texte></item>
+						<item><texte><code>hidden</code></texte></item>
+						<item><texte><code>file</code></texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Attributs généraux" ancre="inputattr">
+					<texte>Cette balise possède de nombreux attributs&#160;; certains n'ont une signification que pour un <code>type</code> donné de champ. Ce paragraphe présente une liste des attributs d'usage général.</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_input"><texte>Attributs</texte></colonne>
+							<colonne id="eff_input"><texte>Effet</texte></colonne>
+							<colonne id="val_input"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>name</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Le nom du champ.</texte></colonne>
+							<colonne headers="val_input"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>alt</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Une courte description.</texte></colonne>
+							<colonne headers="val_input"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>disabled</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Désactive l'élément, qui apparaît dès lors en grisé.</texte></colonne>
+							<colonne headers="val_input"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>accesskey</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Définit une touche du clavier permettant d'accéder au champ de formulaire. La combinaison "ALT+touche" a le même effet que l'activation du champ.</texte></colonne>
+							<colonne headers="val_input"><texte>Touche du clavier</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>tabindex</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</texte></colonne>
+							<colonne headers="val_input"><texte>Valeur numérique entière</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>onfocus</code>, <code>onblur</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Un script à exécuter quand le curseur est positionné sur le champ (<code>onfocus</code>), ou bien qu'il le quitte (<code>onblur)</code>.</texte></colonne>
+							<colonne headers="val_input"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_input"><texte><code>onchange</code></texte></colonne>
+							<colonne headers="eff_input"><texte>Un script à exécuter quand contenu du champ a été changé.</texte></colonne>
+							<colonne headers="val_input"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs généraux de la balise <code><![CDATA[<input>]]></code>.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<section titre="Types de balises &lt;input&gt;" ancre="inputtypes">
+				<paragraphe titre="Champ de saisie" ancre="inputtext">
+					<texte>
+						L'attribut <code>type</code> vaut <code>type="text"</code>. La balise permet alors à l'utilisateur de saisir une ligne de texte. Les attributs utiles pour ce type sont&#160;:
+					</texte>
+					<liste>
+						<item><texte><code>size</code>&#160;: un nombre entier, qui définit la taille visible du champ en nombre de caractères.</texte></item>
+						<item><texte><code>maxlength</code>&#160;: un nombre entier, qui définit le nombre maximum de caractères autorisés.</texte></item>
+						<item><texte><code>value</code>&#160;: une chaîne de caractères, qui permet d'afficher un texte par défaut dans la zone de saisie.</texte></item>
+						<item><texte><code>readonly</code>&#160;: un booléen. La modification du contenu n'est pas permise.</texte></item>
+					</liste>
+					<texte>L'attribut <code>name</code> est obligatoire pour ce type de champ.</texte>
+				</paragraphe>
+				<paragraphe titre="Case à cocher" ancre="inputcase">
+					<texte>L'attribut <code>type</code> vaut <code>type="checkbox"</code>. Les attributs utiles pour ce type sont&#160;:</texte>
+					<liste>
+						<item><texte><code>value</code>&#160;: une chaîne de caractères, obligatoire, valeur passée au serveur (couple <code>nom="valeur"</code>) (a plus de sens dans le cas <code>radio</code> suivant).</texte></item>
+						<item><texte><code>checked</code>&#160;: un booléen (s'utilise sous la forme <code>checked="checked"</code>). S'il est activée, la case est cochée par défaut.</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Bouton radio" ancre="inputradio">
+					<texte>L'attribut <code>type</code> vaut <code>type="radio"</code>. Outre la présentation (les cases sont rondes et non plus carrées), il existe une grande différence entre les cases à cocher et les boutons radio&#160;: les boutons radio qui portent le même <code>name</code> s'excluent mutuellement, le cochage de l'un décoche les autres. Les attributs utiles pour ce type sont&#160;:</texte>
+					<liste>
+						<item><texte><code>value</code>&#160;: une chaîne de caractères, obligatoire, valeur passée au serveur (couple <code>nom="valeur"</code>).</texte></item>
+						<item><texte><code>checked</code>&#160;: un booléen (s'utilise sous la forme <code>checked="checked"</code>). S'il est activée, la case est cochée par défaut.</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Attacher un fichier" ancre="inputattacher">
+					<texte>L'attribut <code>type</code> vaut <code>type="file"</code>. Il s'agit de donner la possibilité à l'utilisateur du formulaire de joindre un fichier à son envoi. L'attribut utile pour ce type est <code>value</code>&#160;, une chaîne de caractères, qui indique le lom du fichier à attacher par défaut.</texte>
+				</paragraphe>
+				<paragraphe titre="Cacher des données" ancre="inputcacher">
+					<texte>L'attribut <code>type</code> vaut <code>type="hidden"</code>. Pourquoi cacher des données&#160;? Il s'agit plutôt de faciliter le traitement des données recueillies par le serveur en fournissant le nom du formulaire, l'URL du formulaire, et d'autres indices inutiles à l'utilisateur mais très utiles au classement des données. Ces données deviennent obligatoires lorsque vous faîtes héberger vos pages Web. Les attributs utiles pour ce type sont&#160;:</texte>
+					<liste>
+						<item><texte><code>value</code>&#160;: une chaîne de caractères. Valeur cachée à envoyer au serveur, obligatoire.</texte></item>
+					</liste>
+					<texte>Par exemple, avec le script CGI chargé de la gestion de l'envoi de courrier électronique sur Multimania&#160;:</texte>
+					<liste>
+						<item><texte><code><![CDATA[<input type="hidden" name="TO" value="login@multimania.com">]]></code>&#160;: cette valeur indique sur quelle adresse électronique le formulaire sera envoyé.</texte></item>
+						<item><texte><code><![CDATA[<input type="hidden" name="FROM" value="login@multimania.com">]]></code>&#160;: cette valeur indique la provenance du formulaire.</texte></item>
+						<item><texte><code><![CDATA[<input type="hidden" name="SUBJECT" value="FORMULAIRE"> ]]></code>&#160;: Cette valeur indique le nom du formulaire (le sujet du courrier), utile si vous avez plusieurs formulaires, cela permet de trier son courrier.</texte></item>
+						<item><texte><code><![CDATA[<input type="hidden" name="GOTOURL" value="http://www.multimania.com/login/reponse.html"> ]]></code>&#160;: cette valeur indique l'URL complète de la page <code type='typefichier'>HTML</code> à afficher après l'envoi du formulaire.</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Mot de passe" ancre="inputpasse">
+					<texte>L'attribut <code>type</code> vaut <code>type="password"</code>. A l'identique que le type <code>text</code>, mais les caractères tapés sont affichés sous forme d'astérisques. Mais <valeur>attention</valeur>&#160;: le mot de passe est envoyé en clair dans le message final. <valeur>Aucune méthode de chiffrement n'est appliquée</valeur>&#160;: la confidentialité ne se limite qu'à l'instant de la saisie. Les attributs utiles pour ce type sont les mêmes que ceux du type <code>text</code>&#160;:</texte>
+					<liste>
+						<item><texte><code>size</code>&#160;: un nombre entier, qui définit la taille visible du champ en nombre de caractères.</texte></item>
+						<item><texte><code>maxlength</code>&#160;: un nombre entier, qui définit le nombre maximum de caractères autorisés.</texte></item>
+						<item><texte><code>value</code>&#160;: une chaîne de caractères, qui permet d'afficher un texte par défaut dans la zone de saisie.</texte></item>
+					</liste>
+				</paragraphe>
+			</section>
+			<section titre="Soumettre et mettre à zéro des données" ancre="inputinteract">
+				<paragraphe titre="Soumission de données" ancre="inputsoumettre">
+					<texte>L'attribut <code>type</code> vaut <code>type="submit"</code>. Les attributs utiles pour ce type sont&#160;:</texte>
+					<liste>
+						<item><texte><code>value</code>&#160;: une chaîne de caractères. Légende du bouton, par défaut <code>Submit</code>.</texte></item>
+					</liste>
+					<texte>Une variante est possible en utilisant le <code>type image</code>&#160;: <code>type="image"</code>. Le bouton d'envoi est alors... une image. Les attributs utiles pour ce type sont&#160;:</texte>
+					<liste>
+						<item><texte><code>src</code>&#160;: une chaîne de caractères. URL de l'image à utiliser.</texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe titre="Réinitialisation d'un formulaire" ancre="inputreset">
+					<texte>L'attribut <code>type</code> vaut <code>type="reset"</code>. Il s'agit d'un bouton qui, cliqué, remet à leurs valeurs par défaut l'ensemble des champs du formulaire. L'attribut utile pour ce type est <code>value</code>&#160;, une chaîne de caractères qui indique la légende du bouton, valant par défaut <code>Reset</code>.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="la balise &lt;textarea&gt;" ancre="textarea">
+			<section titre="Fonction" ancre="textareafonction">
+				<paragraphe>
+					<texte>Elle permet aux utilisateurs de votre site de laisser un commentaire ou de taper un texte quelconque.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Attributs" ancre="textareaattr">
+				<paragraphe>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_txt"><texte>Attribut</texte></colonne>
+							<colonne id="eff_txt"><texte>Effet</texte></colonne>
+							<colonne id="val_txt"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>name</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Nom de l'élément.</texte></colonne>
+							<colonne headers="val_txt"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>rows</code> et <code>cols</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Nombre de lignes et de colonnes de la zone de texte. Ces attributs sont <valeur>obligatoires</valeur>.</texte></colonne>
+							<colonne headers="val_txt"><texte>Un nombre entier.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>readonly</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>La modification du contenu n'est pas permise.</texte></colonne>
+							<colonne headers="val_txt"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>disabled</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Désactive l'élément, qui apparaît dès lors en grisé.</texte></colonne>
+							<colonne headers="val_txt"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>accesskey</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Définit une touche du clavier. La combinaison "ALT + touche" a le même effet que l'activation du champ.</texte></colonne>
+							<colonne headers="val_txt"><texte>Touche du clavier</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>tabindex</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</texte></colonne>
+							<colonne headers="val_txt"><texte>Valeur numérique entière</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>onfocus</code>, <code>onblur</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Un script à exécuter quand le curseur est positionné sur le champ (<code>onfocus</code>), ou bien qu'il le quitte (<code>onblur)</code>.</texte></colonne>
+							<colonne headers="val_txt"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_txt"><texte><code>onchange</code></texte></colonne>
+							<colonne headers="eff_txt"><texte>Un script à exécuter quand contenu du champ a été changé.</texte></colonne>
+							<colonne headers="val_txt"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code>&lt;textarea&gt;</code>.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe>
+					<texte>Remarque&#160;: le texte se trouvant à l'intérieur des balises <code><![CDATA[<textarea>]]></code> et <code><![CDATA[</textarea>]]></code> sera le texte par défaut. </texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="Liste de choix, la balise &lt;select&gt;" ancre="select">
+			<section titre="Fonctionnement" ancre="selectfonctionnement">
+				<paragraphe>
+					<texte>Il s'agit d'une liste de propositions ou d'options parmi lesquelles l'utilisateur doit opérer un choix. Ce choix peut être unique ou multiple. Les options possibles sont décrites pour chacunes d'entre-elles dans un conteneur <code><![CDATA[<option>]]></code> ( la balise fermante <code><![CDATA[</option>]]></code> est obligatoire). Il y a autant de balises <code><![CDATA[<option>]]></code> que d'options.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Attributs de la balise &lt;select&gt;" ancre="selectattributs">
+				<paragraphe>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_sel"><texte>Attribut</texte></colonne>
+							<colonne id="eff_sel"><texte>Effet</texte></colonne>
+							<colonne id="val_sel"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>name</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Nom de l'élément.</texte></colonne>
+							<colonne headers="val_sel"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>size</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Le nombre d'options accessibles.</texte></colonne>
+							<colonne headers="val_sel"><texte>Un nombre.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>multiple</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Permet à plusieurs options d'être simultanément sélectionnées.</texte></colonne>
+							<colonne headers="val_sel"><texte>Un booléen. Par défaut, une seule option peut être sélectionnée.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>disabled</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Désactive l'élément, qui apparaît dès lors en grisé.</texte></colonne>
+							<colonne headers="val_sel"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>tabindex</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</texte></colonne>
+							<colonne headers="val_sel"><texte>Valeur numérique entière</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>onfocus</code>, <code>onblur</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Un script à exécuter quand le curseur est positionné sur le champ (<code>onfocus</code>), ou bien qu'il le quitte (<code>onblur)</code>.</texte></colonne>
+							<colonne headers="val_sel"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_sel"><texte><code>onchange</code></texte></colonne>
+							<colonne headers="eff_sel"><texte>Un script à exécuter quand contenu du champ a été changé.</texte></colonne>
+							<colonne headers="val_sel"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code>&lt;select&gt;</code>.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<section titre="Balises &lt;optgroup&gt; et &lt;option&gt;" ancre="selectoptions">
+				<paragraphe titre="Introduction" ancre="optionintro">
+					<texte>La balise <code><![CDATA[<select>]]></code> admet deux balises-enfants... <code><![CDATA[<optgroup>]]></code> permet de rassembler des éléments <code><![CDATA[<option>]]></code>.</texte>
+				</paragraphe>
+				<paragraphe titre="Balise &lt;option&gt;" ancre="option">
+					<texte>Chaque "option" est une possibilité de choix dans le menu <code>select</code>. Cette balise possède les attributs suivants&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_opt"><texte>Attribut</texte></colonne>
+							<colonne id="eff_opt"><texte>Effet</texte></colonne>
+							<colonne id="val_opt"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_opt"><texte><code>value</code></texte></colonne>
+							<colonne headers="eff_opt"><texte>Ce qui apparaît dans la liste d'options du menu. Si cet attribut n'est pas présent, c'est le contenu de l'élément <code><![CDATA[<option>]]></code> lui-même qui est affiché.</texte></colonne>
+							<colonne headers="val_opt"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_opt"><texte><code>selected</code></texte></colonne>
+							<colonne headers="eff_opt"><texte>Spécifie l'option sélectionnée par défaut.</texte></colonne>
+							<colonne headers="val_opt"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_opt"><texte><code>disabled</code></texte></colonne>
+							<colonne headers="eff_opt"><texte>Désactive l'élément, qui apparaît dès lors en grisé.</texte></colonne>
+							<colonne headers="val_opt"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_opt"><texte><code>label</code></texte></colonne>
+							<colonne headers="eff_opt"><texte>Une étiquette désignant l'option choisie dans le menu.</texte></colonne>
+							<colonne headers="val_opt"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code>&lt;option&gt;</code>.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe titre="Balise &lt;optgroup&gt;" ancre="optgroup">
+					<texte>
+						Cette balise permet de rassembler en catégories les éléments <code>&lt;option&gt;</code>, pour les faire apparaître de manière ordonnée dans le menu.
+					</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_grp"><texte>Attribut</texte></colonne>
+							<colonne id="eff_grp"><texte>Effet</texte></colonne>
+							<colonne id="val_grp"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_grp"><texte><code>label</code></texte></colonne>
+							<colonne headers="eff_grp"><texte>Une étiquette désignant le groupe d'options choisies dans le menu.</texte></colonne>
+							<colonne headers="val_grp"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_grp"><texte><code>disabled</code></texte></colonne>
+							<colonne headers="eff_grp"><texte>Désactive l'élément, qui apparaît dès lors en grisé.</texte></colonne>
+							<colonne headers="val_grp"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code>&lt;optgroup&gt;</code>.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="Autres éléments de formulaire" ancre="autres">
+			<paragraphe>
+				<texte>Les balises présentées dans cette partie sont très peu utilisées. Nous allons nous limiter aux balises <code>&lt;label&gt;</code> et surtout <code>&lt;button&gt;</code>, mais il existe aussi <code>&lt;fieldset&gt;</code> et <code>&lt;legend&gt;</code>.</texte>
+			</paragraphe>
+			<section titre="La balise &lt;label&gt;" ancre="label">
+				<paragraphe titre="Fonction" ancre="labelfonction">
+					<texte>Cette balise permet d'associer à un élément de formulaire des informations relatives à son contenu&#160;; cette information est utile notamment pour les navigateurs destinés aux mal-voyants.</texte>
+				</paragraphe>
+				<paragraphe titre="Attributs" ancre="labelattr">
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_label"><texte>Attribut</texte></colonne>
+							<colonne id="eff_label"><texte>Effet</texte></colonne>
+							<colonne id="val_label"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_label"><texte><code>for</code></texte></colonne>
+							<colonne headers="eff_label"><texte>Renvoie à l'élément de formulaire spécifié par le même attribut <code>id</code>.</texte></colonne>
+							<colonne headers="val_label"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_label"><texte><code>accesskey</code></texte></colonne>
+							<colonne headers="eff_label"><texte>Définit une touche du clavier. La combinaison "ALT + touche" a le même effet que l'activation du champ.</texte></colonne>
+							<colonne headers="val_label"><texte>Touche du clavier</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_label"><texte><code>onfocus</code>, <code>onblur</code></texte></colonne>
+							<colonne headers="eff_label"><texte>Un script à exécuter quand le curseur est positionné sur le champ (<code>onfocus</code>), ou bien qu'il le quitte (<code>onblur)</code>.</texte></colonne>
+							<colonne headers="val_label"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code>&lt;label&gt;</code>.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe titre="Exemple" ancre="labelexemple">
+					<texte>L'exemple suivant donne plusieurs possibilités d'utilisation de cet élément...</texte>
+					<exemple type="HTML">
+						<element nom="table" indent="oui">
+							<attribut nom="summary"></attribut>
+							<element nom="tr" niveau="1" indent="oui">
+								<element nom="td" niveau="2"><element nom="label" enligne="oui"><attribut nom="for">user</attribut><attribut nom="accesskey">u</attribut>utilisateur</element></element>
+								<element nom="td" niveau="2" indent="oui">
+									<element nom="select" niveau="3" indent="oui">
+										<attribut nom="name">user</attribut>
+										<attribut nom="id">user</attribut>
+										<element nom="option" niveau="4">Jean</element>
+										<element nom="option" niveau="4">Paul</element>
+										<element nom="option" niveau="4">Jacques</element>
+									</element>
+								</element>
+							</element>
+							<element nom="tr" indent="oui" niveau="1">
+								<element nom="td" niveau="2"><element nom="label" enligne="oui"><attribut nom="for">passwd</attribut><attribut nom="accesskey">p</attribut>mot de passe</element></element>
+								<element nom="td" niveau="2"><element nom="input" enligne="oui"><attribut nom="type">password</attribut><attribut nom="id">passwd</attribut><attribut nom="passwd"></attribut></element></element>
+							</element>
+						</element>
+						<element nom="p"><element nom="label" enligne="oui"><attribut nom="accesskey">s</attribut>Sauver le nom d'utilisateur et le mot de passe dans un cookie?</element><element nom="input"><attribut nom="type">checkbox</attribut><attribut nom="name">save</attribut><attribut nom="value">oui</attribut></element></element>
+						<element nom="p"><element nom="label" enligne="oui"><attribut nom="for">comments</attribut><attribut nom="accesskey">c</attribut>Commentaires?</element><element nom="textarea" enligne="oui"><attribut nom="name">comments</attribut><attribut nom="id">comments</attribut><attribut nom="rows">8</attribut><attribut nom="cols">50</attribut></element>
+							</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section titre="La balise &lt;button&gt;" ancre="button">
+				<paragraphe titre="Fonction" ancre="buttonfonction">
+					<texte>Cet élément permet d'insérer un bouton dans un formulaire. Cela est également possible avec la balise <reference href="#input"> <code><![CDATA[<input>]]></code> </reference>, mais <code><![CDATA[<button>]]></code> permet un plus large choix d'options. Il est malheureusement moins bien accepté par les "vieux" navigateurs.</texte>
+				</paragraphe>
+				<paragraphe titre="Attributs" ancre="buttonattr">
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_but"><texte>Attribut</texte></colonne>
+							<colonne id="eff_but"><texte>Effet</texte></colonne>
+							<colonne id="val_but"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>name</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Le nom du bouton.</texte></colonne>
+							<colonne headers="val_but"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>value</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Valeur envoyée au serveur.</texte></colonne>
+							<colonne headers="val_but"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>type</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Type de bouton.</texte></colonne>
+							<colonne headers="val_but">
+								<liste>
+									<item><texte><code>submit</code> (valeur par défaut)</texte></item>
+									<item><texte><code>button</code></texte></item>
+									<item><texte><code>reset</code></texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>disabled</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Désactive l'élément, qui apparaît dès lors en grisé.</texte></colonne>
+							<colonne headers="val_but"><texte>Un booléen.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>tabindex</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</texte></colonne>
+							<colonne headers="val_but"><texte>Valeur numérique entière</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>accesskey</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Définit un raccourci clavier. La combinaison "ALT + touche" a le même effet que l'activation du champ.</texte></colonne>
+							<colonne headers="val_but"><texte>Touche du clavier</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_but"><texte><code>onfocus</code>, <code>onblur</code></texte></colonne>
+							<colonne headers="eff_but"><texte>Un script à exécuter quand le curseur est positionné sur le champ (<code>onfocus</code>), ou bien qu'il le quitte (<code>onblur)</code>.</texte></colonne>
+							<colonne headers="val_but"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code>&lt;optgroup&gt;</code>.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe titre="Exemple" ancre="buttonexemple">
+					<texte>Voici quelques exemples d'utilisation de la balise...</texte>
+					<exemple type="HTML">
+						<element nom="button"><attribut nom="name">soumet</attribut><attribut nom="value">modifier</attribut>Modifier l'information</element>
+						<element nom="button"><attribut nom="name">continue</attribut><attribut nom="value">continuer</attribut>Continuer l'application</element>
+						<element nom="button"><element nom="img" enligne="oui"><attribut nom="src">checkmark.gif</attribut><attribut nom="alt">&#10004;</attribut></element>Sauvegarder</element>
+						<element nom="button"><attribut nom="type">reset</attribut><element nom="img" enligne="oui"><attribut nom="src">x.gif</attribut><attribut nom="alt">&#10008;</attribut></element>Remettre à zéro</element>
+						<element nom="button"><attribut nom="type">button</attribut><attribut nom="id">toggler</attribut><attribut nom="onclick">toggle()</attribut>Cacher les attributs<element nom="em" enligne="oui">non stricts</element>.</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<exercice titre="Créations de formulaires" ancre="exoforms">
+				<enonce href="exercices/td4.html"/>
+			</exercice>
+		</partie>
+	</corpus>
+</chapitre>

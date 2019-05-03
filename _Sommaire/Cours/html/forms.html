@@ -1,0 +1,1192 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les formulaires</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, form, formulaire, interaction, script">
+      <meta name="description" content="Ce chapitre présente l'utilisation des formulaires en HTML.">
+      <link rel="prev" href="video.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les formulaires</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#gene" title="Généralités">Généralités</a><ol>
+                     <li><a href="#fonction" title="Fonctionnement général">Fonctionnement général</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#form" title="La balise <form&gt;">La balise &lt;form&gt;</a><ol>
+                     <li><a href="#formou" title="Où se place-t-elle?">Où se place-t-elle?</a></li>
+                     <li><a href="#formfonction" title="Fonction">Fonction</a></li>
+                     <li><a href="#formattr" title="Attributs">Attributs</a></li>
+                     <li><a href="#exemples" title="Exemples">Exemples</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#input" title="la balise <input&gt;">la balise &lt;input&gt;</a><ol>
+                     <li><a href="#inputintro" title="Introduction">Introduction</a><ol>
+                           <li><a href="#inputfonction" title="Fonction">Fonction</a></li>
+                           <li><a href="#inputattr" title="Attributs généraux">Attributs généraux</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#inputtypes" title="Types de balises <input&gt;">Types de balises &lt;input&gt;</a><ol>
+                           <li><a href="#inputtext" title="Champ de saisie">Champ de saisie</a></li>
+                           <li><a href="#inputcase" title="Case à cocher">Case à cocher</a></li>
+                           <li><a href="#inputradio" title="Bouton radio">Bouton radio</a></li>
+                           <li><a href="#inputattacher" title="Attacher un fichier">Attacher un fichier</a></li>
+                           <li><a href="#inputcacher" title="Cacher des données">Cacher des données</a></li>
+                           <li><a href="#inputpasse" title="Mot de passe">Mot de passe</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#inputinteract" title="Soumettre et mettre à zéro des données">Soumettre et mettre à zéro des données</a><ol>
+                           <li><a href="#inputsoumettre" title="Soumission de données">Soumission de données</a></li>
+                           <li><a href="#inputreset" title="Réinitialisation d'un formulaire">Réinitialisation d'un formulaire</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>IV. <a href="#textarea" title="la balise <textarea&gt;">la balise &lt;textarea&gt;</a><ol>
+                     <li><a href="#textareafonction" title="Fonction">Fonction</a></li>
+                     <li><a href="#textareaattr" title="Attributs">Attributs</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>V. <a href="#select" title="Liste de choix, la balise <select&gt;">Liste de choix, la balise &lt;select&gt;</a><ol>
+                     <li><a href="#selectfonctionnement" title="Fonctionnement">Fonctionnement</a></li>
+                     <li><a href="#selectattributs" title="Attributs de la balise <select&gt;">Attributs de la balise &lt;select&gt;</a></li>
+                     <li><a href="#selectoptions" title="Balises <optgroup&gt; et <option&gt;">Balises &lt;optgroup&gt; et &lt;option&gt;</a><ol>
+                           <li><a href="#optionintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#option" title="Balise <option&gt;">Balise &lt;option&gt;</a></li>
+                           <li><a href="#optgroup" title="Balise <optgroup&gt;">Balise &lt;optgroup&gt;</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>VI. <a href="#autres" title="Autres éléments de formulaire">Autres éléments de formulaire</a><ol>
+                     <li><a href="#label" title="La balise <label&gt;">La balise &lt;label&gt;</a><ol>
+                           <li><a href="#labelfonction" title="Fonction">Fonction</a></li>
+                           <li><a href="#labelattr" title="Attributs">Attributs</a></li>
+                           <li><a href="#labelexemple" title="Exemple">Exemple</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#button" title="La balise <button&gt;">La balise &lt;button&gt;</a><ol>
+                           <li><a href="#buttonfonction" title="Fonction">Fonction</a></li>
+                           <li><a href="#buttonattr" title="Attributs">Attributs</a></li>
+                           <li><a href="#buttonexemple" title="Exemple">Exemple</a></li>
+                        </ol>
+                     </li>
+                     <li>Exercice&nbsp;: <a href="#exoforms">Créations de formulaires</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="gene" href="#gene" id="gene"></a>I. Généralités
+         </h3>
+         <h4><a name="fonction" id="fonction" href="#fonction"></a>1. Fonctionnement général
+         </h4>
+         <p>Dans les premiers temps du Web, l'information ne circulait quasiment que dans un seul sens&nbsp;: du serveur vers l'internaute.
+            Il n'existait alors aucun retour de l'utilisateur vers le serveur&nbsp;: l'arrivée des formulaires a comblé cette lacune. Un formulaire
+            doit recueillir des informations de l'utilisateur, puis les transférer au serveur, qui à son tour doit les traiter. Or le
+            traitement de cette information sur le serveur est effectué par des <span lang="en" class="autrelangue">scripts</span> (comprendre "petit programme généralement interprété") écrits en langage <code class="langage">C</code>, <code class="langage">Perl</code> ou <code class="langage">ASP</code>. Nous sortons ici du cadre de notre cours <code class="langage">HTML</code> statique&nbsp;: nous ne traiterons pas ici le côté traitement-serveur, cette partie est prévue plus tard dans l'année.
+         </p>
+         <p class="retourtdm"><a href="#tdm_fonction" title="Retour à la TdM (Fonctionnement général)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="form" href="#form" id="form"></a>II. La balise &lt;form&gt;
+         </h3>
+         <h4><a name="formou" id="formou" href="#formou"></a>1. Où se place-t-elle?
+         </h4>
+         <p>Un formulaire débute par la balise <code class="code">&lt;form&gt;</code> (et finit donc par <code class="code">&lt;/form&gt;</code>). Ce conteneur contient toutes les autres balises du formulaire. Il peut contenir aussi d'autres balises&nbsp;: <code class="code">&lt;p&gt;</code>, <code class="code">&lt;table&gt;</code>, etc., permettant la présentation du formulaire.
+         </p>
+         <p class="retourtdm"><a href="#tdm_formou" title="Retour à la TdM (Où se place-t-elle?)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="formfonction" id="formfonction" href="#formfonction"></a>2. Fonction
+         </h4>
+         <p>Elle est destinée, essentiellement, à préciser où envoyer les données recueillies par le formulaire. Elle permet aussi d'indiquer
+            au serveur la forme sous laquelle ces données lui seront transmises (mode de codification).
+         </p>
+         <p class="retourtdm"><a href="#tdm_formfonction" title="Retour à la TdM (Fonction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="formattr" id="formattr" href="#formattr"></a>3. Attributs
+         </h4>
+         <table class="tableau" summary="Attributs de la balise <form&gt;." border="1">
+            <tr>
+               <th id="attr_form">
+                  <p>Attributs</p>
+               </th>
+               <th id="eff_form">
+                  <p>Effet</p>
+               </th>
+               <th id="val_form">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">action</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>URL du script <code class="langage">CGI</code> (ou autre, fourni par le serveur), qui traite les données recueillies. Cet attribut est <em>obligatoire</em>.
+                  </p>
+               </td>
+               <td headers="val_form">
+                  <p>URL, 2 types possibles&nbsp;:</p>
+                  <ul>
+                     <li>
+                        <p><code class="code">http</code>&nbsp;: pour un traitement immédiat.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">mailto</code>&nbsp;: dans le cas d'un envoi à un courrier électronique, en vue d'un traitement différé.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">method</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Indique sous quelle forme vont être codées les informations envoyées.</p>
+               </td>
+               <td headers="val_form">
+                  <ul>
+                     <li>
+                        <p><code class="code">get</code>&nbsp;: valeur par défaut. Les données sont adressées sous la forme d'une liste de valeurs accolées à l'URL avec interposition
+                           d'un séparateur particulier (point d'interrogation). Le nombre de caractères doit rester inférieur à 256. De plus elle ne
+                           permet pas d'envoyer les données à une boîte de courrier électronique. Il est donc préférable d'utiliser la seconde méthode.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">post</code>&nbsp;: les données sont adressées sous la forme d'une liste nom/valeur accolées à l'URL mais ici, le script doit lire les données
+                           par défaut afin d'atteindre les véritables données du formulaires. La forme de cette liste dépend de l'attribut <code class="code">enctype</code>.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">enctype</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Précise la méthode MIME de codification de l'envoi. Permet au serveur d'anticiper sur l'objet à recevoir et de prévoir le
+                     protocole d'échange (Pour plus de <a href="../html/Formulaire/MIME.htm">détails</a>).
+                  </p>
+               </td>
+               <td headers="val_form">
+                  <ul>
+                     <li>
+                        <p><code class="code">application/x-www-form-urlencoded</code>&nbsp;: l'envoi se présente comme une chaîne de caractères formées de couples <code class="code">nom=valeur</code> sépararés par un <code class="code">&amp;</code>, <code class="code">nom1=valeur1&amp;nom2=valeur2&amp;nom3=valeur3</code> (c'est la valeur par défaut).
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">text/plain</code>&nbsp;: le séparateur précédent est remplacé par un retour chariot. C'est la forme à utiliser pour l'envoi au courrier électronique.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">multipart/form-data</code>&nbsp;: lorsqu'un fichier est attaché à l'envoi (<code class="code">&lt;input type="file" ...&gt;</code>).
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">accept</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Précise la méthode MIME de codification de l'envoi pour un fichier. Permet au serveur d'anticiper sur le fichier à recevoir
+                     et de prévoir le protocole d'échange (Pour plus de <a href="../html/Formulaire/MIME.htm">détails</a>).
+                  </p>
+               </td>
+               <td headers="val_form">
+                  <p>Chaîne de caractères donnant un code MIME reconnu.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">onsubmit</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Le code à exécuter lors de la soumission.</p>
+               </td>
+               <td headers="val_form">
+                  <p>Chaîne de caractères renvoyant vers une fonction script de traitement (par exemple une fonction JavaScript).</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">onreset</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Le code à exécuter lors de la remise à zéro du formulaire.</p>
+               </td>
+               <td headers="val_form">
+                  <p>Chaîne de caractères renvoyant vers une fonction script de traitement (par exemple une fonction JavaScript).</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Le nom du formulaire.</p>
+               </td>
+               <td headers="val_form">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">accept-charsets</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Les codages de caractèrs acceptés dans les zones de texte.</p>
+               </td>
+               <td headers="val_form">
+                  <p>Une liste de codage de caractères, séparée par des espaces.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_form">
+                  <p><code class="code">target</code></p>
+               </td>
+               <td headers="eff_form">
+                  <p>Spécifie la cible du retour après traitement du serveur (voir le chapitre sur <a href="cadres.html">les cadres</a>).
+                  </p>
+               </td>
+               <td headers="val_form">
+                  <p>Une liste de codage de caractères, séparée par des espaces.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Attributs de la balise <code class="code">&lt;form&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_formattr" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="exemples" id="exemples" href="#exemples"></a>4. Exemples
+         </h4>
+         <p>Exemple pour un formulaire d'envoi de courrier électronique sur le serveur de Multimania&nbsp;: <code class="code">&lt;form method="get" action="/cgi-bin/mailer"&gt;.</code></p>
+         <p>Exemple pour un formulaire classique sans l'aide de script <code class="langage">CGI</code>&nbsp;: <code class="code">&lt;forum action="mailto:webmaster@allhtml.com" method="post" enctype="text/plain"&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_exemples" title="Retour à la TdM (Exemples)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="input" href="#input" id="input"></a>III. la balise &lt;input&gt;
+         </h3>
+         <h4><a name="inputintro" id="inputintro" href="#inputintro"></a>1. Introduction
+         </h4>
+         <h5><a href="#inputfonction" name="inputfonction" id="inputfonction"></a>a. Fonction
+         </h5>
+         <p>Cette balise sert à spécifier comment s'effectue la saisie du formulaire&nbsp;: par cases à cocher, boutons radio, texte libre,
+            etc. Tous ces éléments de saisie sont décrits à l'aide d'une seule balise&nbsp;: la balise <code class="code">&lt;input&gt;</code>. C'est son attribut <code class="code">type</code> qui permet de préciser s'il s'agit de cases à cocher, boutons radio, texte libre...
+         </p>
+         <p>L'attribut <code class="code">type</code> peut prendre les valeurs suivantes&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">text</code></p>
+            </li>
+            <li>
+               <p><code class="code">password</code></p>
+            </li>
+            <li>
+               <p><code class="code">chekbox</code></p>
+            </li>
+            <li>
+               <p><code class="code">radio</code></p>
+            </li>
+            <li>
+               <p><code class="code">submit</code></p>
+            </li>
+            <li>
+               <p><code class="code">reset</code></p>
+            </li>
+            <li>
+               <p><code class="code">image</code></p>
+            </li>
+            <li>
+               <p><code class="code">button</code></p>
+            </li>
+            <li>
+               <p><code class="code">hidden</code></p>
+            </li>
+            <li>
+               <p><code class="code">file</code></p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_inputfonction" title="Retour à la TdM (Fonction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputattr" name="inputattr" id="inputattr"></a>b. Attributs généraux
+         </h5>
+         <p>Cette balise possède de nombreux attributs&nbsp;; certains n'ont une signification que pour un <code class="code">type</code> donné de champ. Ce paragraphe présente une liste des attributs d'usage général.
+         </p>
+         <table class="tableau" summary="Attributs généraux de la balise <input&gt;." border="1">
+            <tr>
+               <th id="attr_input">
+                  <p>Attributs</p>
+               </th>
+               <th id="eff_input">
+                  <p>Effet</p>
+               </th>
+               <th id="val_input">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Le nom du champ.</p>
+               </td>
+               <td headers="val_input">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">alt</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Une courte description.</p>
+               </td>
+               <td headers="val_input">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">disabled</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Désactive l'élément, qui apparaît dès lors en grisé.</p>
+               </td>
+               <td headers="val_input">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">accesskey</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Définit une touche du clavier permettant d'accéder au champ de formulaire. La combinaison "ALT+touche" a le même effet que
+                     l'activation du champ.
+                  </p>
+               </td>
+               <td headers="val_input">
+                  <p>Touche du clavier</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">tabindex</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</p>
+               </td>
+               <td headers="val_input">
+                  <p>Valeur numérique entière</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">onfocus</code>, <code class="code">onblur</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Un script à exécuter quand le curseur est positionné sur le champ (<code class="code">onfocus</code>), ou bien qu'il le quitte (<code class="code">onblur)</code>.
+                  </p>
+               </td>
+               <td headers="val_input">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_input">
+                  <p><code class="code">onchange</code></p>
+               </td>
+               <td headers="eff_input">
+                  <p>Un script à exécuter quand contenu du champ a été changé.</p>
+               </td>
+               <td headers="val_input">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Attributs généraux de la balise <code class="code">&lt;input&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_inputintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="inputtypes" id="inputtypes" href="#inputtypes"></a>2. Types de balises &lt;input&gt;
+         </h4>
+         <h5><a href="#inputtext" name="inputtext" id="inputtext"></a>a. Champ de saisie
+         </h5>
+         <p>
+            						L'attribut <code class="code">type</code> vaut <code class="code">type="text"</code>. La balise permet alors à l'utilisateur de saisir une ligne de texte. Les attributs utiles pour ce type sont&nbsp;:
+            					
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">size</code>&nbsp;: un nombre entier, qui définit la taille visible du champ en nombre de caractères.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">maxlength</code>&nbsp;: un nombre entier, qui définit le nombre maximum de caractères autorisés.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">value</code>&nbsp;: une chaîne de caractères, qui permet d'afficher un texte par défaut dans la zone de saisie.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">readonly</code>&nbsp;: un booléen. La modification du contenu n'est pas permise.
+               </p>
+            </li>
+         </ul>
+         <p>L'attribut <code class="code">name</code> est obligatoire pour ce type de champ.
+         </p>
+         <p class="retourtdm"><a href="#tdm_inputtext" title="Retour à la TdM (Champ de saisie)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputcase" name="inputcase" id="inputcase"></a>b. Case à cocher
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="checkbox"</code>. Les attributs utiles pour ce type sont&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">value</code>&nbsp;: une chaîne de caractères, obligatoire, valeur passée au serveur (couple <code class="code">nom="valeur"</code>) (a plus de sens dans le cas <code class="code">radio</code> suivant).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">checked</code>&nbsp;: un booléen (s'utilise sous la forme <code class="code">checked="checked"</code>). S'il est activée, la case est cochée par défaut.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_inputcase" title="Retour à la TdM (Case à cocher)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputradio" name="inputradio" id="inputradio"></a>c. Bouton radio
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="radio"</code>. Outre la présentation (les cases sont rondes et non plus carrées), il existe une grande différence entre les cases à cocher
+            et les boutons radio&nbsp;: les boutons radio qui portent le même <code class="code">name</code> s'excluent mutuellement, le cochage de l'un décoche les autres. Les attributs utiles pour ce type sont&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">value</code>&nbsp;: une chaîne de caractères, obligatoire, valeur passée au serveur (couple <code class="code">nom="valeur"</code>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">checked</code>&nbsp;: un booléen (s'utilise sous la forme <code class="code">checked="checked"</code>). S'il est activée, la case est cochée par défaut.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_inputradio" title="Retour à la TdM (Bouton radio)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputattacher" name="inputattacher" id="inputattacher"></a>d. Attacher un fichier
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="file"</code>. Il s'agit de donner la possibilité à l'utilisateur du formulaire de joindre un fichier à son envoi. L'attribut utile pour
+            ce type est <code class="code">value</code>&nbsp;, une chaîne de caractères, qui indique le lom du fichier à attacher par défaut.
+         </p>
+         <p class="retourtdm"><a href="#tdm_inputattacher" title="Retour à la TdM (Attacher un fichier)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputcacher" name="inputcacher" id="inputcacher"></a>e. Cacher des données
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="hidden"</code>. Pourquoi cacher des données&nbsp;? Il s'agit plutôt de faciliter le traitement des données recueillies par le serveur en fournissant
+            le nom du formulaire, l'URL du formulaire, et d'autres indices inutiles à l'utilisateur mais très utiles au classement des
+            données. Ces données deviennent obligatoires lorsque vous faîtes héberger vos pages Web. Les attributs utiles pour ce type
+            sont&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">value</code>&nbsp;: une chaîne de caractères. Valeur cachée à envoyer au serveur, obligatoire.
+               </p>
+            </li>
+         </ul>
+         <p>Par exemple, avec le script CGI chargé de la gestion de l'envoi de courrier électronique sur Multimania&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">&lt;input type="hidden" name="TO" value="login@multimania.com"&gt;</code>&nbsp;: cette valeur indique sur quelle adresse électronique le formulaire sera envoyé.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">&lt;input type="hidden" name="FROM" value="login@multimania.com"&gt;</code>&nbsp;: cette valeur indique la provenance du formulaire.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">&lt;input type="hidden" name="SUBJECT" value="FORMULAIRE"&gt; </code>&nbsp;: Cette valeur indique le nom du formulaire (le sujet du courrier), utile si vous avez plusieurs formulaires, cela permet
+                  de trier son courrier.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">&lt;input type="hidden" name="GOTOURL" value="http://www.multimania.com/login/reponse.html"&gt; </code>&nbsp;: cette valeur indique l'URL complète de la page <code class="typefichier">HTML</code> à afficher après l'envoi du formulaire.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_inputcacher" title="Retour à la TdM (Cacher des données)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputpasse" name="inputpasse" id="inputpasse"></a>f. Mot de passe
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="password"</code>. A l'identique que le type <code class="code">text</code>, mais les caractères tapés sont affichés sous forme d'astérisques. Mais <em>attention</em>&nbsp;: le mot de passe est envoyé en clair dans le message final. <em>Aucune méthode de chiffrement n'est appliquée</em>&nbsp;: la confidentialité ne se limite qu'à l'instant de la saisie. Les attributs utiles pour ce type sont les mêmes que ceux
+            du type <code class="code">text</code>&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">size</code>&nbsp;: un nombre entier, qui définit la taille visible du champ en nombre de caractères.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">maxlength</code>&nbsp;: un nombre entier, qui définit le nombre maximum de caractères autorisés.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">value</code>&nbsp;: une chaîne de caractères, qui permet d'afficher un texte par défaut dans la zone de saisie.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_inputtypes" title="Retour à la TdM (Types de balises <input&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="inputinteract" id="inputinteract" href="#inputinteract"></a>3. Soumettre et mettre à zéro des données
+         </h4>
+         <h5><a href="#inputsoumettre" name="inputsoumettre" id="inputsoumettre"></a>a. Soumission de données
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="submit"</code>. Les attributs utiles pour ce type sont&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">value</code>&nbsp;: une chaîne de caractères. Légende du bouton, par défaut <code class="code">Submit</code>.
+               </p>
+            </li>
+         </ul>
+         <p>Une variante est possible en utilisant le <code class="code">type image</code>&nbsp;: <code class="code">type="image"</code>. Le bouton d'envoi est alors... une image. Les attributs utiles pour ce type sont&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">src</code>&nbsp;: une chaîne de caractères. URL de l'image à utiliser.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_inputsoumettre" title="Retour à la TdM (Soumission de données)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#inputreset" name="inputreset" id="inputreset"></a>b. Réinitialisation d'un formulaire
+         </h5>
+         <p>L'attribut <code class="code">type</code> vaut <code class="code">type="reset"</code>. Il s'agit d'un bouton qui, cliqué, remet à leurs valeurs par défaut l'ensemble des champs du formulaire. L'attribut utile
+            pour ce type est <code class="code">value</code>&nbsp;, une chaîne de caractères qui indique la légende du bouton, valant par défaut <code class="code">Reset</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_inputinteract" title="Retour à la TdM (Soumettre et mettre à zéro des données)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="textarea" href="#textarea" id="textarea"></a>IV. la balise &lt;textarea&gt;
+         </h3>
+         <h4><a name="textareafonction" id="textareafonction" href="#textareafonction"></a>1. Fonction
+         </h4>
+         <p>Elle permet aux utilisateurs de votre site de laisser un commentaire ou de taper un texte quelconque.</p>
+         <p class="retourtdm"><a href="#tdm_textareafonction" title="Retour à la TdM (Fonction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="textareaattr" id="textareaattr" href="#textareaattr"></a>2. Attributs
+         </h4>
+         <table class="tableau" summary="Attributs de la balise <textarea&gt;." border="1">
+            <tr>
+               <th id="attr_txt">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_txt">
+                  <p>Effet</p>
+               </th>
+               <th id="val_txt">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Nom de l'élément.</p>
+               </td>
+               <td headers="val_txt">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">rows</code> et <code class="code">cols</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Nombre de lignes et de colonnes de la zone de texte. Ces attributs sont <em>obligatoires</em>.
+                  </p>
+               </td>
+               <td headers="val_txt">
+                  <p>Un nombre entier.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">readonly</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>La modification du contenu n'est pas permise.</p>
+               </td>
+               <td headers="val_txt">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">disabled</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Désactive l'élément, qui apparaît dès lors en grisé.</p>
+               </td>
+               <td headers="val_txt">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">accesskey</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Définit une touche du clavier. La combinaison "ALT + touche" a le même effet que l'activation du champ.</p>
+               </td>
+               <td headers="val_txt">
+                  <p>Touche du clavier</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">tabindex</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</p>
+               </td>
+               <td headers="val_txt">
+                  <p>Valeur numérique entière</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">onfocus</code>, <code class="code">onblur</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Un script à exécuter quand le curseur est positionné sur le champ (<code class="code">onfocus</code>), ou bien qu'il le quitte (<code class="code">onblur)</code>.
+                  </p>
+               </td>
+               <td headers="val_txt">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_txt">
+                  <p><code class="code">onchange</code></p>
+               </td>
+               <td headers="eff_txt">
+                  <p>Un script à exécuter quand contenu du champ a été changé.</p>
+               </td>
+               <td headers="val_txt">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;3. Attributs de la balise <code class="code">&lt;textarea&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_" title="Retour à la TdM ()">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <p>Remarque&nbsp;: le texte se trouvant à l'intérieur des balises <code class="code">&lt;textarea&gt;</code> et <code class="code">&lt;/textarea&gt;</code> sera le texte par défaut. 
+         </p>
+         <p class="retourtdm"><a href="#tdm_textareaattr" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="select" href="#select" id="select"></a>V. Liste de choix, la balise &lt;select&gt;
+         </h3>
+         <h4><a name="selectfonctionnement" id="selectfonctionnement" href="#selectfonctionnement"></a>1. Fonctionnement
+         </h4>
+         <p>Il s'agit d'une liste de propositions ou d'options parmi lesquelles l'utilisateur doit opérer un choix. Ce choix peut être
+            unique ou multiple. Les options possibles sont décrites pour chacunes d'entre-elles dans un conteneur <code class="code">&lt;option&gt;</code> ( la balise fermante <code class="code">&lt;/option&gt;</code> est obligatoire). Il y a autant de balises <code class="code">&lt;option&gt;</code> que d'options.
+         </p>
+         <p class="retourtdm"><a href="#tdm_selectfonctionnement" title="Retour à la TdM (Fonctionnement)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="selectattributs" id="selectattributs" href="#selectattributs"></a>2. Attributs de la balise &lt;select&gt;
+         </h4>
+         <table class="tableau" summary="Attributs de la balise <select&gt;." border="1">
+            <tr>
+               <th id="attr_sel">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_sel">
+                  <p>Effet</p>
+               </th>
+               <th id="val_sel">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Nom de l'élément.</p>
+               </td>
+               <td headers="val_sel">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">size</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Le nombre d'options accessibles.</p>
+               </td>
+               <td headers="val_sel">
+                  <p>Un nombre.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">multiple</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Permet à plusieurs options d'être simultanément sélectionnées.</p>
+               </td>
+               <td headers="val_sel">
+                  <p>Un booléen. Par défaut, une seule option peut être sélectionnée.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">disabled</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Désactive l'élément, qui apparaît dès lors en grisé.</p>
+               </td>
+               <td headers="val_sel">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">tabindex</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</p>
+               </td>
+               <td headers="val_sel">
+                  <p>Valeur numérique entière</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">onfocus</code>, <code class="code">onblur</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Un script à exécuter quand le curseur est positionné sur le champ (<code class="code">onfocus</code>), ou bien qu'il le quitte (<code class="code">onblur)</code>.
+                  </p>
+               </td>
+               <td headers="val_sel">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_sel">
+                  <p><code class="code">onchange</code></p>
+               </td>
+               <td headers="eff_sel">
+                  <p>Un script à exécuter quand contenu du champ a été changé.</p>
+               </td>
+               <td headers="val_sel">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;4. Attributs de la balise <code class="code">&lt;select&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_selectattributs" title="Retour à la TdM (Attributs de la balise <select&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="selectoptions" id="selectoptions" href="#selectoptions"></a>3. Balises &lt;optgroup&gt; et &lt;option&gt;
+         </h4>
+         <h5><a href="#optionintro" name="optionintro" id="optionintro"></a>a. Introduction
+         </h5>
+         <p>La balise <code class="code">&lt;select&gt;</code> admet deux balises-enfants... <code class="code">&lt;optgroup&gt;</code> permet de rassembler des éléments <code class="code">&lt;option&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_optionintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#option" name="option" id="option"></a>b. Balise &lt;option&gt;
+         </h5>
+         <p>Chaque "option" est une possibilité de choix dans le menu <code class="code">select</code>. Cette balise possède les attributs suivants&nbsp;:
+         </p>
+         <table class="tableau" summary="Attributs de la balise <option&gt;." border="1">
+            <tr>
+               <th id="attr_opt">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_opt">
+                  <p>Effet</p>
+               </th>
+               <th id="val_opt">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_opt">
+                  <p><code class="code">value</code></p>
+               </td>
+               <td headers="eff_opt">
+                  <p>Ce qui apparaît dans la liste d'options du menu. Si cet attribut n'est pas présent, c'est le contenu de l'élément <code class="code">&lt;option&gt;</code> lui-même qui est affiché.
+                  </p>
+               </td>
+               <td headers="val_opt">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_opt">
+                  <p><code class="code">selected</code></p>
+               </td>
+               <td headers="eff_opt">
+                  <p>Spécifie l'option sélectionnée par défaut.</p>
+               </td>
+               <td headers="val_opt">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_opt">
+                  <p><code class="code">disabled</code></p>
+               </td>
+               <td headers="eff_opt">
+                  <p>Désactive l'élément, qui apparaît dès lors en grisé.</p>
+               </td>
+               <td headers="val_opt">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_opt">
+                  <p><code class="code">label</code></p>
+               </td>
+               <td headers="eff_opt">
+                  <p>Une étiquette désignant l'option choisie dans le menu.</p>
+               </td>
+               <td headers="val_opt">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;5. Attributs de la balise <code class="code">&lt;option&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_option" title="Retour à la TdM (Balise <option&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#optgroup" name="optgroup" id="optgroup"></a>c. Balise &lt;optgroup&gt;
+         </h5>
+         <p>
+            						Cette balise permet de rassembler en catégories les éléments <code class="code">&lt;option&gt;</code>, pour les faire apparaître de manière ordonnée dans le menu.
+            					
+         </p>
+         <table class="tableau" summary="Attributs de la balise <optgroup&gt;." border="1">
+            <tr>
+               <th id="attr_grp">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_grp">
+                  <p>Effet</p>
+               </th>
+               <th id="val_grp">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_grp">
+                  <p><code class="code">label</code></p>
+               </td>
+               <td headers="eff_grp">
+                  <p>Une étiquette désignant le groupe d'options choisies dans le menu.</p>
+               </td>
+               <td headers="val_grp">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_grp">
+                  <p><code class="code">disabled</code></p>
+               </td>
+               <td headers="eff_grp">
+                  <p>Désactive l'élément, qui apparaît dès lors en grisé.</p>
+               </td>
+               <td headers="val_grp">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;6. Attributs de la balise <code class="code">&lt;optgroup&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_selectoptions" title="Retour à la TdM (Balises <optgroup&gt; et <option&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="autres" href="#autres" id="autres"></a>VI. Autres éléments de formulaire
+         </h3>
+         <p>Les balises présentées dans cette partie sont très peu utilisées. Nous allons nous limiter aux balises <code class="code">&lt;label&gt;</code> et surtout <code class="code">&lt;button&gt;</code>, mais il existe aussi <code class="code">&lt;fieldset&gt;</code> et <code class="code">&lt;legend&gt;</code>.
+         </p>
+         <h4><a name="label" id="label" href="#label"></a>1. La balise &lt;label&gt;
+         </h4>
+         <h5><a href="#labelfonction" name="labelfonction" id="labelfonction"></a>a. Fonction
+         </h5>
+         <p>Cette balise permet d'associer à un élément de formulaire des informations relatives à son contenu&nbsp;; cette information est
+            utile notamment pour les navigateurs destinés aux mal-voyants.
+         </p>
+         <p class="retourtdm"><a href="#tdm_labelfonction" title="Retour à la TdM (Fonction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#labelattr" name="labelattr" id="labelattr"></a>b. Attributs
+         </h5>
+         <table class="tableau" summary="Attributs de la balise <label&gt;." border="1">
+            <tr>
+               <th id="attr_label">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_label">
+                  <p>Effet</p>
+               </th>
+               <th id="val_label">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_label">
+                  <p><code class="code">for</code></p>
+               </td>
+               <td headers="eff_label">
+                  <p>Renvoie à l'élément de formulaire spécifié par le même attribut <code class="code">id</code>.
+                  </p>
+               </td>
+               <td headers="val_label">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_label">
+                  <p><code class="code">accesskey</code></p>
+               </td>
+               <td headers="eff_label">
+                  <p>Définit une touche du clavier. La combinaison "ALT + touche" a le même effet que l'activation du champ.</p>
+               </td>
+               <td headers="val_label">
+                  <p>Touche du clavier</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_label">
+                  <p><code class="code">onfocus</code>, <code class="code">onblur</code></p>
+               </td>
+               <td headers="eff_label">
+                  <p>Un script à exécuter quand le curseur est positionné sur le champ (<code class="code">onfocus</code>), ou bien qu'il le quitte (<code class="code">onblur)</code>.
+                  </p>
+               </td>
+               <td headers="val_label">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;7. Attributs de la balise <code class="code">&lt;label&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_labelattr" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#labelexemple" name="labelexemple" id="labelexemple"></a>c. Exemple
+         </h5>
+         <p>L'exemple suivant donne plusieurs possibilités d'utilisation de cet élément...</p>
+         <p class="html"><span class="tag">&lt;table<span class="nomattribut"> summary</span>="<span class="valeurattribut"></span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span><span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">user</span>"<span class="nomattribut"> accesskey</span>="<span class="valeurattribut">u</span>"&gt;</span>utilisateur<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;/td&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;select<span class="nomattribut"> name</span>="<span class="valeurattribut">user</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">user</span>"&gt;</span><br>
+            										
+            										
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option&gt;</span>Jean<span class="tag">&lt;/option&gt;</span><br>
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option&gt;</span>Paul<span class="tag">&lt;/option&gt;</span><br>
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;option&gt;</span>Jacques<span class="tag">&lt;/option&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/select&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/td&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span><span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">passwd</span>"<span class="nomattribut"> accesskey</span>="<span class="valeurattribut">p</span>"&gt;</span>mot de passe<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;/td&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span><span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">password</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">passwd</span>"<span class="nomattribut"> passwd</span>="<span class="valeurattribut"></span>"&gt;</span><span class="tag">&lt;/input&gt;</span><span class="tag">&lt;/td&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            						<span class="tag">&lt;/table&gt;</span><br><span class="tag">&lt;p&gt;</span><span class="tag">&lt;label<span class="nomattribut"> accesskey</span>="<span class="valeurattribut">s</span>"&gt;</span>Sauver le nom d'utilisateur et le mot de passe dans un cookie?<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">checkbox</span>"<span class="nomattribut"> name</span>="<span class="valeurattribut">save</span>"<span class="nomattribut"> value</span>="<span class="valeurattribut">oui</span>"&gt;</span><span class="tag">&lt;/input&gt;</span><br><span class="tag">&lt;/p&gt;</span><br><span class="tag">&lt;p&gt;</span><span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">comments</span>"<span class="nomattribut"> accesskey</span>="<span class="valeurattribut">c</span>"&gt;</span>Commentaires?<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;textarea<span class="nomattribut"> name</span>="<span class="valeurattribut">comments</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">comments</span>"<span class="nomattribut"> rows</span>="<span class="valeurattribut">8</span>"<span class="nomattribut"> cols</span>="<span class="valeurattribut">50</span>"&gt;</span><span class="tag">&lt;/textarea&gt;</span>
+            							<span class="tag">&lt;/p&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_label" title="Retour à la TdM (La balise <label&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="button" id="button" href="#button"></a>2. La balise &lt;button&gt;
+         </h4>
+         <h5><a href="#buttonfonction" name="buttonfonction" id="buttonfonction"></a>a. Fonction
+         </h5>
+         <p>Cet élément permet d'insérer un bouton dans un formulaire. Cela est également possible avec la balise <a href="#input"> <code class="code">&lt;input&gt;</code> </a>, mais <code class="code">&lt;button&gt;</code> permet un plus large choix d'options. Il est malheureusement moins bien accepté par les "vieux" navigateurs.
+         </p>
+         <p class="retourtdm"><a href="#tdm_buttonfonction" title="Retour à la TdM (Fonction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#buttonattr" name="buttonattr" id="buttonattr"></a>b. Attributs
+         </h5>
+         <table class="tableau" summary="Attributs de la balise <optgroup&gt;." border="1">
+            <tr>
+               <th id="attr_but">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff_but">
+                  <p>Effet</p>
+               </th>
+               <th id="val_but">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">name</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Le nom du bouton.</p>
+               </td>
+               <td headers="val_but">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">value</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Valeur envoyée au serveur.</p>
+               </td>
+               <td headers="val_but">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">type</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Type de bouton.</p>
+               </td>
+               <td headers="val_but">
+                  <ul>
+                     <li>
+                        <p><code class="code">submit</code> (valeur par défaut)
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">button</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">reset</code></p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">disabled</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Désactive l'élément, qui apparaît dès lors en grisé.</p>
+               </td>
+               <td headers="val_but">
+                  <p>Un booléen.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">tabindex</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Fixe la position de l'élément dans l'ordre séquentiel des tabulations.</p>
+               </td>
+               <td headers="val_but">
+                  <p>Valeur numérique entière</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">accesskey</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Définit un raccourci clavier. La combinaison "ALT + touche" a le même effet que l'activation du champ.</p>
+               </td>
+               <td headers="val_but">
+                  <p>Touche du clavier</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr_but">
+                  <p><code class="code">onfocus</code>, <code class="code">onblur</code></p>
+               </td>
+               <td headers="eff_but">
+                  <p>Un script à exécuter quand le curseur est positionné sur le champ (<code class="code">onfocus</code>), ou bien qu'il le quitte (<code class="code">onblur)</code>.
+                  </p>
+               </td>
+               <td headers="val_but">
+                  <p>Une chaîne de caractères.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;8. Attributs de la balise <code class="code">&lt;optgroup&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_buttonattr" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#buttonexemple" name="buttonexemple" id="buttonexemple"></a>c. Exemple
+         </h5>
+         <p>Voici quelques exemples d'utilisation de la balise...</p>
+         <p class="html"><span class="tag">&lt;button<span class="nomattribut"> name</span>="<span class="valeurattribut">soumet</span>"<span class="nomattribut"> value</span>="<span class="valeurattribut">modifier</span>"&gt;</span>Modifier l'information<span class="tag">&lt;/button&gt;</span><br><span class="tag">&lt;button<span class="nomattribut"> name</span>="<span class="valeurattribut">continue</span>"<span class="nomattribut"> value</span>="<span class="valeurattribut">continuer</span>"&gt;</span>Continuer l'application<span class="tag">&lt;/button&gt;</span><br><span class="tag">&lt;button&gt;</span><span class="tag">&lt;img<span class="nomattribut"> src</span>="<span class="valeurattribut">checkmark.gif</span>"<span class="nomattribut"> alt</span>="<span class="valeurattribut">&#10004;</span>"&gt;</span><span class="tag">&lt;/img&gt;</span>Sauvegarder<span class="tag">&lt;/button&gt;</span><br><span class="tag">&lt;button<span class="nomattribut"> type</span>="<span class="valeurattribut">reset</span>"&gt;</span><span class="tag">&lt;img<span class="nomattribut"> src</span>="<span class="valeurattribut">x.gif</span>"<span class="nomattribut"> alt</span>="<span class="valeurattribut">&#10008;</span>"&gt;</span><span class="tag">&lt;/img&gt;</span>Remettre à zéro<span class="tag">&lt;/button&gt;</span><br><span class="tag">&lt;button<span class="nomattribut"> type</span>="<span class="valeurattribut">button</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">toggler</span>"<span class="nomattribut"> onclick</span>="<span class="valeurattribut">toggle()</span>"&gt;</span>Cacher les attributs<span class="tag">&lt;em&gt;</span>non stricts<span class="tag">&lt;/em&gt;</span>.<span class="tag">&lt;/button&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_button" title="Retour à la TdM (La balise <button&gt;)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoforms" href="#exoforms" id="exoforms"></a>1. Créations de formulaires
+         </h4>
+         <h5><a href="exercices/td4.html" title="Énoncé de l'exercice 'Créations de formulaires'">Énoncé</a></h5>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="video.html">Contrôle du son et de la vidéo</a><br></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="forms.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.10. Réécriture des exemples.</li>
+            <li>Le 22 avril 2004, version 1.03. Corrections typographiques.</li>
+            <li>Le 11 mars 2004, version 1.02. Ajout d'un lien vers l'exercice.</li>
+            <li>Le 13 novembre 2003, version 1.01. Corrections de coquilles.</li>
+            <li>Le 18 novembre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

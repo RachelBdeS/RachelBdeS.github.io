@@ -1,0 +1,24 @@
+body {
+  font-size: 15pt;
+}
+.statusbar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  padding-left: 4px;
+  top: 97%;
+  left: -1px;
+  min-width: 33%;
+  height: 21px;
+  font-size: 10pt;
+  border-radius: 1px 5px 1px 1px;
+  border: solid #717171 1px;
+  color: #717171;
+  white-space: nowrap;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}

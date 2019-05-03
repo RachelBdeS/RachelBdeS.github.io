@@ -1,0 +1,54 @@
+*
+{ 
+  box-sizing: border-box;
+}
+
+body 
+{
+  margin: 0;
+  min-height: 100%;
+  font-family: "font-family: Arial, Helvetica, sans-serif;";
+  text-align: center;
+  background-color: black;
+  color: grey;
+}
+
+h1, 
+strong, 
+input[type="number"] {
+  font-size: 30pt;
+}
+
+input[type="number"] {
+  color: azure;
+  width: 70px;
+  background-color: black;
+  color: grey;
+  border: none;
+}
+
+div {
+  margin-top: -130px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid white 1px;
+  padding: 0;
+  display: grid;
+  grid-template-areas: "A";
+  justify-content: center;
+  align-content: center;
+}
+
+img[alt="ampoule"], img[alt="lumiere"] {
+  grid-area: A;
+  width: 300px;
+  height: 300px;
+  border: solid white 1px;
+}
+img[alt="ampoule"] {
+  z-index: 1;
+}
+img[alt="lumiere"] {
+  z-index: 2;
+  opacity: 0;
+}

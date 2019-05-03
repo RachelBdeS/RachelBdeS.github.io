@@ -1,0 +1,1131 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les règles du CSS1</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, css, base, concept, introduction, propriete">
+      <meta name="description" content="Ce chapitre présente les concepts généraux des feuilles de style CSS, et en particulier les recommandations CSS1.">
+      <link rel="next" href="css2.html">
+      <link rel="prev" href="cssintro.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les règles du CSS1</h1>
+         <p><span class="version">version 1.34</span>, dernière mise à jour le 24 octobre 2008.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#polices" title="Polices de caractères">Polices de caractères</a><ol>
+                     <li><a href="#policesintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#fontfamily" title="Changer de police&nbsp;: font-family">Changer de police&nbsp;: font-family</a></li>
+                     <li><a href="#fontsize" title="Changer la taille des caractères&nbsp;: font-size">Changer la taille des caractères&nbsp;: font-size</a></li>
+                     <li><a href="#fontstyle" title="Changer l'orientation des caractères&nbsp;: font-style">Changer l'orientation des caractères&nbsp;: font-style</a></li>
+                     <li><a href="#fontvariant" title="Mettre un texte en petites capitales&nbsp;: font-variant">Mettre un texte en petites capitales&nbsp;: font-variant</a></li>
+                     <li><a href="#fontweight" title="Changer la graisse de la police&nbsp;: font-weight">Changer la graisse de la police&nbsp;: font-weight</a></li>
+                     <li><a href="#font" title="Le résumé&nbsp;: font">Le résumé&nbsp;: font</a></li>
+                     <li>Exercice&nbsp;: <a href="#exopolice">Mise en forme de police</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#texte" title="Texte">Texte</a><ol>
+                     <li><a href="#lineheight" title="Spécifier l'interligne&nbsp;: line-height">Spécifier l'interligne&nbsp;: line-height</a></li>
+                     <li><a href="#textalign" title="Changer l'alignement horizontal d'un texte&nbsp;: text-align">Changer l'alignement horizontal d'un texte&nbsp;: text-align</a></li>
+                     <li><a href="#textdecoration" title="Surligner, souligner, barrer&nbsp;: text-decoration">Surligner, souligner, barrer&nbsp;: text-decoration</a></li>
+                     <li><a href="#textindent" title="Mettre un alinéa, indenter le texte&nbsp;: text-indent">Mettre un alinéa, indenter le texte&nbsp;: text-indent</a></li>
+                     <li><a href="#texttransform" title="Manipuler les majuscules et les minuscules&nbsp;: text-transform">Manipuler les majuscules et les minuscules&nbsp;: text-transform</a></li>
+                     <li><a href="#verticalalign" title="Changer l'alignement vertical&nbsp;: vertical-align">Changer l'alignement vertical&nbsp;: vertical-align</a></li>
+                     <li><a href="#wordspacing" title="Changer l'espace entre les mots&nbsp;: word-spacing">Changer l'espace entre les mots&nbsp;: word-spacing</a></li>
+                     <li><a href="#letterspacing" title="Changer l'espace entre les lettres&nbsp;: letter-spacing">Changer l'espace entre les lettres&nbsp;: letter-spacing</a></li>
+                     <li>Exercice&nbsp;: <a href="#exotexte">Mise en forme de texte</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#couleurs" title="Couleurs et fonds">Couleurs et fonds</a><ol>
+                     <li><a href="#color" title="Spécifier la couleur du texte&nbsp;: color">Spécifier la couleur du texte&nbsp;: color</a></li>
+                     <li><a href="#backgroundcolor" title="Spécifier une couleur de fond&nbsp;: background-color">Spécifier une couleur de fond&nbsp;: background-color</a><ol>
+                           <li><a href="#bgcolorprop" title="Propriété">Propriété</a></li>
+                           <li><a href="#compatbgcolor" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#backgroundimage" title="Spécifier une image de fond&nbsp;: background-image">Spécifier une image de fond&nbsp;: background-image</a><ol>
+                           <li><a href="#bgimageprop" title="Propriété">Propriété</a></li>
+                           <li><a href="#compatbgimage" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#backgroundposition" title="Changer la position par défaut de l'image de fond&nbsp;: background-position">Changer la position par défaut de l'image de fond&nbsp;: background-position</a><ol>
+                           <li><a href="#bgposprop" title="Propriété">Propriété</a></li>
+                           <li><a href="#compatbgpos" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#backgroundrepeat" title="Contrôler la répétition d'une image de fond&nbsp;: background-repeat">Contrôler la répétition d'une image de fond&nbsp;: background-repeat</a><ol>
+                           <li><a href="#bgrepeatprop" title="Propriété">Propriété</a></li>
+                           <li><a href="#compatbgrepeat" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#backgroundattachment" title="Contrôler le défilement de l'image de fond&nbsp;: background-attachment">Contrôler le défilement de l'image de fond&nbsp;: background-attachment</a><ol>
+                           <li><a href="#attachprop" title="Propriété">Propriété</a></li>
+                           <li><a href="#compatattach" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#background" title="Le résumé&nbsp;: background">Le résumé&nbsp;: background</a><ol>
+                           <li><a href="#backgroundprop" title="La propriété">La propriété</a></li>
+                           <li><a href="#compatbackground" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li>Exercice&nbsp;: <a href="#exocouleur">Couleurs et fond</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>IV. <a href="#boites" title="Les «&nbsp;boîtes&nbsp;»">Les «&nbsp;boîtes&nbsp;»</a><ol>
+                     <li><a href="#boitesgen" title="Généralités">Généralités</a><ol>
+                           <li><a href="#boitesintro" title="Introduction&nbsp;:  le modèle de boîte">Introduction&nbsp;:  le modèle de boîte</a></li>
+                           <li><a href="#regles" title="Règles d'attribution">Règles d'attribution</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#margin" title="Les propriétés de la marge extérieure&nbsp;: margin">Les propriétés de la marge extérieure&nbsp;: margin</a></li>
+                     <li><a href="#padding" title="Les propriétés de la marge intérieure&nbsp;: padding">Les propriétés de la marge intérieure&nbsp;: padding</a></li>
+                     <li><a href="#border" title="Les propriétés de la bordure&nbsp;: border">Les propriétés de la bordure&nbsp;: border</a><ol>
+                           <li><a href="#borderwidth" title="Propriétés de largeur: border-width">Propriétés de largeur: border-width</a></li>
+                           <li><a href="#bordercolor" title="Spécifier la couleur de la bordure&nbsp;: border-color">Spécifier la couleur de la bordure&nbsp;: border-color</a></li>
+                           <li><a href="#borderstyle" title="Spécifier le type de trait de la bordure&nbsp;: border-style">Spécifier le type de trait de la bordure&nbsp;: border-style</a></li>
+                           <li><a href="#bordertop" title="Raccourcis&nbsp;: border-top, border-right, border-bottom, border-left">Raccourcis&nbsp;: border-top, border-right, border-bottom, border-left</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#float" title="Placement d'un élément de type bloc par rapport au contenu environnant&nbsp;: float">Placement d'un élément de type bloc par rapport au contenu environnant&nbsp;: float</a></li>
+                     <li><a href="#clear" title="Nettoyer les éléments flottants&nbsp;: clear">Nettoyer les éléments flottants&nbsp;: clear</a></li>
+                     <li><a href="#height" title="Spécifier largeur et hauteur d'un élément&nbsp;: height, width">Spécifier largeur et hauteur d'un élément&nbsp;: height, width</a><ol>
+                           <li><a href="#widthheightintro" title="Le comportement théorique">Le comportement théorique</a></li>
+                           <li><a href="#widthheightcompat" title="Compatibilité">Compatibilité</a></li>
+                        </ol>
+                     </li>
+                     <li>Exercice&nbsp;: <a href="#exoboites">Boîtes</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>V. <a href="#listes" title="Listes">Listes</a><ol>
+                     <li><a href="#liststyleimage" title="Spécifier une image comme puce dans une liste&nbsp;: list-style-image">Spécifier une image comme puce dans une liste&nbsp;: list-style-image</a></li>
+                     <li><a href="#liststyleposition" title="Changer l'alignement du texte après la puce dans une liste&nbsp;: list-style-position">Changer l'alignement du texte après la puce dans une liste&nbsp;: list-style-position</a></li>
+                     <li><a href="#liststyletype" title="Changer la forme de la puce ou le type de numérotation&nbsp;: list-style-type">Changer la forme de la puce ou le type de numérotation&nbsp;: list-style-type</a></li>
+                     <li>Exercice&nbsp;: <a href="#exolistes">Mise en forme de listes</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>VI. <a href="#autres" title="Autres propriétés">Autres propriétés</a><ol>
+                     <li><a href="#display" title="Contrôle de l'affichage ou de la disparition d'un élément&nbsp;: display">Contrôle de l'affichage ou de la disparition d'un élément&nbsp;: display</a></li>
+                     <li><a href="#whitespace" title="Prise en charge des blancs&nbsp;: white-space">Prise en charge des blancs&nbsp;: white-space</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="polices" href="#polices" id="polices"></a>I. Polices de caractères
+         </h3>
+         <h4><a name="policesintro" id="policesintro" href="#policesintro"></a>1. Introduction
+         </h4>
+         <p>La mise en forme du texte est réalisée grâce à l'utilisation de quelques propriétés, gérant notamment la police (<span lang="en" class="autrelangue">font</span> en anglais).
+         </p>
+         <p class="retourtdm"><a href="#tdm_policesintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="fontfamily" id="fontfamily" href="#fontfamily"></a>2. Changer de police&nbsp;: font-family
+         </h4>
+         <p><code class="code">font-family</code> permet de spécifier quelle est la police à utiliser. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-family</span>&nbsp;: <span class="cssvaleur">Verdana, Arial, sans-serif</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Il faut indiquer au moins un nom de police. Si la police n'est pas trouvée dans le système d'exploitation, la police par défaut
+            est utilisée. Cette police est la <code class="code">Times New Roman</code> sur un PC, et <code class="code">Times Roman</code> sur un Mac. C'est la raison pour laquelle il est recommandé de spécifier plusieurs noms de polices, ainsi qu'une famille
+            de polices générale&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p>La police préférentielle en premier</p>
+            </li>
+            <li>
+               <p>Une police plus généralement répandue</p>
+            </li>
+            <li>
+               <p>Éventuellement d'autres choix de polices</p>
+            </li>
+            <li>
+               <p>Une famille de polices générale</p>
+            </li>
+         </ol>
+         <p>Les familles de police générales sont</p>
+         <ul>
+            <li>
+               <p><code class="code">serif</code>, les polices avec empattement&nbsp;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">sans-serif</code>, les polices sans empattement&nbsp;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">monospace</code>, les polices à espacement fixe&nbsp;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">cursive</code>, les polices imitant grossièrement l'écriture manuelle&nbsp;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">fantasy</code>, les polices de fantaisie.
+               </p>
+            </li>
+         </ul>
+         <p>Dans le cas où aucune police spécifique ne peut être trouvée, ce dernier choix permet de se reposer sur les polices définies
+            par défaut sur le système, sans pour autant trop dégrader le rendu visuel.
+         </p>
+         <p class="retourtdm"><a href="#tdm_fontfamily" title="Retour à la TdM (Changer de police&nbsp;: font-family)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="fontsize" id="fontsize" href="#fontsize"></a>3. Changer la taille des caractères&nbsp;: font-size
+         </h4>
+         <p><code class="code">font-size</code> permet de spécifier la taille de la police à utiliser. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h4</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">1.2em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h3</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">120%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">bigger</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>La syntaxe des trois possibilités de spécification de la taille suit celle <a href="cssintro.html#unitessyntaxe">des unités</a>, et il est possible d'utiliser de plus les mots-clefs <code class="code">smaller</code>, <code class="code">small</code>, <code class="code">normal</code>, <code class="code">big</code> et <code class="code">bigger</code> qui changent la taille des caractères d'un facteur prédéterminé.
+         </p>
+         <p class="retourtdm"><a href="#tdm_fontsize" title="Retour à la TdM (Changer la taille des caractères&nbsp;: font-size)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="fontstyle" id="fontstyle" href="#fontstyle"></a>4. Changer l'orientation des caractères&nbsp;: font-style
+         </h4>
+         <p><code class="code">font-style</code> permet de spécifier le «&nbsp;style&nbsp;» (normal ou italique) de la police à utiliser. Les trois valeurs possibles sont <code class="code">normal</code>, <code class="code">italic</code> et <code class="code">oblique</code>&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">span.definition</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-style</span>&nbsp;: <span class="cssvaleur">italic</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">span.penche</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-style</span>&nbsp;: <span class="cssvaleur">oblique</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">span.normal</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-style</span>&nbsp;: <span class="cssvaleur">normal</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p><code class="code">normal</code> est la valeur par défaut. <code class="code">oblique</code> est un style où la police est inclinée. Le rendu à l'écran est parfois similaire au style italique, mais en toute rigueur
+            il devrait en être différent.
+         </p>
+         <p class="retourtdm"><a href="#tdm_fontstyle" title="Retour à la TdM (Changer l'orientation des caractères&nbsp;: font-style)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="fontvariant" id="fontvariant" href="#fontvariant"></a>5. Mettre un texte en petites capitales&nbsp;: font-variant
+         </h4>
+         <p><code class="code">font-variant</code> permet de spécifier une «&nbsp;variante&nbsp;» de la police à utiliser. Les valeurs possibles sont <code class="code">normal</code> et <code class="code">small-caps</code>&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h4</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-variant</span>&nbsp;: <span class="cssvaleur">normal</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h4.grandtitre</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-variant</span>&nbsp;: <span class="cssvaleur">small-caps</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p><code class="code">small-caps</code> permet de spécifier que le texte doit être écrit en «&nbsp;petites capitales&nbsp;».
+         </p>
+         <p class="retourtdm"><a href="#tdm_fontvariant" title="Retour à la TdM (Mettre un texte en petites capitales&nbsp;: font-variant)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="fontweight" id="fontweight" href="#fontweight"></a>6. Changer la graisse de la police&nbsp;: font-weight
+         </h4>
+         <p><code class="code">font-weight</code> permet de spécifier la graisse de la police à utiliser. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">b.tresgras</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-weight</span>&nbsp;: <span class="cssvaleur">bolder</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">span.important</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-weight</span>&nbsp;: <span class="cssvaleur">300</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles peuvent être&nbsp;:</p>
+         <ul>
+            <li>
+               <p>Des nombres entiers de centaines (100, 200, (...), 800, 900) compris entre 100 et 900.</p>
+            </li>
+            <li>
+               <p><code class="code">normal</code>, <code class="code">bold</code> qui indiquent une graisse respectivement par défaut et moyenne.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">bolder</code>, <code class="code">lighter</code> qui permettent d'augmenter ou de diminuer la graisse par rapport à la valeur par défaut.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_fontweight" title="Retour à la TdM (Changer la graisse de la police&nbsp;: font-weight)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="font" id="font" href="#font"></a>7. Le résumé&nbsp;: font
+         </h4>
+         <p>Il est possible de réunir plusieurs de ces propriétés en utilisant le raccourci <code class="code">font</code>, à condition de respecter toujours un ordre précis (style, graisse, taille puis famille). Par exemple...
+         </p>
+         <p class="css"><span class="selecteur">p.introduction</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font</span>&nbsp;: <span class="cssvaleur">italic bold 12pt Times, serif</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_font" title="Retour à la TdM (Le résumé&nbsp;: font)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exopolice" href="#exopolice" id="exopolice"></a>1. Mise en forme de police
+         </h4>
+         <h5><a href="exercices/td5.html#police" title="Énoncé de l'exercice 'Mise en forme de police'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Mise en forme de police'">
+               				Correction</a></h5>
+         <h3><a name="texte" href="#texte" id="texte"></a>II. Texte
+         </h3>
+         <h4><a name="lineheight" id="lineheight" href="#lineheight"></a>1. Spécifier l'interligne&nbsp;: line-height
+         </h4>
+         <p><code class="code">line-height</code> permet de spécifier l'écart entre deux lignes dans le texte. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">line-height</span>&nbsp;: <span class="cssvaleur">200%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont <code class="code">normal</code>, un nombre positif (l'espacement entre deux lignes est égal à la valeur par défaut multipliée par le nombre), ou bien toute
+            mesure de taille (une longueur ou un pourcentage).
+         </p>
+         <p class="retourtdm"><a href="#tdm_lineheight" title="Retour à la TdM (Spécifier l'interligne&nbsp;: line-height)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="textalign" id="textalign" href="#textalign"></a>2. Changer l'alignement horizontal d'un texte&nbsp;: text-align
+         </h4>
+         <p><code class="code">text-align</code> permet de spécifier l'alignement horizontal du texte. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">center</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p.journal</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">justify</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont <code class="code">left</code> (valeur par défaut), <code class="code">right</code>, <code class="code">center</code> et <code class="code">justify</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_textalign" title="Retour à la TdM (Changer l'alignement horizontal d'un texte&nbsp;: text-align)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="textdecoration" id="textdecoration" href="#textdecoration"></a>3. Surligner, souligner, barrer&nbsp;: text-decoration
+         </h4>
+         <p><code class="code">text-decoration</code> permet de spécifier quel type de soulignement doit être appliqué au texte. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">a:active, a:link, a:visited</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-decoration</span>&nbsp;: <span class="cssvaleur">none</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont <code class="code">none</code> (pas de soulignement), <code class="code">underline</code> (soulignement), <code class="code">overline</code> (un trait au-dessus du texte), <code class="code">line-through</code> (un trait au milieu du texte) et <code class="code">blink</code> (clignotement&nbsp;; à éviter dans la mesure du possible pour ne pas faire fuir l'internaute&nbsp;!).
+         </p>
+         <p class="retourtdm"><a href="#tdm_textdecoration" title="Retour à la TdM (Surligner, souligner, barrer&nbsp;: text-decoration)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="textindent" id="textindent" href="#textindent"></a>4. Mettre un alinéa, indenter le texte&nbsp;: text-indent
+         </h4>
+         <p><code class="code">text-indent</code> permet de spécifier quelle indentation (ou retrait de première ligne) appliquer à la première ligne du texte. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-indent</span>&nbsp;: <span class="cssvaleur">5em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>La syntaxe de l'indentation à appliquer suit celle <a href="cssintro.html#unitessyntaxe">des unités</a>. Elle peut être une longueur ou un pourcentage.
+         </p>
+         <p class="retourtdm"><a href="#tdm_textindent" title="Retour à la TdM (Mettre un alinéa, indenter le texte&nbsp;: text-indent)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="texttransform" id="texttransform" href="#texttransform"></a>5. Manipuler les majuscules et les minuscules&nbsp;: text-transform
+         </h4>
+         <p><code class="code">text-transform</code> permet de spécifier quelle transformation appliquer à la police. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-transform</span>&nbsp;: <span class="cssvaleur">uppercase</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-transform</span>&nbsp;: <span class="cssvaleur">capitalize</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">none</code>, la valeur par défaut.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">capitalize</code>&nbsp;: chaque première lettre de mot est en majuscule.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">uppercase</code>&nbsp;: chaque mot est en majuscules.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">lowercase</code>&nbsp;: chaque mot est en minuscules.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_texttransform" title="Retour à la TdM (Manipuler les majuscules et les minuscules&nbsp;: text-transform)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="verticalalign" id="verticalalign" href="#verticalalign"></a>6. Changer l'alignement vertical&nbsp;: vertical-align
+         </h4>
+         <p><code class="code">vertical-align</code> permet de spécifier quel alignement vertical appliquer au texte par rapport à la ligne de base. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">img</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">vertical-align</span>&nbsp;: <span class="cssvaleur">50%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">img.middle</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">vertical-align</span>&nbsp;: <span class="cssvaleur">middle</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">.exponent</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">vertical-align</span>&nbsp;: <span class="cssvaleur">super</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">baseline</code>, la valeur par défaut. L'alignement est fait relativement à la ligne de base de l'élément-parent.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">middle</code>&nbsp;: le milieu de l'élément est aligné avec la moitié de la hauteur de ligne (le x-height) de l'élément-parent.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">sub</code>&nbsp;: alignement en indice.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">super</code>&nbsp;: alignement en exposant.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">text-top</code>&nbsp;: alignement du haut de l'élément avec le point le plus haut de la police de l'élément-parent.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">text-bottom</code>&nbsp;: alignement du bas de l'élément avec le point le plus bas de la police de l'élément-parent.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">top</code>&nbsp;: alignement du haut de l'élément avec le point le plus haut de la ligne courante.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">bottom</code>&nbsp;: alignement du bas de l'élément avec le point le plus bas de la ligne courante.
+               </p>
+            </li>
+            <li>
+               <p>Un pourcentage&nbsp;: ce pourcentage se réfère au <code class="code">line-height</code> de l'élément-parent.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_verticalalign" title="Retour à la TdM (Changer l'alignement vertical&nbsp;: vertical-align)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="wordspacing" id="wordspacing" href="#wordspacing"></a>7. Changer l'espace entre les mots&nbsp;: word-spacing
+         </h4>
+         <p><code class="code">word-spacing</code> permet de spécifier l'espacement entre les mots du texte. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p em</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">word-spacing</span>&nbsp;: <span class="cssvaleur">0.4em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p.note</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">word-spacing</span>&nbsp;: <span class="cssvaleur">-0.2em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Cette propriété a comme valeur une longueur. Il est à noter qu'une valeur négative est possible.</p>
+         <p class="retourtdm"><a href="#tdm_wordspacing" title="Retour à la TdM (Changer l'espace entre les mots&nbsp;: word-spacing)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="letterspacing" id="letterspacing" href="#letterspacing"></a>8. Changer l'espace entre les lettres&nbsp;: letter-spacing
+         </h4>
+         <p><code class="code">letter-spacing</code> permet de spécifier l'espacement entre les lettres du texte. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">letter-spacing</span>&nbsp;: <span class="cssvaleur">0.1em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p.note</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">letter-spacing</span>&nbsp;: <span class="cssvaleur">-0.1em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Cette propriété a comme valeur une longueur. Il est à noter qu'une valeur négative est possible, mais le résultat est évidemment
+            peu lisible. Une valeur de 0 empêche la justification.
+         </p>
+         <p class="retourtdm"><a href="#tdm_letterspacing" title="Retour à la TdM (Changer l'espace entre les lettres&nbsp;: letter-spacing)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exotexte" href="#exotexte" id="exotexte"></a>1. Mise en forme de texte
+         </h4>
+         <h5><a href="exercices/td5.html#texte" title="Énoncé de l'exercice 'Mise en forme de texte'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Mise en forme de texte'">
+               				Correction</a></h5>
+         <h3><a name="couleurs" href="#couleurs" id="couleurs"></a>III. Couleurs et fonds
+         </h3>
+         <h4><a name="color" id="color" href="#color"></a>1. Spécifier la couleur du texte&nbsp;: color
+         </h4>
+         <p><code class="code">color</code> permet de spécifier la couleur du texte. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">blue</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">#000080</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h3</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">rgb(25%,50%,75%)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Afin d'éviter d'aboutri à un texte illisible (par exemple, blanc sur blanc) quand l'utilisateur a personnalisé sa feuille
+            de style dans les préférences de son navigateur, <a href="#backgroundcolor"><code class="code">background-color</code></a> doit être spécifié en même temps que <code class="code">color</code>.
+         </p>
+         <p>Cette propriété est compatible avec tous les navigateurs.</p>
+         <p class="retourtdm"><a href="#tdm_color" title="Retour à la TdM (Spécifier la couleur du texte&nbsp;: color)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="backgroundcolor" id="backgroundcolor" href="#backgroundcolor"></a>2. Spécifier une couleur de fond&nbsp;: background-color
+         </h4>
+         <h5><a href="#bgcolorprop" name="bgcolorprop" id="bgcolorprop"></a>a. Propriété
+         </h5>
+         <p><code class="code">background-color</code> permet de spécifier la couleur de fond de l'élément. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">body</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-color</span>&nbsp;: <span class="cssvaleur">white</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-color</span>&nbsp;: <span class="cssvaleur">#000080</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Afin d'éviter des conflits avec des feuilles de style personnelles spécifiées par des utilisateurs, il est recommandé de spécifier
+            également la propriété <a href="#backgroundimage"><code class="code">background-image</code></a> à chaque fois que <code class="code">background-color</code> est utilisé. Souvent, <code class="code">background-image: none</code> suffit.
+         </p>
+         <p>De plus, il est recommandé de spécifier à chaque fois la propriété <a href="#color"><code class="code">color</code></a> de telle manière que le texte soit lisible sur le fond.
+         </p>
+         <p class="retourtdm"><a href="#tdm_bgcolorprop" title="Retour à la TdM (Propriété)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#compatbgcolor" name="compatbgcolor" id="compatbgcolor"></a>b. Compatibilité
+         </h5>
+         <p>Il n'y a pas de problème de compatibilité avec les navigateurs compatibles CSS (même <code class="logiciel">Internet Explorer 4</code> et <code class="logiciel">Netscape 4</code>), à une réserve près.
+         </p>
+         <p><code class="logiciel">Netscape 4</code>, en effet, ne remplit pas correctement un élément de type bloc avec la couleur choisie, à moins de spécifier une bordure
+            (même une bordure de largeur nulle). Ajouter une bordure laisse un espace transparent entre le remplissage par la couleur
+            et la bordure. <code class="logiciel">Netscape 4</code> possède une propriété... propriétaire, <code class="code">layer-background-color</code>, qui corrige ce problème.
+         </p>
+         <p class="retourtdm"><a href="#tdm_backgroundcolor" title="Retour à la TdM (Spécifier une couleur de fond&nbsp;: background-color)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="backgroundimage" id="backgroundimage" href="#backgroundimage"></a>3. Spécifier une image de fond&nbsp;: background-image
+         </h4>
+         <h5><a href="#bgimageprop" name="bgimageprop" id="bgimageprop"></a>a. Propriété
+         </h5>
+         <p><code class="code">background-image</code> permet de spécifier une image de fond pour l'élément. Il faut indiquer l'URL de l'image par rapport à l'emplacement de la
+            feuille de style. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">body</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(/images/ombrages.gif)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(http://www.wpdfd.com/images/bluebg.gif)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_bgimageprop" title="Retour à la TdM (Propriété)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#compatbgimage" name="compatbgimage" id="compatbgimage"></a>b. Compatibilité
+         </h5>
+         <p>Il n'y a pas de problème de compatibilité avec les navigateurs compatibles CSS (même <code class="logiciel">Internet Explorer 4</code> et <code class="logiciel">Netscape 4</code>), à une réserve près.
+         </p>
+         <p><code class="logiciel">Netscape 4</code>, en effet, ne remplit pas correctement un élément de type bloc avec l'image choisie, à moins de spécifier une bordure (même
+            une bordure de largeur nulle). Ajouter une bordure laisse un espace transparent entre le remplissage par la couleur et la
+            bordure. <code class="logiciel">Netscape 4</code> possède une propriété... propriétaire, <code class="code">layer-background-color</code>, qui corrige ce problème.
+         </p>
+         <p class="retourtdm"><a href="#tdm_backgroundimage" title="Retour à la TdM (Spécifier une image de fond&nbsp;: background-image)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="backgroundposition" id="backgroundposition" href="#backgroundposition"></a>4. Changer la position par défaut de l'image de fond&nbsp;: background-position
+         </h4>
+         <h5><a href="#bgposprop" name="bgposprop" id="bgposprop"></a>a. Propriété
+         </h5>
+         <p><code class="code">background-position</code> permet de spécifier la position initiale d'une image de fond. Le moyen le plus simple est d'utiliser des mots-clefs&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>horizontaux, comme <code class="code">left, center, right</code>.
+               </p>
+            </li>
+            <li>
+               <p>verticaux, comme <code class="code">top, center, bottom</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="css"><span class="selecteur">p.introduction</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(images/fond1.jpg)</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-position</span>&nbsp;: <span class="cssvaleur">top center</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Dans chaque paragraphe de <code class="code">class="introduction"</code>, l'image de fond est localisée par l'URL relative <code class="code">images/fond.jpg</code>. Elle est positionnée en haut et au milieu horizontal du paragraphe.
+         </p>
+         <p>Les pourcentages et les longueurs sont aussi autorisés. Les pourcentages se réfèrent à la taille de l'élément, et non à celle
+            de l'image lui servant de fond. Les longueurs, bien que possibles, ne sont pas conseillées car l'affichage est alors trop
+            dépendant des conditions précises de visualisation du document.
+         </p>
+         <p>Quand les pourcentages ou les longueurs sont utilisés, on indique d'abord la position horizontale, puis la position verticale.
+            Par exemple&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p.conclusion</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(images/fond2.jpg)</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-position</span>&nbsp;: <span class="cssvaleur">20% 65%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Dans chaque paragraphe de <code class="code">class="introduction"</code>, l'image de fond est localisée par l'URL relative <code class="code">images/fond.jpg</code>. L'image est positionnée de telle sorte que le point situé à 20% de la largeur de l'image, comptée à partir de la gauche,
+            et à 65% de sa hauteur, comptée à partir du haut, est placé à 20% de la largeur du paragraphe, compté à partir de la gauche,
+            et à 65% de la hauteur de ce dernier, comptée à partir du haut.
+         </p>
+         <p>Si on donne uniquement la position horizontale, la position verticale est fixée à 50%. On peut combiner pourcentages et longueurs&nbsp;:
+            <code class="code">background-position: 33% 2cm</code> est autorisé. En revanche, on ne peut combiner mots-clefs et pourcentages ou longueurs.
+         </p>
+         <p class="retourtdm"><a href="#tdm_bgposprop" title="Retour à la TdM (Propriété)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#compatbgpos" name="compatbgpos" id="compatbgpos"></a>b. Compatibilité
+         </h5>
+         <p>Cette propriété fonctionne avec <code class="logiciel">Internet Explorer 4</code> et suivants, <code class="logiciel">Netscape 6</code> et suivants, <code class="logiciel">Opera</code> et <code class="logiciel">Mozilla.</code></p>
+         <p>Affecter une propriété différente de la valeur par défaut, sous <code class="logiciel">Internet Explorer 4</code> pour Windows déclenche un <a href="#compatbgrepeat">bogue dans le support de ce navigateur pour la propriété <code class="code">background-repeat</code></a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_backgroundposition" title="Retour à la TdM (Changer la position par défaut de l'image de fond&nbsp;: background-position)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="backgroundrepeat" id="backgroundrepeat" href="#backgroundrepeat"></a>5. Contrôler la répétition d'une image de fond&nbsp;: background-repeat
+         </h4>
+         <h5><a href="#bgrepeatprop" name="bgrepeatprop" id="bgrepeatprop"></a>a. Propriété
+         </h5>
+         <p><code class="code">background-repeat</code> permet de spécifier la manière dont une image de fond va être répétée. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p.introduction</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(images/fond1.jpg)</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-repeat</span>&nbsp;: <span class="cssvaleur">repeat</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p.conclusion</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(images/fond2.jpg)</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-repeat</span>&nbsp;: <span class="cssvaleur">repeat-y</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">repeat</code>&nbsp;: l'image est répétée verticalement et horizontalement.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">repeat-x</code>&nbsp;: l'image est répétée horizontalement.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">repeat-y</code>&nbsp;: l'image est répétée verticalement.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">no-repeat</code>&nbsp;: l'image n'est pas répétée.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_bgrepeatprop" title="Retour à la TdM (Propriété)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#compatbgrepeat" name="compatbgrepeat" id="compatbgrepeat"></a>b. Compatibilité
+         </h5>
+         <p>Il n'y a pas de gros problème de compatibilité avec les navigateurs compatibles CSS (même <code class="logiciel">Internet Explorer 4</code> et <code class="logiciel">Netscape 4</code>).
+         </p>
+         <p><code class="logiciel">Internet Explorer 4</code> pour Windows, cependant, ne place les images que de la gauche vers la droite, et du haut vers le bas. Il s'ensuit qu'en spécifiant
+            une propriété <a href="#backgroundposition"><code class="code">background-position</code></a> différente de la valeur par défaut, l'affichage reste incomplet.
+         </p>
+         <p class="retourtdm"><a href="#tdm_backgroundrepeat" title="Retour à la TdM (Contrôler la répétition d'une image de fond&nbsp;: background-repeat)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="backgroundattachment" id="backgroundattachment" href="#backgroundattachment"></a>6. Contrôler le défilement de l'image de fond&nbsp;: background-attachment
+         </h4>
+         <h5><a href="#attachprop" name="attachprop" id="attachprop"></a>a. Propriété
+         </h5>
+         <p><code class="code">background-attachment</code> permet de spécifier la manière dont l'image de fond est «&nbsp;attachée&nbsp;» au défilement de la fenêtre. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">body</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-image</span>&nbsp;: <span class="cssvaleur">url(images/fond0.jpg)</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-attachment</span>&nbsp;: <span class="cssvaleur">fixed</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les deux valeurs possibles sont <code class="code">fixed</code> (quand on agit sur les barres de défilement, l'image ne bouge pas), et <code class="code">scroll</code>, valeur par défaut (le défilement de l'image suit celui du texte).
+         </p>
+         <p class="retourtdm"><a href="#tdm_attachprop" title="Retour à la TdM (Propriété)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#compatattach" name="compatattach" id="compatattach"></a>b. Compatibilité
+         </h5>
+         <p>Le support pour cette propriété varie selon les navigateurs&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="logiciel">Internet Explorer</code> à partir de la version 4
+               </p>
+            </li>
+            <li>
+               <p><code class="logiciel">Netscape</code> à partir de la version 6
+               </p>
+            </li>
+            <li>
+               <p><code class="logiciel">Opera</code> à partir de la version 5
+               </p>
+            </li>
+            <li>
+               <p><code class="logiciel">Mozilla</code>&nbsp;: tous.
+               </p>
+            </li>
+         </ul>
+         <p><code class="logiciel">Internet Explorer</code> pour Windows (jusqu'à la version 6), et les navigateurs <code class="logiciel">Opera</code> (jusqu'à la version 6) ne supportent pas correctement la valeur <code class="code">fixed</code> pour d'autres éléments que l'élément <code class="code">&lt;body&gt;</code>. <code class="logiciel">Opera 7</code>, <code class="logiciel">Internet Explorer 5</code> pour Macintosh, <code class="logiciel">Netscape 6.2.1</code> et suivants, toutes les versions de <code class="logiciel">Mozilla</code> ont un support correct.
+         </p>
+         <p class="retourtdm"><a href="#tdm_backgroundattachment" title="Retour à la TdM (Contrôler le défilement de l'image de fond&nbsp;: background-attachment)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="background" id="background" href="#background"></a>7. Le résumé&nbsp;: background
+         </h4>
+         <h5><a href="#backgroundprop" name="backgroundprop" id="backgroundprop"></a>a. La propriété
+         </h5>
+         <p>Il est possible de réunir plusieurs de ces propriétés en utilisant le raccourci <code class="code">background</code>. Par exemple...
+         </p>
+         <p class="css"><span class="selecteur">#supplement</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background</span>&nbsp;: <span class="cssvaleur">#0c0 url(feuilles.jpg) no-repeat bottom right</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>La déclaration précédente permet de spécifier que l'élément d'identifiant <code class="code">supplement</code> a une couleur de fond par défaut, <code class="code">#00cc00</code>, associée à une image de fond <code class="code">feuilles.jpg</code>, alignée en bas à droite de l'élément, et ne se répétant pas.
+         </p>
+         <p class="retourtdm"><a href="#tdm_backgroundprop" title="Retour à la TdM (La propriété)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#compatbackground" name="compatbackground" id="compatbackground"></a>b. Compatibilité
+         </h5>
+         <p>Le support pour ce raccourci varie selon les navigateurs&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="logiciel">Internet Explorer</code> à partir de la version 4
+               </p>
+            </li>
+            <li>
+               <p><code class="logiciel">Netscape</code> à partir de la version 6
+               </p>
+            </li>
+            <li>
+               <p><code class="logiciel">Opera</code> à partir de la version 5
+               </p>
+            </li>
+            <li>
+               <p><code class="logiciel">Mozilla</code>&nbsp;: tous.
+               </p>
+            </li>
+         </ul>
+         <p>Ce raccourci est partiellement supporté par <code class="logiciel">Netscape 4</code>&nbsp;; mais cela n'est pas documenté officiellement et n'est donc pas fiable.
+         </p>
+         <p class="retourtdm"><a href="#tdm_background" title="Retour à la TdM (Le résumé&nbsp;: background)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exocouleur" href="#exocouleur" id="exocouleur"></a>1. Couleurs et fond
+         </h4>
+         <h5><a href="exercices/td5.html#couleursfonds" title="Énoncé de l'exercice 'Couleurs et fond'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Couleurs et fond'">
+               				Correction</a></h5>
+         <h3><a name="boites" href="#boites" id="boites"></a>IV. Les «&nbsp;boîtes&nbsp;»
+         </h3>
+         <h4><a name="boitesgen" id="boitesgen" href="#boitesgen"></a>1. Généralités
+         </h4>
+         <h5><a href="#boitesintro" name="boitesintro" id="boitesintro"></a>a. Introduction&nbsp;:  le modèle de boîte
+         </h5>
+         <p>La recommandation <code class="langage">CSS1</code> indique que tous les éléments <code class="code">HTML</code> (sauf ceux qui ne figurent que par leurs adresses&nbsp;: images, son, objets multimédia en général, plug-in...) puissent être
+            considérés comme des blocs rectangulaires. Ce bloc est constitué de plusieurs couches (en pelures d'oignon en quelque sorte)&nbsp;;
+            on a de l'intérieur vers l'extérieur&nbsp;: 
+         </p>
+         <ul>
+            <li>
+               <p>un contenu (<code class="code">content</code>)
+               </p>
+            </li>
+            <li>
+               <p>une zone d'ajustement (<code class="code">padding</code>)
+               </p>
+            </li>
+            <li>
+               <p>un encadrement (<code class="code">border</code>)
+               </p>
+            </li>
+            <li>
+               <p>une marge (<code class="code">margin</code>)
+               </p>
+            </li>
+         </ul><span class="image"><img src="exemples/boites.gif" alt="Pelures d'oignon" width="259" height="270" class="normal"></span><p>Cette terminologie est décomposée selon le côté concerné&nbsp;: droite (<span lang="en" class="autrelangue">right</span>), gauche (<span lang="en" class="autrelangue">left</span>), dessus (<span lang="en" class="autrelangue">top</span>), dessous (<span lang="en" class="autrelangue">bottom</span>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_boitesintro" title="Retour à la TdM (Introduction&nbsp;:  le modèle de boîte)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#regles" name="regles" id="regles"></a>b. Règles d'attribution
+         </h5>
+         <p>Pour tous les éléments définis ci-dessus, une propriété définit son épaisseur, il s'agit&nbsp;:</p>
+         <table class="tableau" summary="Propriétés pour l'ajustement de la taille des boîtes." border="1">
+            <tr>
+               <td>
+                  <p><code class="code">margin</code></p>
+               </td>
+               <td>
+                  <p><code class="code">padding</code></p>
+               </td>
+               <td>
+                  <p><code class="code">border-width</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">margin-top</code></p>
+               </td>
+               <td>
+                  <p><code class="code">padding-top</code></p>
+               </td>
+               <td>
+                  <p><code class="code">border-top-width</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">margin-right</code></p>
+               </td>
+               <td>
+                  <p><code class="code">padding-right</code></p>
+               </td>
+               <td>
+                  <p><code class="code">border-right-width</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">margin-bottom</code></p>
+               </td>
+               <td>
+                  <p><code class="code">padding-bottom</code></p>
+               </td>
+               <td>
+                  <p><code class="code">border-bottom-width</code></p>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">margin-left</code></p>
+               </td>
+               <td>
+                  <p><code class="code">padding-left</code></p>
+               </td>
+               <td>
+                  <p><code class="code">border-left-width</code></p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Propriétés pour l'ajustement de la taille des boîtes.</p>
+         <p>Chacune des propriétés citées en en-tête permet d'énoncer celles de la colonne entière selon un protocole que nous allons
+            illustrer par les exemples suivants&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">margin : 2em</code> signifie  <code class="code">margin-top: 2em; margin-right: 2em; margin-bottom: 2em; margin-left: 2em</code></p>
+            </li>
+            <li>
+               <p><code class="code">margin: 1em 2em</code> signifie <code class="code">margin-top : 1em; margin-right : 2em; margin-bottom : 1em; margin-left : 2em</code></p>
+            </li>
+            <li>
+               <p><code class="code">margin: 1em 2em 3em</code> signifie <code class="code">margin-top : 1em; margin-right : 2em; margin-bottom : 3em; margin-left : 2em</code></p>
+            </li>
+            <li>
+               <p><code class="code">margin: 1em 2em 3em -2em</code> signifie <code class="code">margin-top : 1em; margin-right : 2em; margin-bottom : 3em; margin-left : -2em</code></p>
+            </li>
+         </ul>
+         <p>La règle est donc la suivante&nbsp;: les valeurs sont attribuées à partir du sommet (<code class="code">top</code>) dans le sens des aiguilles d'une montre (<code class="code">top</code>, <code class="code">right</code>, <code class="code">bottom</code>, <code class="code">left</code>). Lorsqu'une valeur est manquante, on lui attribue celle du côté qui lui fait face. 
+         </p>
+         <p class="retourtdm"><a href="#tdm_boitesgen" title="Retour à la TdM (Généralités)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="margin" id="margin" href="#margin"></a>2. Les propriétés de la marge extérieure&nbsp;: margin
+         </h4>
+         <p>Les valeurs possibles de la propriété sont un pourcentage, une longueur ou <code class="code">auto</code>. Le pourcentage est une fraction de la largeur de l'élément parent contenant le bloc. Des valeurs négatives sont possibles
+            dans les limites définies par l'implémentation. Le mot clé <code class="code">auto</code> laisse au navigateur la gestion de cette épaisseur.
+         </p>
+         <p class="retourtdm"><a href="#tdm_margin" title="Retour à la TdM (Les propriétés de la marge extérieure&nbsp;: margin)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="padding" id="padding" href="#padding"></a>3. Les propriétés de la marge intérieure&nbsp;: padding
+         </h4>
+         <p>Les valeurs possibles de cette propriété sont un pourcentage ou une longueur.</p>
+         <p class="retourtdm"><a href="#tdm_padding" title="Retour à la TdM (Les propriétés de la marge intérieure&nbsp;: padding)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="border" id="border" href="#border"></a>4. Les propriétés de la bordure&nbsp;: border
+         </h4>
+         <h5><a href="#borderwidth" name="borderwidth" id="borderwidth"></a>a. Propriétés de largeur: border-width
+         </h5>
+         <p>Les valeurs possibles de cette propriété sont une longueur, ou bien <code class="code">thin</code> (mince), <code class="code">medium</code> ou <code class="code">thick</code> (gros). Cette propriété est compatible avec tous les navigateurs.
+         </p>
+         <p class="retourtdm"><a href="#tdm_borderwidth" title="Retour à la TdM (Propriétés de largeur: border-width)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#bordercolor" name="bordercolor" id="bordercolor"></a>b. Spécifier la couleur de la bordure&nbsp;: border-color
+         </h5>
+         <p><code class="code">border-color</code> permet de spécifier la couleur de la bordure.
+         </p>
+         <p>La répartition des couleurs s'organise en commençant au sommet, puis en tournant dans le sens des aiguilles d'une montre.
+            Si une couleur est manquante, on prend celle qui lui fait face.
+         </p>
+         <p>Si l'encadrement est présent mais pas la propriété <code class="code">border-color</code>, le navigateur reprend par défaut la couleur du texte (<code class="code">color</code>).
+         </p>
+         <p>Cette propriété est compatible avec tous les navigateurs, à la réserve près que <code class="logiciel">Netscape 4</code> n'accepte qu'une seule valeur de couleur.
+         </p>
+         <p class="retourtdm"><a href="#tdm_bordercolor" title="Retour à la TdM (Spécifier la couleur de la bordure&nbsp;: border-color)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#borderstyle" name="borderstyle" id="borderstyle"></a>c. Spécifier le type de trait de la bordure&nbsp;: border-style
+         </h5>
+         <p><code class="code">border-style</code> permet de spécifier le style de la bordure.
+         </p>
+         <p>Les valeurs possibles sont&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">none</code>, la valeur par défaut (absence de bordure)
+               </p>
+            </li>
+            <li>
+               <p><code class="code">dotted</code>, bordure en pointillés
+               </p>
+            </li>
+            <li>
+               <p><code class="code">dashed</code>, bordure en tirets
+               </p>
+            </li>
+            <li>
+               <p><code class="code">solid</code>, bordure continue
+               </p>
+            </li>
+            <li>
+               <p><code class="code">double</code>, bordure double
+               </p>
+            </li>
+            <li>
+               <p><code class="code">groove</code>, bordure 3D en creux
+               </p>
+            </li>
+            <li>
+               <p><code class="code">ridge</code>, bordure 3D en saillie
+               </p>
+            </li>
+            <li>
+               <p><code class="code">inset</code>, bloc 3D en arrière
+               </p>
+            </li>
+            <li>
+               <p><code class="code">outset</code>, bloc 3D en avant
+               </p>
+            </li>
+            <li>
+               <p><code class="code">hidden</code>, bordure cachée
+               </p>
+            </li>
+         </ul>
+         <p>La compatibilité dépend de la valeur de la propriété choisie&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">dashed</code>, <code class="code">dotted</code> et <code class="code">hidden</code> ne sont supportées que par <code class="logiciel">Netscape 6</code> et suivants, <code class="logiciel">Mozilla</code>, <code class="logiciel">Opera</code>, <code class="logiciel">Internet Explorer 4</code> sur Macintosh et <code class="logiciel">Internet Explorer 5.5</code> et suivants sous Windows.
+               </p>
+            </li>
+            <li>
+               <p>Les autres propriétés sont supportées par tous les navigateurs à partir des versions 4. <code class="logiciel">Netscape 4</code>, cependant, définit une largeur de bordure nulle par défaut&nbsp;: pour appliquer un style de bordure, il faut donc pour ce navigateur,
+                  indiquer une bordure de largeur non nulle.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_borderstyle" title="Retour à la TdM (Spécifier le type de trait de la bordure&nbsp;: border-style)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#bordertop" name="bordertop" id="bordertop"></a>d. Raccourcis&nbsp;: border-top, border-right, border-bottom, border-left
+         </h5>
+         <p><code class="code">border-top, border-right, border-bottom, border-left</code> et <code class="code">border</code> permettent des raccourcis&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p.intro</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border-top</span>&nbsp;: <span class="cssvaleur">thick blue double</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p.conclu</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border-left</span>&nbsp;: <span class="cssvaleur">medium red dotted</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">p.corps</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border</span>&nbsp;: <span class="cssvaleur">thin medium thick red blue blue inset</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>On peut également choisir de n'appliquer un style particulier qu'à une bordure&nbsp;:</p>
+         <p class="css"><span class="selecteur">a:hover</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border-bottom-style</span>&nbsp;: <span class="cssvaleur">dashed</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border-bottom-color</span>&nbsp;: <span class="cssvaleur">gray</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border-bottom-width</span>&nbsp;: <span class="cssvaleur">1px</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Ces raccourcis sont supportés par tous les navigateurs, sauf <code class="code">Netscape 4</code> qui ne supporte que <code class="code">border-xxx-width</code>, pour laquelle il fixe la valeur par défaut à 0, et non <code class="code">medium</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_border" title="Retour à la TdM (Les propriétés de la bordure&nbsp;: border)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="float" id="float" href="#float"></a>5. Placement d'un élément de type bloc par rapport au contenu environnant&nbsp;: float
+         </h4>
+         <p><code class="code">float</code> permet de spécifier la position d'un texte par rapport au flux de la page, c'est-à-dire sans position «&nbsp;naturelle&nbsp;». L'élément
+            est alors sorti du flux. Cela permet par exemple de placer une image de manière à ce que le texte dans lequel elle se trouve
+            la contourne.
+         </p>
+         <p>Cette propriété peut prendre les valeurs <code class="code">none</code>, <code class="code">right</code> ou <code class="code">left</code>. Dans l'exemple suivant, le paragraphe de classe <code class="code">note</code> sera «&nbsp;calé&nbsp;» à droite de la fenêtre.
+         </p>
+         <p class="css"><span class="selecteur">p.note</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">float</span>&nbsp;: <span class="cssvaleur">right</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_float" title="Retour à la TdM (Placement d'un élément de type bloc par rapport au contenu environnant&nbsp;: float)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="clear" id="clear" href="#clear"></a>6. Nettoyer les éléments flottants&nbsp;: clear
+         </h4>
+         <p><code class="code">clear</code> permet de spécifier si l'élément peut admettre un élément «&nbsp;flottant&nbsp;» sur un de ses côtés.
+         </p>
+         <p>Cette propriété peut prendre les valeurs <code class="code">none</code> (la valeur par défaut), <code class="code">left</code>, <code class="code">right</code> ou <code class="code">both</code>. Si <code class="code">clear="left"</code>, l'élément est positionné en-dessous de tout élément «&nbsp;flottant&nbsp;» sur sa gauche. Si <code class="code">clear="both"</code>, l'élément est positionné en-dessous de tout élément «&nbsp;flottant&nbsp;» sur sa gauche ou sa droite. Par exemple...
+         </p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">clear</span>&nbsp;: <span class="cssvaleur">left</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>... signifie qu'aucun élément flottant ne pourra se placer à gauche d'un titre de niveau 1.</p>
+         <p>Cette propriété est supportée par tous les navigateurs.</p>
+         <p class="retourtdm"><a href="#tdm_clear" title="Retour à la TdM (Nettoyer les éléments flottants&nbsp;: clear)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="height" id="height" href="#height"></a>7. Spécifier largeur et hauteur d'un élément&nbsp;: height, width
+         </h4>
+         <h5><a href="#widthheightintro" name="widthheightintro" id="widthheightintro"></a>a. Le comportement théorique
+         </h5>
+         <p>Ces propriétés s'appliquent à tout élément de type bloc mais aussi aux éléments insérés (dont ne figure que l'adresse url)
+            comme les images.
+         </p>
+         <p>Les valeurs possibles de ces propriétés sont une longueur, un pourcentage (seulement pour <code class="code">width</code>) et <code class="code">auto</code>. Le pourcentage est une fraction de la taille du conteneur parent. L'option <code class="code">auto</code> se réfère aux dimensions intrinsèques du contenu (par exemple la taille intrinsèque d'une image).
+         </p>
+         <p class="retourtdm"><a href="#tdm_widthheightintro" title="Retour à la TdM (Le comportement théorique)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#widthheightcompat" name="widthheightcompat" id="widthheightcompat"></a>b. Compatibilité
+         </h5>
+         <p>Les recommandations du W3C stipulent que la largeur totale occupée à l'écran par un élément est égale à la somme de <code class="code">width</code>, du double de <code class="code">padding-width</code> et du double de <code class="code">border-width</code>. Ce modèle de boîte standard est respecté par tous les navigateurs sauf <code class="logiciel">Internet Explorer</code>, pour qui la largeur à l'écran n'est égale qu'à <code class="code">width</code>. C'est une source classique d'incompatibilités d'affichages entre navigateurs.
+         </p>
+         <p class="retourtdm"><a href="#tdm_height" title="Retour à la TdM (Spécifier largeur et hauteur d'un élément&nbsp;: height, width)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoboites" href="#exoboites" id="exoboites"></a>1. Boîtes
+         </h4>
+         <h5><a href="exercices/td5.html#boites" title="Énoncé de l'exercice 'Boîtes'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Boîtes'">
+               				Correction</a></h5>
+         <h3><a name="listes" href="#listes" id="listes"></a>V. Listes
+         </h3>
+         <h4><a name="liststyleimage" id="liststyleimage" href="#liststyleimage"></a>1. Spécifier une image comme puce dans une liste&nbsp;: list-style-image
+         </h4>
+         <p><code class="code">list-style-image</code> permet de spécifier une puce pour une liste. Il faut indiquer l'URL de l'image à utiliser. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">ul.index</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">list-style-image</span>&nbsp;: <span class="cssvaleur">url(../images/rond_rouge.gif)</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_liststyleimage" title="Retour à la TdM (Spécifier une image comme puce dans une liste&nbsp;: list-style-image)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="liststyleposition" id="liststyleposition" href="#liststyleposition"></a>2. Changer l'alignement du texte après la puce dans une liste&nbsp;: list-style-position
+         </h4>
+         <p><code class="code">list-style-position</code> permet de spécifier la position de la puce ou du numéro. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">ul.dedans</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">list-style-position</span>&nbsp;: <span class="cssvaleur">inside</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont <code class="code">inside</code> et <code class="code">outside</code>. Avec <code class="code">list-style-position: inside</code>, le numéro ou la puce est aligné avec le texte. Avec <code class="code">list-style-position: outside</code>, le numéro ou la puce est en marge du texte.
+         </p>
+         <p class="retourtdm"><a href="#tdm_liststyleposition" title="Retour à la TdM (Changer l'alignement du texte après la puce dans une liste&nbsp;: list-style-position)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="liststyletype" id="liststyletype" href="#liststyletype"></a>3. Changer la forme de la puce ou le type de numérotation&nbsp;: list-style-type
+         </h4>
+         <p><code class="code">list-style-type</code> permet de spécifier le type de puce ou de numéro selon le type de liste. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">ul.carres</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">list-style-type</span>&nbsp;: <span class="cssvaleur">square</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Pour une liste non ordonnée, les valeurs possibles sont <code class="code">disc</code>, <code class="code">circle</code>, <code class="code">square</code> et <code class="code">none</code>.
+         </p>
+         <p>Pour une liste ordonnée, les valeurs possibles sont <code class="code">decimal</code> (1, 2...), <code class="code">lower roman</code> (i, ii...), <code class="code">upper-roman</code> (I, II...), <code class="code">lower-alpha</code> (a, b...), <code class="code">upper-alpha</code> (A, B...) et <code class="code">none</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_liststyletype" title="Retour à la TdM (Changer la forme de la puce ou le type de numérotation&nbsp;: list-style-type)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exolistes" href="#exolistes" id="exolistes"></a>1. Mise en forme de listes
+         </h4>
+         <h5><a href="exercices/td5.html#listes" title="Énoncé de l'exercice 'Mise en forme de listes'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Mise en forme de listes'">
+               				Correction</a></h5>
+         <h3><a name="autres" href="#autres" id="autres"></a>VI. Autres propriétés
+         </h3>
+         <h4><a name="display" id="display" href="#display"></a>1. Contrôle de l'affichage ou de la disparition d'un élément&nbsp;: display
+         </h4>
+         <p><code class="code">display</code> permet de spécifier le mode d'affichage de l'élément. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h4</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">display</span>&nbsp;: <span class="cssvaleur">inline</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">block</code>&nbsp;: l'élément est traité comme un nouveau bloc comme le sont, par défaut, les titres et les paragraphes. Valeur compatible
+                  avec tous les navigateurs, y compris <code class="logiciel">Netscape 4</code>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">inline</code>&nbsp;: l'élément sera affiché dans le cours de la ligne courante. Valeur compatible avec tous les navigateurs, y compris <code class="logiciel">Netscape 4</code>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">list-item</code>&nbsp;: la présentation sera celle d'une liste. Valeur supportée par <code class="logiciel">Netscape&nbsp;4+</code>, <code class="logiciel">Internet Explorer&nbsp;6+</code> sous Windows, <code class="logiciel">IE&nbsp;5+</code> pour Macintosh, <code class="logiciel">Mozilla</code>, <code class="logiciel">Opera</code>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">none</code>&nbsp;: l'élément sera invisible. Valeur compatible avec tous les navigateurs, y compris <code class="logiciel">Netscape&nbsp;4</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_display" title="Retour à la TdM (Contrôle de l'affichage ou de la disparition d'un élément&nbsp;: display)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="whitespace" id="whitespace" href="#whitespace"></a>2. Prise en charge des blancs&nbsp;: white-space
+         </h4>
+         <p><code class="code">white-space</code> permet de spécifier la manière dont les blancs sont pris en compte. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">div.telque</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">white-space</span>&nbsp;: <span class="cssvaleur">pre</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les valeurs possibles sont&nbsp;:</p>
+         <ul>
+            <li>
+               <p><code class="code">normal</code>&nbsp;: le navigateur gère les retours à la ligne normalement en interprétant les "blancs" comme des coupures possibles et en ignorant
+                  ceux du texte source.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">pre</code>&nbsp;: comme l'élément <code class="code">pre</code>, pour préformaté. Le texte sera reproduit tel quel dans la fenêtre en respectant tous les blancs et les retours à la ligne
+                  du texte source.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">nowrap</code>&nbsp;: interdit le retour à la ligne automatique. Il ne pourra être que volontaire par l'élément <code class="code">br</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_whitespace" title="Retour à la TdM (Prise en charge des blancs&nbsp;: white-space)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="cssintro.html">Feuilles de style, introduction</a><br>Cours suivant&nbsp;: <a href="css2.html">Règles supplémentaires du CSS2</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="css1.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 24 octobre 2008, version 1.34. Corrections de style et de fautes de frappe.</li>
+            <li>Le 29 février 2008, version 1.33. Corrections syntaxiques et de fautes de frappe.</li>
+            <li>Le 21 septembre 2007, version 1.32. Corrections syntaxiques.</li>
+            <li>Le 11 octobre 2006, version 1.31. Ajout d'une remarque sur les différences d'interprétation de width entre les navigateurs.</li>
+            <li>Le 4 octobre 2006, version 1.30. Corrections syntaxiques, explicitation des titres.</li>
+            <li>Le 4 janvier 2006, version 1.22. Correction de coquille.</li>
+            <li>Le 16 juin 2004, version 1.21. Ajout de la correction des exercices.</li>
+            <li>Le 11 mai 2004, version 1.20. Correction de coquilles. Ajout des problèmes de compatibilité pour chaque propriété.</li>
+            <li>Le 22 avril 2004, version 1.10. Correction de coquilles. Ajouts d'appels aux exercices.</li>
+            <li>Le 8 décembre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

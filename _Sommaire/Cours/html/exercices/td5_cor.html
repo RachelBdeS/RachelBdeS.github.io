@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>TD 5 - Page à formatter; correction.</title>
+	<style type="text/css">
+		   	body			   {	font-family: Verdana, Arial, sans-serif;
+							   		background-color: white;
+		   					   }
+							   
+			h1				   {	text-align: center;
+							   }
+							   
+			h1, h2, h3		   {	font-family: Arial, sans-serif;
+							   }
+							   
+			#premiere h3	   {	color: red;
+					  		   }				   
+							   
+		  	#premiere blockquote p:first-letter  {	font-weight: bold;
+		   				   		font-family: fantasy;
+								font-size: 200%;
+								color:	 green;
+								}
+								
+			#premiere			{	background-image: url(../images/snoopy.gif);
+									background-repeat: repeat-y;
+									background-position: bottom right;
+								}
+								
+			blockquote			{	text-indent: 1em;
+								}
+						
+			#basdepage		{	font-size: small;
+								background-color: #C0C0C0;
+								color: blue;
+							}
+							
+			table			{	width: 50%;
+							}
+							
+			th				{	font-variant: small-caps;
+								text-decoration: underline;
+							}
+							
+			.produit		{	text-align: left;
+								text-transform: capitalize;
+							}
+							
+			.reference		{	  font-family: monospace;
+								  text-align: center;
+								  width: 10em;
+							}
+								
+			.general		{	text-align: right;
+								width: 10%;
+							}
+							
+			#pborder		{	border-width: thick;
+								border-color: green;
+								border-style: ridge;
+								padding: 1ex;
+							}
+							
+			p.notedroite	{	float: right;
+								text-align: left;
+							}
+							
+			ul.points		{	list-style-type: circle;
+							}
+							
+			ol ol			{	list-style-type: lower-alpha;
+			   				}
+							 			
+	</style>
+</head>
+
+<body>
+
+<h1>Grand titre</h1>
+
+<div id="premiere">
+<h2>Première partie</h2>
+
+<h3>Poème de Baudelaire</h3>
+
+<blockquote>
+<p>Quand le ciel bas et lourd pèse comme un couvercle<br>
+Sur l'esprit gémissant en proie aux longs ennuis,<br>
+Et que de l'horizon embrassant tout le cercle<br>
+II nous verse un jour noir plus triste que les nuits&nbsp;;</p>
+
+<p>
+Quand la terre est changée en un cachot humide,<br>
+Où l'Espérance, comme une chauve-souris,<br>
+S'en va battant les murs de son aile timide<br>
+Et se cognant la tête à des plafonds pourris&nbsp;;</p>
+
+<p>
+Quand la pluie étalant ses immenses traînées<br>
+D'une vaste prison imite les barreaux,<br>
+Et qu'un peuple muet d'infâmes araignées<br>
+Vient tendre ses filets au fond de nos cerveaux,</p>
+
+<p>
+Des cloches tout à coup sautent avec furie<br>
+Et lancent vers le ciel un affreux hurlement,<br>
+Ainsi que des esprits errants et sans patrie<br>
+Qui se mettent à geindre opiniâtrement.</p>
+
+<p>
+Et de longs corbillards, sans tambours ni musique,<br>
+Défilent lentement dans mon âme&nbsp;; l'Espoir,<br>
+Vaincu, pleure, et l'Angoisse atroce, despotique,<br>
+Sur mon crâne incliné plante son drapeau noir.</p>
+</blockquote>
+
+<h3>Paragraphe 12</h3>
+
+<p>Un petit tableau pour s'entraîner...</p>
+<table border="1">
+	   <tr>
+	   	   <th class="produit">Produit</th>
+		   <th class="reference">Référence</th>
+		   <th class="general">Prix unitaire (euros)</th>
+		   <th class="general">Quantité</th>
+	   </tr>
+	   <tr>
+	   	   <td class="produit">Poudre de Perlimpimpin</td>
+		   <td class="reference">PP579733</td>
+		   <td class="general">1.5</td>
+		   <td class="general">1</td>
+	   </tr>
+	   <tr>
+	   	   <td class="produit">Poudre d'escampette</td>
+		   <td class="reference">22</td>
+		   <td class="general">22</td>
+		   <td class="general">22</td>
+	   </tr>
+	   <tr>
+	   	   <td class="produit">Poudre aux yeux</td>
+		   <td class="reference">PY2121</td>
+		   <td class="general">5</td>
+		   <td class="general">2</td>
+	   </tr>
+</table>
+
+</div>
+
+<div id="seconde">
+
+<h2>Seconde partie</h2>
+
+<h3>border</h3>
+
+<p id="pborder">Une petite citation de Pierre Dac...<br>
+<q>Les suppositoires à la nitroglycérine sont beaucoup plus efficaces que ceux à la glycérine pure, mais se révèlent beaucoup plus bruyants.</q>
+</p>
+
+<h3>Listes</h3>
+
+<ul class="points">
+	<li>Premier élément</li>
+	<li>Second élément
+		<ol>
+			<li>Un</li>
+			<li>Deux
+				<ol>
+					<li>Petit a&nbsp;?</li>
+					<li>Petit b&nbsp;!</li>
+				</ol>
+			</li>
+		</ol>
+	</li>
+</ul>
+
+</div>
+
+<hr>
+
+<div id="basdepage">
+<p class="notedroite">Petit<br>texte<br>à<br>droite</p>
+<p>Le mot de la fin&nbsp;:<br>
+<q id="motdelafin">"Point n'est besoin d'espérer pour entreprendre, ni de réussir pour persévérer"</q>, Guillaume d'Orange.
+</p>
+</div>
+
+<p><a href="../css1.html">Retour au cours</a></p>
+
+</body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Feuilles de style, introduction</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, css, base, concept, introduction, propriete">
+      <meta name="description" content="Le langage CSS permet de mettre en forme un document HTML. Voici ses principes de base.">
+      <link rel="next" href="css1.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Feuilles de style, introduction</h1>
+         <p><span class="version">version 1.60</span>, dernière mise à jour le 24 octobre 2008.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#gen" title="Généralités">Généralités</a><ol>
+                     <li><a href="#philo" title="«&nbsp;Philosophie&nbsp;» de l'utilisation des feuilles de style">«&nbsp;Philosophie&nbsp;» de l'utilisation des feuilles de style</a><ol>
+                           <li><a href="#principe" title="Principe">Principe</a></li>
+                           <li><a href="#avinc" title="Avantages et inconvénients">Avantages et inconvénients</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#csshistorique" title="Historique">Historique</a></li>
+                     <li><a href="#navigateurs" title="Support par les navigateurs">Support par les navigateurs</a><ol>
+                           <li><a href="#navigintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#strategie" title="Stratégie de développement">Stratégie de développement</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#appli" title="Comment appliquer un style&nbsp;?">Comment appliquer un style&nbsp;?</a><ol>
+                     <li><a href="#applistyle" title="Appel à l'attribut style">Appel à l'attribut style</a></li>
+                     <li><a href="#appliinterne" title="Feuille de style interne">Feuille de style interne</a></li>
+                     <li><a href="#appliexterne" title="Feuille de style externe">Feuille de style externe</a></li>
+                     <li><a href="#applicascade" title="Notion de feuille de style en cascade">Notion de feuille de style en cascade</a></li>
+                     <li>Exercice&nbsp;: <a href="#exoappel">Attribut style, feuilles de style interne et externe</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#syntaxe" title="La syntaxe">La syntaxe</a><ol>
+                     <li><a href="#syntaxegenerale" title="Structure générale">Structure générale</a><ol>
+                           <li><a href="#reglegenerale" title="Construction d'une règle">Construction d'une règle</a></li>
+                           <li><a href="#comment" title="Commentaires">Commentaires</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#selecsimples" title="Sélecteurs simples">Sélecteurs simples</a><ol>
+                           <li><a href="#balise" title="Balise">Balise</a></li>
+                           <li><a href="#classe" title="Classe">Classe</a></li>
+                           <li><a href="#identifiant" title="Identifiant">Identifiant</a></li>
+                           <li>Exercice&nbsp;: <a href="#exoclasses" title="Utilisation des classes et identifiants">Utilisation des classes et identifiants</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#seleccomplexes" title="Sélecteurs complexes">Sélecteurs complexes</a><ol>
+                           <li><a href="#contextuel" title="Sélecteur contextuel">Sélecteur contextuel</a></li>
+                           <li><a href="#pseudoclasses" title="Pseudo-classes">Pseudo-classes</a></li>
+                           <li><a href="#pseudoelements" title="Pseudo-éléments">Pseudo-éléments</a></li>
+                           <li>Exercice&nbsp;: <a href="#exocontexte" title="Sélecteurs contextuels">Sélecteurs contextuels</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#unites" title="Unités">Unités</a><ol>
+                           <li><a href="#unitessyntaxe" title="Syntaxe">Syntaxe</a></li>
+                           <li><a href="#unitesabsolues" title="Unités absolues de longueur">Unités absolues de longueur</a></li>
+                           <li><a href="#unitesrelatives" title="Unités relatives de longueur">Unités relatives de longueur</a></li>
+                           <li><a href="#unitespourcentages" title="Pourcentages">Pourcentages</a></li>
+                           <li><a href="#unitescouleurs" title="Couleurs">Couleurs</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="gen" href="#gen" id="gen"></a>I. Généralités
+         </h3>
+         <h4><a name="philo" id="philo" href="#philo"></a>1. «&nbsp;Philosophie&nbsp;» de l'utilisation des feuilles de style
+         </h4>
+         <h5><a href="#principe" name="principe" id="principe"></a>a. Principe
+         </h5>
+         <p>Nous l'avons largement évoqué en introduction à ce cours&nbsp;: à l'origine le langage <code class="langage">HTML</code> est conçu pour structurer le document (titre, citation, exemple, adresse...) en qualifiant la nature du contenu et non pour
+            présenter le texte (gras, italique, en retrait, taille...). Au fil du temps, les créateurs de navigateurs s'étaient éloignés
+            de ce point de départ pour en arriver à définir un langage de présentation.
+         </p>
+         <p>Avec les feuilles de style, le consortium du <a href="http://www.w3c.org">W3C</a> est revenu à cette conception initale&nbsp;: le <code class="langage">HTML</code> structure le texte, la feuille de style le présente.
+         </p>
+         <p class="retourtdm"><a href="#tdm_principe" title="Retour à la TdM (Principe)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#avinc" name="avinc" id="avinc"></a>b. Avantages et inconvénients
+         </h5>
+         <p>Dans une conception raisonnée d'un site Web, le style de présentation fait partie des choix stratégiques de la communication
+            de l'entreprise ou de l'institution. Il en va de même de l'organisation des liens, des arborescences... Or ces choix sont
+            susceptibles d'évoluer rapidement. Il est alors hors de question d'avoir à reprendre l'ensemble des pages Web lors d'un changement
+            de style de présentation, car la maintenance deviendrait dans cette situation impossible et son coût rédhibitoire.
+         </p>
+         <p>Pour rationaliser le développement et la maintenance il faut au maximum tendre vers le principe simple suivant&nbsp;: une information
+            ne doit être mémorisée qu'à un seul endroit dans la base d'informations de l'entreprise. C'est ce que permet la feuille de
+            style. Par exemple la taille des titres de niveau 3 peut être définie une seule fois pour tout le site et l'ensemble des pages
+            qui le constituent, dans une seule feuille de style pour tout le site. Un exemple frappant de mise en pratique de cette souplesse
+            d'emploi est le site <a href="http://www.csszengarden.com/">CSSZenGarden</a>.
+         </p>
+         <p>Le <a href="../xml/index.html"><code class="langage">XML</code></a> va au bout de cette logique&nbsp;: il organise l'information et permet d'aller la chercher par une requête qui s'apparente à celle
+            des bases de données courantes. Il laisse aux feuilles de style <code class="typefichier">XSL</code> le soin de transformer cette information pour la rendre présentable.
+         </p>
+         <p>Il faut néanmoins reconnaître que le support des feuilles de style, même s'il est maintenant largement répandu parmi les navigateurs,
+            laisse parfois à désirer, en particulier en ce qui concerne le positionnement des éléments.
+         </p>
+         <p class="retourtdm"><a href="#tdm_philo" title="Retour à la TdM («&nbsp;Philosophie&nbsp;» de l'utilisation des feuilles de style)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="csshistorique" id="csshistorique" href="#csshistorique"></a>2. Historique
+         </h4>
+         <p>Les spécifications des feuilles de style devinrent une recommandation du <a href="http://www.w3c.org">consortium W3C</a> en décembre 1996 sous l'appellation <code class="langage">CSS1</code> pour <span lang="en" class="autrelangue">Cascading Style Sheets, level 1</span>. Ce même niveau 1 a été révisé en janvier 1999. Ce sont ces recommandations que nous allons étudier de manière exhaustive.
+         </p>
+         <p>Entre-temps, ces spécifications ont été élargies sous la forme du <code class="langage">CSS2</code> pour <span lang="en" class="autrelangue">Cascading Style Sheets, level 2</span> en mai 1998. Elles précisent entre autres&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>des styles différents pour les médias différents (écran, impression, synthétiseur de parole, braille...)&nbsp;;</p>
+            </li>
+            <li>
+               <p>les polices de caractères téléchargeables&nbsp;;</p>
+            </li>
+            <li>
+               <p>le positionnement des éléments <code class="langage">HTML</code> (appelé par ailleurs <code class="langage">CSS-P</code>).
+               </p>
+            </li>
+         </ul>
+         <p>On abordera la <a href="css2.html">recommandation <code class="langage">CSS2</code></a> dans un cours moins détaillé.
+         </p>
+         <p>Les recommandations sont consultables sur le site du W3C aux adresses suivantes&nbsp;: </p>
+         <ul>
+            <li>
+               <p><a href="http://www.w3.org/Style/CSS">http://www.w3.org/Style/CSS</a>&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p><a href="http://www.w3.org/TR/REC-CSS1">http://www.w3.org/TR/REC-CSS1</a>&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p><a href="http://www.w3.org/TR/REC-CSS2">http://www.w3.org/TR/REC-CSS2</a>.
+               </p>
+            </li>
+         </ul>
+         <p>Des travaux sont en cours afin de définir le niveau 3, construit sur une base modulaire (par exemple un module consacré à
+            l'apparence du texte, un autre à celle des images, etc.).
+         </p>
+         <p class="retourtdm"><a href="#tdm_" title="Retour à la TdM ()">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <p>De même qu'il existe un <a href="http://validator.w3.org/file-upload.html">validateur</a> <code class="langage">HTML</code> sur le site du W3C, il y est également possible de <a href="http://jigsaw.w3.org/css-validator/">valider une feuille de style</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_csshistorique" title="Retour à la TdM (Historique)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="navigateurs" id="navigateurs" href="#navigateurs"></a>3. Support par les navigateurs
+         </h4>
+         <h5><a href="#navigintro" name="navigintro" id="navigintro"></a>a. Introduction
+         </h5>
+         <p>La situation est bien moins catastrophique qu'elle l'était voici quelques années.</p>
+         <p>Les navigateurs de niveau 4 (<code class="logiciel">IE4</code> et <code class="logiciel">NN4</code>) supportent la majorité des instructions <code class="langage">CSS1</code>. <code class="langage">CSS</code> a eu l'immense avantage d'unifier et de réduire les particularités des deux navigateurs. Ils supportent aussi une partie
+            du <code class="langage">CSS2</code>, entre autres celle du positionnement <code class="langage">CSS-P</code> mais pas celle des "médias".
+         </p>
+         <p><code class="logiciel">IE5</code> et la version 6 de <code class="logiciel">Netscape</code> supportent la totalité de <code class="langage">CSS1</code>, ainsi que la version 6 d'<code class="logiciel">Opera</code>.
+         </p>
+         <p>Le support de <code class="langage">CSS2</code> s'est grandement amélioré depuis quelques années. <a href="http://www.microsoft.com/france/internet/produits/ie/default.mspx"><code class="logiciel">Internet Explorer&nbsp;7</code></a> sous Windows est le navigateur récent présentant le support de ce format le moins étendu. Les autres navigateurs comme <a href="http://www.opera.com"><code class="logiciel">Opera</code></a>, <a href="http://www.frenchmozilla.org"><code class="logiciel">Mozilla</code></a> ou <a href="http://www.apple.com/fr/safari/"><code class="logiciel">Safari</code></a>, présentent des performances comparables. Il reste néanmoins nécessaire, avant leur implémentation, de tester le comportement
+            des propriétés des feuilles de style sur les navigateurs les plus anciens utilisés par le public visé.
+         </p>
+         <p class="retourtdm"><a href="#tdm_navigintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#strategie" name="strategie" id="strategie"></a>b. Stratégie de développement
+         </h5>
+         <p>En conséquence, compte tenu du bon support des standards par les navigateurs récents, depuis quelques années se généralise
+            une démarche relativement nouvelle en matière de développement Web.
+         </p>
+         <p>Traditionnellement en effet, l'usage était de développer un site en vérifiant au fur et à mesure de son avancement son rendu
+            dans <code class="logiciel">Internet Explorer</code>&nbsp;; on contrôlait ensuite le résultat avec les navigateurs moins répandus et, éventuellement, les autres plateformes. C'était
+            une démarche très gourmande en temps. Maintenant que sur la plupart des plateformes, PC sous Windows exclus, les navigateurs
+            dominants respectent correctement les standards, et qu'il existe sur PC des alternatives plus fiables sur ce sujet à <code class="logiciel">Internet Explorer</code>, il est devenu plus productif de  développer un site en respectant les standards, puis en s'arrangeant pour que le résultat
+            final reste acceptable sous <code class="logiciel">Internet Explorer</code> (autrement dit, ne remette en danger ni fonctionnalités, ni ergonomie du site). On utilise pour ce faire par exemple la technique
+            des <a href="http://www.blog-and-blues.org/articles/Les_syntaxes_de_commentaires_conditionnels_pour_IE_Windows">commentaires conditionnels</a> afin de réserver certains contenus aux utilisateurs d'<code class="logiciel">Internet Explorer</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_navigateurs" title="Retour à la TdM (Support par les navigateurs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="appli" href="#appli" id="appli"></a>II. Comment appliquer un style&nbsp;?
+         </h3>
+         <h4><a name="applistyle" id="applistyle" href="#applistyle"></a>1. Appel à l'attribut style
+         </h4>
+         <p>Le moyen le plus simple d'appliquer un style est l'utilisation de l'attribut <code class="code">style</code> dans une balise. Par exemple, <code class="code">&lt;h2 style="text-decoration: overline"&gt;</code> permet de déclarer que cet élément de titre aura une barre de surlignement. Cette solution présente l'inconvénient majeur
+            d'encore mêler des informations sur la présentation d'un document (le style), et la structure de ce dernier. Cela complique
+            les mises à jour du code dans le cas d'une refonte de l'apparence graphique. Enfin, utiliser cet attribut est susceptible
+            d'empêcher les utilisateurs de modifier l'apparence de la page qu'il consulte par l'intermédiaire d'une feuille de style personnalisée.
+         </p>
+         <p class="retourtdm"><a href="#tdm_applistyle" title="Retour à la TdM (Appel à l'attribut style)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="appliinterne" id="appliinterne" href="#appliinterne"></a>2. Feuille de style interne
+         </h4>
+         <p>Il est également possible de spécifier une feuille de style dite interne. Elle se place alors entre deux balises <code class="code">&lt;style&gt;</code> et <code class="code">&lt;/style&gt;</code>, dans l'entête (<code class="code">&lt;head&gt;</code>) du document <code class="typefichier">HTML</code>.
+         </p>
+         <p class="xml"><span class="exempledtdexterne">&lt;!DOCTYPE html PUBLIC<span class="valeurattribut"> "-//W3C//DTD XHTML 1.0 Strict//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"</span>&gt;<br></span><span class="tag">&lt;html<span class="nomattribut"> xmlns</span>="<span class="valeurattribut">http://www.w3.org/1999/xhtml</span>"<span class="nomattribut"> xml:lang</span>="<span class="valeurattribut">fr</span>"<span class="nomattribut"> lang</span>="<span class="valeurattribut">fr</span>"&gt;</span><br>
+            					
+            					
+            					
+            					&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>Premiers pas<span class="tag">&lt;/title&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;meta<span class="nomattribut"> http-equiv</span>="<span class="valeurattribut">Content-Type</span>"<span class="nomattribut"> content</span>="<span class="valeurattribut">text/html; charset=ISO-8859-1</span>"&nbsp;/&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;style<span class="nomattribut"> type</span>="<span class="valeurattribut">text/css</span>"&gt;</span>
+            							
+            							(...)
+            						<span class="tag">&lt;/style&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span>
+            						(...)
+            					<span class="tag">&lt;/body&gt;</span><br>
+            				<span class="tag">&lt;/html&gt;</span><br></p>
+         <p>L'attribut <code class="code">type</code> est obligatoire&nbsp;; il précise le type <acronym title="Multipurpose Internet Mail Extensions">MIME</acronym> de feuille de style utilisé. En général, il vaut <code class="code">type="text/css"</code>. L'attribut <code class="code">media</code> permet de spécifier le type de media auquel la feuille de style est destinée&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">screen</code>, la valeur par défaut.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">tty</code>, pour les «&nbsp;vieux&nbsp;» systèmes d'affichage à police de caractère fixe (comme le navigateur texte <code class="logiciel">Lynx</code>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">tv</code>, pour les afficheurs de type télévision avec une faible résolution.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">projection</code>, pour les projecteurs.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">handheld</code>, pour les afficheurs de poche.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">print</code>, pour les imprimantes.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">braille</code>, pour les lecteurs braille.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">aural</code>, pour les navigateurs à synthèse vocale
+               </p>
+            </li>
+            <li>
+               <p><code class="code">all</code>, pour tous les systèmes d'affichage.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_appliinterne" title="Retour à la TdM (Feuille de style interne)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="appliexterne" id="appliexterne" href="#appliexterne"></a>3. Feuille de style externe
+         </h4>
+         <p>Une troisième possibilité consiste en l'appel d'un fichier externe. L'appel se fait via l'élément <code class="code">link</code>, placé dans l'entête du document <code class="typefichier">HTML</code>. L'URL de la feuille de style externe est spécifiée par la valeur de l'attribut <code class="code">href</code>...
+         </p>
+         <p class="html"><span class="exempledtdexterne">&lt;!DOCTYPE HTML PUBLIC<span class="valeurattribut"> "-//W3C//DTD HTML 4.01//EN"</span><span class="valeurattribut"> "http://www.w3.org/TR/html4/strict.dtd"</span>&gt;<br></span><span class="tag">&lt;html<span class="nomattribut"> lang</span>="<span class="valeurattribut">fr</span>"&gt;</span><br>
+            					
+            					&nbsp;&nbsp;<span class="tag">&lt;head&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;title&gt;</span>Premiers pas<span class="tag">&lt;/title&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;link<span class="nomattribut"> rel</span>="<span class="valeurattribut">stylesheet</span>"<span class="nomattribut"> type</span>="<span class="valeurattribut">text/css</span>"<span class="nomattribut"> href</span>="<span class="valeurattribut">../styles/site.css</span>"&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;meta<span class="nomattribut"> http-equiv</span>="<span class="valeurattribut">Content-Type</span>"<span class="nomattribut"> content</span>="<span class="valeurattribut">text/html; charset=ISO-8859-1</span>"&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/head&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;body&gt;</span>
+            						(...)
+            					<span class="tag">&lt;/body&gt;</span><br>
+            				<span class="tag">&lt;/html&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_appliexterne" title="Retour à la TdM (Feuille de style externe)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="applicascade" id="applicascade" href="#applicascade"></a>4. Notion de feuille de style en cascade
+         </h4>
+         <p>Le sigle <acronym title="Cascading Style Sheet">CSS</acronym> signifie <span lang="en" class="autrelangue">Cascading Style Sheet</span> ou encore Feuille de style en cascade. Pourquoi «&nbsp;cascade&nbsp;»&nbsp;?
+         </p>
+         <p>Ce mot «&nbsp;cascade&nbsp;» fait référence à la méthode de résolution des conflits&nbsp;: puisqu'on peut placer plusieurs feuilles de style
+            dans un même document (en lien, dans le <code class="code">head</code>, en ligne dans la balise) les instructions de style successives peuvent s'opposer. Les ordres de style arrivent donc «&nbsp;en
+            cascade&nbsp;». Comment résoudre les conflits&nbsp;?
+         </p>
+         <p>Comme pour le HTML, le dernier qui parle a raison. On aura donc la hiérarchie&nbsp;:</p>
+         <p>feuille de style extérieure &lt;&lt; feuille de style dans le head &lt;&lt; style en attribut dans la balise </p>
+         <p class="retourtdm"><a href="#tdm_applicascade" title="Retour à la TdM (Notion de feuille de style en cascade)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4>Exercice&nbsp;<a name="exoappel" href="#exoappel" id="exoappel"></a>1. Attribut style, feuilles de style interne et externe
+         </h4>
+         <h5><a href="exercices/td5.html" title="Énoncé de l'exercice 'Attribut style, feuilles de style interne et externe'">Énoncé</a></h5>
+         <h5><a href="exercices/td5cor1.html" title="Correction 'Attribut style, feuilles de style interne et externe'">
+               				Correction</a></h5>
+         <h3><a name="syntaxe" href="#syntaxe" id="syntaxe"></a>III. La syntaxe
+         </h3>
+         <h4><a name="syntaxegenerale" id="syntaxegenerale" href="#syntaxegenerale"></a>1. Structure générale
+         </h4>
+         <h5><a href="#reglegenerale" name="reglegenerale" id="reglegenerale"></a>a. Construction d'une règle
+         </h5>
+         <p>Une feuille de style est une suite de règles. Voici un exemple de règle&nbsp;:</p>
+         <p class="css"><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">center</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">black</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Il est facile de décrypter le sens de cette règle&nbsp;: tous les titres de niveau 2 auront leur texte centré et de couleur noire.</p>
+         <p>Généralisons. Une règle a donc deux parties&nbsp;:</p>
+         <ul>
+            <li>
+               <p>Un sélecteur&nbsp;; dans l'exemple précédent il s'agit de <code class="code">h2</code>&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p>Une déclaration&nbsp;; c'est une suite de paires <code class="code">propriété: valeur</code> séparées par un point virgule, le tout placé entre accolades. Ici dans cet exemple il s'agit de <code class="code">{text-align: center ; color: black}</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_reglegenerale" title="Retour à la TdM (Construction d'une règle)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#comment" name="comment" id="comment"></a>b. Commentaires
+         </h5>
+         <p>Il est possible d'ajouter des commentaires dans une feuille de style. Une zone de commentaires commence par les caractères
+            <code class="code">/*</code> et se termine par les caractères <code class="code">*/</code>. Elle peut s'étendre sur plusieurs lignes. Par exemple&nbsp;:
+         </p>
+         <p class="css"><span class="commentaire">/*&nbsp;Mise en forme des éléments h2&nbsp;*/</span><br><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">center</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">black</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_syntaxegenerale" title="Retour à la TdM (Structure générale)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="selecsimples" id="selecsimples" href="#selecsimples"></a>2. Sélecteurs simples
+         </h4>
+         <h5><a href="#balise" name="balise" id="balise"></a>a. Balise
+         </h5>
+         <p>Il s'agit du sélecteur le plus simple possible, où le sélcteur reprend le nom de l'élément auquel la propriété s'applique&nbsp;:</p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">justify</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">black</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>En utilisant l'attribut <code class="code">style</code>, l'exemple précédent devient <code class="code">&lt;p style="text-align: center; color: black"&gt;(...)&lt;/p&gt;</code></p>
+         <p>Il est possible de <em>grouper</em> les balises à l'aide de virgules&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">h2, h3, ul</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-align</span>&nbsp;: <span class="cssvaleur">center</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">green</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Dans cet exemple, tous les titres de niveaux 2 et 3 et les listes non ordonnées seront centrés et de couleur verte.</p>
+         <p class="retourtdm"><a href="#tdm_balise" title="Retour à la TdM (Balise)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#classe" name="classe" id="classe"></a>b. Classe
+         </h5>
+         <p>L'attribut <code class="code">class</code> est un attribut qui peut apparaître dans n'importe quelle balise. Exemple&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;p<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span>Ceci est un paragraphe d'introduction.<span class="tag">&lt;/p&gt;</span><br><span class="tag">&lt;table<span class="nomattribut"> summary</span>="<span class="valeurattribut">Un tableau peu informatif</span>"<span class="nomattribut"> class</span>="<span class="valeurattribut">machin</span>"&gt;</span><br>
+            					
+            					
+            					&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span>Et voici<span class="tag">&lt;/td&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span>un<span class="tag">&lt;/td&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span>tableau<span class="tag">&lt;/td&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;tr<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span><br>
+            						
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span>de deux lignes<span class="tag">&lt;/td&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td&gt;</span>et<span class="tag">&lt;/td&gt;</span><br>
+            						&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span>trois colonnes<span class="tag">&lt;/td&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            				<span class="tag">&lt;/table&gt;</span><br><span class="tag">&lt;ol<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span><br>
+            					
+            					&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Et ceci<span class="tag">&lt;/li&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;li<span class="nomattribut"> class</span>="<span class="valeurattribut">machin</span>"&gt;</span>est une<span class="tag">&lt;/li&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;li<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span>liste<span class="tag">&lt;/li&gt;</span><br>
+            				<span class="tag">&lt;/ol&gt;</span><br></p>
+         <p>Cet attribut permet de regrouper des éléments différents en leur donnant un même nom de classe. Dans l'exemple précédent,
+            deux classes apparaissent&nbsp;: <code class="code">truc</code> et <code class="code">machin</code>.
+         </p>
+         <p>Pour que tous les éléments de classe <code class="code">truc</code> s'affichent avec un texte rouge et que tous les éléments de classe <code class="code">machin</code> s'affichent avec un texte bleu, il suffira d'énoncer les deux règles suivantes&nbsp;: 
+         </p>
+         <p class="css"><span class="selecteur">.truc</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">red</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">.machin</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">blue</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Noter le <em>point</em> devant le sélecteur.
+         </p>
+         <p>Cette règle de style aura pour effet d'afficher les éléments de classe <code class="code">truc</code> en rouge et ceux de classe <code class="code">machin</code> en bleu, comme ci-dessous (invisible à la photocopie noir et blanc)...
+         </p><span class="image"><img src="exemples/classes.jpg" alt="Utilisation de classes" width="275" height="230" class="normal"></span><p>Constatons par cet exemple la propriété d'<em>héritage</em>&nbsp;: l'item <code class="code">Et ceci</code> est écrit en rouge alors qu'il est dépourvu de l'attribut <code class="code">class</code>... Ainsi, et de manière générale, les éléments insérés dans un conteneur héritent des propriétés de ce conteneur même si
+            on ne leur applique pas explicitement de style.
+         </p>
+         <p>Il est possible, également, de spécifier que certains éléments seulement d'une classe donnée soient concernés. Par exemple,
+            le code suivant permet de sélectionner tous les éléments <code class="code">div</code> de classe <code class="code">menu</code>. S'il y a un élément <code class="code">p</code> de classe menu, il ne sera pas concerné et conservera sa couleur de fond par défaut&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">div.menu</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-color</span>&nbsp;: <span class="cssvaleur">gray</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Il est également possible d'appliquer plusieurs classes à un élément. Ainsi, si dans la feuille de style on écrit...</p>
+         <p class="css"><span class="selecteur">.appartient_a_dupont</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">red</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">.vehicule</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-style</span>&nbsp;: <span class="cssvaleur">italic</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>... le code <abbr title="HyperText Markup Language">HTML</abbr> <code class="code">&lt;span class="vehicule appartient_a_dupont"&gt;bicyclette&lt;/span&gt;</code> affichera le mot bicyclette en italique et en rouge.
+         </p>
+         <p class="retourtdm"><a href="#tdm_classe" title="Retour à la TdM (Classe)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#identifiant" name="identifiant" id="identifiant"></a>c. Identifiant
+         </h5>
+         <p>L'attribut <code class="code">id</code> est un attribut qui peut aussi apparaître dans n'importe quel élément. La très grande différence avec l'attribut <code class="code">class</code> est qu'une valeur de <code class="code">id</code> ne peut être prise qu'<em>une seule fois dans toute la page Web</em>. C'est un identifiant&nbsp;: par nature, sa valeur est unique. Exemple&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;p<span class="nomattribut"> id</span>="<span class="valeurattribut">monpar</span>"&gt;</span>Ceci est un paragraphe d'introduction.<span class="tag">&lt;/p&gt;</span><br><span class="tag">&lt;ol<span class="nomattribut"> id</span>="<span class="valeurattribut">maliste</span>"&gt;</span><br>
+            					
+            					&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>Et ceci<span class="tag">&lt;/li&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;li<span class="nomattribut"> id</span>="<span class="valeurattribut">item2</span>"&gt;</span>est une<span class="tag">&lt;/li&gt;</span><br>
+            					&nbsp;&nbsp;<span class="tag">&lt;li<span class="nomattribut"> class</span>="<span class="valeurattribut">truc</span>"&gt;</span>liste<span class="tag">&lt;img<span class="nomattribut"> src</span>="<span class="valeurattribut">images/chapeaurond.gif</span>"<span class="nomattribut"> alt</span>="<span class="valeurattribut">Vive la Bretagne!</span>"<span class="nomattribut"> height</span>="<span class="valeurattribut">20</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">40</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">monimage</span>"&gt;</span><span class="tag">&lt;/li&gt;</span><br>
+            				<span class="tag">&lt;/ol&gt;</span><br></p>
+         <p>On peut alors associer plusieurs règles à chaque <code class="code">id</code> de la manière suivante&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">#monpar, #monimage</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">red</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">border</span>&nbsp;: <span class="cssvaleur">solid 0.5em blue</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">#liste1, #monimage</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-color</span>&nbsp;: <span class="cssvaleur">yellow</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">#maliste</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">background-color</span>&nbsp;: <span class="cssvaleur">yellow</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">orange</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">#item2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-variant</span>&nbsp;: <span class="cssvaleur">small-caps</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-style</span>&nbsp;: <span class="cssvaleur">oblique</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <h4>Exercice&nbsp;<a name="exoclasses" href="#exoclasses" id="exoclasses"></a>1. Utilisation des classes et identifiants
+         </h4>
+         <h5><a href="exercices/td5.html" title="Énoncé de l'exercice 'Utilisation des classes et identifiants'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Utilisation des classes et identifiants'">
+               				Correction</a></h5>
+         <p class="retourtdm"><a href="#tdm_selecsimples" title="Retour à la TdM (Sélecteurs simples)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="seleccomplexes" id="seleccomplexes" href="#seleccomplexes"></a>3. Sélecteurs complexes
+         </h4>
+         <h5><a href="#contextuel" name="contextuel" id="contextuel"></a>a. Sélecteur contextuel
+         </h5>
+         <p>Prenons un exemple&nbsp;:</p>
+         <p class="css"><span class="selecteur">h2 em</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">blue</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Cette règle ne s'appliquera que sur le contenu des éléments <code class="code">em</code> lorsqu'ils seront eux-mêmes à l'intérieur d'un titre de niveau 2 (<code class="code">h2</code>). Autrement dit, la consigne s'applique aux éléments <code class="code">em</code> dans le contexte d'un élément <code class="code">h2</code>.
+         </p>
+         <p>Syntaxe&nbsp;: les sélecteurs simples sont séparés par des espaces. L'enchâssement est possible avec tous les types de sélecteurs,
+            balise, identifiant, classe comme l'illustrent les exemples suivants&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">.copyright h4</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">blue</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">#toto b</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">large</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">ul ul</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">list-style</span>&nbsp;: <span class="cssvaleur">lower-alpha</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Les regroupements (signifiés par le séparateur virgule) restent possibles&nbsp;:</p>
+         <p class="css"><span class="selecteur">h1 b, h2 b, b em</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">yellow</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p class="retourtdm"><a href="#tdm_contextuel" title="Retour à la TdM (Sélecteur contextuel)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#pseudoclasses" name="pseudoclasses" id="pseudoclasses"></a>b. Pseudo-classes
+         </h5>
+         <p>Nous allons prendre l'exemple des liens. Un lien peut être dans trois états différents&nbsp;:</p>
+         <ul>
+            <li>
+               <p>actif (lors du clic de la souris)&nbsp;;</p>
+            </li>
+            <li>
+               <p>à visiter&nbsp;;</p>
+            </li>
+            <li>
+               <p>déjà visité.</p>
+            </li>
+         </ul>
+         <p>Pour les éléments <code class="code">a</code>, on appelle pseudo-classes ces trois états possibles. Ce sont des classes prédéfinies. Voici un exemple&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">a:active</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-decoration</span>&nbsp;: <span class="cssvaleur">overline</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">a:link</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">blue</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-style</span>&nbsp;: <span class="cssvaleur">italic</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">a:visited</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">green</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-weight</span>&nbsp;: <span class="cssvaleur">bold</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>La syntaxe est donc <code class="code">[selecteur]:[pseudo-classe] {declaration}</code></p>
+         <p>Une pseudo-classe intéressante est la pseudo-classe <code class="code">hover</code>&nbsp;: elle permet d'affecter un style à un élément, lorsque celui-ci est survolé par la souris. Un usage classique consiste à
+            désactiver le soulignement automatique des liens, qui est le comportement par défaut, et de ne le réactiver qu'au passage
+            de la souris&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">a</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-decoration</span>&nbsp;: <span class="cssvaleur">none</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">a:hover</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">text-decoration</span>&nbsp;: <span class="cssvaleur">underline</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p><code class="code">:hover</code>, selon la norme, est applicable à n'importe quel élément d'une page, mais <code class="logiciel">Internet Explorer</code> jusqu'à la version&nbsp;6 incluse ne le supporte que pour les liens (éléments <code class="code">&lt;a&gt;</code>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_pseudoclasses" title="Retour à la TdM (Pseudo-classes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#pseudoelements" name="pseudoelements" id="pseudoelements"></a>c. Pseudo-éléments
+         </h5>
+         <p><code class="langage">CSS1</code> décrit plusieurs pseudo-éléments&nbsp;: 
+         </p>
+         <ul>
+            <li>
+               <p><code class="code">first-line</code> modifie le style de la première ligne d'un paragraphe.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">first-letter</code> modifie le style de la première lettre d'une phrase.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">first-child</code> modifie le style du premier élément-enfant du sélecteur courant.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">after</code> modifie le style de ce qui suit l'élément.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">before</code> modifie le style de ce qui précède l'élément.
+               </p>
+            </li>
+         </ul>
+         <p>Les trois derniers ne sont pas supportés par <code class="logiciel">Internet Explorer</code>. Exemple d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p:first-letter</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">color</span>&nbsp;: <span class="cssvaleur">red</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">200%</span>;<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-weight</span>&nbsp;: <span class="cssvaleur">bold</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>L'exemple précédent permet de colorer en rouge, doubler la taille et mettre en gras la première lettre de tous les paragraphes.</p>
+         <h4>Exercice&nbsp;<a name="exocontexte" href="#exocontexte" id="exocontexte"></a>1. Sélecteurs contextuels
+         </h4>
+         <h5><a href="exercices/td5.html" title="Énoncé de l'exercice 'Sélecteurs contextuels'">Énoncé</a></h5>
+         <h5><a href="exercices/td5_cor.html" title="Correction 'Sélecteurs contextuels'">
+               				Correction</a></h5>
+         <p class="retourtdm"><a href="#tdm_seleccomplexes" title="Retour à la TdM (Sélecteurs complexes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="unites" id="unites" href="#unites"></a>4. Unités
+         </h4>
+         <h5><a href="#unitessyntaxe" name="unitessyntaxe" id="unitessyntaxe"></a>a. Syntaxe
+         </h5>
+         <p>Il ne faut laisser aucun blanc entre le nombre et l'unité. Une longueur peut être précédée d'un signe + ou -.</p>
+         <p class="retourtdm"><a href="#tdm_unitessyntaxe" title="Retour à la TdM (Syntaxe)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#unitesabsolues" name="unitesabsolues" id="unitesabsolues"></a>b. Unités absolues de longueur
+         </h5>
+         <table class="tableau" summary="Unités absolues." border="1">
+            <tr>
+               <th id="unit">
+                  <p>Unité</p>
+               </th>
+               <th id="nota">
+                  <p>Notation</p>
+               </th>
+               <th id="conv">
+                  <p>Conversion</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="unit">
+                  <p><span lang="en" class="autrelangue">inch</span> (pouce)
+                  </p>
+               </td>
+               <td headers="nota">
+                  <p><code class="code">in</code></p>
+               </td>
+               <td headers="conv">
+                  <p>1in=2,54cm</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="unit">
+                  <p>centimètre</p>
+               </td>
+               <td headers="nota">
+                  <p><code class="code">cm</code></p>
+               </td>
+               <td headers="conv">
+                  <p></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="unit">
+                  <p>millimètre</p>
+               </td>
+               <td headers="nota">
+                  <p><code class="code">mm</code></p>
+               </td>
+               <td headers="conv">
+                  <p></p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="unit">
+                  <p>point</p>
+               </td>
+               <td headers="nota">
+                  <p><code class="code">pt</code></p>
+               </td>
+               <td headers="conv">
+                  <p>1pt=1/72in=0,352778mm</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="unit">
+                  <p>pica</p>
+               </td>
+               <td headers="nota">
+                  <p><code class="code">pc</code></p>
+               </td>
+               <td headers="conv">
+                  <p>1pc=12pt=4,233mm</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Unités absolues.</p>
+         <p>Exemples d'utilisation&nbsp;:</p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin</span>&nbsp;: <span class="cssvaleur">0.5in</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">line-height</span>&nbsp;: <span class="cssvaleur">3cm</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h3</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">word-spacing</span>&nbsp;: <span class="cssvaleur">4mm</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h4</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">12pt</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h5</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">1pt</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>Le point et le pica sont utilisés pour la taille des caractères.</p>
+         <p class="retourtdm"><a href="#tdm_unitesabsolues" title="Retour à la TdM (Unités absolues de longueur)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#unitesrelatives" name="unitesrelatives" id="unitesrelatives"></a>c. Unités relatives de longueur
+         </h5>
+         <table class="tableau" summary="Unités relatives." border="1">
+            <tr>
+               <th id="unitl">
+                  <p>Unité</p>
+               </th>
+               <th id="notal">
+                  <p>Notation</p>
+               </th>
+               <th id="convl">
+                  <p>Conversion</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="unitl">
+                  <p>em</p>
+               </td>
+               <td headers="notal">
+                  <p><code class="code">em</code></p>
+               </td>
+               <td headers="convl">
+                  <p><code class="code">1em</code> est la hauteur d'un caractère (si la hauteur d'un caractère est fixée par l'auteur à <code class="code">10pt</code> alors <code class="code">1em=10pt</code>, si elle est fixée à <code class="code">12pt</code> alors <code class="code">1em=12pt</code>).
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="unitl">
+                  <p>x-height</p>
+               </td>
+               <td headers="notal">
+                  <p><code class="code">ex</code></p>
+               </td>
+               <td headers="convl">
+                  <p><code class="code">1ex</code> est la taille de la lettre 'x' minuscule.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="unitl">
+                  <p>pixel</p>
+               </td>
+               <td headers="notal">
+                  <p><code class="code">px</code></p>
+               </td>
+               <td headers="convl">
+                  <p>1pixel (<span lang="en" class="autrelangue">picture element</span>)&nbsp;: le plus petit élément sur un écran d'ordinateur. Cette unité dépend de l'écran et de son paramétrage.
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Unités relatives.</p>
+         <p>Exemples d'utilisation&nbsp;:</p>
+         <p class="css"><span class="selecteur">h1</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">margin</span>&nbsp;: <span class="cssvaleur">0.5em</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h2</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">line-height</span>&nbsp;: <span class="cssvaleur">1ex</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">h3</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">font-size</span>&nbsp;: <span class="cssvaleur">15px</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>L'unité pixel est une unité relative, mais <code class="logiciel">Internet Explorer</code> la considère comme une unité absolue quand elle est appliquée à des tailles de caractères, ce qui interdit le redimensionnement
+            de la taille de l'affichage sur ce navigateur quand une taille de caractères est indiquée en pixels.
+         </p>
+         <p class="retourtdm"><a href="#tdm_unitesrelatives" title="Retour à la TdM (Unités relatives de longueur)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#unitespourcentages" name="unitespourcentages" id="unitespourcentages"></a>d. Pourcentages
+         </h5>
+         <p>C'est une fraction de la longueur d'un autre élément&nbsp;: largeur de l'écran, hauteur des caractères ou toute autre grandeur
+            dépendant du contexte. Exemples d'utilisation&nbsp;:
+         </p>
+         <p class="css"><span class="selecteur">p</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">line-height</span>&nbsp;: <span class="cssvaleur">120%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br><span class="selecteur">td.gauche</span><br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="csspropriete">width</span>&nbsp;: <span class="cssvaleur">33%</span>;<br>
+            		&nbsp;&nbsp;&nbsp;&nbsp;}<br><br></p>
+         <p>L'interligne des paragraphes vaut 120% de la hauteur des caractères, tandis que les cellules de classe <code class="code">gauche</code> occuperont 33% de la largeur du tableau où elles se trouvent.
+         </p>
+         <p class="retourtdm"><a href="#tdm_unitespourcentages" title="Retour à la TdM (Pourcentages)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#unitescouleurs" name="unitescouleurs" id="unitescouleurs"></a>e. Couleurs
+         </h5>
+         <p>Les <a href="texte.html#couleur">couleurs</a> se codent de la même manière qu'en <code class="langage">HTML</code>, mais il est également possible de spécifier explicitement le codage RGB&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>une des seize couleurs standard&nbsp;: <code class="code">aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, purple, red, silver, teal, white</code> et <code class="code">yellow</code>.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">#rrggbb</code> (par exemple, <code class="code">#00cc00</code>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">#rgb</code> (par exemple, <code class="code">#0c0</code>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">rgb(x1,x2,x3)</code>, où <code class="code">x1, x2</code> et <code class="code">x3</code> sont des entiers compris entre 0 et 255 inclus (par exemple <code class="code">rgb(33,45,127)</code>).
+               </p>
+            </li>
+            <li>
+               <p><code class="code">rgb(x%,y%,z%)</code> où <code class="code">x, y</code> et <code class="code">z</code> sont des nombres compris entre 0.0 et 100.0 inclus (par exemple <code class="code">rgb(56%,33%,0%)</code>).
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_unites" title="Retour à la TdM (Unités)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours suivant&nbsp;: <a href="css1.html">Les règles du CSS1</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="cssintro.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 24 octobre 2008, version 1.60. Correction de syntaxe. Précisions diverses. Mise à jour des informations.</li>
+            <li>Le 29 février 2008, version 1.50. Corrections syntaxiques. Ajout d'un paragraphe sur les commentaires.</li>
+            <li>Le 21 septembre 2007, version 1.44. Corrections syntaxiques.</li>
+            <li>Le 4 octobre 2006, version 1.43. Corrections syntaxiques, ajout d'un exemple d'utilisation de :first-letter.</li>
+            <li>Le 9 mai 2006, version 1.42. Syntaxe et correction de coquilles.</li>
+            <li>Le 2 novembre 2005, version 1.41. Corrections syntaxiques et ajout de la pseudo-classe hover.</li>
+            <li>Le 18 juillet 2005, version 1.40. Réécriture des exemples.</li>
+            <li>Le 9 novembre 2004, version 1.31. Mise à jour des supports par les navigateurs.</li>
+            <li>Le 25 octobre 2004, version 1.30. Ajout de liens (CSSZenGarden), stratégie de développement.</li>
+            <li>Le 16 juin 2004, version 1.24. Ajout de la correction des exercices.</li>
+            <li>Le 22 mai 2004, version 1.23. Correction de coquilles.</li>
+            <li>Le 11 mai 2004, version 1.22. Correction de coquilles.</li>
+            <li>Le 5 mai 2004, version 1.21. Ajout d'une information sur les classes.</li>
+            <li>Le 22 avril 2004, version 1.20. Corrections typographiques. Ajouts d'appels aux exercices.</li>
+            <li>Le 13 novembre 2003, version 1.12. Corrections typographiques. Ajout d'une remarque sur CSS3.</li>
+            <li>Le 1er août 2003, version 1.11. Correction d'orthographe.</li>
+            <li>Le 29 novembre 2002, version 1.10. Ajout du lien vers le validateur du W3C et du codage des couleurs.</li>
+            <li>Le 20 novembre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

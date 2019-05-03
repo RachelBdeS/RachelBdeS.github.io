@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="tableaux">Cours de HTML</cours>
+	<entete>
+		<titre>Les tableaux dans une page Web</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre présente les balises nécessaires pour correctement définir et utiliser un tableau en HTML.</resume>
+		<motsclefs>html, base, concept, introduction, table, tableau, td, th, thead, tbody, tfoot, caption</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="tablegene" titre="Généralités">
+			<section titre="Introduction" ancre="tableintro">
+				<paragraphe>
+					<texte>Usuellement un tableau est constitué de lignes et de colonnes. Ce n'est pas tout à fait le cas en <code type="langage">HTML</code>&#160;:</texte>
+					<liste type="ordonnee">
+						<item><texte>Un tableau est un conteneur <code><![CDATA[<table>]]></code></texte></item>
+						<item><texte>Un tableau est constitué de lignes <code><![CDATA[<tr>]]></code> (pour <autrelangue>table row</autrelangue>)</texte></item>
+						<item><texte>Un tableau est constitué de cellules<code><![CDATA[<td>]]></code> (pour <autrelangue>table data</autrelangue>)</texte></item>
+					</liste>
+					<texte>Il est également possible de fournir une légende au tableau. Tous ces éléments se structurent globalement dans un entête, un pied de tableau, et un corps de tableau.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="tablestructure" titre="Structure d'un tableau">
+				<paragraphe ancre="structintro" titre="Introduction">
+				<texte>Un tableau se déclare grâce à la balise <code><![CDATA[<table>]]></code>. Cette balise peut avoir plusieurs balises-enfants. La plupart sont facultatives, mais si elles sont présentes, elles <valeur>doivent être utilisées dans cet ordre&#160;:</valeur></texte>
+				<liste type="ordonnee">
+					<item><texte><code><![CDATA[<caption>]]></code></texte></item>
+					<item><texte><code><![CDATA[<col>]]></code> ou <code><![CDATA[<colgroup>]]></code></texte></item>
+					<item><texte><code><![CDATA[<thead>]]></code></texte></item>
+					<item><texte><code><![CDATA[<tfoot>]]></code></texte></item>
+					<item><texte><code><![CDATA[<tbody>]]></code></texte></item>
+				</liste>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="Les éléments d'un tableau" ancre="tableelements">
+			<section titre="La balise &lt;table&gt;" ancre="balisetable">
+				<paragraphe>
+					<texte>La notion de table étant complexe, le nombre d'attributs de cette balise est important.</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_table"><texte>Attribut</texte></colonne>
+							<colonne id="effet_table"><texte>Effet</texte></colonne>
+							<colonne id="valeur_table"><texte>Valeur</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>summary</code></texte></colonne>
+							<colonne headers="effet_table"><texte>donne un rapide résumé du contenu du tableau. Cela améliore l'accessbilité de la page.</texte></colonne>
+							<colonne headers="valeur_table"><texte>une chaîne de caractères</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>width</code></texte></colonne>
+							<colonne headers="effet_table"><texte>largeur du tableau</texte></colonne>
+							<colonne headers="valeur_table"><texte> une longueur, qui peut s'exprimer en nombre de pixels ou en pourcentage de la largeur de la fenêtre du navigateur </texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>border</code></texte></colonne>
+							<colonne headers="effet_table"><texte>épaisseur de la bordure extérieure</texte></colonne>
+							<colonne headers="valeur_table"><texte>en pixel (par défaut, 0, sans bordure)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>frame</code></texte></colonne>
+							<colonne headers="effet_table"><texte> (rien à voir avec la balise <code><![CDATA[<frame>]]></code>, que l'on verra dans le cours sur <reference href="cadres.html">les cadres</reference>). Présence de l'encadrement extérieur </texte></colonne>
+							<colonne headers="valeur_table">
+								<liste>
+									<item>
+										<texte><code>void</code>&#160;: aucune</texte>
+									</item>
+									<item><texte><code>above</code>&#160;: haut seulement</texte></item>
+									<item><texte><code>below</code>&#160;: bas seulement</texte></item>
+									<item><texte><code>hsides</code>&#160;: haut et bas</texte></item>
+									<item><texte><code>vsides</code>&#160;: gauche et droite</texte></item>
+									<item><texte><code>lhs</code>&#160;: gauche seulement</texte></item>
+									<item><texte><code>rhs</code>&#160;: droite seulement</texte></item>
+									<item><texte><code>box</code>&#160;: sur les 4 côtés</texte></item>
+									<item><texte><code>border</code>&#160;: sur les 4 côtés aussi</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>rules</code></texte></colonne>
+							<colonne headers="effet_table"><texte>comme l'attribut <code>frame</code>, mais pour l'encadrement intérieur</texte></colonne>
+							<colonne headers="valeur_table">
+								<liste>
+									<item><texte><code>none</code>&#160;: aucun</texte></item>
+									<item><texte><code>groups</code>&#160;: seulement entre les groupes de lignes (<code><![CDATA[<thead>]]></code>, <code><![CDATA[<tbody>]]></code> et <code><![CDATA[<tfoot>]]></code>) et les groupes de colonnes (<code><![CDATA[<colgroup>]]></code> et <code><![CDATA[<col>]]></code>) </texte></item>
+									<item><texte><code>rows</code>&#160;: entre les lignes</texte></item>
+									<item><texte><code>cols</code>&#160;: entre les colonnes</texte></item>
+									<item><texte><code>all</code>&#160;: partout (valeur par défaut)</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>cellspacing</code></texte></colonne>
+							<colonne headers="effet_table"><texte>marge entre cellules consécutives</texte></colonne>
+							<colonne headers="valeur_table"><texte>en pixels</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>cellpadding</code></texte></colonne>
+							<colonne headers="effet_table"><texte>marge entre le bord et le contenu de la cellule</texte></colonne>
+							<colonne headers="valeur_table"><texte>en pixels</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>align</code></texte></colonne>
+							<colonne headers="effet_table"><texte> position du tableau dans la fenêtre. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML</code>&#160;4.01 strict. </texte></colonne>
+							<colonne headers="valeur_table">
+								<liste>
+									<item><texte><code>center</code></texte></item>
+									<item><texte><code>left</code></texte></item>
+									<item><texte><code>right</code></texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_table"><texte><code>bgcolor</code></texte></colonne>
+							<colonne headers="effet_table">
+								<texte>couleur de fond du tableau. Cet attribut est<valeur>obsolète</valeur> en <code type="langage">HTML</code>&#160;4.01 strict.</texte></colonne>
+							<colonne headers="valeur_table"><texte>nom de couleur ou triplet RGB</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code><![CDATA[<table>]]></code>.</legende>
+					</tableau>
+					<texte>Certains de ces attributs sont liés&#160;; ainsi si <code>border="0"</code>, alors <code>frame="void"</code> et <code>rules="none"</code>.</texte>
+					<texte>Par défaut la taille du tableau s'ajuste à son contenu. C'est cette gestion particulière de la taille qui fait du tableau un moyen très utile de présentation.</texte>
+				</paragraphe>
+			</section>
+			<section titre="La balise &lt;caption&gt;" ancre="caption">
+				<paragraphe>
+					<texte>Cette balise est facultative, et ne peut être présente qu'une seule fois dans le tableau. Son rôle est de lui donner une légende, plus complète que le court résumé de l'attribut <code>summary</code>.</texte>
+					<texte>Elle possède un attribut <code>align</code>, qui gère son alignement relativement au tableau. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML</code>&#160;4.01 strict.</texte>
+					<texte> Exemple d'utilisation&#160;: </texte>
+					<exemple type="HTML">
+						<element nom="caption">Légende du tableau.</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section ancre="col" titre="Les balises &lt;col&gt; et &lt;colgroup&gt;">
+				<paragraphe titre="Introduction" ancre="colintro">
+					<texte> Le rôle fondamental de ces balises est de définir des groupements de colonnes. <code><![CDATA[<colgroup>]]></code> le fait de manière plus "structurelle". </texte>
+					<liste type="ordonnee">
+						<item><texte><code><![CDATA[<col>]]></code> permet à plusieurs colonnes de partager les mêmes attributs. C'est un <valeur>élément vide</valeur>. </texte></item>
+						<item><texte><code><![CDATA[<colgroup>]]></code> permet de regrouper un ensemble de colonnes en une seule unité logique, et d'appliquer par exemple un style à cet ensemble de colonnes. </texte></item>
+					</liste>
+				</paragraphe>
+				<paragraphe ancre="colattributs" titre="Attributs">
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_col"><texte>Attribut</texte></colonne>
+							<colonne id="effet_col"><texte>Effet</texte></colonne>
+							<colonne id="valeur_col"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_col"><texte><code>span</code></texte></colonne>
+							<colonne headers="effet_col"><texte>Nombre de colonnes à regrouper</texte></colonne>
+							<colonne headers="valeur_col"><texte>un nombre</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_col"><texte><code>width</code></texte></colonne>
+							<colonne headers="effet_col"><texte>Largeur de chaque colonne</texte></colonne>
+							<colonne headers="valeur_col"><texte> une longueur, qui peut s'exprimer en nombre de pixels, en pourcentage, ou bien par exemple <code>width="0.5*"</code>, en proportion relative </texte> </colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_col"><texte><code>valign</code></texte></colonne>
+							<colonne headers="effet_col"><texte>alignement vertical</texte></colonne>
+							<colonne headers="valeur_col">
+								<liste>
+									<item><texte><code>top</code>&#160;: alignement en haut de la cellule</texte></item>
+									<item><texte><code>middle</code>&#160;: alignement au milieu de la cellule (valeur par défaut) </texte></item>
+									<item><texte><code>bottom</code>&#160;: alignement en bas de la cellule</texte></item>
+									<item><texte><code>baseline</code>&#160;: alignement sur la ligne du bas dela cellule</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_col"><texte><code>align</code></texte></colonne>
+							<colonne headers="effet_col"><texte>alignement horizontal</texte></colonne>
+							<colonne headers="valeur_col">
+								<liste>
+									<item><texte><code>left</code> (valeur par défaut)</texte></item>
+									<item><texte><code>right</code></texte></item>
+									<item><texte><code>center</code></texte></item>
+									<item><texte><code>justify</code></texte></item>
+									<item><texte><code>char</code>&#160;: l'alignement se fait sur un caractère particulier</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_col"><texte><code>char</code></texte></colonne>
+							<colonne headers="effet_col"><texte>spécifie quel caractère doit servir de base pour l'alignement</texte></colonne>
+							<colonne headers="valeur_col"><texte> un caractère. La valeur par défaut est celle du séparateur décimal défini par l'attribut de langage <code>lang</code>, à savoir le "<code>.</code>" pour la langue par défaut, et le "<code>,</code>" si l'attribut définit le français comme langue (<code>lang="fr"</code>). Il n'est pas demandé aux navigateurs de supporter cet attribut. </texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_col"><texte><code>charoff</code></texte></colonne>
+							<colonne headers="effet_col"><texte> spécifie le décalage en position horizontale imposé aucaractère d'alignement. </texte></colonne>
+							<colonne headers="valeur_col"><texte>un nombre.</texte></colonne>
+						</ligne>
+						<legende>Attributs communs à <code><![CDATA[<col>]]></code> et <code><![CDATA[<colgroup>]]></code>.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe titre="Exemples" ancre="colexemples">
+					<texte>Par exemple, si on doit spécifier que quarante colonnes dans un tableau doivent être alignés à droite, au lieu d'écrire...</texte>
+					<exemple type="HTML">
+						<element nom="colgroup" indent="oui">
+							<element nom="col" niveau="1" vide="oui"><attribut nom="width">20</attribut></element>
+							<element nom="col" niveau="1" vide="oui"><attribut nom="width">20</attribut></element>
+							... 40 éléments au total...
+						</element>
+					</exemple>
+					<texte>... on peut se contenter d'écrire...</texte>
+					<exemple type="HTML">
+						<element nom="colgroup"><attribut nom="span">40</attribut><attribut nom="width">20</attribut></element>
+					</exemple>
+					<texte>Quand il est nécessaire d'identifier une unique colonne sur ces quarante, par exemple la dernière, on peut regrouper sous la forme...</texte>
+					<exemple type="HTML">
+						<element nom="colgroup" indent="oui">
+							<attribut nom="width">20</attribut>
+							<element nom="col" niveau="1"><attribut nom="span">39</attribut></element>
+							<element nom="col" niveau="1"><attribut nom="valign">top</attribut></element>
+						</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section titre="Structure du contenu" ancre="structcontenu">
+				<paragraphe ancre="thead" titre="Les balises &lt;thead&gt; et &lt;tfoot&gt;">
+					<texte>Le rôle de ces balises est de contenir les informations nécessaires à l'entête et au bas du tableau. Il s'agit essentiellement des titres de colonnes. Ces balises contiennent des lignes (voir le paragraphe consacré à la <reference href="#tr">balise <code><![CDATA[<tr>]]></code> </reference> pour plus de détails). Il est possible, pour peu que l'on ait déclaré la balise <code><![CDATA[<thead>]]></code> (respectivement <code><![CDATA[<tfoot>]]></code>), de dupliquer l'entête (respectivement le bas) d'un tableau en cas de saut de page.</texte>
+					<texte>Les attributs de ces balises sont les attributs d'alignement des cellules (<code>valign</code>, <code>align</code>, <code>char</code> et <code>charoff</code>).</texte>
+				</paragraphe>
+				<paragraphe ancre="tbody" titre="La balise &lt;tbody&gt;">
+					<texte>Son rôle est de définir le corps même d'un tableau. En dupliquant plusieurs <code><![CDATA[<tbody>]]></code> au sein d'un même tableau, on peut définir plusieurs composantes structurelles d'apparences et de formats différents.</texte>
+					<texte>Les attributs de cette balise sont les attributs d'alignement des cellules (<code>valign</code>, <code>align</code>, <code>char</code> et <code>charoff</code>).</texte>
+				</paragraphe>
+			</section>
+			<section ancre="tr" titre="Les lignes: la balise &lt;tr&gt;">
+				<paragraphe ancre="trgene" titre="Généralités">
+					<texte>Les attributs de cette balise sont les attributs d'alignement des cellules (<code>valign</code>, <code>align</code>, <code>char</code> et <code>charoff</code>), ainsi que l'attribut <code>bgcolor</code>, dont la fonction est de spécifier la couleur de fond de la ligne. Mais ce dernier attribut est <valeur>obsolète</valeur> en <code>HTML 4.01</code> Strict.</texte>
+					<texte>Cette balise permet de définir une ligne dans le tableau. Elle peut contenir une ou plusieurs balises <code><![CDATA[<th>]]></code> ou <code><![CDATA[<td>]]></code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="tdth" titre="Balises &lt;td&gt; et &lt;th&gt;">
+					<texte>Ces balises acceptent les mêmes contenus, ainsi que les mêmes attributs. Cependant, <code><![CDATA[<th>]]></code> doit être utilisé pour indiquer des cellules destinées à être des entêtes de colonnes (<autrelangue>Table Header</autrelangue>).</texte>
+					<texte>Ces balises peuvent contenir à peu près tous les types d'éléments, y compris les <code><![CDATA[<div>]]></code> et les <code><![CDATA[<p>]]></code>.</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr_cell"><texte>Attribut</texte></colonne>
+							<colonne id="effet_cell"><texte>Effet</texte></colonne>
+							<colonne id="valeur_cell"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>abbr</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>fournit un abrégé du contenu de la cellule</texte></colonne>
+							<colonne headers="valeur_cell"><texte>une chaîne de caractères</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>axis</code></texte></colonne>
+							<colonne headers="effet_cell"><texte> indique à quelle catégorie appartient la cellule (voir sur <reference href="http://www.w3.org/TR/html401/struct/tables.html#multi-dimension">le site du W3C</reference> pour plus d'informations sur l'utilisation de cet attribut dans la structuration du contenu d'un tableau). </texte></colonne>
+							<colonne headers="valeur_cell"><texte>une chaîne de caractères</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>headers</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>renvoi à(aux) l'identifiant(s) de la cellule "<autrelangue>header</autrelangue>" associée. Cela permet à un agent vocal de présenter le type de contenu de la cellule avant le contenu proprement dit. </texte></colonne>
+							<colonne headers="valeur_cell"><texte>une liste d'indentifiants (séparés par des espaces)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>scope</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>indique quel est le jeu de cellules auquel la cellule "<autrelangue>header</autrelangue>" courante s'applique </texte></colonne>
+							<colonne headers="valeur_cell">
+								<liste>
+									<item><texte><code>row</code>&#160;: s'applique à la ligne courante</texte></item>
+									<item><texte><code>col</code>&#160;: s'applique à la colonne courante</texte></item>
+									<item><texte><code>rowgroup</code>&#160;: s'applique à l'ensemble du <code><![CDATA[<thead>]]></code>, <code><![CDATA[<tfoot>]]></code> ou <code><![CDATA[<tbody>]]></code> courant </texte></item>
+									<item><texte><code>colgroup</code>&#160;: s'applique au groupe de colonnes courant (spécifié par les balises <code><![CDATA[<colgroup>]]></code> ou <code><![CDATA[<col>]]></code>) </texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>rowspan</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>nombre de lignes concernées par la balise courante.</texte></colonne>
+							<colonne headers="valeur_cell"><texte>un nombre. La valeur par défaut est 1. Si <code>rowspan="0"</code>, la cellule s'applique à l'ensemble des lignes, depuis la ligne courante jusqu'à la dernière dans le <code><![CDATA[<thead>]]></code>, <code><![CDATA[<tfoot>]]></code> ou <code><![CDATA[<tbody>]]></code> courant.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>colspan</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>nombre de colonnes concernées par la cellule courante.</texte></colonne>
+							<colonne headers="valeur_cell"><texte>un nombre. La valeur par défaut est 1. Si <code>rowspan="0"</code>, la cellule s'applique à l'ensemble des colonnes, depuis la ligne courante jusqu'à la dernière du <code><![CDATA[<colgroup>]]></code>.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>align</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>alignement horizontal</texte></colonne>
+							<colonne headers="valeur_cell">
+								<liste>
+									<item><texte><code>left</code> (valeur par défaut)</texte></item>
+									<item><texte><code>right</code></texte></item>
+									<item><texte><code>center</code></texte></item>
+									<item><texte><code>justify</code></texte></item>
+									<item><texte><code>char</code>&#160;: l'alignement se fait sur un caractère particulier</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>char</code></texte></colonne>
+							<colonne headers="valeur_cell"><texte>spécifie quel caractère doit servir de base pour l'alignement</texte></colonne>
+							<colonne headers="valeur_cell"><texte>un caractère. La valeur par défaut est celle du séparateur décimal défini par l'attribut de langage <code>attr</code>, à savoir le "<code>.</code>" pour la langue par défaut, et le "<code>,</code>" si l'attribut définit le français comme langue (<code>attr="fr"</code>). Il n'est pas demandé aux navigateurs de supporter cet attribut. </texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>charoff</code></texte></colonne>
+							<colonne headers="effet_cell"><texte> spécifie le décalage en position horizontale imposé au caractère d'alignement. </texte></colonne>
+							<colonne headers="valeur_cell"><texte>un nombre.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>valign</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>alignement vertical</texte></colonne>
+							<colonne headers="valeur_cell">
+								<liste>
+									<item><texte><code>top</code>&#160;: alignement en haut de la cellule</texte></item>
+									<item><texte><code>middle</code>&#160;: alignement au milieu de la cellule (valeur par défaut) </texte></item>
+									<item><texte><code>bottom</code>&#160;: alignement en bas de la cellule</texte></item>
+									<item><texte><code>baseline</code>&#160;: alignement sur la ligne du bas de la cellule</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>nowrap</code></texte></colonne>
+							<colonne headers="effet_cell"><texte> empêche le retour à la ligne automatique dans les cellules quand le bord de la fenêtre du navigateur est atteint. <valeur>Obsolète</valeur> en <code type="langage">HTML 4.01</code> strict. </texte></colonne>
+							<colonne headers="valeur_cell"><texte>valeur unique&#160;: <code>nowrap</code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>bgcolor</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>couleur de fond de la cellule. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML</code>&#160;4.01 strict.</texte></colonne>
+							<colonne headers="valeur_cell"><texte>nom de couleur ou triplet RGB</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>width</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>largeur de la cellule. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML 4.01</code> strict.</texte></colonne>
+							<colonne headers="valeur_cell"><texte>nombre de pixels ou pourcentage</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr_cell"><texte><code>height</code></texte></colonne>
+							<colonne headers="effet_cell"><texte>hauteur de la cellule. Cet attribut est <valeur>obsolète</valeur> en <code type="langage">HTML 4.01</code> strict.</texte></colonne>
+							<colonne headers="valeur_cell"><texte>nombre de pixels ou pourcentage</texte></colonne>
+						</ligne>
+						<legende>Attributs des balises <code><![CDATA[<th>]]></code> et <code><![CDATA[<td>]]></code>.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie ancre="tablesremarques" titre="Remarques">
+			<section ancre="cellulesvides" titre="Cellules vides">
+				<paragraphe>
+					<texte>Si le nombre de cellules est différent d'une ligne à l'autre, les derniers emplacements sont vides. Par ailleurs, un conteneur vide <code><![CDATA[<td></td>]]></code> crée un emplacement vide alors qu'un conteneur contenant un espace insécable <code><![CDATA[&#160;]]></code> crée une cellule vide.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="tableauximbriques" titre="Tableaux imbriqués">
+				<paragraphe><texte>Un tableau peut en contenir un autre qui peut en contenir un autre qui... Il n'y a pas de limitation.</texte></paragraphe>
+			</section>
+			<section ancre="presentation" titre="Des tableaux pour la présentation">
+				<paragraphe>
+					<texte>Créés au départ pour présenter des tables de données, les tableaux sont très vite devenus un moyen efficace de présentation claire et ordonnée. Ils permettent, par exemple, de faire de manière souple du multicolonne. De nombreux sites les utilisent, comme...</texte>
+					<liste>
+						<item><texte>... le site du Monde&#160;: <reference href="http://www.lemonde.fr">http://www.lemonde.fr</reference>.</texte></item>
+						<item><texte>... le site de Yahoo&#160;: <reference href="http://www.yahoo.fr">http://www.yahoo.fr</reference>.</texte></item>
+						<item><texte>... le site de l'Université Pierre et Marie Curie&#160;: <reference href="http://www.upmc.fr">http://www.upmc.fr</reference>. </texte></item>
+					</liste>
+					<texte>Néanmoins, les performances des navigateurs les plus récents dans le support des feuilles de style rendent cette utilisation des tableaux obsolète&#160;; il vaut mieux maintenant lui préférer ue mise en page à base d'éléments <code>div</code>.</texte>
+				</paragraphe>
+			</section>
+			<exercice titre="Formatages de cellules" ancre="exotableau">
+				<enonce href="exercices/td2.html"/>
+			</exercice>
+		</partie>
+	</corpus>
+</chapitre>

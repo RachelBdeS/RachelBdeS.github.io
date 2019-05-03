@@ -1,0 +1,15 @@
+#menugeneral{
+	display: none;
+}
+
+#recherche{
+	display: none;
+}
+
+#menu{
+	display: none;
+}
+
+#contenu p{
+ text-align:justify;
+}

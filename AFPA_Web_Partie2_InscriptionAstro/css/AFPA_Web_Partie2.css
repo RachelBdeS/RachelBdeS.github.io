@@ -1,0 +1,141 @@
+form.cadre {
+    width: 18%;
+    min-width: 355px;
+    max-width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid lightsteelblue 1px;
+    background-color: lightsteelblue;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table.cadre {
+    font-variant: all-petite-caps;
+    width: auto;
+    min-width: 355px;
+    max-width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+a.bouton {
+  border: solid darkslateblue 1px;
+  color: darkslateblue;
+  background-color: lightsteelblue;
+  text-decoration: none;
+}
+
+table, tr, th, td {
+    border-collapse: collapse;
+    border: solid darkslateblue 2px;
+    color: darkslateblue;
+    background-color: lightsteelblue;
+}
+
+th, td {
+    padding: 5px;
+    padding-left: 15px;
+}
+
+td {
+    text-align: left;
+}
+
+h2 {
+    font-variant: all-petite-caps;
+    text-align: center;
+    margin: 0px;
+    cursor: default;
+}
+
+input[type=text] {
+    height: 14px;
+    width: 96%;
+    color: lightsteelblue;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5px;
+    font-variant: all-petite-caps;
+}
+
+input[readonly] {
+    cursor: default;
+}
+
+h1 {
+    text-align: center;
+    font-variant: all-petite-caps;
+    cursor: default;
+}
+
+input, button, select {
+    font-size: 11pt; 
+    border-color: transparent;
+}
+
+body, input, button, select {
+    font-family: cursive;
+}
+
+div.date {
+    width: 100%;
+    word-spacing: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    font-size-adjust: auto;
+}
+
+select {
+    color: grey;
+    position: relative;
+    margin-bottom: 10px;
+    font-variant: all-petite-caps;
+  display: inline;
+}
+
+table {
+  border: solid black 1px;
+}
+
+div.buttons {
+    width: 100%;
+    word-spacing: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+button[type=button], button[type=reset] {
+    width: 48%;
+    border-style: none;
+    font-variant: all-petite-caps;
+}
+
+p {    
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: darkslateblue;
+    color: lightsteelblue;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: lightsteelblue;
+}
+
+a:hover {
+    text-decoration: underline;
+}

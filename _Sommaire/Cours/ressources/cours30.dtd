@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Version 3.02 du 28/09/2007
+	- Ajout d'un élément optionnel bibliographie, contenant les éléments mesLivres et autresLivres
+-->
+<!-- Version 3.01 du 17/11/2005
+		- L'élément description peut contenir tout élément "en ligne".
+-->
+<!--
+	Version 3.0 du 21/10/2005
+		- Les chapitres sont regroupés en thèmes, avec un élément intro donnant un paragraphe d'introduction et un lien vers une section "A retenir".
+		- Suppression de l'attribut date de chapitre.
+		- L'attribut auteur de chapitre a une valeur par défaut, "Gilles Chagnon".
+		- Suppression de la liste des mises à jour.
+		- Ajout de l'élément acronyme.
+-->
+<!--
+	Version 2.3 du 07/10/2005
+		- Ajout des attributs typecoursenligne et typecourssiteweb à l'élément racine.
+-->
+<!--
+	Version 2.22 du 11/03/2005
+		- Ajout de liens possibles dans les détails des mises à jour.
+-->
+<!--
+	Version 2.21 du 05/02/2005
+		- L'élément maj peut contenir plusieurs éléments "quoi"
+-->
+<!--
+	Version 2.2 du 06/10/2004
+		- Ajout de l'élément obligatoire description
+-->
+<!--
+	Version 2.1 du 23/05/2004
+		- Ajout de l'élément obligatoire motsclefs.
+		- Ajout de l'attribut obligatoire version de l'élément de mise à jour.
+-->
+<!--
+	Version 2.0 du 05/10/2003
+		- Le lien vers chaque partie est maintenant implicite; il n'est plus besoin de faire les mises à jour à la main.
+		- Suppression de l'élément date.
+-->
+<!--
+	Version 1.1 du 11/10/2002
+		- Ajout de l'attribut nomfichier à l'élément-racine cours
+-->
+
+<!-- Entités -->
+
+<!ENTITY % HTMLspecial SYSTEM "xhtml-special.ent">
+%HTMLspecial;
+
+<!ENTITY % URI "CDATA">
+<!ENTITY % enligne "#PCDATA | lien | acronyme">
+
+<!-- Eléments -->
+
+<!ELEMENT cours (titre, auteur, motsclefs, (resume)?, description, (prerequis)?, bibliographie?, (plan)?)>
+	<!ATTLIST cours
+		nomfichier CDATA #REQUIRED
+		typecourssiteweb (xml|html|dhtml) #REQUIRED
+		typecoursenligne (xml|html2|dhtml3) #REQUIRED
+		>
+
+<!ELEMENT titre (#PCDATA)>
+
+<!ELEMENT auteur (identite, email, adresse, telephone)?>
+	<!ELEMENT identite (#PCDATA)>
+	<!ELEMENT email (#PCDATA)>
+	<!ELEMENT adresse (organisme?, localisation?, rue, ville, pays?)>
+		<!ELEMENT organisme (#PCDATA)>
+		<!ELEMENT localisation (#PCDATA)>
+		<!ELEMENT rue (#PCDATA)>
+		<!ELEMENT ville (#PCDATA)>
+		<!ELEMENT pays (#PCDATA)>
+	<!ELEMENT telephone EMPTY>
+		<!ATTLIST telephone
+			tel CDATA #REQUIRED
+			fax CDATA ""
+		>
+				
+<!ELEMENT motsclefs (#PCDATA)>
+			
+<!ELEMENT date (#PCDATA)>
+			
+<!ELEMENT lien (#PCDATA) >
+	<!ATTLIST lien href %URI; #REQUIRED >
+		
+<!ELEMENT acronyme (#PCDATA)>
+	<!ATTLIST acronyme
+		titre CDATA #REQUIRED
+	>
+			
+<!ELEMENT resume (#PCDATA)>
+	
+<!ELEMENT description (%enligne;)*>
+	
+<!ELEMENT prerequis (%enligne;)*>
+	
+<!ELEMENT plan (thème)+>
+	
+<!ELEMENT thème (intro, chapitre+,ARetenir)>
+<!ATTLIST thème titre CDATA #REQUIRED >
+	
+<!ELEMENT intro (%enligne;)* >
+	
+<!ELEMENT chapitre EMPTY>
+	<!ATTLIST chapitre
+		auteur CDATA "Gilles Chagnon"
+		href %URI; ""
+	>
+			
+<!ELEMENT ARetenir (#PCDATA)>
+
+<!ELEMENT bibliographie (mesLivres*,autresLivres*) >
+
+<!ELEMENT mesLivres (commentaire?)>
+	<!ATTLIST mesLivres
+		titre CDATA #REQUIRED
+		editeur CDATA #REQUIRED
+		date CDATA #REQUIRED
+		lienAmazon %URI; #IMPLIED
+		lienEyrolles %URI; #IMPLIED
+	>
+
+<!ELEMENT commentaire (#PCDATA) >
+
+<!ELEMENT autresLivres (auteurLivre+,commentaire?)>
+
+<!ELEMENT auteurLivre (#PCDATA)>

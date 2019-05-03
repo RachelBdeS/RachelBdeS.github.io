@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="video">Cours de HTML</cours>
+	<entete>
+		<titre>Contrôle du son et de la vidéo</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Comment insérer du contenu multimédia dans une page Web&#160;?</resume>
+		<motsclefs>html, object, embed, param</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="plugin" titre="Les modules externes">
+			<section ancre="definition" titre="Qu'appelle-t-on ''module externe'' ou ''plug-in''?">
+				<paragraphe>
+					<texte>Bien que le son et la vidéo soient le propre du multimédia, les navigateurs ne sont pas capables de les exécuter seuls&#160;: ils disposent d'une architecture ouverte qui leur permet de faire appel à des programmes supplémentaires externes. Ce sont les <autrelangue>plug-in</autrelangue>.</texte>
+					<texte>Par exemple, cliquer sur ce point d'interrogation <reference href="sons/ringin.wav"><image alt="Point d'interrogation" hauteur="18" largeur="18" src="images/b2_help.gif"/></reference>. Vous ferez appel implicitement au <autrelangue>plug-in</autrelangue> par défaut de lecture d'un son du type <code type="typefichier">wav</code>. Ce <autrelangue>plug-in</autrelangue> par défaut dépend des configurations de la machine de l'utilisateur&#160;: selon les installations, ce pourra être <logiciel>MédiaPlayer</logiciel>, le magnétophone de Windows...</texte>
+					<texte>Ces programmes sont souvent installés avec le navigateur ou bien disponibles, généralement gratuitement, sur Internet.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="nn" titre="Visualiser ses ''plug-ins'' sous NN">
+				<paragraphe>
+					<texte>Il est possible de visualiser sous <logiciel>Netscape Navigator</logiciel>, l'ensemble des <autrelangue>plug-in</autrelangue> disponibles pour ce navigateur. Il suffit d'effectuer le cheminement suivant&#160;: <code>Help&gt;A propos des modules externes</code>. Cet enchaînement lance un <code type="langage">JavaScript</code> capable d'analyser ce qui est disponible. Lancer cette commande et examiner le résultat.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="nnie" titre="Des dispositions différentes sous NN et IE">
+				<paragraphe>
+					<texte>L'apparition des <autrelangue>plug-ins</autrelangue> revient à NetScape avec la version 2 de <logiciel>Navigator</logiciel>&#160;: grâce aux <autrelangue>plug-ins</autrelangue>, il est devenu alors possible de lire n'importe quel type de fichier à même la fenêtre du navigateur. La réaction de MicroSoft fut alors de reprendre le concept de <autrelangue>plug-in</autrelangue> et de l'approfondir&#160;: ce fut la technologie <code type="langage">ActiveX</code> (<code type="langage">ActiveX</code> est un langage de script utilisant les technologies Visual Basic et OLE). Les détails techniques sur cette différence d'approche et de mise en oeuvre sortent du cadre de ce cours&#160;; nous retiendrons simplement que <logiciel>Netscape Navigator</logiciel> et <logiciel>Internet Explorer</logiciel> ne partagent pas la même approche des modules externes. L'effet principal est de nous compliquer (encore une fois&#160;!) la tâche.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="activex" titre="Visualiser les objets ActiveX sous IE">
+				<paragraphe>
+					<texte>Il est possible de visualiser sous <logiciel>Internet Explorer,</logiciel> l'ensemble des objets Active disponibles pour ce navigateur. Il suffit d'effectuer le cheminement suivant&#160;: <code>Outils&gt;Option Internet&gt;Paramètres (sous l'onglet Général)&gt; Afficher les Objets</code>.</texte>
+					<texte>On pourra visualiser les propriétés de ces objets par un clic droit de la souris. On notera l'identifiant de classe (classid) utile pour l'appel de l'objet ActiveX dans la page HTML.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie titre="Balises d'insertion de contenu multimédia" ancre="balises">
+			<section ancre="embed" titre="La balise &lt;embed&gt;">
+				<paragraphe>
+					<texte>Cette balise, initialement introduite par Netscape, ne fait même plus partie de la recommandation <code type="langage">HTML</code> Transitionnel du W3C. Elle permettait d'insérer dans la page <code type='typefichier'>HTML</code> l'exécution du <autrelangue>plug-in</autrelangue> correspondant au type du fichier.</texte>
+					<texte>Le W3C recommande l'utilisation de la balise <code><![CDATA[<object>]]></code>.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="object" titre="La balise &lt;object&gt;">
+				<paragraphe ancre="syntaxeobject" titre="Syntaxe">
+					<texte>La balise <code><![CDATA[<object>]]></code> est utilisée pour inclure images, séquences video, applets Java et interfaces VRML. Cette balise est prévue pour remplacer les balises à usage plus limité <code><![CDATA[<img>]]></code> et <code><![CDATA[<applet>]]></code>, ainsi que les éléments propriétaires <code><![CDATA[<embed>]]></code> et <code><![CDATA[<bgsound>]]></code>, en dépit de problèmes relatifs à son support par les navigateurs. Dans la mesure du possible, on continuera donc à utiliser les balises <code><![CDATA[<img>]]></code> et <code><![CDATA[<applet>]]></code>.</texte>
+					<texte>Cette balise accepte plusieurx attributs principaux&#160;:</texte>
+					<liste>
+						<item><texte><code>data</code>&#160;: spécifie l'URI (adresse) de l'objet inséré.</texte></item>
+						<item><texte>Les attributs <code>width</code> et <code>height</code> définissent les dimensions de l'objet. La valeur peut être exprimée en nombre de pixels ou en pourcentages de la taille de l'élément contenant l'objet. <valeur>Attention&#160;:</valeur> la plupart des navigateurs requièrent la présence de ces attributs.</texte></item>
+						<item><texte><code>classid&gt;</code> peut être utilisé pour définir une implémentation permettant la gestion de l'objet. Cela est le cas pour les applets Java et Python, les contrôles ActiveX, ainsi que le montre l'exemple suivant...</texte></item>
+					</liste>
+					<exemple type="HTML">
+						<element nom="object" indent="oui">
+							<attribut nom="classid">yahtzee.py</attribut>
+							<attribut nom="codetype">application/x-python</attribut>
+							<attribut nom="standby">Prêt pour un petit Yahtzee?</attribut>
+							<attribut nom="title">Mon Yahtzee</attribut>
+							<element nom="object" niveau="1" indent="oui">
+								<attribut nom="classid">java:Yahtzee.class</attribut>
+								<attribut nom="codetype">application/java</attribut>
+								<attribut nom="width">400</attribut>
+								<attribut nom="height">250</attribut>
+								<attribut nom="standby">Prêt pour un petit Yahtzee?</attribut>
+								<attribut nom="title">Mon Yahtzee</attribut>
+								<element nom="object" niveau="2">
+									<attribut nom="data">yahtzee.gif</attribut>
+									<attribut nom="type">image/gif</attribut>
+									<attribut nom="title">Une animation Yahtzee</attribut>
+									<attribut nom="width">200</attribut>
+									<attribut nom="height">100</attribut>
+									Yahtzee est mon <element nom="em" enligne="oui">jeu favori</element>.
+								</element>
+							</element>
+						</element>
+					</exemple>
+					<texte>Cet exemple montre aussi une solution afin de permettre aux navigateurs qui ne peuvent supporter le type d'objet, d'afficher une alternative. Dans cet exemple, le jeu écrit en <code type="langage">Python</code> est utilisé si le navigateur le supporte. Au cas où cela ne serait pas possible, une version Java est disponible. Une troisième possibilité est offerte avec l'affichage d'une image, et enfin une dernière alternative est disponible avec du texte brut. Cette possibilité préserve la compatibilité avec les plus anciens navigateurs, qui ignoreront les éléments <code><![CDATA[<object>]]></code>, et se contenteront d'afficher le texte.</texte>
+					<texte>L'exemple précédent utilise également les attributs <code>type</code> et <code>codetype</code> pour aider les navigateurs à déterminer la nature des fichiers en jeu&#160;: cela leur évite ainsi de tenter de charger un type de fichier qu'ils ne savent pas gérer. L'attribut <code>type</code> indique le type de média de la ressource référencée par l'attribut <code>data</code>, tandis que l'attribut <code>codetype</code> indique le type de média de la ressource référencée par l'attribut <code>classid</code>.</texte>
+					<texte>L'attribut <code>standby</code> est aussi utilisé dans l'exemple précédent. Il fournit un court texte affiché dans la fenêtre pendant le chargement de l'objet.</texte>
+				</paragraphe>
+				<paragraphe ancre="param" titre="Elément &lt;param&gt;">
+					<texte>L'élément <code><![CDATA[<object>]]></code> peut contenir des éléments <code><![CDATA[<param>]]></code>, <valeur>avant</valeur> tout autre élément-enfant, permettant de spécifier un certain nombre de propriétés qui sont transmises aux objets multimédia chargés. Par exemple,</texte>
+					<exemple type="HTML">
+						<element nom="object" indent="oui">
+							<attribut nom="classid">java:Clock.class</attribut>
+							<attribut nom="codetype">application/java</attribut>
+							<attribut nom="width">100</attribut>
+							<attribut nom="height">100</attribut>
+							<attribut nom="title">Une horloge en temps réel!</attribut>
+							<attribut nom="standby">Quelle heure est-il?</attribut>
+							<element nom="param" niveau="1"><attribut nom="name">type</attribut><attribut nom="value">analog</attribut></element>
+							<element nom="param" niveau="1"><attribut nom="name">bgcolor</attribut><attribut nom="value">white</attribut></element>
+							<element nom="param" niveau="1"><attribut nom="name">fgcolor</attribut><attribut nom="value">navy</attribut></element>
+						</element>
+					</exemple>
+				</paragraphe>
+			</section>
+		</partie>
+	</corpus>
+</chapitre>

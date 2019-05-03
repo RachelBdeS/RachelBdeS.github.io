@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="modeles">Cours de HTML</cours>
+	<entete>
+		<titre>Modèles de documents et de codes</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre propose des modèles de documents et de code HTML.</resume>
+		<motsclefs>html, base, modele, modeles</motsclefs>
+	</entete>
+	<corpus>
+		<partie titre="Modèles de documents" ancre="documents">
+			<section titre="Introduction" ancre="docintro">
+				<paragraphe>
+					<texte>Cette partie présente des modèles de documents-types. Il va de soi que ces modèles doivent être complétés. Ils donnent les bases pour fournir des documents pouvant être traités par le <reference href="http://validator.w3.org/file-upload.html">validateur du W3C</reference>.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Modèle de document HTML strict" ancre="docstrict">
+				<paragraphe>
+					<exemple type="HTML">
+						<typedocument nomracine="HTML" type="PUBLIC" href="http://www.w3.org/TR/html4/strict.dtd" identifiant="-//W3C//DTD HTML 4.01//EN"/>
+						<commentaire>Déclaration de type de document.</commentaire>
+						<element nom="html" indent="oui">
+							<attribut nom="lang">fr</attribut>
+							<element nom="head" niveau="1" indent="oui">
+								<commentaire niveau="2">Déclaration du codage de caractères</commentaire>
+								<element nom="meta" niveau="2" vide="oui"><attribut nom="http-equiv">Content-Type</attribut><attribut nom="content">text/html; charset=ISO-8859-1</attribut></element>
+								<element nom="title" niveau="2">(...)</element>
+							</element>
+							<element nom="body" niveau="1">(...)</element>
+						</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			
+			<section titre="Modèle de document HTML transitionnel" ancre="doctransitional">
+				<paragraphe>
+					<exemple type="HTML">
+						<typedocument nomracine="HTML" type="PUBLIC" href="http://www.w3.org/TR/html4/loose.dtd" identifiant="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+						<commentaire>Déclaration de type de document.</commentaire>
+						<element nom="html" indent="oui">
+							<attribut nom="lang">fr</attribut>
+							<element nom="head" niveau="1" indent="oui">
+								<commentaire niveau="2">Déclaration du codage de caractères</commentaire>
+								<element nom="meta" niveau="2" vide="oui"><attribut nom="http-equiv">Content-Type</attribut><attribut nom="content">text/html; charset=ISO-8859-1</attribut></element>
+								<element nom="title" niveau="2">(...)</element>
+							</element>
+							<element nom="body" niveau="1">(...)</element>
+						</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			
+			
+			<section titre="Modèle de document HTML à cadres" ancre="docframes">
+				<paragraphe>
+					<exemple type="HTML">
+						<typedocument nomracine="HTML" type="PUBLIC" href="http://www.w3.org/TR/html4/frameset.dtd" identifiant="-//W3C//DTD HTML 4.01 Frameset//EN"/>
+						<commentaire>Déclaration de type de document.</commentaire>
+						<element nom="html" indent="oui">
+							<attribut nom="lang">fr</attribut>
+							<element nom="head" niveau="1" indent="oui">
+								<commentaire niveau="2">Déclaration du codage de caractères</commentaire>
+								<element nom="meta" niveau="2" vide="oui"><attribut nom="http-equiv">Content-Type</attribut><attribut nom="content">text/html; charset=ISO-8859-1</attribut></element>
+								<element nom="title" niveau="2">(...)</element>
+							</element>
+							<element nom="body" niveau="1">(...)</element>
+						</element>
+					</exemple>
+				</paragraphe>
+			</section>
+		</partie>
+		
+		<partie titre="Modèles de codes" ancre="codes">
+			<section titre="Mise en forme de texte" ancre="codestexte">
+				<paragraphe ancre="parettitre" titre="Paragraphes et titres">
+					<texte>Voici par exemple un paragraphe précédé d'un titre&#160;; ces éléments sont des enfants directs de la balise <code><![CDATA[<body>]]></code>.</texte>
+					<exemple type="HTML">
+						<element nom="h3">Titre de niveau 3</element>
+						<element nom="p">Petit paragraphe, avec un<element nom="br" vide="oui"></element>retour à la ligne.</element>
+					</exemple>
+				</paragraphe>
+				<paragraphe titre="Balises div et span" ancre="divspan">
+					<texte>La balise <code><![CDATA[<div>]]></code> est un enfant direct de <code><![CDATA[<body>]]></code>, la balise <code><![CDATA[<span>]]></code> est à l'intérieur d'un texte&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="body" indent="oui">
+							<element nom="div" niveau="1" indent="oui">
+								<attribut nom="id">premierdiv</attribut>
+								<element nom="p" niveau="2">Un paragraphe avec un <element nom="span" enligne="oui">élément span</element>.</element>
+							</element>
+							<element nom="div" niveau="1" indent="oui">
+								<attribut nom="id">seconddiv</attribut>
+								<element nom="p" niveau="2">Un deuxième paragraphe.</element>
+							</element>
+						</element>
+					</exemple>
+				</paragraphe>
+				<paragraphe titre="La balise &lt;font&gt;" ancre="font">
+					<texte>Cette balise est obsolète.</texte>
+					<exemple type="HTML">
+						<element nom="font"><attribut nom="face">Verdana, Arial, Helvetica, sans-serif</attribut><attribut nom="size">5</attribut><attribut nom="color">red</attribut>mon exemple.</element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section titre="Les liens" ancre="liens">
+				<paragraphe>
+					<texte>Les liens peuvent être de trois types&#160;: interne, relatif, absolu.</texte>
+					<exemple type="HTML">
+						<commentaire>Lien interne</commentaire>
+						<element nom="p">Paragraphe avec un <element nom="a" enligne="oui"><attribut nom="href">#verslancre</attribut>lien interne</element>.</element>
+						<commentaire>Lien relatif</commentaire>
+						<element nom="p">Paragraphe avec un <element nom="a" enligne="oui"><attribut nom="href">../index.html</attribut>lien relatif</element> vers un fichier du répertoire parent.</element>
+						<commentaire>Lien absolu</commentaire>
+						<element nom="p">Paragraphe avec un <element nom="a" enligne="oui"><attribut nom="href">http://www.upmc.fr/</attribut>lien absolu</element>.</element>
+					</exemple>
+				</paragraphe>
+			</section>
+		</partie>
+	</corpus>
+</chapitre>

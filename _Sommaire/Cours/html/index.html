@@ -1,0 +1,107 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Cours de HTML</title>
+      <meta name="author" content="Gilles Chagnon">
+      <meta name="keywords" content="html, css, feuille de style, cascading style sheet, w3c">
+      <meta name="description" content="Cours de HTML 4.01. Feuilles de style CSS. Exercices corrigés.">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML</h1>
+         <p><span class="version">version 5.02</span>, dernière mise à jour le 4 juillet 2011.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#avantpropos" tabindex="6">Introduction</a></li>
+         <li class="page"><a href="#tablemat" accesskey="s" tabindex="7">Contenu de ces cours</a></li>
+         <li class="cours"><a href="historique.html" title="Historique de ce document" tabindex="10">Historique</a></li>
+         <li class="cours"><a href="exercices.html" tabindex="9">Exercices</a></li>
+         <li class="cours"><a href="toc.html" tabindex="8">Table des matières</a></li>
+         <li class="cours"><span class="actif">Accueil du cours</span></li>
+      </ul>
+      <div id="avantpropos">
+         <h2>Introduction</h2>
+         <p>Ce cours a été initialement présenté à des étudiants de <a href="http://www.licence.elec.upmc.fr/S_tec/">licence multimédia</a> de l'Université Pierre et Marie Curie. Je suis convaincu du bien-fondé d'une approche respectueuse  de ce que l'on appelle
+            les "standards Web", qu'il faut plutôt penser en termes de "bonnes pratiques". Vous le découvrirez au long de ces cours, qui
+            vous présenteront le format HTML dans son détail, vous permettant de produire des pages Web facilement maintenables, ainsi
+            que le format de mise en forme CSS. Bonne lecture&nbsp;!
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="tablemat">
+         <h2>Contenu de ces pages</h2>
+         <div class="impair">
+            <h3>Pour débuter</h3>
+            <p class="intro">Quelques propos d'introduction et de présentation générale</p>
+            <h4><a href="intro.html">Introduction</a></h4>
+            <p>Ce chapitre présente un bref historique et les concepts de base de HTML.</p>
+            <h4><a href="elements.html">Éléments HTML</a></h4>
+            <p>Ce chapitre résume les conditions d'utilisation des éléments HTML</p>
+         </div>
+         <div class="pair">
+            <h3>Ajouter du contenu aux pages Web&nbsp;: les éléments d'une page</h3>
+            <p class="intro">Une page Web peut être considérablement enrichie par l'emploi d'un certain nombre d'éléments. Ces chapitres les présentent.</p>
+            <h4><a href="texte.html">Mise en forme de texte</a></h4>
+            <p>Ce chapitre présente le formatage du texte en HTML.</p>
+            <h4><a href="liens.html">Les liens hypertexte</a></h4>
+            <p>Une page Web sans lien est une impasse. Ce chapitre entre dans les détails des possibilités offertes par ce concept.</p>
+            <h4><a href="listes.html">Les listes</a></h4>
+            <p>Ce chapitre présente la gestion des listes en HTML.</p>
+            <h4><a href="tableaux.html">Les tableaux dans une page Web</a></h4>
+            <p>Ce chapitre présente les balises nécessaires pour correctement définir et utiliser un tableau en HTML.</p>
+            <h4><a href="images.html">Les images dans une page Web</a></h4>
+            <p>Les images sont une apparition relativement récente dans la recommandation HTML. Elles sont maintenant indispensables, mais
+               leur usage dans une page doit répondre à certaines exigences, que ce chapitre expose.
+            </p>
+            <h4><a href="cadres.html">Les cadres (frames)</a></h4>
+            <p>Même s'ils ont tendance à disparaître, les cadres (ou frames) restent encore présents sur nombre de pages Web.</p>
+            <h4><a href="video.html">Contrôle du son et de la vidéo</a></h4>
+            <p>Comment insérer du contenu multimédia dans une page Web&nbsp;?</p>
+            <h4><a href="forms.html">Les formulaires</a></h4>
+            <p>Ce chapitre présente l'utilisation des formulaires en HTML.</p>
+         </div>
+         <div class="impair">
+            <h3>Mettre en forme&nbsp;: le langage CSS</h3>
+            <p class="intro">Une page <acronym title="HyperText Markup Language">HTML</acronym> peut être mise en forme à l'aide du langage <acronym title="Cascading StyleSheet">CSS</acronym>. Ces pages offrent un aperçu de ses possibilités.
+            </p>
+            <h4><a href="cssintro.html">Feuilles de style, introduction</a></h4>
+            <p>Le langage CSS permet de mettre en forme un document HTML. Voici ses principes de base.</p>
+            <h4><a href="css1.html">Les règles du CSS1</a></h4>
+            <p>Ce chapitre présente les concepts généraux des feuilles de style CSS, et en particulier les recommandations CSS1.</p>
+            <h4><a href="css2.html">Règles supplémentaires du CSS2</a></h4>
+            <p>Ce chapitre présente les concepts généraux des feuilles de style niveau 2 (CSS2).</p>
+         </div>
+         <div class="pair">
+            <h3>Quelques pages-types et conseils généraux</h3>
+            <p class="intro">Pour terminer, voici quelques modèles de pages...</p>
+            <h4><a href="modeles.html">Modèles de documents et de codes</a></h4>
+            <p>Ce chapitre propose des modèles de documents et de code HTML.</p>
+         </div>
+         <div class="impair">
+            <h3>Conditions d'utilisation&nbsp;: <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-by-sa</a></h3>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

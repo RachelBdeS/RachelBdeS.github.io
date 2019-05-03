@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "chapitre15.dtd">
+<chapitre>
+    <cours nomfichier="cssrapide"/>
+    <entete>
+        <titre>CSS en quelques mots</titre>
+        <auteur>G. Chagnon</auteur>
+        <miseajour>
+            <maj version="1.0">
+                <quand>23/10/2004</quand>
+                <qui>G. Chagnon</qui>
+                <quoi>Création.</quoi>
+            </maj>
+        </miseajour>
+        <resume>Comment mettre en forme une page Web à l'aide du langage CSS.</resume>
+        <motsclefs>CSS, positionnement, cascading stylesheet</motsclefs>
+    </entete>
+    <corpus>
+        
+    </corpus>
+</chapitre>

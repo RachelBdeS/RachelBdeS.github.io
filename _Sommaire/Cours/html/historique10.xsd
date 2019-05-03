@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Version 1.01 du 17/09/2006
+	- Ajout de la possibilité de placer un lien.
+-->
+<!-- Version 1.0 du 28/10/2005
+	- Création
+-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:annotation>
+		<xs:documentation>Schéma de définition d'une liste de mises à jour.</xs:documentation>
+	</xs:annotation>
+	
+	<!-- Définition des types -->
+	<xs:simpleType name="typeType">
+		<xs:restriction base="xs:string">
+			<xs:annotation><xs:documentation>Le plus petit nombre=la MàJ la plus importante.</xs:documentation></xs:annotation>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typeOù">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="cours"/>
+			<xs:enumeration value="cadres"/>
+			<xs:enumeration value="cssintro"/>
+			<xs:enumeration value="css1"/>
+			<xs:enumeration value="css2"/>
+			<xs:enumeration value="elements"/>
+			<xs:enumeration value="forms"/>
+			<xs:enumeration value="htmlrapide"/>
+			<xs:enumeration value="images"/>
+			<xs:enumeration value="intro"/>
+			<xs:enumeration value="liens"/>
+			<xs:enumeration value="listes"/>
+			<xs:enumeration value="modeles"/>
+			<xs:enumeration value="tableaux"/>
+			<xs:enumeration value="texte"/>
+			<xs:enumeration value="video"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- Définition des éléments de type simple -->
+	
+	<!-- Définition des attributs -->
+	<xs:attribute name="date" type="xs:date"/>
+	<xs:attribute name="où" type="typeOù" default="cours"/>
+	<xs:attribute name="auteur" type="xs:string" default="G. Chagnon"/>
+	<xs:attribute name="type" type="typeType" default="4"/>
+	<xs:attribute name="href" type="xs:anyURI"/>
+	
+	<!-- Définition des éléments de type complexe -->
+	<xs:element name="lien">
+		<xs:complexType mixed="true">
+			<xs:attribute ref="href" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="maj">
+		<xs:complexType mixed="true">
+			<xs:all>
+				<xs:element ref="lien" minOccurs="0"/>
+			</xs:all>
+			<xs:attribute ref="auteur" use="optional"/>
+			<xs:attribute ref="où" use="required"/>
+			<xs:attribute ref="type" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="quand">
+		<xs:complexType>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="maj"></xs:element>
+			</xs:choice>
+			<xs:attribute ref="date" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="misesAJour">
+		<xs:complexType>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="quand"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>

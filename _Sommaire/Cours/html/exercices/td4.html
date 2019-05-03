@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Exemples de formulaires</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<h1 align="center">Exemples de formulaires</h1>
+
+<p>Reproduire les éléments de formulaire suivants...</p>
+
+<h2>Balise <code>input</code></h2>
+
+<h3>Champ de saisie avec <code>&lt;input type="text"...&gt;</code></h3>
+
+<form action="mailto:gil_antispam@yahoo.fr"><input type="text" name="urlsite" size="40" maxlength="40" value="http://"></form>
+
+<h3>Cases &agrave; cocher</h3>
+
+<form action="mailto:gil_antispam@yahoo.fr"><input type="checkbox" name="choix1" value="case 1"> case 1.<br>
+ <input type="checkbox" name="choix2" value="case 2" checked> case 2 pr&eacute;-coch&eacute;e.<br>
+ <input type="checkbox" name="choix3" value="case 3"> case 3.<br>
+</form>
+
+<h3>Boutons radio</h3>
+
+<form action="mailto:gil_antispam@yahoo.fr"><input type="radio" name="gout" value="gout1"> sal&eacute; <input type="radio" name="gout" value="gout2"> sucr&eacute; <input type="radio" name="gout" value="gout3" checked=
+"checked"> sans saveur</form>
+
+<h3>Envoyer un fichier...</h3>
+
+<form action="mailto:gil_antispam@yahoo.fr"><input type="file" value="DEUST" name="fichier_att"></form>
+
+<h3>Champ de saisie de mot de passe</h3>
+
+<form action="mailto:gil_antispam@yahoo.fr"><input type="password" name="qui" size="15" maxlength="15" value="mot_de_passe!"></form>
+
+<h3>Soumettre un formulaire...</h3>
+
+<form name="DeuxiemeExemple" action="mailto:Gilles.Chagnon@upmc.fr?subject=essai" method="post" enctype="text/plain"><input type="submit" name="Submit3" value="Envoyer"></form>
+
+<h3>... ou le remettre &agrave; z&eacute;ro&nbsp;!</h3>
+
+<form name="ExempleDEnvoi" action="mailto:Gilles.Chagnon@admp6.jussieu.fr?subject=essai" method="post" enctype="text/plain"><input type="text" value="Petit texte..."> <input type="reset" name=
+"Submit4" value="Mettre &agrave; z&eacute;ro"></form>
+
+<h2>Champ de saisie long (balise <code>textarea</code>)</h2>
+
+<form action="mailto:gil_antispam@yahoo.fr"><textarea name="ma boite" cols="40" rows="4">C'est l'histoire d'un fou qui repeint son plafond. Un autre fou arrive et lui dit : "Accroche-toi au pinceau, j'enl&egrave;ve
+l'&eacute;chelle !" 
+ </textarea></form>
+ 
+<h2>Balise <code>select</code></h2>
+
+<h3>Format par défaut</h3>
+<form action="mailto:gil_antispam@yahoo.fr">
+	  <select name="select">
+	  		  <option>saint nectaire</option> 
+			  <option>camembert</option> 
+			  <option selected="selected">beaufort</option>
+			  <option>roblochon</option> 
+			  <option>brie</option>
+</select>
+</form>
+
+<h3>On raffine un peu...</h3>
+
+<form action="mailto:gil_antispam@yahoo.fr">
+	  <select name="select2" size="4" multiple="multiple">
+	  		  <option>saint nectaire</option> 
+			  <option selected="selected">camembert</option> 
+			  <option selected="selected">beaufort</option>
+			  <option>roblochon</option> 
+			  <option>brie</option>
+</select>
+</form>
+
+<h2>Un exemple combinant plusieurs types de champs</h2>
+
+<form action="mailto:email@adresse.com?subject=essai2" method="post" enctype="text/plain"> 
+Votre adresse de courrier électronique...<br>
+<input type="text" name="email" size="30" maxlength="40" value="nom@fournisseur.domaine"> 
+<br> 
+<br> 
+Tapez ici votre commentaire&nbsp;:<br>
+<textarea name="Commentaire:" cols="31" rows="4">Votre commentaire...</textarea> 
+<br> 
+<br> 
+<input type="submit" value="Envoyer"> 
+<input type="reset" value="Annuler"> 
+</form> 
+
+<p><a href="../forms.html#exoforms">Retour au cours</a></p>
+ 
+</body>
+</html>
+

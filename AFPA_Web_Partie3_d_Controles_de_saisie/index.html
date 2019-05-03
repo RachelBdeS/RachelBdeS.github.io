@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link href="./css/AFPA_Web_Partie3_d.css" rel="stylesheet">
+  <title>Controles de saisie</title>
+</head>
+
+<body role="main">
+  <div>
+    <h1>Controles de saisie</h1>
+    <label>Nom :* </label><input type="text" placeholder="nom" class="requis" tabindex="1">
+    <label>Prénom :* </label><input type="text" placeholder="prenom" tabindex="2">
+    <label>Numéro :* </label><input type="number" placeholder="numero membre" tabindex="3">
+    <label>Rue : </label><input type="text" placeholder="numero et nom de rue" tabindex="4">
+    <label>Ville : </label><input type="text" placeholder="ville" tabindex="5">
+    <label>CP : </label><input type="number" placeholder="code postal" tabindex="6" min="10000" max="99999">
+    <label>Email : </label><input type="text" placeholder="mel" tabindex="7">
+    <label>Téléphone : </label><input type="text" placeholder="telephone" tabindex="8">
+    <button tabindex="9">Validation</button>
+    <p role="alert"></p>
+  </div>
+</body>
+
+<script>
+  // Handlers
+  for (i=0; i<document.querySelectorAll('input').length; i++) {
+    
+    /*DEBUG*/console.log('1 • nombre de champs: '+document.querySelectorAll('input').length);
+    /*DEBUG*/console.log('2 • index: '+i);
+    id = document.querySelectorAll('input')[i].placeholder;
+    /*DEBUG*/console.log('3 • id: '+id);
+    var element = document.querySelectorAll('input[placeholder="' +id+ '"]')[i];
+    /*DEBUG*/console.log('4 • element: '+element);
+    
+    element.onblur = function() 
+    {
+      /*DEBUG*/console.log('5 • Blur occured!');
+      element.className=='requis'? requis=true: requis=false;
+      /*DEBUG*/console.log('6 • element.className'+element.className);
+      champsValide(this, requis);
+    }
+  }
+
+  // Fonction appelée
+  function champsValide(champs, requis) {
+    
+    champs.value = champs.value.trim();
+    if (requis && champs.value=="") 
+    {
+      champs.style.borderColor='red';
+      document.querySelector('p').innerHTML=`Le ${champs.placeholder} est obligatoire`;
+      return false;
+    }
+    else if (champs.value!="")
+    {
+      champs.style.borderColor='#ccc';
+      document.querySelector('p').innerHTML="";
+      return true;
+    }
+  }
+  
+</script>
+
+</html>

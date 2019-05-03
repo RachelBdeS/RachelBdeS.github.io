@@ -1,0 +1,15 @@
+/* Mise en forme du contenu */
+
+/* Mise en forme des exemples */
+
+#contenu span.nomattribut{
+	background-color: transparent;
+	color: blue;
+}
+
+#contenu span.valeurattribut{
+	background-color: transparent;
+	color: black;
+	/*font-weight: normal;*/
+	font-style: italic;
+}

@@ -1,0 +1,498 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Éléments HTML</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, concept, introduction, balise">
+      <meta name="description" content="Ce chapitre résume les conditions d'utilisation des éléments HTML">
+      <link rel="prev" href="intro.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Éléments HTML</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 4 juillet 2011.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#intro" title="Introduction">Introduction</a><ol>
+                     <li><a href="#introintro" title="Sémantique des éléments HTML">Sémantique des éléments HTML</a></li>
+                     <li><a href="#blocenligne" title="Éléments de type bloc, éléments de type en ligne">Éléments de type bloc, éléments de type en ligne</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#usuels" title="Éléments usuels">Éléments usuels</a><ol>
+                     <li><a href="#groupements" title="Groupements d'éléments">Groupements d'éléments</a></li>
+                     <li><a href="#hierarchie" title="Hiérarchisation de l'information : entêtes et paragraphes">Hiérarchisation de l'information : entêtes et paragraphes</a></li>
+                     <li><a href="#listes" title="Listes">Listes</a><ol>
+                           <li><a href="#listesIntro" title="Introduction">Introduction</a></li>
+                           <li><a href="#listesPuces" title="Listes à puces et ordonnées">Listes à puces et ordonnées</a></li>
+                           <li><a href="#listesDf" title="Listes de définitions">Listes de définitions</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#tableaux" title="Les tableaux">Les tableaux</a><ol>
+                           <li><a href="#tablePresentation" title="Présentation">Présentation</a></li>
+                           <li><a href="#tableStructure" title="Structuration">Structuration</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#formulaires" title="Formulaires">Formulaires</a></li>
+                     <li><a href="#images" title="Images">Images</a></li>
+                     <li><a href="#liens" title="Liens hypertexte">Liens hypertexte</a><ol>
+                           <li><a href="#relabs" title="Adresse relative, adresse absolue">Adresse relative, adresse absolue</a></li>
+                           <li><a href="#typesliens" title="Types de liens">Types de liens</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#autres" title="Autres éléments">Autres éléments</a><ol>
+                     <li><a href="#emphase" title="Emphase">Emphase</a></li>
+                     <li><a href="#citation" title="Citation">Citation</a></li>
+                     <li><a href="#miseAJour" title="Insérer des marques de mise à jour">Insérer des marques de mise à jour</a></li>
+                     <li><a href="#abbr" title="Abréviations et acronymes">Abréviations et acronymes</a></li>
+                     <li><a href="#code" title="Formatage de code">Formatage de code</a></li>
+                     <li><a href="#dfn" title="Définition en ligne&nbsp;: l'élément dfn">Définition en ligne&nbsp;: l'élément dfn</a></li>
+                     <li><a href="#multimedia" title="Éléments multimédia">Éléments multimédia</a></li>
+                     <li><a href="#divers" title="Éléments divers">Éléments divers</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="intro" href="#intro" id="intro"></a>I. Introduction
+         </h3>
+         <h4><a name="introintro" id="introintro" href="#introintro"></a>1. Sémantique des éléments HTML
+         </h4>
+         <p>À l'origine, <code class="langage">HTML</code> a été conçu pour être un langage de balisage porteur de sens. Cela signifiait que chaque élément codait un type de contenu
+            particulier. Dans la deuxième moitié des années 1990, lorsque le «&nbsp;Web&nbsp;» a pris son essor, bon nombre d'auteurs de site ont
+            émis le souhait que des éléments puissent être créés, qui leur permettent de gérer plus finement l'apparence du document quand
+            il est affiché sur un navigateur graphique. Les éditeurs de navigateur ont suivi. Par la suite au tournant du siècle, les
+            navigateurs supportant mieux les feuilles de style <code class="langage">CSS</code>, il est devenu possible de revenir à la séparation initiale du fond et sa mise en forme. Ce chapitre expose les éléments
+            de la spécification plus spécialement consacrés au balisage «&nbsp;sémantique&nbsp;» du contenu.
+         </p>
+         <p class="retourtdm"><a href="#tdm_introintro" title="Retour à la TdM (Sémantique des éléments HTML)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="blocenligne" id="blocenligne" href="#blocenligne"></a>2. Éléments de type bloc, éléments de type en ligne
+         </h4>
+         <p>Il existe en <code class="langage">HTML</code> deux types d'éléments&nbsp;: les éléments en ligne et les éléments de type bloc.
+         </p>
+         <ul>
+            <li>
+               <p>Les éléments en ligne sont destinés à être placés au fil du texte. Il s'agit par exemple des éléments d'emphase (<code class="code">em</code>), des images (<code class="code">img</code>), des liens (<code class="code">a</code>)... Normalement, ces éléments n'ont pas vocation à être placés sur une page, mais à être affichés dans le contexte de l'élément
+                  parent qui les encadre. Un élément en ligne ne peut contenir que des éléments en ligne ou du texte.
+               </p>
+            </li>
+            <li>
+               <p>Les éléments de type bloc sont ceux qui, par défaut, ont un rendu visuel «&nbsp;en bloc&nbsp;» sur un navigateur graphique&nbsp;: c'est le
+                  cas par exemple des titres (<code class="code">h1...6</code>), des paragraphes (<code class="code">p</code>), des tableaux (<code class="code">table</code>)... Ils peuvent être positionnés sur une page. À l'écran, ces éléments sont précédés et suivis d'un retour à la ligne. Les
+                  éléments de type bloc peuvent contenir des éléments en ligne. Tous les éléments de type bloc, sauf les paragraphes et les
+                  titres, peuvent de plus contenir d'autres éléments de type bloc.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_blocenligne" title="Retour à la TdM (Éléments de type bloc, éléments de type en ligne)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="usuels" href="#usuels" id="usuels"></a>II. Éléments usuels
+         </h3>
+         <h4><a name="groupements" id="groupements" href="#groupements"></a>1. Groupements d'éléments
+         </h4>
+         <p>Avant d'aborder les éléments porteurs d'une information sémantique à proprement parler, nous allons aborder deux éléments
+            dont la fonction n'est que d'en contenir d'autres, sans aucune connotation sémantique propre&nbsp;: les éléments <code class="code">div</code> et <code class="code">span</code>. Il est parfois nécessaire de grouper plusieurs éléments soit pour organiser le contenu, soit pour mettre en page à l'aide
+            d'une feuille de styles, tels que par exemple des titres et des paragraphes partageant un point commun (table des matières
+            en tête d'un document, ensemble de liens sponsorisés et de publicités...). C'est là l'unique fonction de ces éléments. <code class="code">div</code> est un élément de type bloc et peut contenir d'autres éléments de type bloc, <code class="code">span</code> est un élément en ligne.
+         </p>
+         <p class="retourtdm"><a href="#tdm_groupements" title="Retour à la TdM (Groupements d'éléments)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="hierarchie" id="hierarchie" href="#hierarchie"></a>2. Hiérarchisation de l'information : entêtes et paragraphes
+         </h4>
+         <p>Un texte se structure à l'aide de titres (éléments <code class="code">h1</code>... <code class="code">h6</code>) et de paragraphes (éléments <code class="code">p</code>). Tous sont des éléments de type bloc.
+         </p>
+         <p>Il existe six niveaux de titres, par ordre d'importance décroissante <code class="code">h1</code> à <code class="code">h6</code>. Ces niveaux de titre sont interprétés par certaines aides techniques, et fournissent une table des matières pour la page
+            Web. Il est donc important de respecter la hiérarchie de ces titres. Il faut également prendre garde à ne pas émietter l'information
+            (il est rare d'avoir à faire appel à <code class="code">h5</code> ou <code class="code">h6</code>&nbsp;!).
+         </p>
+         <p>Un paragraphe se signale dans la plupart des cas par l'élément <code class="code">p</code>. Il est possible également d'utiliser l'élément <code class="code">pre</code> (pour <span lang="en" class="autrelangue">preformatted</span>), qui permet, sur un navigateur graphique ou textuel, d'afficher le paragraphe en respectant les retours chariot et nombre
+            d'espaces indiqués dans le code source.
+         </p>
+         <p>L'élément <code class="code">br</code> permet d'insérer un saut de ligne à l'intérieur d'un paragraphe. Avant de l'utiliser, il faut se demander si ce saut de ligne
+            s'intercale logiquement au sein du paragraphe, ou bien s'il n'y a pas lieu de scinder ce dernier en deux éléments <code class="code">p</code> distincts.
+         </p>
+         <p class="retourtdm"><a href="#tdm_hierarchie" title="Retour à la TdM (Hiérarchisation de l'information : entêtes et paragraphes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="listes" id="listes" href="#listes"></a>3. Listes
+         </h4>
+         <h5><a href="#listesIntro" name="listesIntro" id="listesIntro"></a>a. Introduction
+         </h5>
+         <p>On distingue trois types de listes&nbsp;: listes à puces (éléments <code class="code">ul</code>) et listes numérotées (éléments <code class="code">ol</code>) qui partagent l'utilisation de l'élément <code class="code">li</code>, et les  listes de définitions (élément <code class="code">dl</code>). Tous ces éléments sont de type bloc.
+         </p>
+         <p class="retourtdm"><a href="#tdm_listesIntro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#listesPuces" name="listesPuces" id="listesPuces"></a>b. Listes à puces et ordonnées
+         </h5>
+         <p>Les listes à puces sont les listes les plus simples, quand l'ordre de présentation des items est important&nbsp;; elles comportent
+            des items (éléments <code class="code">li</code>). Il est possible d'imbriquer des listes. Attention toutefois au fait qu'un élément <code class="code">ul</code> ne peut contenir que des éléments <code class="code">li</code>&nbsp;:
+         </p>
+         <p class="html"><span class="tag">&lt;ul&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>(....)<span class="tag">&lt;/li&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>(....)<span class="tag">&lt;/li&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;ul&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>(...)<span class="tag">&lt;/li&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>(...)<span class="tag">&lt;/li&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>(...)<span class="tag">&lt;/li&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/ul&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/li&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;li&gt;</span>(....)<span class="tag">&lt;/li&gt;</span><br>
+            						<span class="tag">&lt;/ul&gt;</span><br></p>
+         <p>Les listes numérotées sont des énumérations ordonnées (comme dans le cas de la présente liste)&nbsp;; elles comportent des items
+            (éléments <code class="code">li</code>) et peuvent être imbriquées, tout comme les listes à puces. Par exemple, dans une recette de cuisine, on utilisera plutôt
+            une liste non ordonnée pour les ingrédients, et une liste ordonnée pour indiquer la séquence des opérations.
+         </p>
+         <p class="retourtdm"><a href="#tdm_listesPuces" title="Retour à la TdM (Listes à puces et ordonnées)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#listesDf" name="listesDf" id="listesDf"></a>c. Listes de définitions
+         </h5>
+         <p>Les listes de définition sont des suites de termes (éléments <code class="code">dt</code>) et de définitions pour ces termes (éléments <code class="code">dd</code>). Plusieurs définitions peuvent être indiquées pour un terme. Il est à noter que Google possède la fonctionnalité <code class="code">define</code>, qui tire parti de ces listes pour extraire des définitions sur le Web. On écrira par exemple...
+         </p>
+         <p class="html"><span class="tag">&lt;dl&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dt&gt;</span>Maison<span class="tag">&lt;/dt&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Une maison est une habitation.<span class="tag">&lt;/dd&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dt&gt;</span>Château<span class="tag">&lt;/dt&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Un château est une grande maison.<span class="tag">&lt;/dd&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dt&gt;</span>Palais<span class="tag">&lt;/dt&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Château somptueux<span class="tag">&lt;/dd&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;dd&gt;</span>Partie supérieure de la cavité buccale.<span class="tag">&lt;/dd&gt;</span><br>
+            						<span class="tag">&lt;/dl&gt;</span><br></p>
+         <p>Pour plus de détails, voir le chapitre consacré aux <a href="listes.html">listes</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_listes" title="Retour à la TdM (Listes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="tableaux" id="tableaux" href="#tableaux"></a>4. Les tableaux
+         </h4>
+         <h5><a href="#tablePresentation" name="tablePresentation" id="tablePresentation"></a>a. Présentation
+         </h5>
+         <p>Un tableau se déclare à l'aide de l'élément <code class="code">table</code>. Cet élément doit contenir des données sous format tabulaire, présentes dans des cellules. Ces dernières sont soit des cellules
+            de données (élément <code class="code">td</code>), soit des cellules d'entête (élément <code class="code">th</code>). L'attribut <code class="code">summary</code> de l'élément <code class="code">table</code> donne une description du tableau. Tous les éléments mentionnés dans cette partie sont de type bloc.
+         </p>
+         <p>Les tableaux ont souvent été utilisés pour la mise en page, afin de pallier le support partiel de <code class="langage">CSS</code> par les navigateurs. Dans la mesure où ce support est maintenant largement répandu, cet usage obsolète qui détournait l'élément
+            <code class="code">table</code> de sa signification première, est à abandonner.
+         </p>
+         <p class="retourtdm"><a href="#tdm_tablePresentation" title="Retour à la TdM (Présentation)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#tableStructure" name="tableStructure" id="tableStructure"></a>b. Structuration
+         </h5>
+         <p>Un tableau de données doit contenir une légende (élément <code class="code">caption</code>), des entêtes de lignes et/ou de colonnes (éléments <code class="code">th</code>). On peut également utiliser les éléments <code class="code">thead</code>, <code class="code">tfoot</code> et <code class="code">tbody</code>, qui permettent d'organiser les grands blocs d'informations dans le tableau. <code class="code">thead</code> est destiné à contenir les lignes d'entêtes, <code class="code">tfoot</code> éventuellement leur reprise en fin de tableau (à noter que cet élément se place dans le code lorsqu'il est utilisé, entre
+            les éléments <code class="code">thead</code> et <code class="code">tbody</code>). <code class="code">tbody</code> contient les informations du corps du tableau&nbsp;; il est possible d'en compter plusieurs par tableau, ce qui permet d'isoler
+            des blocs de données indépendants.
+         </p>
+         <p>Dans les cellules d'entête <code class="code">th</code>, l'utilisation de l'attribut <code class="code">id</code>, couplée à celle de l'attribut <code class="code">headers</code> dans les cellules de données <code class="code">td</code> permet de lier les cellules aux entêtes dont elles dépendent. Il est possible également d'utiliser l'attribut <code class="code">scope</code>, pouvant prendre les valeurs <code class="code">col</code> ou <code class="code">row</code>, liant la cellule d'entête respectivement à une colonne ou une rangée de cellules de données.
+         </p>
+         <p class="html"><span class="tag">&lt;table<span class="nomattribut"> summary</span>="<span class="valeurattribut">Description du tableau</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;caption&gt;</span>Légende du tableau<span class="tag">&lt;/caption&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;thead&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th<span class="nomattribut"> id</span>="<span class="valeurattribut">id1</span>"&gt;</span>Titre de la première colonne<span class="tag">&lt;/th&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th<span class="nomattribut"> id</span>="<span class="valeurattribut">id2</span>"&gt;</span>Titre de la deuxième colonne<span class="tag">&lt;/th&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th<span class="nomattribut"> id</span>="<span class="valeurattribut">id3</span>"&gt;</span>Titre de la troisième colonne<span class="tag">&lt;/th&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th<span class="nomattribut"> id</span>="<span class="valeurattribut">id4</span>"&gt;</span>Titre de la quatrième colonne<span class="tag">&lt;/th&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/thead&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;tfoot&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th&gt;</span>Titre de la première colonne<span class="tag">&lt;/th&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th&gt;</span>Titre de la deuxième colonne<span class="tag">&lt;/th&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th&gt;</span>Titre de la troisième colonne<span class="tag">&lt;/th&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;th&gt;</span>Titre de la quatrième colonne<span class="tag">&lt;/th&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/tfoot&gt;</span><br>
+            								&nbsp;&nbsp;<span class="tag">&lt;tbody&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span><br>
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td<span class="nomattribut"> headers</span>="<span class="valeurattribut">id1</span>"&gt;</span>Cellule de la deuxième ligne, première colonne<span class="tag">&lt;/td&gt;</span><br>
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td<span class="nomattribut"> headers</span>="<span class="valeurattribut">id2</span>"&gt;</span>Cellule de la deuxième ligne, deuxième colonne<span class="tag">&lt;/td&gt;</span><br>
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td<span class="nomattribut"> headers</span>="<span class="valeurattribut">id3</span>"&gt;</span>Cellule de la deuxième ligne, troisième colonne<span class="tag">&lt;/td&gt;</span><br>
+            										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;td<span class="nomattribut"> headers</span>="<span class="valeurattribut">id4</span>"&gt;</span>Cellule de la deuxième ligne, quatrième colonne<span class="tag">&lt;/td&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;/tr&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span>(...)<span class="tag">&lt;/tr&gt;</span><br>
+            									&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;tr&gt;</span>(...)<span class="tag">&lt;/tr&gt;</span><br>
+            								&nbsp;&nbsp;<span class="tag">&lt;/tbody&gt;</span><br>
+            						<span class="tag">&lt;/table&gt;</span><br></p>
+         <p>Pour plus de détails, voir le chapitre consacré aux <a href="tableaux.html">tableaux</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_tableaux" title="Retour à la TdM (Les tableaux)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="formulaires" id="formulaires" href="#formulaires"></a>5. Formulaires
+         </h4>
+         <p>Pour introduire un minimum d'interactivité dans un site Web, il est souvent bienvenu d'utiliser un formulaire. Il s'agit d'une
+            zone d'une page dans laquelle l'utilisateur est invité à entrer des informations. Un formulaire est indiqué par l'élément
+            de type bloc <code class="code">form</code>. Cet élément peut contenir divers autres éléments (tous de type en ligne) de saisie (éléments <code class="code">input</code>, <code class="code">textarea</code> ou <code class="code">select</code>), d'interaction (élément <code class="code">button</code>) ou des étiquettes destinées à informer l'utilisateur de la nature du champ à remplir (élément <code class="code">label</code>). Lorsque des ambiguïtés sont susceptibles de perturber le bon remplissage du formulaire, on peut utiliser un élément <code class="code">fieldset</code> accompagné d'une légende (élément <code class="code">legend</code>) pour lever les incertitudes. Par exemple,
+         </p>
+         <p class="html"><span class="tag">&lt;form<span class="nomattribut"> method</span>="<span class="valeurattribut">(...)</span>"<span class="nomattribut"> action</span>="<span class="valeurattribut">(...)</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;fieldset&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;legend&gt;</span>Adresse de facturation<span class="tag">&lt;/legend&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">nomFac</span>"&gt;</span>Nom<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">nomFac</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">numrueFac</span>"&gt;</span>Numéro et rue<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">numrueFac</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">codepostalFac</span>"&gt;</span>Code postal<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">codepostalFac</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">villeFac</span>"&gt;</span>Ville<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">villeFac</span>"&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/fieldset&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;fieldset&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;legend&gt;</span>Adresse de livraison<span class="tag">&lt;/legend&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">nomLiv</span>"&gt;</span>Nom<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">nomLiv</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">numrueLiv</span>"&gt;</span>Numéro et rue<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">numrueLiv</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">codepostalLiv</span>"&gt;</span>Code postal<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">codepostalLiv</span>"&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;label<span class="nomattribut"> for</span>="<span class="valeurattribut">villeLiv</span>"&gt;</span>Ville<span class="tag">&lt;/label&gt;</span><br>
+            								&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;input<span class="nomattribut"> type</span>="<span class="valeurattribut">text</span>"<span class="nomattribut"> id</span>="<span class="valeurattribut">villeLiv</span>"&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;/fieldset&gt;</span><br>
+            						<span class="tag">&lt;/form&gt;</span><br></p>
+         <p>Pour plus de détails, voir le chapitre consacré aux <a href="forms.html">formulaires</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_formulaires" title="Retour à la TdM (Formulaires)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="images" id="images" href="#images"></a>6. Images
+         </h4>
+         <p>Il est facile d'indiquer qu'une image doit être présente sur une page Web&nbsp;; pour cela, on utilise l'élément <code class="code">img</code>. Cet élément utilise deux attributs <em>obligatoires</em>&nbsp;: l'attribut <code class="code">src</code> pointe vers l'image à insérer, et l'attribut <code class="code">alt</code> en donne une alternative à destination des agents utilisateurs qui ne sont pas en mesure de restituer les images (navigateurs
+            graphiques dans lesquels la visualisation des images a été désactivée, lecteurs d'écran, moteurs de recherche...). Pour plus
+            de détails, voir le chapitre consacré aux <a href="images.html">images</a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_images" title="Retour à la TdM (Images)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="liens" id="liens" href="#liens"></a>7. Liens hypertexte
+         </h4>
+         <h5><a href="#relabs" name="relabs" id="relabs"></a>a. Adresse relative, adresse absolue
+         </h5>
+         <p>Quand, à partir d&#8217;une page donnée, on fait référence à une autre ressource (ce peut être une image, ou un autre fichier HTML),
+            il est possible de le faire de deux manières&nbsp;: relative ou absolue.
+         </p>
+         <ul>
+            <li>
+               <p>Une adresse absolue commence par <code class="code">http://</code>&nbsp;: concrètement, le poste client (celui sur lequel se trouve le navigateur) doit alors déterminer le chemin vers le serveur
+                  à chacune de ces requêtes, et ce, que ce chemin lui soit réellement connu ou pas (via son serveur de nom de domaine (DNS).
+               </p>
+            </li>
+            <li>
+               <p>Une adresse relative spécifie le chemin menant au fichier cible, à partir du fichier courant, en utilisant une syntaxe similaire
+                  à la navigation dans une arborescence Unix. Par exemple, pour indiquer que le fichier <code class="code">fichier1.html</code> se trouve dans le répertoire <code class="code">rep1</code>, fils du répertoire courant, on écrira <code class="code">rep1/fichier1.html</code>. Si le fichier <code class="code">fichier2.html</code> se trouve dans le répertoire parent, on écrira <code class="code">../fichier2.html</code> et enfin, si le fichier <code class="code">image1.png</code> se trouve dans le répertoire <code class="code">images</code> frère du répertoire courant, on écrira <code class="code">../images/image1.png</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_relabs" title="Retour à la TdM (Adresse relative, adresse absolue)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#typesliens" name="typesliens" id="typesliens"></a>b. Types de liens
+         </h5>
+         <p>Il existe deux types de liens dans une page&nbsp;:</p>
+         <ul>
+            <li>
+               <p>Les liens «&nbsp;classiques&nbsp;» que l'on a l'habitude de suivre quand on consulte une page Web se codent à l'aide de l'élément <code class="code">a</code>, pour lequel on précise l'attribut <code class="code">href</code> qui pointe vers l'adresse de la page ou, plus généralement, de la ressource à visiter. Il est possible aussi de spécifier
+                  la langue dans laquelle est rédigée cette ressource à l'aide de l'attribut <code class="code">hreflang</code>. Il s'agit d'un élément de type en ligne. Par exemple, &lt;p&gt;Ceci est un paragraphe contenant un lien vers l&#8217;&lt;a href="http://www.upmc.fr/"&gt;Université
+                  Pierre-et-Marie Curie&lt;/a&gt;.&lt;/p&gt;
+               </p>
+            </li>
+            <li>
+               <p>Il est possible d'ajouter à un document une deuxième sorte de liens qui n'apparaissent pas dans le corps de la page, grâce
+                  à l'élément <code class="code">link</code>. Cet élément, à utiliser dans l'entête du fichier, permet de spécifier aux outils capables de le traiter des «&nbsp;méta-liens&nbsp;»,
+                  comme un lien vers des informations sur l'auteur, sur une table des matières, vers l'accueil... L'exemple ci-après permet
+                  d'indiquer au navigateur l'existence d'un lien vers un fichier censé être le suivant dans l'ordre logique de lecture des pages
+                  du site, puis l'existence d'une version alternative au format <code class="langage">Postscript</code>&nbsp;:
+               </p>
+               <p class="html"><span class="tag">&lt;link<span class="nomattribut"> rel</span>="<span class="valeurattribut">next</span>"<span class="nomattribut"> type</span>="<span class="valeurattribut">text/html</span>"<span class="nomattribut"> href</span>="<span class="valeurattribut">fichier_suivant.html</span>"&gt;</span><br><span class="tag">&lt;link<span class="nomattribut"> rel</span>="<span class="valeurattribut">alternate</span>"<span class="nomattribut"> type</span>="<span class="valeurattribut">application/postscript</span>"<span class="nomattribut"> href</span>="<span class="valeurattribut">document.ps</span>"&gt;</span><br></p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_liens" title="Retour à la TdM (Liens hypertexte)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="autres" href="#autres" id="autres"></a>III. Autres éléments
+         </h3>
+         <p>Sauf exception, tous les éléments mentionnés ci-après sont des éléments de type en ligne.</p>
+         <h4><a name="emphase" id="emphase" href="#emphase"></a>1. Emphase
+         </h4>
+         <p>Une emphase est réalisée grâce à l'élément <code class="code">em</code>&nbsp;; si on a besoin d'une emphase plus forte, on utilise <code class="code">strong</code>. Ces éléments étaient parfois mal utilisés pour mettre du texte respectivement en italique ou en gras, alors qu'il ne s'agit
+            là que de la manière dont elles sont traduites par un navigateur graphique, et donc d'un détournement de leur signification.
+         </p>
+         <p class="retourtdm"><a href="#tdm_emphase" title="Retour à la TdM (Emphase)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="citation" id="citation" href="#citation"></a>2. Citation
+         </h4>
+         <p>La notion de citation prête à confusion en français, par rapport à l'anglais. Dans cette langue en effet, il existe deux sortes
+            de citations au sens français&nbsp;: d'une part les «&nbsp;<span lang="en" class="autrelangue">citations</span>&nbsp;», qui désignent des références de type bibliographique, comme par exemple des titres de livres ou des noms d'auteur, et
+            d'autre part les «&nbsp;<span lang="en" class="autrelangue">quotations</span>&nbsp;» qui sont des extraits de texte.
+         </p>
+         <ol>
+            <li>
+               <p>Les références bibliographiques sont codées grâce à l'élément <code class="code">cite</code>.
+               </p>
+            </li>
+            <li>
+               <p>Les citations de texte se font en ligne grâce à l'élément <code class="code">q</code>, et quand il s'agit d'un bloc de texte, grâce à l'élément <code class="code">blockquote</code> qui est de type bloc. Ces deux éléments peuvent être précisés avec l'attribut <code class="code">cite</code>, dont le but est de donner, quand cela est possible, l'URL de la ressource qui est citée.
+               </p>
+            </li>
+         </ol>
+         <p>Par exemple,</p>
+         <p class="html"><span class="tag">&lt;p&gt;</span>Le célèbre poème de Pierre de Ronsard intitulé <span class="tag">&lt;cite&gt;</span>À Cassandre<span class="tag">&lt;/cite&gt;</span> commence par ces mots&nbsp;: <span class="tag">&lt;q<span class="nomattribut"> cite</span>="<span class="valeurattribut">http://fr.wikisource.org/wiki/Mignonne%2C_allons_voir_si_la_rose...</span>"&gt;</span>"Mignonne, allons voir si la rose Qui ce matin avait déclose..."<span class="tag">&lt;/q&gt;</span>.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p class="html"><span class="tag">&lt;blockquote<span class="nomattribut"> cite</span>="<span class="valeurattribut">http://fr.wikisource.org/wiki/Son_Excellence_Eug%C3%A8ne_Rougon_-_10</span>"&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>Cependant, M. Kahn, qui avait dîné avec le ministre et le préfet, était très questionné sur la solennité du lendemain. On
+            devait se rendre à une lieue de la ville, dans le quartier dit des Moulins, devant l'entrée d'un tunnel projeté pour le chemin
+            de fer de Niort à Angers ; et là Son Excellence le ministre de l'Intérieur mettrait lui-même le feu à la première mine. Cela
+            parut touchant.<span class="tag">&lt;/p&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;p&gt;</span>Rougon faisait le bonhomme. Il voulait simplement honorer l'entreprise si laborieuse d'un vieil ami. D'ailleurs, il se considérait
+            comme le fils adoptif du département des Deux-Sèvres, qui l'avait autrefois envoyé à l'Assemblée législative. À la vérité,
+            le but de son voyage, vivement conseillé par Du Poizat, était de le montrer dans toute sa puissance à ses anciens électeurs,
+            afin d'assurer complètement sa candidature, s'il lui fallait jamais un jour entrer au Corps législatif.<span class="tag">&lt;/p&gt;</span><br>
+            						<span class="tag">&lt;/blockquote&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_citation" title="Retour à la TdM (Citation)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="miseAJour" id="miseAJour" href="#miseAJour"></a>3. Insérer des marques de mise à jour
+         </h4>
+         <p>Il est parfois nécessaire de conserver les traces des mises à jour successives d'une page mise en ligne. Deux éléments complémentaires
+            ont ce rôle&nbsp;: <code class="code">del</code> et <code class="code">ins</code>. Ces deux éléments possèdent deux attributs, <code class="code">datetime</code> et <code class="code">cite</code>. <code class="code">cite</code> donne l'URL d'une ressource expliquant éventuellement les raisons de la modification. <code class="code">datetime</code> indique la date et l'heure de la modification, sous une forme normalisée (YYYY-MM-DDThh:mm:ssTZD)&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>YYYY désigne l'année&nbsp;;</p>
+            </li>
+            <li>
+               <p>MM désigne le mois&nbsp;;</p>
+            </li>
+            <li>
+               <p>DD désigne le jour&nbsp;;</p>
+            </li>
+            <li>
+               <p>hh:mm:ss désigne l'heure en heures, minutes, secondes&nbsp;;</p>
+            </li>
+            <li>
+               <p>T sépare date et heure&nbsp;;</p>
+            </li>
+            <li>
+               <p>TZD désigne le fuseau horaire.</p>
+            </li>
+         </ul>
+         <p>Cette notation assez lourde peut être tronquée quand une telle précision n'est pas nécessaire. On peut ainsi écrire <code class="code">&lt;del datetime="2005-06-13"&gt;texte supprimé&lt;/del&gt; &lt;ins datetime="2005-06-13"&gt;texte corrigé&lt;/ins&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_miseAJour" title="Retour à la TdM (Insérer des marques de mise à jour)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="abbr" id="abbr" href="#abbr"></a>4. Abréviations et acronymes
+         </h4>
+         <p>On distingue en français acronymes et sigles. Les acronymes, codés à l'aide d'éléments <code class="code">acronym</code>, sont prononcés comme des mots (par exemple, <acronym title="Organisation du Traité de l'Atlantique Nord">OTAN</acronym> ou <acronym title="Certificat d'Aptitude au Professorat de l'Enseignement du Second degré">CAPES</acronym>). Les sigles sont codés grâce à l'élément <code class="code">abbr</code>, de l'anglais <span lang="en" class="autrelangue">abbreviation</span>, à ne pas écrire selon l'orthographe française abréviation (par exemple <abbr title="Union Européenne">UE</abbr> ou <abbr title="Union des Républiques Socialistes Soviétiques">URSS</abbr>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_abbr" title="Retour à la TdM (Abréviations et acronymes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="code" id="code" href="#code"></a>5. Formatage de code
+         </h4>
+         <p><code class="langage">HTML</code> étant un langage informatique, ses concepteurs ont eu tendance à multiplier les éléments destinés à la transcription des
+            langages de programmation. On dénombre ainsi&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p><code class="code">code</code>, qui désigne un morceau de code de programmation&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">var</code>, qui désigne une variable&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">kbd</code>, qui désigne une saisie faite au clavier par l'utilisateur&nbsp;;
+               </p>
+            </li>
+            <li>
+               <p><code class="code">samp</code>, qui désigne une sortie faite par un programme.
+               </p>
+            </li>
+         </ol>
+         <p class="retourtdm"><a href="#tdm_code" title="Retour à la TdM (Formatage de code)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="dfn" id="dfn" href="#dfn"></a>6. Définition en ligne&nbsp;: l'élément dfn
+         </h4>
+         <p>L'élément <code class="code">dfn</code> permet d'écrire une définition dans un corps de texte. Par exemple,
+         </p>
+         <p class="html"><span class="tag">&lt;p&gt;</span><span class="tag">&lt;dfn&gt;</span>Un château est une grande maison<span class="tag">&lt;/dfn&gt;</span>, et Louis XIV a fait construire celui de Versailles.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_dfn" title="Retour à la TdM (Définition en ligne&nbsp;: l'élément dfn)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="multimedia" id="multimedia" href="#multimedia"></a>7. Éléments multimédia
+         </h4>
+         <p>Un élément multimédia est inclus dans une page Web de la même manière que par exemple un programme <code class="langage">Java</code>, à l'aide de l'élément <code class="code">object</code>. Cet élément, qui est de type bloc, possède plusieurs éléments-enfants <code class="code">param</code> destinés à préciser les conditions de fonctionnement de l'objet multimédia.
+         </p>
+         <p>On consultera avec profit une liste des valeurs possibles et des attributs de cet élément dans cet <a href="http://www.laltruiste.com/courshtml/multiobject.html">article sur <code class="code">object</code></a>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_multimedia" title="Retour à la TdM (Éléments multimédia)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="divers" id="divers" href="#divers"></a>8. Éléments divers
+         </h4>
+         <p>Il est temps maintenant de faire un sort à quelques derniers éléments, qui sont plutôt des éléments de présentation pour la
+            plupart.
+         </p>
+         <ul>
+            <li>
+               <p>l'élément vide <code class="code">hr</code> n'a en soi aucun contenu sémantique. Il n'apporte aucune information supplémentaire dans une page, puisqu'il n'agit que comme
+                  séparateur graphique.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">big</code>, <code class="code">small</code>, <code class="code">tt</code>, <code class="code">i</code> et <code class="code">b</code> sont des éléments de présentation permettant respectivement d'augmenter la taille de caractères, de la diminuer, d'afficher
+                  le texte à la manière des télétypes avec une police à espacement fixe, de placer le texte en italiques et de le mettre en
+                  gras, encore présents dans les recommandations strictes de <code class="langage">HTML&nbsp;4.01</code> et <code class="langage">XHTML&nbsp;1.0</code>. Leur utilisation est donc plutôt à éviter.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">sub</code> et <code class="code">sup</code> servent respectivement à placer un texte en indice ou exposant. Leur usage est par exemple utile dans le cas de l'écriture
+                  de formules mathématiques.
+               </p>
+            </li>
+            <li>
+               <p><code class="code">address</code> sert à indiquer l'adresse de contact de l'auteur de la page consultée, et non une adresse quelconque.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_divers" title="Retour à la TdM (Éléments divers)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="intro.html">Introduction</a><br></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="elements.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 4 juillet 2011, version 1.10. Ajout d&#8217;explications sur les liens hypertexte et les adressages relatif et absolu.</li>
+            <li>Le 14 septembre 2009, version 1.02. Corrections de style et de fautes de frappe.</li>
+            <li>Le 4 février 2008, version 1.01. Corrections syntaxiques. Ajout de l'élément dfn.</li>
+            <li>Le 19 septembre 2007, version 1.00. Création.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

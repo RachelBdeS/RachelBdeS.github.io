@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="liens">Cours de HTML</cours>
+	<entete>
+		<titre>Les liens hypertexte</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Une page Web sans lien est une impasse. Ce chapitre entre dans les détails des possibilités offertes par ce concept.</resume>
+		<motsclefs>html, base, concept, introduction, lien, hypertexte</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="intro" titre="Introduction">
+			<paragraphe>
+				<texte>Ecrire des "pages Web", c'est bien&#160;; ne pas les isoler du monde et leur permettre, soit d'être indexée sur une autre page, soit de mener vers un autre site, c'est mieux. A l'inverse d'un livre, par exemple, où le plus souvent la lecture se fait de manière linéaire, et ceci à cause de la nature même du support, le support électronique a permis de développer le concept d'hypertexte.</texte>
+				<texte>La lecture n'est plus forcément linéaire&#160;; chaque groupe de mots peut mener à des informations supplémentaires, ou bien permettre de lancer une application externe, en fonction des besoins de l'utilisateur. C'est une perspective qu'il ne faut jamais oublier&#160;: un lien hypertexte est là pour introduire une certaine profondeur ou bien pour élargir un champ... et non pour artificiellement multiplier des pages sur un site&#160;!</texte>
+				<texte>Le but de ce chapitre est de faire un rapide exposé de cette notion fondamentale sur le réseau.</texte>
+			</paragraphe>
+		</partie>
+		<partie ancre="types" titre="Différents types de liens">
+			<section ancre="typesintro" titre="Introduction">
+				<paragraphe>
+					<texte>Différents types de liens sont possibles&#160;:</texte>
+					<liste>
+						<item><texte>des liens internes à une page donnée. Lors du fonctionnement de ce lien, le navigateur ne charge pas de nouvelle page. Le contenu de la fenêtre est simplement ajusté pour que la référence apparaisse à l'écran. Par exemple, ce <reference href="#interne">lien intra-page</reference> va placer l'affichage au niveau du paragraphe consacré à cette notion.</texte></item>
+						<item><texte>des liens pointant vers une autre page d'un même serveur. Lors du fonctionnement de ce lien, le navigateur charge une nouvelle page située sur le même serveur. La syntaxe employée sera alors <valeur>relative</valeur> à la page en cours. Par exemple, ce support de cours constitue lui-même un site installé sur un serveur unique, et <reference href="intro.html">ce lien</reference> permet de revenir au premier cours d'introduction. On parle de <valeur>lien interne</valeur> et d'<valeur>adresse relative</valeur>.</texte></item>
+						<item><texte>des liens pointant vers un autre site. Il va falloir lancer une requête sur l'ensemble de la toile pour que le serveur qui possède la page demandée puisse l'envoyer via l'Internet, au client demandeur. On parle de <valeur>lien externe</valeur> et d'<valeur>adresse absolue</valeur>. Exemple&#160;: <reference href="http://www.w3.org">vers le site du W3C</reference>.</texte></item>
+					</liste>
+				</paragraphe>
+			</section>
+			<section ancre="interne" titre="Liens internes">
+				<paragraphe ancre="internesexemple" titre="Exemple">
+					<texte>La table des matières en tête de ce document est constituée d'une collection de liens relatifs donnant accès à chacun de ses paragraphes.</texte>
+					<texte>La syntaxe à respecter est la suivante&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="origine"><texte>Origine du lien de l'exemple</texte></colonne>
+							<colonne id="destination"><texte>Extrémité du lien de l'exemple</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="origine">
+								<exemple type="HTML">
+									<element nom="a"><attribut nom="href">#internes</attribut>Liens internes</element>
+								</exemple>
+							</colonne>
+							<colonne headers="destination">
+								<exemple type="HTML">
+									<element nom="a"><attribut nom="name">internes</attribut></element>
+								</exemple>
+							</colonne>
+						</ligne>
+						<legende>Utilisation de la balise <code>a</code> pour créer un lien interne.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe ancre="internesbalisea" titre="La balise a">
+					<texte>Pour définir un lien, il faut désigner son départ et son arrivée&#160;: c'est la même balise <code><![CDATA[<a>]]></code> (pour <autrelangue>anchor</autrelangue> ou ancre) à l'aide de deux attributs différents (<code>href</code> et <code>name</code>) qui les prend en charge.</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="attr"><texte>Attribut</texte></colonne>
+							<colonne id="eff"><texte>Effet</texte></colonne>
+							<colonne id="val"><texte>Valeur(s)</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>href</code></texte></colonne>
+							<colonne headers="eff"><texte><valeur>H</valeur>ypertexte <valeur>REF</valeur>erence, désigne l'adresse à atteindre par le navigateur </texte></colonne>
+							<colonne headers="val">
+								<liste>
+									<item><texte>URL (voir ci-dessous).</texte></item>
+									<item><texte>valeur de l'attribut <code>name</code> (nom) de l'ancre à atteindre dans la même page Internet précédée du caractère <code>#</code>.</texte></item>
+								</liste>
+							</colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>name</code></texte></colonne>
+							<colonne headers="eff"><texte>étiquette de l'ancre</texte></colonne>
+							<colonne headers="val"><texte>chaîne de caractères</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>accesskey</code></texte></colonne>
+							<colonne headers="eff"><texte>définit une touche du clavier. La combinaison "ALT + touche" a le même effet que le clic sur le lien.</texte></colonne>
+							<colonne headers="val"><texte>touche du clavier</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>tabindex</code></texte></colonne>
+							<colonne headers="eff"><texte>fixe la position de l'élément dans l'ordre séquentiel des tabulations.</texte></colonne>
+							<colonne headers="val"><texte>valeur numérique entière</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>target</code></texte></colonne>
+							<colonne headers="eff"><texte>(voir <reference href="cadres.html">les frames</reference>)</texte></colonne>
+							<colonne headers="val"><texte/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>title</code></texte></colonne>
+							<colonne headers="eff"><texte>Une rapide description du lien</texte></colonne>
+							<colonne headers="val"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>shape</code></texte></colonne>
+							<colonne headers="eff"><texte>(voir <reference href="images.html#imgreac">les images réactives</reference>)</texte></colonne>
+							<colonne headers="val"><texte/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>coords</code></texte></colonne>
+							<colonne headers="eff"><texte>(voir <reference href="images.html#imgreac">les images réactives</reference>)</texte></colonne>
+							<colonne headers="val"><texte/></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="attr"><texte><code>onfocus</code>, <code>onblur</code></texte></colonne>
+							<colonne headers="eff"><texte> Un script à exécuter quand le curseur est positionné sur le lien (<code>onfocus</code>), ou bien qu'il le quitte (<code>onblur</code>). </texte></colonne>
+							<colonne headers="val"><texte>Une chaîne de caractères.</texte></colonne>
+						</ligne>
+						<legende>Attributs de la balise <code><![CDATA[<a>]]></code></legende>
+					</tableau>
+					<texte>L'attribut <code>accesskey</code> est très important si l'on doit prendre en compte l'accessibilité de la page. Il permet la navigation sans utiliser de souris. De plus, on peut imaginer, sur un site Web, des fonctionnalités qui sont alors facilement accessibles par une combinaison de touches&#160;: envoyer un courrier électronique avec une combinaison <code>ALT+C</code>, faire une recherche avec le raccourci <code>ALT+R</code>, <autrelangue>etc</autrelangue>. De même, l'attribut <code>tabindex</code> permet de faciliter la navigation pour les personnes ne pouvant que mal maîtriser une souris (les mal-voyants par exemple).</texte>
+				</paragraphe>
+			</section>
+			<section ancre="externe" titre="Le lien externe et l'adresse absolue: comment s'écrit une URL absolue?">
+				<paragraphe ancre="url" titre="URL: Uniform Resource Locator">
+					<texte>C'est-à-dire un "localisateur" (adresse) unifié de ressource. L'<acronyme titre="Uniform Resource Locator">URL</acronyme> absolue peut se décomposer en trois parties, par exemple l'adresse&#160;:<reference href="http://www.w3.org/TR/REC-MathML/appendixA.html">http://www.w3.org/TR/REC-MathML/appendixA.html</reference> se décompose en&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="proto"><texte>protocole</texte></colonne>
+							<colonne id="adresse"><texte>adresse du serveur</texte></colonne>
+							<colonne id="chemin"><texte>Chemin d'accès sur le serveur</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="proto"><texte><code>http://</code></texte></colonne>
+							<colonne headers="adresse"><texte><code>www.w3.org</code></texte></colonne>
+							<colonne headers="chemin"><texte><code>/TR/REC-MathML/appendixA.html</code></texte></colonne>
+						</ligne>
+						<legende>Structure d'une URL.</legende>
+					</tableau>
+				</paragraphe>
+				<paragraphe ancre="protocole" titre="Un protocole">
+					<texte>Indique le mode de dialogue utilisé pour communiquer avec la ressource invoquée. Ce peut être&#160;:</texte>
+					<liste>
+						<item><texte><valeur>http://</valeur> <autrelangue>Hyper Text Transfer Protocole</autrelangue>, pour les pages Web. </texte></item>
+						<item><texte><valeur>ftp://</valeur> <autrelangue>File Transfer Protocole</autrelangue> pour l'échange de fichiers quelconques. </texte></item>
+						<item><texte><valeur>news:</valeur> serveur de news.</texte></item>
+						<item><texte><valeur>mailto:</valeur> courrier électronique.</texte></item>
+						<item><texte><valeur>gopher://</valeur> autre mode de parcours de pages web utilisant une recherche par mot-clé. </texte></item>
+						<item><texte><valeur>file://</valeur> fichier interne, dont l'accès ne nécessite pas l'emploi du réseau Internet. </texte>
+						</item>
+					</liste>
+				</paragraphe>
+				<paragraphe ancre="adresseserveur" titre="L'adresse du serveur">
+					<texte>C'est l'identifiant du serveur où se trouvent les pages et autres ressources auxquelles l'utilisateur souhaite accéder. Elle apparaît en général en clair formée de trois parties. On peut trouver aussi des adresses numériques. Par exemple, 134.157.46.230 est l'adresse du serveur de la salle multimédia de la CIM.</texte>
+				</paragraphe>
+				<paragraphe ancre="cheminacces" titre="Un chemin d'accès">
+					<texte>Une requête vers un serveur aboutit dans un dossier par défaut (généralement sous Windows NT, dans le dossier <code type="typefichier">InetPub&gt;wwwroot</code>). Il faut préciser le chemin d'accès (enchâssement des dossiers et sous-dossiers) du fichier contenant la page Web à afficher. </texte>
+					<texte>Les extensions des fichiers contenant des pages <code type='typefichier'>HTML</code> peuvent être <code type="typefichier">.htm</code>, <code type="typefichier">.html</code>, <code type="typefichier">.shtml</code>, <code type="typefichier">.asp</code> (requête base de données sur le serveur) ou <code type="typefichier">.php</code> (idem).</texte>
+				</paragraphe>
+			</section>
+			<section ancre="relatif" titre="Le lien interne et l'adresse relative: comment s'écrit une URL relative?">
+				<paragraphe ancre="memerep" titre="Ressource située dans le même répertoire que la page d'appel">
+					<texte>La valeur prise par l'attribut href est simplement le nom du fichier, par exemple <code>href="index.html"</code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="sousrep" titre="Ressource située dans un sous-répertoire du répertoire contenant la page d'appel">
+					<texte>Il suffit de citer la suite des sous-répertoires jusqu'au fichier ressource, par exemple<code>href="archives/2001/18072001.html"</code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="repparent" titre="Ressource située dans un répertoire contenant la page d'appel">
+					<texte>Il faut remonter successivement chaque répertoire par "../". Dans cet exemple, le répertoire visé est le supérieur hiérarchique de deuxième rang (le grand-père)&#160;: <code>href="../../index.html"</code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="parallele" titre="Ressource située dans un répertoire situé dans une branche latérale">
+					<texte>Il faut remonter au répertoire commun par "../" puis redescendre la bonne branche, par exemple <code>href="../../produits/convecteurs/rh1200x.html"</code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="remarque" titre="Remarque importante: privilégier l'adresse relative">
+					<texte>Lors de la création d'un site destiné à un seul serveur, tous les liens internes doivent être sous forme relative. En effet, on développe sur sa propre machine avant de transférer sur le serveur l'ensemble du site créé. Si les liens internes sont sous forme absolue, ils seront perdus après le transfert&#160;: les noms de répertoires ne seront peut-être pas les mêmes sur le serveur&#160;!</texte>
+					<texte>De plus, utiliser une adresse relative au lieu d'une adresse absolue permet au routeur de ne pas avoir à résoudre à chaque requête le chemin vers le serveur. Cette opération prend du temps, rendant ainsi la page plus longue à charger.</texte>
+				</paragraphe>
+				<paragraphe ancre="concatenation" titre="Concaténer une URL et une ancre intra-page">
+					<texte>Pour accéder directement à une section donnée d'une autre page donnée, il suffit de concaténer l'URL avec la valeur du paramètre <code>name</code> à l'aide du symbole <code>#</code>, par exemple&#160;:</texte><texte><code>href="index.html#tablematieres"</code>.</texte>
+				</paragraphe>
+			</section>
+		</partie>
+		<partie ancre="protocoles" titre="Liens vers des ressources utilisant d'autres protocoles">
+			<section ancre="courrier" titre="Courrier électronique">
+				<paragraphe>
+					<texte>L'utilisation de protocole <code>mailto:...</code> provoque l'ouverture de l'application correspondant au courrier sous <logiciel>Internet Explorer</logiciel> ou sous <logiciel>Netscape</logiciel>.</texte>
+					<liste>
+						<item><texte><valeur>lien e-mail sans sujet</valeur>&#160;:</texte><texte><code>href="mailto:A.Talon@dupuis.fr"</code></texte></item>
+						<item><texte><valeur>lien e-mail avec sujet</valeur>&#160;:</texte> <texte><code>href="mailto:A.Talon@dupuis.fr?subject=marsupilami"</code></texte></item>
+						<item><texte><valeur>lien e-mail avec sujet et texte dans le corps du message</valeur>&#160;:</texte> <texte><code>href="mailto:A.Talon@dupuis.fr?subject=marsupilami&amp;body=longueur_queue"</code></texte></item>
+						<item><texte><valeur>lien e-mail avec sujet, envoyé à deux personnes</valeur>&#160;:</texte> <texte><code>href="mailto:A.Talon@dupuis.fr?cc=Lefuneste@dupuis.fr&amp;subject=marsupilami"</code></texte></item>
+					</liste>
+				</paragraphe>
+			</section>
+			<section ancre="ftp" titre="FTP ou Gopher">
+				<paragraphe>
+					<texte>provoque l'ouverture d'une application FTP ou Gopher selon le cas.</texte>
+					<liste>
+						<item><texte><valeur>lien externe vers un serveur FTP&#160;:</valeur> <code>href="ftp://ftp.jussieu.fr"</code>. </texte></item>
+						<item><texte><valeur>lien externe vers un serveur de news&#160;:</valeur> <code>href="news:news.u-psud.fr"</code>. Il est alors demandé au visiteur, le cas échéant, s'il veut s'abonner à ce serveur de news. </texte></item>
+					</liste>
+				</paragraphe>
+			</section>
+			<exercice titre="Liens divers" ancre="exoliens">
+				<enonce href="exercices/td2.html"/>
+				<correction href="exercices/td2cor.html"/>
+			</exercice>
+		</partie>
+		<partie ancre="autresobjets" titre="Lien vers d'autres objets">
+			<paragraphe>
+				<texte>Le système d'exploitation recherchera de lui-même, selon l'extension du fichier, quelle application permet de l'exploiter. S'il n'a jamais fait l'association, il proposera à l'utilisateur de l'établir lui-même.</texte>
+				<texte>
+					Vous pouvez également proposer un fichier (<code type="typefichier">.EXE</code> ou <code type="typefichier">.ZIP</code>) en téléchargement...
+				</texte>
+				<exemple type="HTML">
+					<element nom="a"><attribut nom="href">site.zip</attribut>Téléchargement du site</element>
+				</exemple>
+			</paragraphe>
+		</partie>
+	</corpus>
+</chapitre>

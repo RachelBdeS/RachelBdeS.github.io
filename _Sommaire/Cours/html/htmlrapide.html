@@ -1,0 +1,533 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>HTML en quelques mots</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="HTML, accessibilité, w3c, xhtml">
+      <meta name="description" content="Après un cours d'introduction, les étapes nécessaires pour la création et la mise en ligne d'un site Web.">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- HTML en quelques mots</h1>
+         <p><span class="version">version 1.10</span>, dernière mise à jour le 5 mai 2006.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#creation" title="Création d'un site">Création d'un site</a><ol>
+                     <li><a href="#etapes" title="Les étapes initiales">Les étapes initiales</a></li>
+                     <li><a href="#outils" title="Outils de production de pages Web">Outils de production de pages Web</a><ol>
+                           <li><a href="#outilsintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#outilsediteurs" title="Éditeurs">Éditeurs</a></li>
+                           <li><a href="#outilsweblogs" title="Les Weblogs">Les Weblogs</a></li>
+                           <li><a href="#outilspubli" title="Outils de publication de contenu">Outils de publication de contenu</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#format" title="Quel format choisir?">Quel format choisir?</a><ol>
+                           <li><a href="#formatdocument" title="Format de document">Format de document</a></li>
+                           <li><a href="#formatcarac" title="Format de caractères">Format de caractères</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#validite" title="Validité">Validité</a></li>
+                     <li><a href="#accessibilite" title="Accessibilité">Accessibilité</a></li>
+                     <li><a href="#briques" title="Les briques: balises et attributs, commentaires">Les briques: balises et attributs, commentaires</a><ol>
+                           <li><a href="#balises" title="Balises">Balises</a></li>
+                           <li><a href="#attributs" title="Attributs">Attributs</a></li>
+                           <li><a href="#commentaires" title="Commentaires">Commentaires</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#corps" title="Le corps d'un document">Le corps d'un document</a><ol>
+                     <li><a href="#structure" title="Structure">Structure</a><ol>
+                           <li><a href="#titpara" title="Titres et paragraphes">Titres et paragraphes</a></li>
+                           <li><a href="#listes" title="Listes">Listes</a></li>
+                           <li><a href="#tableaux" title="Tableaux">Tableaux</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#enligne" title="Éléments « enligne »">Éléments « enligne »</a><ol>
+                           <li><a href="#liens" title="Liens">Liens</a></li>
+                           <li><a href="#danstexte" title="Quelques balises courantes pour le texte">Quelques balises courantes pour le texte</a></li>
+                           <li><a href="#images" title="Images">Images</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="creation" href="#creation" id="creation"></a>I. Création d'un site
+         </h3>
+         <h4><a name="etapes" id="etapes" href="#etapes"></a>1. Les étapes initiales
+         </h4>
+         <p>Avant de créer un site, il faut choisir un <em>hébergeur</em>. Il s'agira d'un <em>serveur</em>, "quelque part" dans le monde, sur lequel seront hébergés les fichiers que vos proposerez à la communauté. il en existe de
+            multiples (il suffit de faire une recherche Internet <a href="http://www.google.com/search?hl=fr&amp;q=hebergeur&amp;btnG=Rechercher&amp;lr=">sur le sujet</a> pour s'en rendre compte&nbsp;!).
+         </p>
+         <p>Une fois cela fait, selon l'hébergeur choisi, vous disposerez d'un certain nombre d'outils pour <em>mettre en ligne</em> votre site. en général, la fonction de base est le serveur FTP. Vous allez pouvoir déposer sur le serveur les fichiers que
+            vous désirez mettre en ligne. Mais il existe plusieurs outils qui permettent de faciliter cette opération.
+         </p>
+         <p class="retourtdm"><a href="#tdm_etapes" title="Retour à la TdM (Les étapes initiales)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="outils" id="outils" href="#outils"></a>2. Outils de production de pages Web
+         </h4>
+         <h5><a href="#outilsintro" name="outilsintro" id="outilsintro"></a>a. Introduction
+         </h5>
+         <p>Ainsi que vous le constaterez, il est possible de créer un site Web entier à l'aide d'un simple éditeur de texte, et d'un
+            client <acronym title="File Transfer Protocole">FTP</acronym>. Fort heureusement, si cette solution reste encore possible pour un dépannage ponctuel sur un fichier, il existe des outils
+            dédiés qui permettent d'automatiser bon nombre des opérations fastidieuses.
+         </p>
+         <p class="retourtdm"><a href="#tdm_outilsintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#outilsediteurs" name="outilsediteurs" id="outilsediteurs"></a>b. Éditeurs
+         </h5>
+         <p>Les éditeurs HTML sont des logiciels qui aident à la saisie des balises <code class="langage">HTML</code>. Il en existe de deux types&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>les éditeurs de code proprement dits, similaires à un "environnement intégré de développement" (EDI) pour un langage de programmation,
+                  qui permettent de coder les balises directement. Ils permettent de garder un contrôle plus fin et précis sur le code que...
+               </p>
+            </li>
+            <li>
+               <p>... les éditeurs dits WYSIWYG, qui offrent un environnement ressemblant plus à celui d'un logiciel de traitement de texte.</p>
+            </li>
+         </ul>
+         <p>Ces éditeurs modernes offrent de plus des facilités de gestion de site (notion de modèle de document, de projet, gestion efficace
+            des liens internes aux documents, intégration de langages de scripts comme PHP, etc.).
+         </p>
+         <p class="retourtdm"><a href="#tdm_outilsediteurs" title="Retour à la TdM (Éditeurs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#outilsweblogs" name="outilsweblogs" id="outilsweblogs"></a>c. Les Weblogs
+         </h5>
+         <p>Ces outils, comme <a href="http://www.dotclear.net/"><code class="logiciel">DotClear</code></a> ou <a href="http://www.blogger.com"><code class="logiciel">Blogger</code></a>, par exemple, permettent la saisie, la mise en forme et la mise en ligne automatisée de "journaux" personnels. Conçus à l'origine
+            comme des outils de publication rapide à destination de quelques internautes désireux de mettre rapidement en ligne leurs
+            impressions quotidiennes, ils ont évolué en interfaces complexes, mais toujours sur le même principe&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p>Un auteur initial écrit un article à l'aide de l'outil, qu'il met en ligne&nbsp;;</p>
+            </li>
+            <li>
+               <p>Les visiteurs du journal peuvent soit ajouter des commentaires, soit placer des <span lang="en" class="autrelangue">trackbacks</span> sur l'article, afin de créer un lien entre un article qu'ils écrivent sur leur propre <span lang="en" class="autrelangue">blog</span>, et l'article qu'ils sont en train de lire.
+               </p>
+            </li>
+         </ol>
+         <p>Ces fonctions de base peuvent être étendues, mais on aborde là une autre catégorie d'outils de production&nbsp;: les outils de
+            publication de contenu proprement dits.
+         </p>
+         <p class="retourtdm"><a href="#tdm_outilsweblogs" title="Retour à la TdM (Les Weblogs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#outilspubli" name="outilspubli" id="outilspubli"></a>d. Outils de publication de contenu
+         </h5>
+         <p>On rencontre principalement deux types de tels outils&nbsp;:</p>
+         <ol>
+            <li>
+               <p>les outils entièrement ouverts, comme le format Wiki. n'importe quel internaute peut modifier la page qu'il est en train de
+                  lire. Vous pouvez consulter par exemple la <a href="http://fr.wikipedia.org/wiki/Accueil">Wikipedia</a>, une encyclopédie en ligne maintenue et modifiée uniquement par ses lecteurs.
+               </p>
+            </li>
+            <li>
+               <p>les outils de publication de contenu proprement dits, tels que le populaire <a href="http://www.spip.net/">SPIP</a>, <a href="http://ez.no/ez_publish">eZPublish</a>, <a href="http://phpnuke.org/">PHPNuke</a>. Ces outils proposent des interfaces utilisateurs plus ou moins complexes, permettant à des personnes ne connaissant pas
+                  le format HTML de publier du contenu sur le Web, sous un forme paramétrable.
+               </p>
+            </li>
+         </ol>
+         <p>Ces outils sont cependant loin d'offrir les mêmes fonctionnalités que ce que peut produire un webmestre expérimenté&nbsp;; il s'agit
+            de contenu facilement publiable, préformatté. Pour aller plus loin, il est nécessaire de faire appel à un développeur spécialisé.
+         </p>
+         <p class="retourtdm"><a href="#tdm_outils" title="Retour à la TdM (Outils de production de pages Web)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="format" id="format" href="#format"></a>3. Quel format choisir?
+         </h4>
+         <h5><a href="#formatdocument" name="formatdocument" id="formatdocument"></a>a. Format de document
+         </h5>
+         <p>La question peut sembler étrange. Néanmoins, si vous décidez de créer votre site sans passer par un outil de publication de
+            contenu êtes donc amené à utiliser un éditeur HTML, il va vous falloir opter pour un (ou plusieurs) formats de fichiers. Ce
+            format doit être indiqué d'une manière ou d'une autre à l'outil qui sera utilisé pour consulter le document que vous êtes
+            en train d'écrire. Il se trouve que dans le fichier d'un fichier (X)HTML, cela est réalisé par l'ajout d'une ligne au tout
+            début du fichier, dans le <em>prologue</em>.
+         </p>
+         <p>Vous pouvez choisir de réaliser un site entièrement sous Flash. Cela n'est cependant pas recommandé dans le cas général, dans
+            la mesure où cela empêche notamment le référencement correct de votre site. De plus, de récentes modifications à la manière
+            dont <code class="logiciel">Internet Explorer</code> gère les animations Flash rend ces dernières beaucoup moins ergonomiques.
+         </p>
+         <p>L'autre alternative est d'opter pour un format <code class="langage">HTML</code> ou dérivé (certains d'entre vous ont peut-être entendu parler du langage de script PHP&nbsp;; mais ce langage, en fait, produit
+            du <code class="langage">HTML</code>). En fait, quatre choix sont possibles, articulés autour du couple <code class="langage">HTML</code>/<code class="langage">XHTML</code>&nbsp;:
+         </p>
+         <ol>
+            <li>
+               <p><code class="langage">HTML Transitionnel</code>: il se déclare avec le prologue <code class="code">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</code>. Cela permet d'avoir accès aux balises d'apparence.
+               </p>
+            </li>
+            <li>
+               <p><code class="langage">HTML Strict</code>, déclaré avec le prologue <code class="code">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;</code>. Il oblige à séparer "strictement" contenu et mise en forme.
+               </p>
+            </li>
+            <li>
+               <p><code class="langage">XHTML Transitionnel</code>: il se déclare avec le prologue <code class="code">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;&gt;</code>. Cela permet d'avoir accès aux balises d'apparence, tout en respectant une syntaxe plus adaptée à un traitement et une procédure
+                  de mise à jour plus automatisée.
+               </p>
+            </li>
+            <li>
+               <p><code class="langage">XHTML Strict</code>, déclaré avec le prologue <code class="code">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;</code>. Il oblige à séparer "strictement" contenu et mise en forme, tout en respectant une syntaxe plus adaptée à un traitement
+                  et une procédure de mise à jour plus automatisée.
+               </p>
+            </li>
+         </ol>
+         <p>La différence entre <code class="langage">HTML</code> et <code class="langage">XHTML</code> réside essentiellement, lors de la phase d'écriture, dans une légère modification de la manière d'utiliser les balises <code class="langage">HTML</code>. Par exemple, au lieu d'écrire une balise de saut de ligne <code class="code">&lt;br&gt;</code> en <code class="langage">HTML</code>, on écrira <code class="code">&lt;br/&gt;</code> en <code class="langage">XHTML</code>. Du point de vue de la maintenance du code, cependant, utiliser le format <code class="langage">XHTML</code> permet d'anticiper sur de possibles mises à jour du contenu, et à terme, lorsque l'ensemble des navigateurs en supportera
+            toutes les propriétés, de faciliter l'insertion de documents d'origines diverses dans la page Web.
+         </p>
+         <p>Indiquer un "doctype" pour un document facilite notamment le "travail" des navigateurs chargés d'interpréter le code <code class="langage">HTML</code>. Avant de lire un document en entier, ils "savent" à quoi s'attendre, ce qui leur permet de passer, éventuellement, d'un
+            mode d'affichage à un autre (nous y reviendrons quand nous parlerons du langage <code class="langage">CSS</code>).
+         </p>
+         <p class="retourtdm"><a href="#tdm_formatdocument" title="Retour à la TdM (Format de document)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#formatcarac" name="formatcarac" id="formatcarac"></a>b. Format de caractères
+         </h5>
+         <p>En interne, sur son disque dur, un ordinateur stocke un fichier sous la forme d'une succession de 1 et de 0. Le nombre de
+            0 et de 1 autorisés pour le stockage d'un caractère est limité. Le nombre total de combinaisons de 1 et 0 possibles est bien
+            inférieur au nombre total de caractères et de glyphes existant dans les alphabets du monde. L'ordinateur peut donc ne pas
+            "reconnaître" un caractère 'a' latin, d'un caractère cyrillique ou hébreu. Pour le lui permettre, il est nécessaire d'indiquer
+            un <em>encodage</em> de caractères pour l'ensemble du document. Cela se fait grâce à la balise <code class="code">&lt;meta&gt;</code> dans l'entête du document <code class="typefichier">(X)HTML</code>. Par exemple, <code class="code">&lt;meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"&gt;</code> indique un codage de caractères ISO-8859-1, permettant de taper au clavier et d'enregistrer comme tels les caractères latins
+            occidentaux (par exemple ceux adaptés au français). Un codage de caractère <code class="code">&lt;META http-equiv="Content-Type" content="text/html; charset=CP-936"&gt;</code> code le chinois simplifié, etc.
+         </p>
+         <p class="retourtdm"><a href="#tdm_format" title="Retour à la TdM (Quel format choisir?)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="validite" id="validite" href="#validite"></a>4. Validité
+         </h4>
+         <p>Spécifier un "doctype" pour un document offre un avantage supplémentaire, un atout dans les mains du développeur qui a appris
+            à s'en servir.
+         </p>
+         <p>Beaucoup de temps est perdu, parfois, dans la correction d'un fichier <code class="typefichier">HTML</code>, en raison d'une faute de frappe ou d'une balise non fermée. Cela arrive même aux éditeurs WYSIWYG. Indiquer un "doctype"
+            et un encodage de caractères permet d'avoir accès à un outil en ligne, également téléchargeable, le <a href="http://validator.w3.org/">validateur HTML</a> du W3C. Cet outil permet de vérifier rapidement les erreurs de syntaxe dans un document.
+         </p>
+         <p>Avoir un document <em>valide</em> est la première étape dans le débogage d'un site Web. Il faut savoir en effet que les navigateurs ne sont pas tenus de respecter
+            les mêmes conventions d'affichage d'un code invalide. Un code valide, au contraire, est le minimum nécessaire pour assurer
+            qu'un site Web apparaisse de la même manière sur un Mac, un PC sous Windows ou une station Unix. Et cela ne suffit pas...
+         </p>
+         <p class="retourtdm"><a href="#tdm_validite" title="Retour à la TdM (Validité)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="accessibilite" id="accessibilite" href="#accessibilite"></a>5. Accessibilité
+         </h4>
+         <p>L'accessibilité est un vaste domaine, qui n'a commencé que récemment à être exploré. On peut y voir une conséquence de l'amélioration
+            progressive du support des standards du Web par les navigateurs. Aux temps pas si lointains de la "Balkanisation" du Web,
+            lorsque <code class="logiciel">Netscape</code> et <code class="logiciel">Internet Explorer</code> se livraient une guerre sans merci à coups de balises et d'effets propriétaires, la priorité numéro 1 des développeurs était
+            de s'assurer que leur site s'affichait grossièrement de la même manière dans les deux navigateurs.
+         </p>
+         <p>Maintenant que les standards du Web se sont répandus et sont mieux supportés (à la date de révision de ce cours, mai 2006,
+            au contraire de ce qui se passait il y a encore seulement quatre ans, le facteur limitant est incontestablement, dans ce domaine,
+            <code class="logiciel">Internet Explorer</code> qui est de loin à la traîne), la classe de problèmes à résoudre pour les développeurs s'est déplacée. Il s'agit maintenant
+            de faire en sorte que le plus grand nombre de personnes possibles aient accès à leur site.
+         </p>
+         <p>Il ne faut pas entendre par là un accès ADSL ou par modem... mais bien de la lecture possible du site et des informations
+            qui s'y trouvent. Cela passe, par exemple, par l'ajout de contenu alternatif aux images pour les personnes ayant choisi de
+            ne pas les afficher, ou incapables de les examiner en détails, mais aussi par la présentation soignée de données dans un tableau
+            (fournir un résumé du tableau, des entêtes de colonnes reconnus comme tels par des navigateurs-lecteurs de contenu), la structuration
+            du contenu, des aides à la navigation, etc.
+         </p>
+         <p>Avoir un code valide est, là aussi, la première étape. Des outils existent ainsi en ligne afin de faciliter ce genre de tests:</p>
+         <ul>
+            <li>
+               <p><a href="http://www.contentquality.com/">Cynthia Says</a></p>
+            </li>
+            <li>
+               <p><a href="http://www.wave.webaim.org/index.jsp">Wave</a></p>
+            </li>
+            <li>
+               <p><a href="http://aprompt.snow.utoronto.ca/">A-Prompt</a>...
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_" title="Retour à la TdM ()">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <p>Récemment, la <a href="http://www.legifrance.gouv.fr/WAspad/UnTexteDeJorf?numjo=SANX0300217L">loi n° 2005-102 du 11 février 2005</a> "pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées" est parue dans le
+            Journal Officiel. Cette loi, qui entrera en application dès la signature du décret et sa publication au Journal Officiel,
+            stipule ainsi que "Les services de communication publique en ligne des services de l'Etat, des collectivités territoriales
+            et des établissements publics qui en dépendent doivent être accessibles aux personnes handicapées." Les sites des administrations
+            et collectivités territoriales devront se mettre en conformité avec la loi dans un délai de trois suivant la parution du décret.
+         </p>
+         <p>Pour plus d'informations sur ce sujet, vous pouvez consulter <a href="http://www.webaim.org/">WebAIM</a> (en anglais), ou <a href="http://www.accessiweb.org/">AccessiWeb</a> (en français).
+         </p>
+         <p class="retourtdm"><a href="#tdm_accessibilite" title="Retour à la TdM (Accessibilité)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="briques" id="briques" href="#briques"></a>6. Les briques: balises et attributs, commentaires
+         </h4>
+         <h5><a href="#balises" name="balises" id="balises"></a>a. Balises
+         </h5>
+         <p>Les briques élémentaires d'un document <code class="typefichier">HTML</code> sont les balises, dotées ou non d'attributs. Ces balises permettent de structurer l'information. Une balise, sauf exceptions,
+            s'ouvre et se ferme. Par exemple, pour déclarer un paragraphe, on écrira...
+         </p>
+         <p class="html"><span class="tag">&lt;p&gt;</span>Ceci est un paragraphe.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p>Il est possible également de déclarer un texte souligné&nbsp;:</p>
+         <p class="html"><span class="tag">&lt;p&gt;</span><span class="tag">&lt;u&gt;</span>Ceci est un paragraphe souligné.<span class="tag">&lt;/u&gt;</span><span class="tag">&lt;/p&gt;</span><br></p>
+         <p>Le navigateur ne fera pas apparaître les balises (ou <span lang="en" class="autrelangue">tags</span> ou marqueurs) <code class="code">&lt;p&gt;</code>, <code class="code">&lt;/p&gt;</code>, <code class="code">&lt;u&gt;</code> ou <code class="code">&lt;/u&gt;</code> mais interprétera leurs effets. Le deuxième exemple apparaît comme suit&nbsp;:
+         </p><span class="image"><img src="exemples/soulignement.gif" alt="Exemple de soulignement" width="207" height="30" class="illustration"></span><p><em>La balise est le moyen de communiquer avec le navigateur.</em> Elle apparaît entre les caractères réservés <code class="code">&lt;</code> et <code class="code">&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_balises" title="Retour à la TdM (Balises)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#attributs" name="attributs" id="attributs"></a>b. Attributs
+         </h5>
+         <p>Par exemple,</p>
+         <p class="html"><span class="tag">&lt;p<span class="nomattribut"> align</span>="<span class="valeurattribut">right</span>"&gt;</span>Ceci est un paragraphe aligné à droite.<span class="tag">&lt;/p&gt;</span><br></p>
+         <p>a pour effet d'aligner le texte à droite.</p>
+         <p>La syntaxe utilisée est la suivante&nbsp;:</p>
+         <p class="html"><span class="tag">&lt;balise<span class="nomattribut"> attribut1</span>="<span class="valeurattribut">valeur1</span>"<span class="nomattribut"> attribut2</span>="<span class="valeurattribut">valeur2</span>"<span class="nomattribut"> attribut3</span>="<span class="valeurattribut">valeur3</span>"&gt;</span>blabla<span class="tag">&lt;/balise&gt;</span><br></p>
+         <p>Le séparateur est un espace, l'ordre n'a pas d'importance. La valeur de l'attribut doit être tapée en minuscules, et mise
+            entre guillemets (pour des raisons de compatibilité XHTML). Certains navigateurs acceptent une écriture sous la forme <code class="code">align=Right</code>, par exemple, mais cela n'est pas conforme aux recommandations du W3C, et les navigateurs récents ne sont pas tenus de respecter
+            cette syntaxe.
+         </p>
+         <p>Les attributs permettent de modifier le comportement par défaut d'une balise, ou bien de spécifier des informations indispensables
+            (comme l'adresse d'une image intégrée à la page, ou bien celle d'un lien externe).
+         </p>
+         <p class="retourtdm"><a href="#tdm_attributs" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#commentaires" name="commentaires" id="commentaires"></a>c. Commentaires
+         </h5>
+         <p>Indispensables dans certains cas, ils alourdissent cependant le temps de chargement d'une page. Ils n'apparaissent pas dans
+            la fenêtre du navigateur. La syntaxe est la suivante&nbsp;:
+         </p>
+         <p class="html"><span class="commentaire">&lt;!--&nbsp;Commentaire&nbsp;--&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_briques" title="Retour à la TdM (Les briques: balises et attributs, commentaires)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="corps" href="#corps" id="corps"></a>II. Le corps d'un document
+         </h3>
+         <h4><a name="structure" id="structure" href="#structure"></a>1. Structure
+         </h4>
+         <h5><a href="#titpara" name="titpara" id="titpara"></a>a. Titres et paragraphes
+         </h5>
+         <p><code class="langage">HTML</code> définit quelques niveaux de titres. Ces titres se codent à l'aide des balises <code class="code">&lt;hn&gt;</code>, où <code class="code">n</code> peut valoir de 1 à 6. Un titre h1 est plus important qu'un titre h2, etc.
+         </p>
+         <p>Un paragraphe se code entre des balises <code class="code">&lt;p&gt;</code>. On obtient ainsi, par exemple
+         </p>
+         <p class="html"><span class="tag">&lt;h1&gt;</span>Titre de niveau 1<span class="tag">&lt;/h1&gt;</span><br><span class="tag">&lt;p&gt;</span>Et voici un paragraphe...<span class="tag">&lt;/p&gt;</span><br></p>
+         <p>Vous noterez la présence des balises ouvrantes et fermantes, encadrant le texte.</p>
+         <p>Il est possible d'aligner un paragraphe à droite, au centre, ou de le justifier, à l'aide de l'attribut <code class="code">align</code>. Ainsi, <code class="code">&lt;p align="justify"&gt;(...)&lt;/p&gt;</code> permet de justifier le paragraphe. Cet attribut est néanmoins obsolète, et utilisable uniquement avec les types de documents
+            transitionnels.
+         </p>
+         <p class="retourtdm"><a href="#tdm_titpara" title="Retour à la TdM (Titres et paragraphes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#listes" name="listes" id="listes"></a>b. Listes
+         </h5>
+         <p>Il existe plusieurs types de listes en <code class="langage">HTML</code>&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>les listes à puces , avec les balises <code class="code">&lt;ul&gt;</code>. Chaque élément de liste se place dans une balise <code class="code">&lt;li&gt;</code>. Par exemple&nbsp;:
+               </p>
+               <p class="html"><span class="tag">&lt;ul&gt;</span>
+                  			<span class="tag">&lt;li&gt;</span>Premier élément<span class="tag">&lt;/li&gt;</span><br>
+                  			<span class="tag">&lt;li&gt;</span>Deuxième élément<span class="tag">&lt;/li&gt;</span><br>
+                  			<span class="tag">&lt;li&gt;</span>Troisième élément<span class="tag">&lt;/li&gt;</span><br>
+                  		<span class="tag">&lt;/ul&gt;</span><br></p>
+            </li>
+            <li>
+               <p>Les listes ordonnées, à numéros, se codent à l'aide d'une balise <code class="code">&lt;ol&gt;</code>; les éléments de liste s'utilisent de la même manière.
+               </p>
+            </li>
+         </ul>
+         <p>Il existe aussi des listes de définitions, des listes de menus, etc.</p>
+         <p class="retourtdm"><a href="#tdm_listes" title="Retour à la TdM (Listes)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#tableaux" name="tableaux" id="tableaux"></a>c. Tableaux
+         </h5>
+         <p>C'est un vaste sujet. Il y a quelques années, beaucoup utilisaient des tableaux pour mettre en page des sites Web. Cette pratique
+            est aujourd'hui dépassée grâce à la souplesse d'emploi des feuilles de style <code class="langage">CSS</code>, et à proscrire car elle met en péril l'accessibilité de la page.
+         </p>
+         <p>Un tableau est encadré par des balises <code class="code">&lt;table&gt;</code>, avec un attribut obligatoire <code class="code">summary</code>, permettant de donner des informations sur le contenu du tableau. Chaque ligne d'un tableau est entourée par des balises
+            <code class="code">&lt;tr&gt;</code>. Chaque cellule est entourée de balises <code class="code">&lt;td&gt;</code> (pour des cellules de données), ou des balises <code class="code">&lt;th&gt;</code> (pour des cellules de titre -<span lang="en" class="autrelangue">header</span>). L'encombrement de ces cellules est donné par les attributs <code class="code">colspan</code> (nombre de colonnes) et <code class="code">rowspan</code> (nombre de lignes).
+         </p>
+         <p class="retourtdm"><a href="#tdm_structure" title="Retour à la TdM (Structure)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="enligne" id="enligne" href="#enligne"></a>2. Éléments « enligne »
+         </h4>
+         <h5><a href="#liens" name="liens" id="liens"></a>a. Liens
+         </h5>
+         <p>On fait un lien avec une balise <code class="code">&lt;a&gt;</code>. L'URL du lien est donnée par l'attribut <code class="code">href</code>. Par exemple, <code class="code">&lt;a href="http://www.monsite.com"&gt;Ceci est un lien&lt;/a&gt;</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_liens" title="Retour à la TdM (Liens)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#danstexte" name="danstexte" id="danstexte"></a>b. Quelques balises courantes pour le texte
+         </h5>
+         <table class="tableau" summary="Balises de formatage logique." border="1">
+            <tr>
+               <th>
+                  <p>Balise</p>
+               </th>
+               <th>
+                  <p>Signification</p>
+               </th>
+               <th>
+                  <p>Effet</p>
+               </th>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;em&gt;</code></p>
+               </td>
+               <td>
+                  <p>emphasis</p>
+               </td>
+               <td><span class="image"><img src="exemples/em.gif" alt="emphasis" width="112" height="20" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;strong&gt;</code></p>
+               </td>
+               <td>
+                  <p>fort</p>
+               </td>
+               <td><span class="image"><img src="exemples/strong.gif" alt="strong" width="121" height="19" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;cite&gt;</code></p>
+               </td>
+               <td>
+                  <p>citation brève</p>
+               </td>
+               <td><span class="image"><img src="exemples/cite.gif" alt="cite" width="113" height="19" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;dfn&gt;</code></p>
+               </td>
+               <td>
+                  <p>définition</p>
+               </td>
+               <td><span class="image"><img src="exemples/dfn.gif" alt="dfn" width="113" height="18" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;code&gt;</code></p>
+               </td>
+               <td>
+                  <p>extrait de programme</p>
+               </td>
+               <td><span class="image"><img src="exemples/code.gif" alt="code" width="156" height="15" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;samp&gt;</code></p>
+               </td>
+               <td>
+                  <p>sample: échantillon</p>
+               </td>
+               <td><span class="image"><img src="exemples/samp.gif" alt="samp" width="158" height="18" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;kbd&gt;</code></p>
+               </td>
+               <td>
+                  <p>Keyboard(clavier)</p>
+               </td>
+               <td><span class="image"><img src="exemples/kbd.gif" alt="kbd" width="156" height="20" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;var&gt;</code></p>
+               </td>
+               <td>
+                  <p>variable ou argument</p>
+               </td>
+               <td><span class="image"><img src="exemples/var.gif" alt="var" width="119" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;abbr&gt;</code></p>
+               </td>
+               <td>
+                  <p>abréviation</p>
+               </td>
+               <td><span class="image"><img src="exemples/abbr.gif" alt="abbr" width="104" height="21" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;acronym&gt;</code></p>
+               </td>
+               <td>
+                  <p>acronyme</p>
+               </td>
+               <td><span class="image"><img src="exemples/acronym.gif" alt="acronym" width="108" height="23" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;sub&gt;</code></p>
+               </td>
+               <td>
+                  <p>subscript/indice</p>
+               </td>
+               <td><span class="image"><img src="exemples/sub.gif" alt="sub" width="98" height="25" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;sup&gt;</code></p>
+               </td>
+               <td>
+                  <p>superscript/exposant</p>
+               </td>
+               <td><span class="image"><img src="exemples/sup.gif" alt="sup" width="94" height="26" class="normal"></span></td>
+            </tr>
+            <tr>
+               <td>
+                  <p><code class="code">&lt;pre&gt;</code></p>
+               </td>
+               <td>
+                  <p>preformatted</p>
+               </td>
+               <td><span class="image"><img src="exemples/pre.gif" alt="pre" width="156" height="23" class="normal"></span></td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Balises de formatage logique.</p>
+         <p class="retourtdm"><a href="#tdm_danstexte" title="Retour à la TdM (Quelques balises courantes pour le texte)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#images" name="images" id="images"></a>c. Images
+         </h5>
+         <p>On insère une image à l'aide de la balise (vide) <code class="code">&lt;img&gt;</code>, de son attribut <code class="code">src</code> et de son attribut <code class="code">alt</code> qui donne un texte de substitution. Les attributs <code class="code">width</code> et <code class="code">height</code>, donnant largeur et hauteur en pixels sont conseillés. Par exemple, <code class="code">&lt;img src="ours.jpg" alt="Une tête d'ours en gros plan" width="100" height="90"&gt;</code> affiche... une tête d'ours, probablement.
+         </p>
+         <p class="retourtdm"><a href="#tdm_enligne" title="Retour à la TdM (Éléments « enligne »)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="htmlrapide.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 5 mai 2006, version 1.10. Syntaxe, corrections de coquilles et ajout d'une partie sur les «briques» du langage.</li>
+            <li>Le 3 novembre 2004, version 1.01. Ajout d'une référence à la loi sur l'accessibilité pour les sites publics en France.</li>
+            <li>Le 21 octobre 2004, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

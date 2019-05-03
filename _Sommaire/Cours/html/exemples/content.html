@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+
+	  <title>counter</title>
+	  <style>
+h1:before
+  {
+   		content: "Chapter " counter(chapter) ". ";
+		counter-increment: chapter;
+		counter-reset: section;
+}
+h2:before
+    {
+        content: counter(chapter) "." counter(section) " ";
+        counter-increment: section;
+    }
+	</style>
+</head>
+
+<body>
+
+<h1 lang="fr">Grand titre</h1>
+
+</body>
+</html>

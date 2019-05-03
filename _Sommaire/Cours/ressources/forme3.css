@@ -1,0 +1,335 @@
+/* Positionnement et dimensionnement */
+
+body{
+	width: 90%;
+}
+
+html > body{
+	width: auto;
+}
+
+#entete{
+	clear: both;
+}
+
+#entete input{
+	vertical-align:middle;
+	
+}
+
+#intro{
+	clear: both;
+}
+
+#licence{
+	clear: both;
+}
+
+#contenu{
+	/*width:60%;
+	position:relative;
+	left: 10%;*/
+}
+
+
+#historique{
+	clear: both;
+}
+
+#pied{
+	clear: both;
+}
+
+/* Police par d�faut */
+body{
+	font: 90% Verdana, Geneva, Arial, Helvetica, sans-serif;
+}
+
+/* Fonds */
+
+#contenu{
+	background-color: #F6F6F6;
+}
+
+/* Mises en forme g�n�rale */
+
+.version{
+	font-weight: bold;
+}
+
+.retourhaut{
+	clear: both;
+}
+
+div > .retourhaut{
+	float: right;
+	clear: both;
+}
+
+/* Mise en forme de l'ent�te */
+
+#entete{
+	text-align: center;
+}
+
+#recherche{
+	text-align: right;
+}
+
+/* Mise en forme de l'introduction */
+
+#avantpropos p{
+	text-indent: 1em;
+}
+
+/* Mise en forme du contenu */
+
+#contenu{
+	padding: 0em 1em 0em 1em;
+}
+
+/* L�gendes */
+#contenu caption, p.legende{
+	font-size: smaller;
+}
+
+/* El�ments de type bloc */
+	#contenu p{
+		text-indent: 1em;
+	}
+
+	#contenu p.retourtdm{
+	float:right;
+	font-size:x-small;
+	font-style:italic;
+	position:relative;
+	top: -2.0em;
+}
+
+	/* Codes (langage, type de fichier, code)*/
+	#contenu code.code{
+		background-color: #EAFFCC;
+		color: green;
+		font-weight: bold;
+	}
+	
+	#contenu code.langage{
+		background-color: #D1FFCC;
+		color: black;
+	}
+	
+	#contenu code.logiciel{
+		background-color: #FFCFBF;
+		color: black;
+		font-weight: bold;
+	}
+	
+	#contenu code.typefichier{
+		background-color: #E1CCFF;
+		color: #1E3300;
+	}
+	
+	/* El�ments en-ligne */
+	#contenu .autrelangue{
+		font-style: italic;
+	}
+	
+	/* Exemples et images d'illustration */
+	#contenu img.illustration{
+		border : double;
+		margin : 10px;
+		position: relative;
+		left: 0%;
+	}
+	
+	/* Listes */
+	#contenu ul.sanpuce{
+		list-style-type: none;
+	}
+
+	dt{
+	  font-weight: bold;
+	}
+
+	/* Mise en en forme des exemples */
+	#contenu p.xml, #contenu p.html, #contenu p.css, #contenu p.javascript{
+	/*position:relative;
+	left: -10%;
+	width: 120%;*/
+	overflow: auto;
+}
+	
+	/* Mise en forme des exemples XML et HTML*/
+	#contenu p.xml{
+		font-family: "Courier New", Courier, monospace;
+		border: solid 1px navy;
+		background-color: #F0FFFF;
+		color: black;
+		text-indent: 0em;
+		text-align: left;
+	}
+
+	#contenu p.html{
+		background-color: #FFFFF0;
+		color: black;
+		font-family: "Courier New", Courier, monospace;
+		border: thin purple solid;
+		text-indent: 0em;
+		text-align: left;
+	}
+	
+	#contenu span.commentaire{
+		color: green;
+		background-color: transparent;
+	}
+	
+	#contenu span.contenu{
+		color: black;
+		background-color: transparent;
+	}
+	
+	#contenu span.doctype{
+		color: teal;
+		background-color: transparent;
+	}
+	
+	#contenu span.enteteexemplexml{
+		color: #3F0080;
+		background-color: transparent;
+	}
+	
+	#contenu span.exemplecdata{
+		color: blue;
+		background-color: transparent;
+	}
+	
+	#contenu span.exempledtdattribut{
+		color: #FF4500;
+		background-color: transparent;
+	}
+	
+	#contenu span.exempledtdelement{
+		color: #158DFF;
+		background-color: transparent;
+	}
+	
+	#contenu span.exempledtdexterne{
+		color: blue;
+		background-color: transparent;
+	}
+	
+	#contenu span.exempledtdinterne{
+		color: blue;
+		background-color: transparent;
+	}
+	
+	#contenu span.exemplehtml{
+		color: teal;
+		background-color: transparent;
+	}
+	
+	#contenu span.exemplexsl{
+		color: #DC143C;
+		background-color: transparent;
+	}
+	
+	#contenu span.tag{
+		color: navy;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	
+	/* Mise en forme des exemples CSS */
+	
+	#contenu p.css{
+		background-color: #FFEFD5;
+		color: black;
+		border: solid thin maroon;
+		font-family: "Courier New", Courier, monospace;
+		text-indent: 0em;
+	}
+	
+	#contenu p.css span.selecteur{
+		color: maroon;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	
+	#contenu p.css span.csspropriete{
+		background-color: transparent;
+		color: teal;
+	}
+	
+	#contenu p.css span.valeur{
+		color: black;
+		background-color: transparent;
+	}
+	
+	/* Mise en forme des exemples JavaScript */
+	
+	#contenu p.javascript{
+		font-family: "Courier New", Courier, monospace;
+		text-indent: 0em;
+		color: black;
+		background-color: #EEE8AA;
+		border: solid thin maroon;
+	}
+	
+	#contenu p.javascript span.declaration{
+		color: #D2691E;
+		background-color: transparent;
+	}
+	
+	#contenu p.javascript span.fonction{
+		color: #B22222;
+		background-color: transparent;
+		font-weight: bold;
+	}
+	
+	#contenu p.javascript span.instruction{
+		color: blue;
+		background-color: transparent;
+		font-weight: bold;	
+	}
+	
+	#contenu p.javascript span.propriete{
+		color: maroon;
+		background-color: transparent;
+	}
+	
+	#contenu p.javascript span.variable{
+		font-style: italic;		
+	}
+
+/* Mise en forme de la navigation */
+
+#navigation{
+	border: medium double #0082D6;
+	padding:1em;
+}
+
+#navigation ul{
+	list-style: outside;
+}
+
+
+/* Mise en forme de l'historique */
+
+#historique{
+	font-size: 0.95em;
+	border:thin solid #0082D6;
+	padding:1em;
+	
+}
+
+#historique dd ul{
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	font-size: 0.95em;
+}
+
+
+
+
+
+

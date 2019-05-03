@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!--
+	Version 2.1 du 23/05/2004
+		- Ajout de l'élément obligatoire motsclefs.
+		- Ajout de l'attribut obligatoire version de l'élément de mise à jour.
+-->
+
+<!--
+	Version 2.0 du 05/10/2003
+		- Le lien vers chaque partie est maintenant implicite; il n'est plus besoin de faire les mises à jour à la main.
+		- Suppression de l'élément date.
+-->
+
+<!--
+	Version 1.1 du 11/10/2002
+		- Ajout de l'attribut nomfichier à l'élément-racine cours
+
+-->
+
+<!-- Entités -->
+
+<!ENTITY % HTMLspecial SYSTEM "xhtml-special.ent">
+%HTMLspecial;
+
+<!ENTITY % URI "CDATA">
+<!ENTITY HTML "<code type='type_fichier'>HTML</code>">
+
+<!-- Eléments -->
+
+<!ELEMENT cours (titre, auteur, motsclefs, (miseajour)?, (resume)?, (prerequis)?, (plan)?)>
+	<!ATTLIST cours nomfichier CDATA #REQUIRED> <!-- nom du fichier sans extension-->
+
+	<!ELEMENT titre (#PCDATA)>
+
+	<!ELEMENT auteur (identite, email, adresse, telephone)?>
+		<!ELEMENT identite (#PCDATA)>
+		<!ELEMENT email (#PCDATA)>
+		<!ELEMENT adresse (organisme?, localisation?, rue, ville, pays?)>
+			<!ELEMENT organisme (#PCDATA)>
+			<!ELEMENT localisation (#PCDATA)>
+			<!ELEMENT rue (#PCDATA)>
+			<!ELEMENT ville (#PCDATA)>
+			<!ELEMENT pays (#PCDATA)>
+		<!ELEMENT telephone EMPTY>
+			<!ATTLIST telephone
+				tel CDATA #REQUIRED
+				fax CDATA ""
+			>
+				
+	<!ELEMENT motsclefs (#PCDATA)>
+			
+	<!ELEMENT date (#PCDATA)>
+	
+	<!ELEMENT miseajour (maj)+>
+		<!ELEMENT maj (quand, qui, quoi)+>
+			<!ELEMENT quand (#PCDATA)>
+			<!ELEMENT qui (#PCDATA)>
+			<!ELEMENT quoi (#PCDATA)>
+			<!ATTLIST maj version CDATA #REQUIRED >
+			
+	<!ELEMENT resume (#PCDATA)>
+	
+	<!ELEMENT prerequis ANY>
+	
+	<!ELEMENT plan (chapitre)+>
+		<!ELEMENT chapitre EMPTY>
+			
+			<!ATTLIST chapitre
+				auteur CDATA ""
+				date CDATA ""
+				href %URI; ""
+			>

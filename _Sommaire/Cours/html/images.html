@@ -1,0 +1,543 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <title>Les images dans une page Web</title>
+      <meta name="author" content="G. Chagnon">
+      <meta name="keywords" content="html, base, image, img">
+      <meta name="description" content="Les images sont une apparition relativement récente dans la recommandation HTML. Elles sont maintenant indispensables, mais leur usage dans une page doit répondre à certaines exigences, que ce chapitre expose.">
+      <link rel="next" href="cadres.html">
+      <link rel="prev" href="tableaux.html">
+      <link rel="contents" href="toc.html" type="text/html">
+      <link rel="up" href="index.html" type="text/html">
+      <link rel="first" href="intro.html" type="text/html">
+      <link rel="last" href="modeles.html" type="text/html">
+      <link rel="stylesheet" type="text/css" href="../ressources/menu4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/tablemat4.css">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4screen.css" media="screen">
+      <link rel="stylesheet" type="text/css" href="../ressources/forme4print.css" media="print">
+   </head>
+   <body>
+      <ul id="menugeneral">
+         <li><a href="#licence" accesskey="8" tabindex="2">Conditions d'utilisation</a></li>
+         <li><a href="mailto:Gilles.Chagnon@upmc.fr?subject=[Cours de HTML]" accesskey="7" title="Envoyer un courriel à l'auteur" tabindex="3">Contact</a></li>
+      </ul>
+      <div id="entete">
+         <h1>Cours de HTML&nbsp;- Les images dans une page Web</h1>
+         <p><span class="version">version 1.20</span>, dernière mise à jour le 18 juillet 2005.
+         </p>
+         <form action="http://www.google.com/search" id="recherche">
+            <p><label for="formrecherche">Chercher dans le cours&nbsp;:</label>&nbsp;<input name="q" type="text" size="10" accesskey="4" tabindex="4" id="formrecherche" x-webkit-speech="x-webkit-speech"><input type="hidden" name="q" value="site:www.licence.elec.upmc.fr/S_tec/coursEnLigne/html2/">&nbsp;<input type="image" src="images/recherche_vert2.png" alt="Chercher" value="Chercher"></p>
+         </form>
+      </div>
+      <ul id="menu">
+         <li class="page"><a href="#tablemat" tabindex="6">Table des matières (<abbr title="Table des Matières">TdM</abbr>)</a></li>
+         <li class="page"><a href="#contenu" accesskey="s" tabindex="7">Contenu</a></li>
+         <li class="page"><a href="#historique" title="Historique de ce document" tabindex="8">Historique</a></li>
+         <li class="cours"><a href="exercices.html">Exercices</a></li>
+         <li class="cours"><a href="index.html" tabindex="9">Accueil du cours</a></li>
+      </ul>
+      <div id="tablemat">
+         <h2>Table des matières (<abbr title="Table des Matières">TdM</abbr>)
+         </h2>
+         <div class="impair">
+            <ol>
+               <li>I. <a href="#imagesgeneralites" title="Généralités">Généralités</a><ol>
+                     <li><a href="#imagesintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#imagescompromis" title="Compromis entre nombre d'images et temps de chargement">Compromis entre nombre d'images et temps de chargement</a></li>
+                     <li><a href="#imageaccessiblite" title="Images et accessibilité">Images et accessibilité</a></li>
+                     <li><a href="#imagesformat" title="Les formats du Web">Les formats du Web</a><ol>
+                           <li><a href="#formatinto" title="Introduction">Introduction</a></li>
+                           <li><a href="#formats" title="Les formats d'image">Les formats d'image</a></li>
+                           <li><a href="#formatsexemples" title="Exemples">Exemples</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#gifanimes" title="Les ''GIFs animés''">Les ''GIFs animés''</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="pair">
+            <ol>
+               <li>II. <a href="#img" title="La balise <img&gt;">La balise &lt;img&gt;</a><ol>
+                     <li><a href="#imgusage" title="Usage">Usage</a></li>
+                     <li><a href="#imgsyntaxe" title="Syntaxe minimale">Syntaxe minimale</a></li>
+                     <li><a href="#imgattributs" title="Attributs">Attributs</a></li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <div class="impair">
+            <ol>
+               <li>III. <a href="#imgreac" title="Image réactive">Image réactive</a><ol>
+                     <li><a href="#imgreacintro" title="Introduction">Introduction</a></li>
+                     <li><a href="#imglien" title="Image-lien">Image-lien</a></li>
+                     <li><a href="#imgclientside" title="Image réactive ''client-side''">Image réactive ''client-side''</a><ol>
+                           <li><a href="#imgclientsideintro" title="Introduction">Introduction</a></li>
+                           <li><a href="#mapping" title="Découper l'image en zones sensibles">Découper l'image en zones sensibles</a></li>
+                        </ol>
+                     </li>
+                     <li><a href="#mappingremarque" title="Remarque">Remarque</a><ol>
+                           <li>Exercice&nbsp;: <a href="#exoimagemap" title="Image map">Image map</a></li>
+                        </ol>
+                     </li>
+                  </ol>
+               </li>
+            </ol>
+         </div>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+      <div id="contenu">
+         <h2>Contenu du cours</h2>
+         <h3><a name="imagesgeneralites" href="#imagesgeneralites" id="imagesgeneralites"></a>I. Généralités
+         </h3>
+         <h4><a name="imagesintro" id="imagesintro" href="#imagesintro"></a>1. Introduction
+         </h4>
+         <p>Ce qui suit n'est pas un cours d'infographie mais simplement un panorama de ce qui est nécessaire à un cours <code class="langage">HTML</code>. Nous n'aborderons pas tous les formats d'images ni les moyens de les créer et les traiter. Nous manipulerons au maximum
+            un éditeur d'images comme <code class="logiciel">Paint Shop Pro</code> ou <code class="logiciel">PhotoShop</code>pour mettre en oeuvre les différents formats évoqués.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imagesintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imagescompromis" id="imagescompromis" href="#imagescompromis"></a>2. Compromis entre nombre d'images et temps de chargement
+         </h4>
+         <p>Les images sont incontournables pour créer un impact visuel mais insupportables pour le temps de chargement. Il n'y a rien
+            de plus fastidieux que de lire un texte sans illustration. L'illustration et l'image bien utilisées, permettent de structurer
+            le document présenté. Elles le rendent attrayant, accessible, lisible. L'emploi d'images est incontournable pour construire
+            une page Web qui retiendra son lecteur.
+         </p>
+         <p>En revanche, les images qui doivent être téléchargées ont une certaine taille, qui augmente d'autant le temps de chargement
+            d'une page.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imagescompromis" title="Retour à la TdM (Compromis entre nombre d'images et temps de chargement)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imageaccessiblite" id="imageaccessiblite" href="#imageaccessiblite"></a>3. Images et accessibilité
+         </h4>
+         <p>Il ne faut néanmoins pas perdre de vue qu'en aucun cas, une image ne doit être absolument nécessaire pour comprendre une page,
+            ou bien sa navigation.
+         </p>
+         <p>A l'extrême, on pourrait ainsi imaginer écrire tout un paragraphe avec une police particulière, le sauvegarder avec un éditeur
+            graphique sous forme d'une image, et l'ajouter à une page Web. Une personne malvoyante ou bien ayant désactivé l'affichage
+            des images, serait ainsi gravement pénalisée dans sa lecture de la page, puisqu'une partie de l'information de celle-ci lui
+            serait inaccessible.
+         </p>
+         <p>De même, il faut se garder de limiter le dispositif de navigation à l'intérieur d'un site à des icônes&nbsp;; celles-ci permettent
+            certes de parfois améliorer l'ergonomie du site, mais si elles ne sont pas doublées par un système de navigation alternatif,
+            rendent le site inacessible à toute une catégorie d'internautes.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imageaccessiblite" title="Retour à la TdM (Images et accessibilité)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imagesformat" id="imagesformat" href="#imagesformat"></a>4. Les formats du Web
+         </h4>
+         <h5><a href="#formatinto" name="formatinto" id="formatinto"></a>a. Introduction
+         </h5>
+         <p>Pour limiter le temps de chargement, on s'est efforcé très tôt d'utiliser des formats d'images conduisant à des fichiers de
+            taille réduite. Les méthodes reposent sur la compression de l'information à transmettre. On distingue 2 types de compression&nbsp;:
+         </p>
+         <ul>
+            <li>
+               <p>La compression sans perte d'information. Elle repose sur le repérage dans le fichier à traiter des successions d'octets identiques
+                  ou de profils de bits fréquents. Ce sont les compressions des formats <code class="langage">ZIP</code> ou <code class="langage">RAR</code>. Elles permettent la compression de fichiers de programmes où le moindre bit perdu peut induire une catastrophe.
+               </p>
+            </li>
+            <li>
+               <p>La compression où on accepte la perte d'information&nbsp;: réduction du nombre de couleurs, perte des détails. On réduit ainsi
+                  l'encombrement tout en maintenant une simplification acceptable de l'image. Ce sont les compressions des formats <code class="langage">JPEG</code> ou <code class="langage">PNG</code>.
+               </p>
+            </li>
+         </ul>
+         <p class="retourtdm"><a href="#tdm_formatinto" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#formats" name="formats" id="formats"></a>b. Les formats d'image
+         </h5>
+         <p>Trois formats principaux sont acceptés par la plupart des navigateurs.</p>
+         <ol>
+            <li>
+               <p>Format <code class="langage">GIF</code>, <acronym title="Graphics Interchange Format">GIF</acronym> pour Graphic Interchange Format. L'entreprise CompuServe Information Service et Unisys en produit deux versions&nbsp;: 87a et
+                  89a (année de création). La dernière est la plus avantageuse et la plus répandue. Elle ne tolère pas plus de 256 couleurs
+                  (2^8).
+               </p>
+               <p>C'est un format de compression sans perte, qui est très utilisée pour le stockage et le transfert d'images. Son mode de compression
+                  est particulièrement adapté à la création d'images simples, des schémas avec des traits ou de larges zones de couleurs.
+               </p>
+               <p>Il existe une méthode d'encodage particulière, appelée <span lang="en" class="autrelangue">interlacing</span> (GIF entrelacé), où l'image est transférée en quatre passes au lieu d'une et qui permet donc au lecteur d'avoir un aperçu
+                  progressif de l'ensemble de l'image globale (si l'utilisateur dispose d'un navigateur ancien, il ne verra pas de différence&nbsp;!).
+                  Il faut noter qu'il n'y a pas vraiment augmentation de la vitesse de transfert, mais lisibilité de l'image globale plus rapide.
+                  Cette différence n'apparaît d'ailleurs que la première fois que le lecteur charge l'image si le navigateur a son propre cache
+                  (sinon raffraîchir l'affichage de la page).
+               </p>
+               <p>Le format <code class="langage">gif89a</code> permet de rendre une couleur transparente&nbsp;; il est alors possible de la superposer à un arrière-plan.
+               </p>
+            </li>
+            <li>
+               <p>Format <code class="langage">JPEG</code>, <acronym title="Joint Photographic Experts Group">JPEG</acronym> pour Joint Photographic Experts Group. Comme son nom l'indique, <code class="langage">JPEG</code> a été développé pour les images photographiques. Ce format convient aux images obtenues à partir de scanner ou d'un appareil
+                  photo numérique. Mais il est déconseillé pour les schémas et les bannières. Créé en 1990 pour s'affranchir des limitations
+                  du format <code class="langage">GIF</code>, il compense le maintien des couleurs (jusqu'à seize millions) par une perte de la qualité de l'image et un temps de décompression
+                  assez important. Cette perte de qualité affecte surtout les schémas.
+               </p>
+               <p>Il existe également un <code class="langage">JPEG</code> progressif (même effet que le <code class="langage">gif</code> entrelacé), malheureusement peu de navigateurs actuellement l'affichent.
+               </p>
+            </li>
+            <li>
+               <p>Format <code class="langage">PNG</code>, pour Portable Network Graphics. Il s'agit d'un nouveau format libre de tous droits, qui devrait supplanter <code class="langage">GIF</code>. (Code source <a href="http://www.libpng.org/pub/png/pngcode.html">http://www.libpng.org/pub/png/pngcode.html</a>).
+               </p>
+               <p>Le format PNG présente les propriétés suivantes&nbsp;:</p>
+               <ul>
+                  <li>
+                     <p>Transparence&nbsp;; alors que cette transparence est limitée à une seule couleur pour le <code class="langage">GIF</code> (une seule combinaison RGB), le format <code class="langage">PNG</code> utilise un quatrième paramètre, dénommé <em>alpha</em>. Il permet d'appliquer un effet de transparence progressive à une gamme de couleurs. Plus d'informations sont disponibles
+                        sur le site de WebReview (<a href="http://www.webreview.com/1997/05_09/designers/05_09_97_1.shtml">http://www.webreview.com/1997/05_09/designers/05_09_97_1.shtml</a>).
+                     </p>
+                  </li>
+                  <li>
+                     <p>Progressivité (entrelacement ou interlacing)</p>
+                  </li>
+                  <li>
+                     <p>Image 24 bits d'information par pixel pour créer les couleurs (chaque pixel contient 256 nuances de rouge, de vert et de bleu.
+                        Une image 24 bits peut ainsi comporter jusqu'à 16,7 millions de couleurs). Cette capacité peut monter à 48 bits par pixel.
+                     </p>
+                  </li>
+                  <li>
+                     <p>La compression <code class="langage">PNG</code> est habituellement 25% meilleure que la compression <code class="langage">GIF</code>.
+                     </p>
+                  </li>
+               </ul>
+               <p>Tous ces avantages sont développés par le consortium du W3C&nbsp;: <a href="http://www.w3.org/TR/PNG-Rationale.html">http://www.w3.org/TR/PNG-Rationale.html</a>.
+               </p>
+            </li>
+         </ol>
+         <p class="retourtdm"><a href="#tdm_formats" title="Retour à la TdM (Les formats d'image)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#formatsexemples" name="formatsexemples" id="formatsexemples"></a>c. Exemples
+         </h5>
+         <p>La réduction du nombre de couleurs se fait bien sentir quand on passe de 16 millions de couleurs à 256&nbsp;:</p>
+         <table class="tableau" summary="Effet de la diminution du nombre de couleurs." border="1">
+            <tr>
+               <td><span class="image"><img src="images/perroquet_couleurs.jpg" alt="exemple 16 millions de couleurs" width="256" height="192" class="normal"></span><p class="legende">Image à 16 millions de couleurs.</p>
+               </td>
+               <td><span class="image"><img src="images/perroquet_couleurs256.jpg" alt="exemple 256 couleurs" width="256" height="192" class="normal"></span><p class="legende">Image à 256 couleurs.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;1. Effet de la diminution du nombre de couleurs.</p>
+         <p>On peut appliquer un effet de transparence sur une image au format <code class="langage">GIF</code>. L'image suivante possède ainsi un fond transparent&nbsp;; pour vous en convaincre, copiez-la et testez-la en l'incorporant à
+            des pages de fonds différents&nbsp;:
+         </p><span class="image"><img src="images/citron_transp.gif" alt="Gif transparent" width="202" height="151" class="normal"></span><p>Un GIF animé est constitué de plusieurs images séparées&nbsp;:</p><span class="image"><img src="images/panthere.gif" alt="Gif anime'" width="85" height="41" class="normal"></span><p>Voici maintenant plusieurs exemples d'images <code class="langage">JPEG</code> avec différents taux de compression...
+         </p>
+         <table class="tableau" summary="Compression des images JPEG." border="1">
+            <tr>
+               <td><span class="image"><img src="images/paon.jpg" alt="taille 228ko" width="256" height="192" class="normal"></span><p class="legende">Taille du fichier 228ko.</p>
+               </td>
+               <td><span class="image"><img src="images/paon25.jpg" alt="taille 72ko" width="256" height="192" class="normal"></span><p class="legende">Taille du fichier 72ko.</p>
+               </td>
+            </tr>
+            <tr>
+               <td><span class="image"><img src="images/paon75.jpg" alt="taille 30ko" width="256" height="192" class="normal"></span><p class="legende">Taille du fichier 30ko.</p>
+               </td>
+               <td><span class="image"><img src="images/paon99.jpg" alt="taille 6ko" width="256" height="192" class="normal"></span><p class="legende">Taille du fichier 6ko.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;2. Compression des images <code class="langage">JPEG</code>.
+         </p>
+         <p>La compression <code class="langage">JPEG</code> est efficace pour conserver le rendu des couleurs. Cependant, quand il s'agit de schémas, composés de larges zones de couleurs
+            "plates", la compression <code class="langage">GIF</code> est plus adaptée&nbsp;:
+         </p>
+         <table class="tableau" summary="Efficacité des algorithmes de compression pour un schéma simple. La taille du fichier JPEG est plus grande, et les couleurs dans ce dernier sont &#34;délavées&#34;&nbsp;; il n'y a pas de délimitation claire entre les zones." border="1">
+            <tr>
+               <td><span class="image"><img src="images/schema.gif" alt="schema simple, gif" width="200" height="200" class="normal"></span><p class="legende">Schéma au format <code class="langage">GIF</code>. Taille du fichier 2ko.
+                  </p>
+               </td>
+               <td><span class="image"><img src="images/schema.jpg" alt="schema simple, jpeg" width="200" height="200" class="normal"></span><p class="legende">Schéma au format <code class="langage">JPEG</code>. Taille du fichier 7ko, compression 10%.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td><span class="image"><img src="images/zoomgif.png" alt="zoom sur le schema simple, gif" width="180" height="240" class="normal"></span><p class="legende">Zoom sur le schéma au format <code class="langage">GIF</code>.
+                  </p>
+               </td>
+               <td><span class="image"><img src="images/zoomjpg.png" alt="zoom sur le schema simple, jpeg" width="180" height="240" class="normal"></span><p class="legende">Zoom sur le schéma au format <code class="langage">JPEG</code>.
+                  </p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;3. Efficacité des algorithmes de compression pour un schéma simple. La taille du fichier <code class="typefichier">JPEG</code> est plus grande, et les couleurs dans ce dernier sont "délavées"&nbsp;; il n'y a pas de délimitation claire entre les zones.
+         </p>
+         <p><code class="langage">JPEG</code> et <code class="langage">PNG</code> ont le même rendu des couleurs, mais la compression JPEG est plus efficace&nbsp;:
+         </p>
+         <table class="tableau" summary="Comparaison des compressions JPEG et PNG." border="1">
+            <tr>
+               <td><span class="image"><img src="images/toucan.jpg" alt="16 format JPEG" width="256" height="192" class="normal"></span><p class="legende">Image JPEG, taille du fichier 14ko.</p>
+               </td>
+               <td><span class="image"><img src="images/toucan.png" alt="format PNG" width="256" height="192" class="normal"></span><p class="legende">Format PNG, taille 74ko.</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;4. Comparaison des compressions JPEG et PNG.</p>
+         <p>En revanche, <code class="langage">PNG</code> permet un effet de transparence (ici sans l'effet de transparence graduelle)...
+         </p><span class="image"><img src="images/toucan_transp.png" alt="PNG avec transparence" width="256" height="192" class="normal"></span><p class="retourtdm"><a href="#tdm_imagesformat" title="Retour à la TdM (Les formats du Web)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="gifanimes" id="gifanimes" href="#gifanimes"></a>5. Les ''GIFs animés''
+         </h4>
+         <p>Il s'agit d'une façon très simple de créer une animation&nbsp;: un artifice permet de loger plusieurs images dans un seul et même
+            fichier, ces images étant rapidement affichées les unes à la suite des autres. À la création du <code class="langage">GIF</code> animé, on peut paramétrer la répétition en boucle du <code class="langage">GIF</code>.
+         </p>
+         <p>Remarque&nbsp;: Les <code class="langage">GIF</code> animés sont volumineux et alourdissent le téléchargement de la page.
+         </p>
+         <p>L'insertion dans la page Web se fait à l'identique de n'importe quelle autre image <code class="langage">GIF</code>. Certains (très vieux) navigateurs ne supportent pas ce format, et n'affichent que la première image de la boucle.
+         </p>
+         <p class="retourtdm"><a href="#tdm_gifanimes" title="Retour à la TdM (Les ''GIFs animés'')">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="img" href="#img" id="img"></a>II. La balise &lt;img&gt;
+         </h3>
+         <h4><a name="imgusage" id="imgusage" href="#imgusage"></a>1. Usage
+         </h4>
+         <p>La balise <code class="code">&lt;img&gt;</code> est le moyen le plus simple d'insérer une image dans une page Web mais on pourra aussi lui préférer la balise <code class="code">&lt;object&gt;</code> qui est d'un usage beaucoup plus général et qui permet d'insérer d'autres objets multimédia.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imgusage" title="Retour à la TdM (Usage)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imgsyntaxe" id="imgsyntaxe" href="#imgsyntaxe"></a>2. Syntaxe minimale
+         </h4>
+         <p>La balise fermante est facultative&nbsp;: de fait elle est toujours omise. La syntaxe minimale est&nbsp;:</p>
+         <p class="html"><span class="tag">&lt;img<span class="nomattribut"> src</span>="<span class="valeurattribut">monimage.gif</span>"<span class="nomattribut"> alt</span>="<span class="valeurattribut">courte description</span>"&gt;</span><br></p>
+         <p>L'attribut <code class="code">src</code> comme SouRCe attend pour valeur une URL relative ou absolue. L'attribut <code class="code">alt</code> donne une courte description texte de l'image, qui peut s'afficher fugacement au survol de la souris.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imgsyntaxe" title="Retour à la TdM (Syntaxe minimale)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imgattributs" id="imgattributs" href="#imgattributs"></a>3. Attributs
+         </h4>
+         <table class="tableau" summary="Attributs de la balise <img&gt;." border="1">
+            <tr>
+               <th id="attr">
+                  <p>Attribut</p>
+               </th>
+               <th id="eff">
+                  <p>Effet</p>
+               </th>
+               <th id="val">
+                  <p>Valeur(s)</p>
+               </th>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">src</code></p>
+               </td>
+               <td headers="eff">
+                  <p>où trouver l'image à afficher. Cet attribut est <em>requis</em>.
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>une URL (relative ou absolue).</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">alt</code></p>
+               </td>
+               <td headers="eff">
+                  <p>étiquette affichée à la place de l'image si par exemple l'utilisateur a désactivé l'affichage des images. Cet attribut est
+                     <em>requis</em>.
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>une chaîne de caractères.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">longdesc</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Renvoie vers un fichier contenant une "longue" description de l'image. Permet d'améliorer l'accessibilité en offrant aux malvoyants
+                     la possibilité de consulter une description détaillée d'une image riche en information.
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>une URL</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">width</code> et <code class="code">height</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Largeur et hauteur réservées par le navigateur pour l'image dans la page Web. Permet de réserver cette place même si l'image
+                     n'est pas encore chargée. Par défaut ces valeurs sont celles de l'image (voir paragraphe suivant).
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>nombre de pixels ou en pourcentage de la fenêtre du navigateur.</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">ismap</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Indique qu'il s'agit d'une image réactive "server-side" (voir <a href="#imgreac">image réactive</a>).
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>un booléen. S'utilise <code class="code">ismap="ismap"</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">usemap</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Indique qu'il s'agit d'une image réactive "cient-side" (voir <a href="#imgreac">image réactive</a>).
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>un lien vers une <code class="code">map</code> identifiée par l'attribut <code class="code">name</code>.
+                  </p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">align</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Détermine la position de l'image par rapport au texte qui l'entoure. L'image peut suivre le flot du texte ou être enveloppée
+                     par ce texte. Par défaut la valeur est à <code class="code">bottom</code>. Cet attribut est <em>obsolète</em> en <code class="langage">HTML</code> strict.
+                  </p>
+               </td>
+               <td headers="val">
+                  <ul>
+                     <li>
+                        <p><code class="code">left</code> (valeur par défaut)
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">right</code></p>
+                     </li>
+                     <li>
+                        <p><code class="code">top</code>&nbsp;: l'alignement se fait par rapport au sommet de l'image.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">bottom</code>&nbsp;: l'alignement se fait par rapport au bas de l'image.
+                        </p>
+                     </li>
+                     <li>
+                        <p><code class="code">middle</code>&nbsp;: l'alignement se fait par rapport au centre de l'image.
+                        </p>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">border</code></p>
+               </td>
+               <td headers="eff">
+                  <p>épaisseur de la bordure entourant l'image. Par défaut zéro. On ne peut pas en choisir la couleur. Cet attribut est <em>obsolète</em> en <code class="langage">HTML</code> strict.
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>un nombre</p>
+               </td>
+            </tr>
+            <tr>
+               <td headers="attr">
+                  <p><code class="code">hspace</code> et <code class="code">vspace</code></p>
+               </td>
+               <td headers="eff">
+                  <p>Définit une marge autour de l'image. <code class="code">hspace</code> définit une marge à droite et à gauche. <code class="code">vspace</code> définit une marge avant et après l'image. Cet attribut est <em>obsolète</em> en <code class="langage">HTML</code> strict.
+                  </p>
+               </td>
+               <td headers="val">
+                  <p>un nombre de pixels</p>
+               </td>
+            </tr>
+         </table>
+         <p class="legende">Table&nbsp;5. Attributs de la balise <code class="code">&lt;img&gt;</code>.
+         </p>
+         <p>Les attributs <code class="code">width</code> et <code class="code">height</code>, même s'ils ne sont pas obligatoires, sont cependant recommandés. En effet, lorsqu'une image est en chargement dans la fenêtre
+            du navigateur, ils permettent à ce dernier de réserver la place qu'elle va occuper. S'ils ne sont pas spécifiés, le client
+            attend d'avoir téléchargé l'image entière pour réserver la place&nbsp;; cela peut résulter en un changement de l'apparence d'une
+            page en cours de téléchargement, ce qui n'est pas forcément esthétique. Ces attributs permettent également de modifier la
+            taille de l'image affichée, même s'il ne faut pas oublier qu'un navigateur n'est fondamentalement pas un éditeur graphique,
+            qui permet de redimensionner de manière plus efficace la taille d'une image. Par exemple, voici notre perroquet redimensionné&nbsp;:
+         </p><span class="image"><img src="images/perroquet_couleurs.jpg" alt="Redimensionnement d image" width="500" height="100" class="normal"></span><p class="legende">La taille normale de cette image est de 256x192, mais les attributs <code class="code">width</code> et <code class="code">height</code> valent <code class="code">width="500"</code> et <code class="code">height="100"</code>.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imgattributs" title="Retour à la TdM (Attributs)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h3><a name="imgreac" href="#imgreac" id="imgreac"></a>III. Image réactive
+         </h3>
+         <h4><a name="imgreacintro" id="imgreacintro" href="#imgreacintro"></a>1. Introduction
+         </h4>
+         <p>Ce concept recouvre plusieurs aspects différents, notamment celui d'une simple <a href="#imglien">image-lien</a>, mais également celui, plus complexe, de <a href="#imgclientside">carte réactive</a>. Il s'agit d'une fonctionnalité intéressante, mais qu'il faut manipuler avec attention&nbsp;; comme d'habitude, on n'utilise pas
+            un outil pour la simple raison qu'il existe. Il faut qu'il apporte quelque chose de plus à la page.
+         </p>
+         <p class="retourtdm"><a href="#tdm_imgreacintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imglien" id="imglien" href="#imglien"></a>2. Image-lien
+         </h4>
+         <p>La forme la plus simple d'image réactive est obtenue en plaçant une image à l'intérieur du conteneur <code class="code">&lt;a&gt;&lt;/a&gt;</code>. Par exemple, cette icône <a href="#img"><span class="image"><img src="images/fleche_haut.gif" alt="Retour" width="21" height="21" class="normal"></span></a> remonte au début de la section consacrée à la balise <code class="code">&lt;img&gt;</code>.
+         </p>
+         <p class="html"><span class="tag">&lt;a<span class="nomattribut"> href</span>="<span class="valeurattribut">#img</span>"&gt;</span><span class="tag">&lt;img<span class="nomattribut"> src</span>="<span class="valeurattribut">images/fleches_haut.gif</span>"<span class="nomattribut"> alt</span>="<span class="valeurattribut">Retour</span>"<span class="nomattribut"> height</span>="<span class="valeurattribut">21</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">21</span>"&gt;</span><span class="tag">&lt;/a&gt;</span><br></p>
+         <p class="retourtdm"><a href="#tdm_imglien" title="Retour à la TdM (Image-lien)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="imgclientside" id="imgclientside" href="#imgclientside"></a>3. Image réactive ''client-side''
+         </h4>
+         <h5><a href="#imgclientsideintro" name="imgclientsideintro" id="imgclientsideintro"></a>a. Introduction
+         </h5>
+         <p>Aux premiers temps du <span lang="en" class="autrelangue">Web</span>, l'analyse de la position du pointeur de souris sur l'image était effectuée par le serveur et non localement par le navigateur
+            de l'utilisateur. Puis cette fonctionnalité a été développée d'abord par Netscape pour être effectuée localement par la machine
+            du surfeur. On oppose ces deux situations en parlant de "server-side" et "client-side".
+         </p>
+         <p>L'organisation "server-side" demande un échange supplémentaire avec le serveur&nbsp;: c'est donc une solution lourde aujourd'hui
+            abandonnée par les auteurs de pages Web, car elle surcharge à la fois le réseau lui-même et le serveur. Nous ne développerons
+            que l'organisation "client-side".
+         </p>
+         <p class="retourtdm"><a href="#tdm_imgclientsideintro" title="Retour à la TdM (Introduction)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h5><a href="#mapping" name="mapping" id="mapping"></a>b. Découper l'image en zones sensibles
+         </h5>
+         <p>Le découpage de l'image est assuré par le conteneur <code class="code">&lt;map&gt;</code>. Ce conteneur contient la description de plusieurs zones sensibles&nbsp;: une zone est décrite par un conteneur <code class="code">&lt;area&gt;</code>. <code class="code">&lt;map&gt;</code> possède un unique attribut, <code class="code">name</code>, qui est obligatoire.
+         </p>
+         <p>Ce lien est fait à l'aide du nom du conteneur <code class="code">&lt;map&gt;</code>. L'attribut <code class="code">name</code> du conteneur <code class="code">&lt;map&gt;</code> permet de lui donner un nom. L'attribut <code class="code">usemap</code> du conteneur <code class="code">&lt;img&gt;</code> prend pour valeur ce même nom précédé du <code class="code">#</code> (ou de manière générale l'URL du <code class="code">map</code>).
+         </p>
+         <p> Le code suivant... </p>
+         <p class="html"><span class="tag">&lt;img<span class="nomattribut"> src</span>="<span class="valeurattribut">images/homeparoi.jpg</span>"<span class="nomattribut"> width</span>="<span class="valeurattribut">500</span>"<span class="nomattribut"> height</span>="<span class="valeurattribut">250</span>"<span class="nomattribut"> alt</span>="<span class="valeurattribut">Paroi de Lascaux</span>"<span class="nomattribut"> usemap</span>="<span class="valeurattribut">#lascaux</span>"&gt;</span><span class="tag">&lt;/img&gt;</span><br><span class="tag">&lt;map<span class="nomattribut"> name</span>="<span class="valeurattribut">lascaux</span>"&gt;</span><br>
+            							
+            							&nbsp;&nbsp;<span class="tag">&lt;area<span class="nomattribut"> shape</span>="<span class="valeurattribut">rect</span>"<span class="nomattribut"> coords</span>="<span class="valeurattribut">23, 106, 107, 179</span>"<span class="nomattribut"> href</span>="<span class="valeurattribut">#mapping</span>"<span class="nomattribut"> Zones sensibles</span>="<span class="valeurattribut"></span>"&gt;</span><span class="tag">&lt;/area&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;area<span class="nomattribut"> shape</span>="<span class="valeurattribut">circle</span>"<span class="nomattribut"> coords</span>="<span class="valeurattribut">230,131,46</span>"<span class="nomattribut"> href</span>="<span class="valeurattribut">#img</span>"<span class="nomattribut"> balise img</span>="<span class="valeurattribut"></span>"&gt;</span><span class="tag">&lt;/area&gt;</span><br>
+            							&nbsp;&nbsp;<span class="tag">&lt;area<span class="nomattribut"> shape</span>="<span class="valeurattribut">poly</span>"<span class="nomattribut"> coords</span>="<span class="valeurattribut">375, 42, 381, 140, 433, 150, 465, 117, 468, 63, 425, 39, 374, 40</span>"<span class="nomattribut"> href</span>="<span class="valeurattribut">#imglien</span>"<span class="nomattribut"> Image-lien</span>="<span class="valeurattribut"></span>"&gt;</span><span class="tag">&lt;/area&gt;</span><br>
+            						<span class="tag">&lt;/map&gt;</span><br></p>
+         <p>... donne le résultat ci-dessous&nbsp;:</p><span class="image"><img src="images/homeparoi.jpg" alt="Paroi de Lascaux" width="500" height="250" usemap="#lascaux"><map name="lascaux">
+               <area shape="rect" coords="23, 106, 107, 179" href="#mapping" alt="Zones sensibles">
+               <area shape="circle" coords="230, 131, 46" href="#img" alt="balise img">
+               <area shape="poly" coords="375, 42, 381, 140, 433, 150, 465, 117, 468, 63, 425, 39, 374, 40" href="#imglien" alt="Image-lien"></map></span><p class="legende">Exemple d'image réactive.</p>
+         <p class="retourtdm"><a href="#tdm_imgclientside" title="Retour à la TdM (Image réactive ''client-side'')">&gt;Retour à la <abbr>TdM</abbr></a></p>
+         <h4><a name="mappingremarque" id="mappingremarque" href="#mappingremarque"></a>4. Remarque
+         </h4>
+         <p>La description des zones "à la main" est fastidieuse&nbsp;: il est recommandé de les programmer à l'aide d'un éditeur généraliste
+            comme <code class="logiciel">Dreamweaver</code> ou <code class="logiciel">FrontPage</code>, ou bien des outils gratuits spécialisés comme les logiciels <a href="http://www.zoniez.com/Newbie/mapthis/mapthis.html">MapThis</a> ou <a href="http://www.fegi.ru/geohtml/">GeoHTML</a>, ou l'utilitaire gratuit en ligne <a href="http://www.pcoward.com/imagemapper/">ImageMapper</a>.
+         </p>
+         <h4>Exercice&nbsp;<a name="exoimagemap" href="#exoimagemap" id="exoimagemap"></a>1. Image map
+         </h4>
+         <h5><a href="exercices/td3.html" title="Énoncé de l'exercice 'Image map'">Énoncé</a></h5>
+         <h5><a href="exercices/dauphine.html" title="Correction 'Image map'">
+               				Correction</a></h5>
+         <p class="retourtdm"><a href="#tdm_mappingremarque" title="Retour à la TdM (Remarque)">&gt;Retour à la <abbr>TdM</abbr></a></p>
+      </div>
+      <div id="navigation">
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p>Cours précédent&nbsp;: <a href="tableaux.html">Les tableaux dans une page Web</a><br>Cours suivant&nbsp;: <a href="cadres.html">Les cadres (frames)</a></p>
+         <p>Liste des fichiers associés à ce fichier HTML&nbsp;:</p>
+         <ul>
+            <li><a href="images.xml">Fichier XML</a></li>
+            <li><a href="../ressources/chapitre22.dtd">DTD du cours</a></li>
+            <li><a href="../ressources/chapitreweb20.xsl">Feuille de style XSL</a></li>
+         </ul>
+      </div>
+      <div id="historique">
+         <h2>Historique de ce document</h2>
+         <ul>
+            <li>Le 18 juillet 2005, version 1.20. Réécriture des exemples.</li>
+            <li>Le 7 juillet 2005, version 1.12. Corrections dans les définitions des attributs usemap et ismap.</li>
+            <li>Le 1er octobre 2003, version 1.11. Corrections typographiques; considérations sur l'accessibilité.</li>
+            <li>Le 31 octobre 2002, version 1.10. Ajout des images réactives.</li>
+            <li>Le 23 octobre 2002, version 1.00. Création du cours.</li>
+         </ul>
+      </div>
+      <div id="licence">
+         <h2>Conditions d'utilisation et licence</h2>
+         <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png"></a><br>Cette création est mise à disposition par Gilles Chagnon sous un <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">contrat Creative Commons</a>.
+         </p>
+         <p class="retourhaut"><a href="#menu">Retour au menu</a></p>
+      </div>
+   </body>
+</html>

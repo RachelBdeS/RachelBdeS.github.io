@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapitre SYSTEM "../ressources/chapitre22.dtd">
+
+<chapitre typecourssiteweb="html">
+	<cours nomfichier="intro">Cours de HTML</cours>
+	<entete>
+		<titre>Introduction</titre>
+		<auteur email="Gilles.Chagnon@upmc.fr">G. Chagnon</auteur>
+		<resume>Ce chapitre présente un bref historique et les concepts de base de HTML.</resume>
+		<motsclefs>html, base, concept, introduction, balise</motsclefs>
+	</entete>
+	<corpus>
+		<partie ancre="gene" titre="Généralités">
+			<section ancre="but" titre="But et limitations de ce cours">
+				<paragraphe>
+					<texte>Le <acronyme titre="HyperText Markup Language">HTML</acronyme> est un langage dit «&#160;de balisage&#160;» pour concevoir des sites Web. Le but de ce cours est d'en présenter un aperçu général, ainsi que du langage <code type="langage">CSS</code>, qui permet d'en traiter l'apparence visuelle. Les navigateurs de la quatrième génération (en particulier <logiciel>Netscape Navigator&#160;4.xx</logiciel> et <logiciel>Internet Explorer 4</logiciel>) ne supportent pas toutes les balises, les interprètent parfois mal, voire ont introduit d'autres balises qu'ils sont seuls à comprendre&#160;; cependant, comme ces navigateurs ont quasiment disparu, nous allons nous contenter de passer en revue les recommandations du <code type="langage">HTML 4.01</code> standardisé.</texte>
+					<texte>Nous n'étudierons pas non plus de langage de script (<code type="langage">JavaScript</code> ou <code type="langage">VBScript</code>), et nous limiterons donc à l'étude de l'<code type="langage">HTML</code> dit statique.</texte>
+				</paragraphe>
+				<paragraphe>
+					<texte>Ce cours ne fera pas référence à l'utilisation d'éditeurs dits <autrelangue>WYSYWYG (What You See Is What You Get)</autrelangue>, car ils ne sont pas nécessaires à la compréhension du langage <code type="langage">HTML</code>.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="histo" titre="Historique">
+				<paragraphe ancre="w3c" titre="Le W3C">
+					<texte>Le <acronyme titre="World Wide Web Consortium">W3C</acronyme> (<autrelangue type="en">World Wide Web Consortium</autrelangue>, <reference href="http://www.w3c.org">http://www.w3c.org</reference>) a été créé à l'occasion du premier standard du <code type="langage">HTML</code>&#160;: <code type="langage">HTML 1.0</code>. Le W3C a été créé pour développer des protocoles communs pour l'évolution du <autrelangue>World Wide Web</autrelangue>. C'est un consortium industriel piloté par le <acronyme titre="Massachussets Institute of Technology/Laboratory for Computer Science">MIT/LCS</acronyme> (le Laboratoire de Recherches en Informatique du <autrelangue>Massachusets Institute of Technology</autrelangue>) aux États-Unis, par l'<acronyme titre="Institut National de Recherche en Informatique et Automatique">INRIA</acronyme> (Institut National de Recherche en Informatique et en Automatique) en France, et l'Université de Keio au Japon.</texte>
+					<texte>Il est constitué de 180 membres&#160;: instituts publics et entreprises concurrentes sur le marché Internet parmi lesquels des <reference href="http://www.w3.org/Consortium/Member/List">représentants des constructeurs et éditeurs de logiciels</reference>.</texte>
+					<texte>C'est un organisme non officiel. Le W3C n'émet que des <valeur>recommandations</valeur>&#160;: les concepteurs de navigateurs restent libres de s'y conformer.</texte>
+				</paragraphe>
+				<paragraphe ancre="versions" titre="Les versions du HTML en quelques dates">
+					<texte>L'<reference href="http://www.w3.org/Markup/#historical">histoire du <code type="langage">HTML</code></reference> est résumée par le W3C sur son site. On pourrait la synthétiser par le tableau suivant&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="date"><texte>Date</texte></colonne>
+							<colonne id="event"><texte>Événement</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>1989-1992</texte></colonne>
+							<colonne headers="event"><texte>Discussions, échanges et projets à l'initiative de chercheurs du <acronyme titre="Centre Européen pour la Recherche Nucléaire ">CERN</acronyme> aboutissant à un premier <code type="langage">HTML</code> qualifié par la suite de version numéro 0.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>1993 </texte></colonne>
+							<colonne headers="event"><texte>Création du navigateur <logiciel>MOSAIC</logiciel> (sans tréma) par le <acronyme titre="National Center for Supercomputing Applications">NCSA</acronyme> de l'Université de l'Illinois. Ce navigateur tourne sur les PC. Création du <acronyme titre="World Wide Web Consortium">W3C</acronyme>. Publication des recommandations formant la version <code type="langage">HTML 1.0</code>.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>septembre 1995</texte></colonne>
+							<colonne headers="event"><texte>Recommandations sur le standard <code type="langage">HTML 2.0</code> (insertion d'images, de tableaux, de listes et de formulaires).</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>courant 1995</texte></colonne>
+							<colonne headers="event"><texte>Synthèse des nouvelles exigences des auteurs réunies dans les recommandations du <code type="langage">HTML 3.0</code>&#160;: trop ambitieuse, elle n'a jamais trouvé de consensus au sein même du W3C.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>mai 1996</texte></colonne>
+							<colonne headers="event"><texte>Version <code type="langage">HTML 3.2</code> (liens sur image, applet <code type="langage">Java</code>, <code type="langage">JavaScript</code>...), reprise de la version&#160;3 édulcorée.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>juillet 1997</texte></colonne>
+							<colonne headers="event"><texte>Version provisoire du <code type="langage">HTML 4.0</code> (<autrelangue>frames</autrelangue>, feuilles de style, intégration d'éléments multimédias).</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>décembre 1999</texte></colonne>
+							<colonne headers="event"><texte>Dernière version à ce jour, <code type="langage">HTML 4.01</code> n'apportant que des corrections minimales à la version précédente.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>janvier 2000</texte></colonne>
+							<colonne headers="event"><texte>Sortie du format<code type="langage">XHTML 1.0</code>, une extension du <code type="langage">XML</code>.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>juillet 2006</texte></colonne>
+							<colonne headers="event"><texte>Sortie d'une version de travail de la recommandation <code type="langage">XHTML 2.0</code>.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>juillet 2009</texte></colonne>
+							<colonne headers="event"><texte>Annonce de la fin des travaux sur <code type="langage">XHTML2.0</code> à la fin de 2009.</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="date"><texte>septembre 2009</texte></colonne>
+							<colonne headers="event"><texte>Sortie d'une version de travail de la recommandation <code type="langage">HTML 5</code>.</texte></colonne>
+						</ligne>
+						<legende>Historique du <code type="langage">HTML</code>.</legende>
+					</tableau>
+					<texte>Les derniers documents de recommandation de <reference href="http://www.w3.org/TR/html401/">HTML 4.01</reference> et <reference href="http://www.w3.org/TR/xhtml1/">XHTML 1.0</reference> du W3C sont disponibles en ligne, mais de lecture difficile.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Outils de production de pages Web" ancre="outils">
+                <paragraphe titre="Introduction" ancre="outilsintro">
+                	<texte>Ainsi que vous le constaterez, il est possible de créer un site Web entier à l'aide d'un simple éditeur de texte, et d'un client <acronyme titre="File Transfer Protocole" lang="en">FTP</acronyme>. Fort heureusement, si cette solution reste encore possible pour un dépannage ponctuel sur un fichier, il existe des outils dédiés qui permettent d'automatiser bon nombre des opérations fastidieuses.</texte>
+                </paragraphe>
+                <paragraphe titre="Éditeurs" ancre="outilsediteurs">
+                    <texte>Les éditeurs HTML sont des logiciels qui aident à la saisie des balises <code type="langage">HTML</code>. Il en existe de deux types&#160;:</texte>
+                    <liste>
+				<item><texte>les éditeurs de code proprement dits, similaires à un «&#160;environnement intégré de développement&#160;» (EDI) pour un langage de programmation, qui permettent de coder les balises directement.</texte></item>
+				<item><texte>les éditeurs dits WYSIWYG, qui offrent un environnement ressemblant plus à celui d'un logiciel de traitement de texte. Ces éditeurs offrent le plus souvent maintenant la possibilité d'alterner un mode de composition visuelle avec un mode de composition directement du code source, afin de mêler les avantages des deux pratiques.</texte></item>
+                    </liste>
+                    <texte>Ces éditeurs offrent de plus des facilités de gestion de site (notion de modèle de document, de projet, gestion efficace des liens internes aux documents, intégration de langages de scripts comme PHP, etc.).</texte>
+                </paragraphe>
+                <paragraphe titre="Les Weblogs" ancre="outilsweblogs">
+                	<texte>Ces outils, comme <reference href="http://www.dotclear.net/"><logiciel>DotClear</logiciel></reference>, <reference href="http://www.wordpress-fr.net/">WordPress</reference> ou <reference href="http://www.blogger.com"><logiciel>Blogger</logiciel></reference>, par exemple, permettent la saisie, la mise en forme et la mise en ligne automatisée de "journaux" personnels. Conçus à l'origine comme des outils de publication rapide à destination de quelques internautes désireux de mettre rapidement en ligne leurs impressions quotidiennes, ils ont évolué en interfaces complexes, mais toujours sur le même principe&#160;:</texte>
+                    <liste type="ordonnee">
+                        <item><texte>Un auteur initial écrit un article à l'aide de l'outil, qu'il met en ligne&#160;;</texte></item>
+                        <item><texte>Les visiteurs du journal peuvent soit ajouter des commentaires, soit placer des <autrelangue type="en">trackbacks</autrelangue> sur l'article, afin de créer un lien entre un article qu'ils écrivent sur leur propre <autrelangue type="en">blog</autrelangue>, et l'article qu'ils sont en train de lire.</texte></item>
+                    </liste>
+                    <texte>Ces fonctions de base peuvent être étendues, mais on aborde là une autre catégorie d'outils de production&#160;: les systèmes de publication de contenu proprement dits.</texte>
+                </paragraphe>
+                <paragraphe titre="Systèmes de publication de contenu" ancre="outilspubli">
+                    <texte>On les désigne parfois sous leur abréviation de <acronyme titre="Content Management System" lang="en">CMS</acronyme> (<autrelangue>Content Management System</autrelangue>). On rencontre principalement deux types de tels outils&#160;:</texte>
+                    <liste type="ordonnee">
+                        <item><texte>les outils entièrement ouverts, comme le format Wiki. N'importe quel internaute peut modifier la page qu'il est en train de lire. Vous pouvez consulter par exemple la <reference href="http://fr.wikipedia.org/wiki/Accueil">Wikipedia</reference>, une encyclopédie en ligne maintenue et modifiable par tous ses lecteurs.</texte></item>
+                    	<item><texte>les outils de publication de contenu proprement dits, tels que <reference href="http://www.spip.net/">SPIP</reference>, <reference href="http://ez.no/ez_publish">eZPublish</reference>, <reference href="http://www.joomla.fr/">Joomla</reference>, <reference href="http://www.typo3.fr/">Typo3</reference>... Ces outils proposent des interfaces utilisateurs plus ou moins complexes, permettant à des personnes ne connaissant pas le format <code type="langage">HTML</code> de publier du contenu sur le Web, sous une forme paramétrable.</texte></item>
+                    </liste>
+                    <texte>Ces outils sont cependant loin d'offrir les mêmes fonctionnalités que ce que peut produire un webmestre expérimenté&#160;; il s'agit de contenu facilement publiable, préformatté. Pour aller plus loin, il est nécessaire de faire appel à un développeur spécialisé, capable de tirer parti des richesses du langage <code type="langage">HTML</code> et de celui permettant sa mise en forme, le <code type="langage">CSS</code>. Le développeur construit alors les gabarits des pages pour les CMS.</texte>
+                </paragraphe>
+            </section>
+			<section ancre="langage" titre="Un langage structuré">
+				<paragraphe ancre="introstruct" titre="Introduction">
+					<texte>Un fichier écrit en langage <code type="langage">HTML</code> n'est autre qu'un fichier texte, mais dont le contenu est <valeur>structuré</valeur> à l'aide de repères que l'on appelle des <valeur>éléments</valeur>. Chaque élément est constitué de <valeur>balises</valeur> et d'<valeur>attributs</valeur> qui permettent d'apporter des informations sur son contenu. Nous reviendrons plus loin sur ces notions.</texte>
+				</paragraphe>
+				<paragraphe ancre="apparence" titre="Apparence">
+					<texte><code type="langage">HTML</code> possède de nombreux éléments de gestion de l'apparence (ou formatage) de la page qui se rapprochent de ce que nous connaissons sur les éditeurs de texte&#160;: mise en gras (<code>b</code>), en italique (<code>i</code>), indentation, taille ou couleur des caractères (<code>font</code>).</texte>
+					<texte>Pour les créateurs à l'origine de <code type="langage">HTML</code>, ces possibilités ne sont que des «&#160;déviances&#160;»&#160;: dans leur esprit <code type="langage">HTML</code> doit décrire la structure du contenu et non son apparence.</texte>
+				</paragraphe>
+				<paragraphe ancre="question" titre="Qu'est-ce que la structure d'un texte au sens HTML?">
+					<texte>Prenons par exemple la notion de paragraphe&#160;: un paragraphe peut être présenté «&#160;à la française&#160;» avec une indentation de la première ligne ou «&#160;à l'américaine&#160;» sans indentation. L'indentation de la première ligne fait partie des apparences possibles d'une même structure de texte&#160;: le paragraphe.</texte>
+					<texte>On trouve ainsi dans <code type="langage">HTML</code> de quoi structurer listes, titres, tableaux, citations, adresses... autant de structures du texte qui ne définissent pas l'apparence finale à l'écran.</texte>
+				</paragraphe>
+				<paragraphe ancre="pourquoi" titre="Pourquoi distinguer la structure et l'apparence?">
+					<texte>Trois raisons parmi d'autres&#160;:</texte>
+					<liste type="ordonnee">
+						<item><texte><valeur>Une raison historique</valeur>&#160;: <code type="langage">HTML</code> est une application du langage documentaire <code type="langage">SGML</code> (<autrelangue>Standard Generalized Markup Language</autrelangue>) conforme au standard ISO 8879. Ce langage de technique documentaire est très complexe. De plus, c'est un langage de structuration de l'information et non un langage de présentation. Or les premières versions du <code type="langage">HTML</code> se sont éloignées de cet aspect de structuration pour tendre vers le codage de la présentation. En ce sens <code type="langage">HTML</code> n'est donc qu'une application abâtardie du <code type="langage">SGML</code>;</texte></item>
+						<item><texte><valeur>Une raison de portabilité</valeur>&#160;: ce langage doit être totalement indépendant des plateformes et des navigateurs. Or plus les balises s'attachent à la gestion de l'apparence finale et sont pour cela détournées de leur fonction de structuration, plus l'effet obtenu est dépendant de la plateforme et du navigateur&#160;;</texte></item>
+						<item><texte><valeur>Une raison de libre choix de l'utilisateur</valeur>&#160;: l'utilisateur final doit pouvoir modifier lui-même la présentation (taille des caractères...) à l'aide d'options du navigateur. Un navigateur particulier devrait par exemple pouvoir lire et énoncer à un aveugle le contenu d'un document <code type='typefichier'>HTML</code>. La prise en compte des utilisateurs présentant des handicaps particuliers fait l'objet de soins redoublés depuis quelque temps, en raison notamment de la publication en 2005 de la <reference href="http://www.legifrance.gouv.fr/WAspad/UnTexteDeJorf?numjo=SANX0300217L">loi n° 2005-102 du 11 février 2005</reference> «  pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées ».</texte></item>
+					</liste>
+					<texte><code type="langage">HTML</code> est une chance pour le monde informatique puisqu'il offre un moyen d'échange de document indépendant de tous producteurs de logiciels. Cet aspect est poussé plus en avant dans la définition du format <code type="langage">XML</code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="ligne" titre="Une ligne de conduite du W3C">
+					<texte>Malgré la création par MicroSoft et Netscape de balises d'apparence, le <acronyme titre="World Wide Web Consortium">W3C</acronyme> a tenté avec succès de maintenir cette séparation entre structure et présentation. Le <acronyme titre="World Wide Web Consortium">W3C</acronyme> a adjoint au <code type="langage">HTML</code> la notion de feuille de style à travers le langage <code type="langage">CSS</code> (<autrelangue>Cascading Style Sheet</autrelangue>). <code type="langage">HTML</code> décrit la structure du langage, <code type="langage">CSS</code> décrit la présentation. Ainsi, un même document <code type='typefichier'>HTML</code> peut être présenté de différentes façons à l'aide de différentes feuilles de style.</texte>
+					<texte>Cette tendance est plus développée dans le langage <code type="langage">XHTML</code>, une extension du <code type="langage">XML</code>, dont la recommandation «&#160;stricte&#160;» interdit tout élément de présentation dans le corps du document, et reporte les informations de ce type dans la feuille de style.</texte>
+				</paragraphe>
+				<paragraphe titre="Validité du code" ancre="validite">
+					<texte>Les recommandations ont permis aux concepteurs de navigateurs et d'outils d'édition de se mettre d'accord sur ce qu'il était possible de faire faire aux navigateurs. Elles précisent l'ordre dans lequel les éléments doivent être écrits les uns à la suite des autres, ou imbriqués, ainsi que les éléments et attributs autorisés en fonction du contexte.</texte>
+					<texte>Lorsque le code source respecte une de ces recommandations, le fichier est dit <valeur>valide</valeur>. S'assurerr de la validité d'un code est le préalable indispensable avant de commencer à déboguer par exemple une mise en page incorrecte. En présence de code invalide en effet, les navigateurs doivent extrapoler et essayer de «&#160;deviner&#160;» ce que le concepteur avait en tête&#160;; il ne peut en résulter que des différences d'interprétation et des risques de voir la mise en page être complètement dégradée.</texte>
+					<texte>Bien sûr, valider un code ne suffit pas à régler la totalité des problèmes de mise en page dûs au support incomplet des standards par les navigateurs&#160;; mais cela permet assurément d'en régler la <valeur>très grande majorité</valeur>, et c'est par conséquent une <valeur>démarche indispensable</valeur>. Nous reviendrons plus loin sur les outils permettant de tester cette validité.</texte>
+				</paragraphe>
+			</section>
+			<section titre="Accessibilité" ancre="accessibilite">
+                <paragraphe>
+                    <texte>On pourrait voir dans l'importance qui est données aujourd'hui aux questions d'accessibilité une conséquence de l'amélioration progressive du support des standards du Web par les navigateurs. Aux temps pas si lointains de la « Balkanisation » du Web, lorsque <logiciel>Netscape</logiciel> et <logiciel>Internet Explorer</logiciel> se livraient une guerre sans merci à coups de balises et d'effets propriétaires, la priorité numéro 1 des développeurs était de s'assurer que leur site s'affichait grossièrement de la même manière dans les deux navigateurs.</texte>
+                    <texte>Maintenant que les standards du Web se sont répandus et sont mieux supportés (à la date de révision de ce cours, septembre 2009, au contraire de ce qui se passait il y a six ans, le facteur limitant est incontestablement, dans ce domaine, <logiciel>Internet Explorer</logiciel> qui est de loin à la traîne, même si <logiciel>Internet Explorer 7</logiciel> puis 8 ont permis de combler une partie de ce retard), la classe de problèmes à résoudre pour les développeurs s'est déplacée. Il s'agit maintenant de faire en sorte que le plus grand nombre de personnes possibles aient accès à leur site.</texte>
+                    <texte>Il ne faut pas entendre par là uniquement un accès ADSL ou par modem... mais bien de la consultation possible du site et des informations qui s'y trouvent. Cela passe, par exemple, par l'ajout de contenu alternatif aux images pour les personnes ayant choisi de ne pas les afficher, ou incapables de les examiner en détails, mais aussi par la présentation soignée de données dans un tableau (fournir un résumé du tableau, des entêtes de colonnes reconnus comme tels par des navigateurs-lecteurs de contenu), la structuration du contenu, des aides à la navigation, etc.</texte>
+                    <texte>Avoir un code valide est, là aussi, la première étape. Des outils existent en ligne ou hors-ligne afin de faciliter ce genre de tests&#160;:</texte>
+                    <liste>
+                        <item><texte><reference href="http://www.contentquality.com/">Cynthia Says</reference></texte></item>
+                        <item><texte><reference href="http://www.wave.webaim.org/index.jsp">Wave</reference></texte></item>
+                        <item><texte><reference href="http://aprompt.snow.utoronto.ca/">A-Prompt</reference>...</texte></item>
+                    </liste>
+                </paragraphe>
+            	<paragraphe>
+            		<texte>Récemment, la <reference href="http://www.legifrance.gouv.fr/WAspad/UnTexteDeJorf?numjo=SANX0300217L">loi n° 2005-102 du 11 février 2005</reference> «&#160;pour l'égalité des droits et des chances, la participation et la citoyenneté des personnes handicapées&#160;» est parue au Journal Officiel. Cette loi, qui est entrée en application dès la <reference href="http://www.legifrance.gouv.fr/affichTexte.do;jsessionid=?cidTexte=JORFTEXT000020616980&amp;dateTexte=&amp;oldAction=rechJO&amp;categorieLien=id">signature du décret le 14 mai 2009</reference> et sa publication au Journal Officiel, stipule ainsi que «&#160;les services de communication publique en ligne des services de l'Etat, des collectivités territoriales et des établissements publics qui en dépendent doivent être accessibles aux personnes handicapées.&#160;» Les sites des administrations et collectivités territoriales devront se mettre en conformité avec la loi dans un délai de trois ans suivant la parution du décret.</texte>
+            		<texte>Pour plus d'informations sur ce sujet, vous pouvez consulter <reference href="http://www.webaim.org/">WebAIM</reference> (en anglais), <reference href="http://www.accessiweb.org/">AccessiWeb</reference> ou le site du <reference href="http://www.references.modernisation.gouv.fr/rgaa-accessibilite">Référentiel Général d'Acessibilité pour les Administrations</reference> (en français).</texte>
+                </paragraphe>
+            </section>
+		</partie>
+		<partie ancre="structure" titre="Structure et principes de base">
+			<section ancre="briques" titre="Les briques&#160;: balises et attributs, commentaires">
+				<paragraphe ancre="balises" titre="Balises">
+					<texte>Les briques élémentaires d'un document <code type='typefichier'>HTML</code> sont les balises, dotées ou non d'attributs. Ces balises permettent de structurer l'information. Une balise, sauf exceptions, s'ouvre et se ferme. Par exemple, pour déclarer un paragraphe, on écrira...</texte>
+					<exemple type="HTML">
+						<element nom="p">Ceci est un paragraphe.</element>
+					</exemple>
+					<texte>Il est possible également de déclarer un texte souligné&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="p"><element nom="u" enligne="oui">Ceci est un paragraphe souligné.</element></element>
+					</exemple>
+					<texte>Le navigateur ne fera pas apparaître les balises (ou <autrelangue>tags</autrelangue> ou marqueurs) <code><![CDATA[<p>]]></code>, <code><![CDATA[</p>]]></code>, <code><![CDATA[<u>]]></code> ou <code><![CDATA[</u>]]></code> mais interprètera leurs effets. Le deuxième exemple apparaît comme suit&#160;:</texte>
+					<image alt="Exemple de soulignement" classe="illustration" hauteur="30" largeur="207" src="exemples/soulignement.gif"/>
+					<texte><valeur>La balise est le moyen de communiquer avec le navigateur.</valeur> Elle apparaît entre les caractères réservés <code><![CDATA[<]]></code> et <code><![CDATA[>]]></code>.</texte>
+				</paragraphe>
+				<paragraphe ancre="attributs" titre="Attributs">
+					<texte>Par exemple,</texte>
+					<exemple type="HTML">
+						<element nom="p"><attribut nom="align">right</attribut>Ceci est un paragraphe aligné à droite.</element>
+					</exemple>
+					<texte>a pour effet... d'aligner le texte à droite.</texte>
+					<texte>La syntaxe utilisée est la suivante&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="balise"><attribut nom="attribut1">valeur1</attribut><attribut nom="attribut2">valeur2</attribut><attribut nom="attribut3">valeur3</attribut>blabla</element>
+					</exemple>
+					<texte>Le séparateur est un espace, l'ordre n'a pas d'importance. La valeur de l'attribut doit être tapée en minuscules, et mise entre guillemets (pour des raisons de compatibilité XHTML). Certains navigateurs acceptent une écriture sous la forme <code>align=Right</code>, par exemple, mais cela n'est pas conforme aux recommandations du W3C, et les navigateurs récents ne sont pas tenus de respecter cette syntaxe.</texte>
+					<texte>Les attributs permettent de modifier le comportement par défaut d'une balise, ou bien de spécifier des informations indispensables (comme l'adresse d'une image intégrée à la page, ou bien celle d'un lien externe).</texte>
+					<texte>Enfin, l'ordre dans lequel les attributs sont écrits n'a pas d'importance.</texte>
+				</paragraphe>
+				<paragraphe ancre="commentaires" titre="Commentaires">
+					<texte>Indispensables dans certains cas, ils alourdissent cependant le temps de chargement d'une page. Ils n'apparaissent pas dans la fenêtre du navigateur. La syntaxe est la suivante&#160;:</texte>
+					<exemple type="HTML">
+						<commentaire>Commentaire</commentaire>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section ancre="parties" titre="Les parties d'un document HTML">
+				<paragraphe>
+					<texte>Voici par exemple un document <code type='typefichier'>HTML</code> minimal&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="html" indent="oui">
+							<element nom="head" niveau="1" indent="oui">
+								<element nom="title" niveau="2">Premiers pas</element>
+							</element>
+							<element nom="body" niveau="1" indent="oui">
+								<element nom="p" niveau="2">Bonjour tout le monde!</element>
+							</element>
+						</element>
+					</exemple>
+					<texte>Les deux parties fondamentales d'un document <code type='typefichier'>HTML</code> sont l'entête (<code>head</code>) et le corps (<code>body</code>). Nous allons les voir séparément par la suite...</texte>
+				</paragraphe>
+				<paragraphe titre="Caractères spéciaux">
+					<texte>Le langage donne la possibilité de pouvoir afficher à l'écran des caractères qui soit ne peuvent pas être directement saisis au clavier, soit n'existent pas dans l'encodage choisi. Il faut faire appel pour cela à des <valeur>entités</valeur> numériques ou alphabétiques (définies afin de faciliterc la vie des codeurs...). Par exemple, un caractère "espace insécable" se code indiféremment par <code><![CDATA[&nbsp;]]></code>, ou bien par <code><![CDATA[&#160;]]></code>.</texte>
+					<texte>Les entités permettent d'avoir accès à des caractères qui ont un sens en HTML. Ces caractères sont&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="carac"><texte>Caractère</texte></colonne>
+							<colonne id="entite"><texte>Entité</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac"><texte><![CDATA[<]]></texte></colonne>
+							<colonne headers="entite"><texte><code><![CDATA[&lt;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac"><texte><![CDATA[>]]></texte></colonne>
+							<colonne headers="entite"><texte><code><![CDATA[&gt;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac"><texte><![CDATA[&]]></texte></colonne>
+							<colonne headers="entite"><texte><code><![CDATA[&amp;]]></code></texte></colonne>
+						</ligne>
+						<legende>Tableau de correspondances entre les entités et les caractères réservés en HTML.</legende>
+					</tableau>
+					<texte>D'autres entités renvoient à des caractères spéciaux&#160;:</texte>
+					<tableau>
+						<ligne type="header">
+							<colonne id="carac1"><texte>Caractère</texte></colonne>
+							<colonne id="abbr1"><texte>Entité</texte></colonne>
+							<colonne id="carac2"><texte>Caractère</texte></colonne>
+							<colonne id="abbr2"><texte>Entité</texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>à</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&agrave;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>â</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&acirc;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ä</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&auml;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>æ</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&aelig;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>é</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&eacute;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>è</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&egrave;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ê</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&ecirc;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>ë</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&euml;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ù</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&ugrave;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>û</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&ucirc;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ü</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&uuml;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>ö</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&ouml;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ï</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&iuml;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>î</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&icirc;]]></code></texte></colonne>
+						</ligne>
+						<ligne>
+							<colonne headers="carac1"><texte>ç</texte></colonne>
+							<colonne headers="abbr1"><texte><code><![CDATA[&ccedil;]]></code></texte></colonne>
+							<colonne headers="carac2"><texte>&oelig;</texte></colonne>
+							<colonne headers="abbr2"><texte><code><![CDATA[&oelig;]]></code></texte></colonne>
+						</ligne>
+						<legende>Principales entités de caractères utilisées en français. Il est également possible d'utiliser des accents sur des majuscules. Par exemple, l'entité <code><![CDATA[&Aagrave;]]></code> renvoie au caractère À.</legende>
+					</tableau>
+				</paragraphe>
+			</section>
+			<section ancre="entetefichier" titre="L'entête">
+				<paragraphe titre="Élément title" ancre="title">
+					<texte>Le contenu de l'élément <code>title</code> est le titre du document <code type='typefichier'>HTML</code>&#160;: ce titre est affiché dans la barre de titre du navigateur.</texte>
+				</paragraphe>
+				<paragraphe titre="Élément meta" ancre="meta">
+					<texte>L'élément <code>meta</code> permet de donner des «&#160;méta-informations&#160;» sur le document. On écrira ainsi, par exemple&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="meta" vide="oui"><attribut nom="name">author</attribut><attribut nom="content">G. Chagnon</attribut></element>
+						<element nom="meta" vide="oui"><attribut nom="name">keywords</attribut><attribut nom="content">HTML, initiation</attribut></element>
+						<element nom="meta" vide="oui"><attribut nom="name">description</attribut><attribut nom="content">Cette page fournit une introduction au langage HTML</attribut></element>
+						<element nom="meta" vide="oui"><attribut nom="name">date</attribut><attribut nom="content">2003-09-19T16:55:37+01:00</attribut></element>
+					</exemple>
+					<texte>Il est possible également de transmettre des données au navigateur via le protocole HTTP&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="meta" vide="oui"><attribut nom="http-equiv">Expires</attribut><attribut nom="content">Sat, 11 Oct 2003 07:30:27 GMT</attribut></element>
+					</exemple>
+					<texte>L'exemple précédent indique au navigateur quand il lui sera nécessaire de rafraîchir le contenu de son cache, au cas où l'internaute décide de revisiter la page.</texte>
+				</paragraphe>
+				<paragraphe titre="Élément script" ancre="script">
+					<texte>Cet élément permet d'introduire un script (un petit programme permettant l'utilisation d'effets dynamiques dans la page). Elle admet un attribut obligatoire, <code>type</code>, qui indique son... type (par exemple, <code>type="text/javascript"</code>). L'attribut <code>language</code> est obsolète. Cette balise admet d'autres attributs, comme <code>src</code>, qui indique la localisation sur le Web du fichier où se trouve le script (ce que l'on appelle l'<acronyme titre="Uniform Resource Locator">URL</acronyme>).</texte>
+				</paragraphe>
+				<paragraphe titre="Encodage des caractères" ancre="encodage">
+					<texte>Les fichiers, sur une unité de mémoire comme un disque dur, sont enregistrés comme des suites de <code>0</code> et de <code>1</code>. Ces suites sont organisées en séquences (par exemple d'un octet), et chaque séquence est associée à un <valeur>encodage de caractères</valeur>. Cet encodage est une relation univoque entre une suite de 0 et de 1 d'une part, et un caractère d'autre part. Or les capacités des disques durs sont limitées&#160;; il a donc fallu limiter en retour le nombre de 0 et de 1 par séquence représentative de caractère. Comme le nombre total de caractères à représenter dans les langues écrites sur Terre est bien supérieur au nombre de combinaisons possibles de ces suites de 0 et de 1, une même suite peut être interprétée de plusieurs manières. C'est la raison pour laquelle il est impératif de mentionner explicitement l'encodage de caractères <valeur>utilisé lors de la sauvegarde du fichier</valeur> dans l'entête du fichier <code type="typefichier">HTML</code>&#160;; faute de quoi, on court le risque que les caractères comme les accents par exemple soient affichés dans un autre alphabet. Cela est réalisé à l'aide de l'élément <code>meta</code>&#160;:</texte>
+					<exemple type="HTML">
+						<element nom="meta" vide="oui"><attribut nom="http-equiv">Content-Type</attribut><attribut nom="content">text/html; charset=iso-8859-1</attribut></element>
+					</exemple>
+					<texte>D'autres valeurs d'encodages sont possibles comme l'UTF-8 par exemple, qui offre le plus de possibilités. Il faut néanmoins veiller à ce que l'encodage déclaré corresponde effectivement à l'encodage réel du fichier sur le serveur. Ce dispositif vient en complément du paramétrage de l'entête HTTP délivré par le serveur lorsqu'il doit fournir le fichier au poste client.</texte>
+				</paragraphe>
+				<paragraphe titre="Élément link" ancre="link">
+					<texte>Cette balise permet de spécifier les URLs de fichiers liés d'une manière ou d'une autre au document. Par exemple,</texte>
+					<exemple type="HTML">
+						<element nom="link" vide="oui"><attribut nom="rel">stylesheet</attribut><attribut nom="type">text/css</attribut><attribut nom="href">cours.css</attribut></element>
+						<element nom="link" vide="oui"><attribut nom="media">print</attribut><attribut nom="title">Version PostScript</attribut><attribut nom="type">application/postscript</attribut><attribut nom="href">http://someplace.com/manual/postscript.ps</attribut><attribut nom="rel">alternate</attribut></element>
+						<element nom="link" vide="oui"><attribut nom="title">The manual in English</attribut><attribut nom="rel">alternate</attribut><attribut nom="hreflang">en</attribut><attribut nom="href">http://someplace.com/manual/english.html</attribut><attribut nom="type">text/html</attribut></element>
+					</exemple>
+				</paragraphe>
+			</section>
+			<section ancre="corps" titre="Le corps">
+				<paragraphe>
+					<texte>Il contient tout ce qui apparaîtra dans la fenêtre du navigateur. Nous y reviendrons quand nous aborderons les <reference href="elements.html">éléments HTML</reference>.</texte>
+				</paragraphe>
+			</section>
+			<section ancre="prologue" titre="Le prologue">
+				<paragraphe>
+					<texte>On peut trouver, de manière facultative, à la toute première ligne du document, la déclaration suivante&#160;:</texte>
+					<exemple type="HTML">
+						<typedocument nomracine="html" type="PUBLIC" href="http://www.w3.org/TR/html4/strict.dtd" identifiant="-//W3C//DTD HTML 4.01//EN"/>
+					</exemple>
+					<texte>La déclaration précédente fait référence au <code type="langage">HTML</code> strict&#160;; le <code type="langage">HTML</code> dit «&#160;de transition&#160;» se déclare ainsi&#160;:</texte>
+					<exemple type="HTML">
+						<typedocument nomracine="html" type="PUBLIC" href="http://www.w3.org/TR/html4/loose.dtd" identifiant="-//W3C//DTD HTML 4.01 Transitional//EN"/>
+					</exemple>
+					<texte>Cette seconde déclaration permet d'ajouter des balises de présentation.</texte>
+				</paragraphe>
+				<paragraphe>
+					<texte>Selon la norme <code type="langage">SGML</code>, la signification des balises du <code type="langage">HTML</code>, leurs syntaxes, leurs organisations sont résumées dans un document appelé <code type='typefichier'>DTD</code>, (<autrelangue>Document Type Definition</autrelangue>). Cette ligne précise à quelle <code type='typefichier'>DTD</code> fait référence le <code type="langage">HTML</code> utilisé.</texte>
+					<texte>Il s'agit donc ici d'une <code type='typefichier'>DTD</code> publique écrite en anglais (EN) par le W3C correspondant à la version 4.01 du <code type="langage">HTML</code>. Cette déclaration est utile à des validateurs afin de déterminer si le code <code type="langage">HTML</code> du document est correct ou non.</texte>
+					<texte>Indiquer le type de document et l'encodage de caractères permet la validation du code, à l'aide du <reference href="http://validator.w3.org/">validateur HTML</reference> en ligne du W3C.</texte>
+				</paragraphe>
+			</section>
+			<exercice titre="Correction de code HTML (sujet d'examen du 15 janvier 2007)" ancre="exocorrectionhtml">
+				<enonce href="exercices/td8/index.html"/>
+				<correction href="exercices/td8/correction.html"/>
+			</exercice>
+		</partie>
+	</corpus>
+</chapitre>
