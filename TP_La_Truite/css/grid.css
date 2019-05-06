@@ -1,0 +1,45 @@
+// Pour définir des variables
+  :root 
+  {
+    --<nom_variable>: <valeur>;
+  }
+  
+  // Concernera tous les elements present dans les pages html utilisant ce style
+  *
+  { 
+    box-sizing: border-box; // Permet de définir les tailles en incluant les bordures (indispensable pour que tous les navigateurs affichent les memes proportions).
+  }
+  
+    // Agencement intuitif de page en responsive (html5 seulement) : 
+    body 
+    {
+      margin: 0;
+      min-height: 100%;
+      font-family: "font-family: Arial, Helvetica, sans-serif;"
+    
+      display: grid;
+      grid-template-rows: 60px auto 60px;
+      grid-template-columns: 150px auto 150px;
+      grid-template-areas:  "H H H"
+                            "N M A"
+                            "F F F";
+    }
+    header {
+      grid-area: H;
+    }
+    nav {
+      grid-area: N;
+    }
+    main {
+      border: solid #333 1px;
+      grid-area: M;
+      display: flex;
+      min-height: 100vh;
+      min-width: 100vw;
+    }
+    aside {
+      grid-area: A;
+    }
+    footer {
+      grid-area: F;
+    }
