@@ -1,0 +1,124 @@
+:root 
+{
+  --borderColor: #3a8caa;
+}
+
+*
+{ 
+  box-sizing: border-box;
+  cursor: default;
+}
+
+body 
+{
+  margin: 0;
+  min-height: 100%;
+  font-family: "Arial", "Helvetica", sans-serif;
+  display: grid;
+  grid-template-rows: 15vh 77vh 8vh;
+  grid-template-columns: 1fr 15vw;
+  grid-template-areas:  "H H"
+                        "M A"
+                        "F F";
+}
+
+header {
+  grid-area: H;
+  background-color: skyblue;
+  display: grid;
+  grid-template-rows: 75% 25%;
+  grid-template-columns: justify;
+  grid-template-areas:  "L"
+                        "N";
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 25pt;
+  grid-area: L;
+}
+
+a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+
+section[role="navigation"] 
+{
+  display: flex;
+  justify-content: space-evenly;
+  border-top: solid var(--borderColor) 1px;
+  border-bottom: solid var(--borderColor) 1px;
+  background-color: #6fbbdc;
+  grid-area: N;
+}
+
+ul[role="menubar"], ul[role="menubar"] *
+{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 85%;
+  height: 100%;
+  border-right: solid var(--borderColor) 1px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1 100%;
+  list-style-type: none;
+}
+
+span[role="search"], span[role="search"] *
+{
+  display: flex;
+  flex-flow: nowrap;
+  padding: 0;
+}
+
+span[role="search"] button
+{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: skyblue;
+  padding-left: 30px;
+  font-size: 13pt;
+  grid-area: M;
+}
+
+aside {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: skyblue;
+  grid-area: A;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  justify-content: space-evenly;
+  border: solid var(--borderColor) 1px;
+  background-color: #3a8caa;
+  grid-area: F;
+}
+
+section[role="note"] {
+  border: solid var(--borderColor) 1px;
+  margin: 5px;
+  padding: 10px;
+  background-color: #6fbbdc;
+}
+
+p, h2, h3 {
+  text-align: justify;
+  text-indent: 15px;
+}

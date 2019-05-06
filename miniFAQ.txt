@@ -79,13 +79,12 @@ Squelette CSS (à copier-coller dans les nouveaux fichiers)
     {
       margin: 0; // Du fait d'un vieil accident du html: par défaut, le body a une marge. 
       min-height: 100%; // Du fait d'un vieil accident du html: le body peut etre inférieur à la hauteur de la fenetre.
-      font-family: police_préférée, police_alternative; // De préférence: "font-family: Arial, Helvetica, sans-serif;"
-      min-height: 100%;
+      font-family: police_préférée, police_alternative; // De préférence: "Arial", "Helvetica", sans-serif
       <propriété>: var(--<nom_variable>);
     
       display: grid;
-      grid-template-rows: taille_px taille_fraction taille_px;
-      grid-template-columns: taille_px taille_fraction taille_px;
+      grid-template-rows: 60px auto ou taille_relative 60px;
+      grid-template-columns: 150px auto 150px;
       grid-template-areas:  "H H H"
                             "N M A"
                             "F F F";
