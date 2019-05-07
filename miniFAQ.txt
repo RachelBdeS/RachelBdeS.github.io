@@ -151,6 +151,7 @@ body {
 }
 
 /* ELEMENTS DU HEADER */
+
 header {
   grid-area: H;
   cursor: default;
@@ -216,10 +217,15 @@ span[role="search"] button {
   border: none;
 }
 
+span[role="search"] button:after {
+  content: "⋗";
+}
+
 
 
 
 /* ELEMENTS DU MAIN */
+
 main {
   display: flex;
   flex-direction: column;
@@ -234,6 +240,7 @@ main {
 
 
 /* ELEMENTS DU ASIDE */
+
 aside {
   padding: 10px;
   display: flex;
@@ -256,6 +263,7 @@ section[role="note"] {
 
 
 /* ELEMENTS DU FOOTER */
+
 footer {
   display: flex;
   flex-direction: row;
@@ -272,7 +280,20 @@ footer a {
   color: var(--linkFontBright);
 }
 
+footer li {
+  list-style: none;
+}
+
+footer li:before, footer li:after {
+  content: "::";
+  color: inherit;
+  width: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
 /* ELEMENTS COMMUNS */
+
 header,
 aside > h2,
 footer {
@@ -311,3 +332,93 @@ footer
 {
   color: var(--fontBright);
 }
+
+
+    [ OU ]
+ 
+<conteneur> {
+  display: grid;
+  width: 50%;
+  grid-template-columns: 41% 59%;
+  grid-column-gap: 0;
+  grid-row-gap: 1px;
+}
+ 
+element {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+  
+element {
+  display: block;
+  grid-column: 1;
+  width: 100%;
+}
+ 
+element {
+  display: block;
+  grid-column: 2;
+  width: 100%;
+}
+ 
+element {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+ 
+// Mesures relatives : 
+• 1%, 1fr, 1vw/vh, 
+• calc() // permet d'affecter le resultat d'un calcul), 
+• attr(<propriété>) // (permet d'affecter la valeur d'une propriété css existante).
+     
+------------------------------------------------------------
+A rédiger dans ma FAQ 
+------------------------------------------------------------
+ 
+• HTML: Couleurs en hexadecimal 
+  - Du plus foncé (0) au plus clair (F): #RVB
+  - Du plus foncé (00) au plus clair (FF): #RRVVBB
+ 
+• JS: foreach { <instruction>; } devient for (<variable_en_declaration> of <tableau>) { <instruction>; }
+• JS: const <variable> // est readonly
+• JS: let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}
+• JS: var <variable> // a une portée limitée à la fonction dans lesquelle elle se trouve
+ 
+• JS: document.querySelector("#id") <=> document.getElementById("id")
+• JS: document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
+• JS: var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")
+• DOM: Syntax avancée : 
+  <dom_element>.querySelector (
+  "#identifiant" OU ".<classe>" OU "<balise>" OU <balise>[<propriété>='<valeur>'] OU "<element> <element_enfant>" );
+  Exemple: Affichera en marron tous les passage en italique dans les paragraphes: 
+  var mon_element = document.querySelector("p");
+  mon_element.querySelector("i").color="brown");
+   
+• CSS: Priorité des styles en cas de conflit : #element > .element > tag
+• CSS: element {
+  display: flex;
+  justify-content: center; Centre verticalement son contenu (si display=flex)
+  align-items: center; Centre horizontalement son contenu (si display=flex)
+  font-variant: small-caps;
+  font-variant: all-petite-caps;
+  }
+   
+• DOM acess (in css and querySelector and etc.) : 
+  element + element
+  element > premier_enfant_seulement
+  element enfant1 + enfant2
+  element enfant1 enfant_de_enfant1
+  element[champs]
+  element[champs='valeur_du_champs']
+   
+• HTML: placeholder = <TAG valeur_par_defaut_souhaitée="valeur affichée comme background dans le champs seulement quand il est vide"></TAG>
+ 
+• JS: console.log("Hello") = alert("Hello") qui ne bloque pas l'execution du code et s'affiche  dans les outils de developpement de Google Chrome.
+ 
+• HTML: <script type="./fichier.json">
+  écriture de la structure du json
+  </script>
