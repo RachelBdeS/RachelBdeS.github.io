@@ -1,141 +1,350 @@
 <!-- 
 ------------------------------------------------------------
-Squelette HTML5 (à copier-coller dans les nouveaux fichiers)
+• Normes pour le Référencement + nouveautés HTML5
+  Squelette HTML (à copier-coller dans les nouveaux fichiers vierges)
 ------------------------------------------------------------
 <!DOCTYPE html>
+  <html>
+  <!-- NB: OU (aide beaucoup le referencement sur www.google.fr mais penalise celui de sur www.google.com) :
   <!-- <html lang="fr"> -->
+  
   <head>
-    <meta charset="utf-8">
-    <!-- <link href="./css/style.css" rel="stylesheet"> -->
-    <!-- OR <link href="http://localhost/path_to_this_folder/css/style.css" rel="stylesheet"> -->
+    <!-- Indispensable -->
+    <!-- NB: la reconnaissance de caractères en utf-8 comprend tous les languages existants: -->
+    <meta charset="utf-8"> 
     <!-- <meta name="viewport" content="width=device-width, user-scalable=yes"> -->
+    
+    <!-- Nécessaire -->
+    <title>Titre du site web</title>
+    
+    <!-- Facutltatif -->
     <!-- <link rel="icon" href="icone.ico"> -->
-    <!-- <title></title> -->
+    
+    <!-- Préférable -->
+    <!-- NB: écrire les CSS dans des fichiers externes pour que le navigateur les chargent qu'une fois, indépendament des pages web (fichiers html, php, asp): -->
+    <!-- <link href="./css/style.css" rel="stylesheet"> -->
+    <!-- NB: OU (avec le chemin absolu commencant par "http://localhost/" avec WAMP): -->
+    <!-- <link href="http://localhost/<path_to_this_folder>/css/<style_sheet_name>.css" rel="stylesheet"> -->
+    
+    <!-- Facutltatif -->
     <!-- <meta name="description" content=""> -->
     <!-- <meta name="keywords" content=""> -->
     <!-- <meta name="author" content=""> -->
   </head>
+  
   <body>
-    <header id="header">
-      <a href="/"><img src="Logo" alt=""></a>
-      <h1>Titre de la page</h1>
-      <input type="text" role="search"><button>Rechercher</button>      
-      <nav role="menubar"><ul><li>Lien</li><li>Lien</li><li>Lien</li></ul></nav> // Menu principal horizontal
-    </header>
-    <main>
+    <header> <!-- Doit toujours être placé directement après BODY. -->
     
-      <nav role="sidebar"> // Menu principal vertical
-      <h2>Titre</h2>
-        <ul role="menu">
-          <li><a href="">Lien</a></li>
-          <li><a href="">Lien</a>
-            <ul>
-            <li><a href="">Lien</a></li>
-            </ul>
-          </li>
+      <a href="/" role="slider"><img src="logo.jpg" alt="Texte nécessaire qui sera lu par les logiciels pour aveugles. S'affichera si l'image ne le peut."></a>
+      
+      <!-- NB: les <section> remplacent desormais les <div> — les roles="" ont autant de poids que les <tags> : -->
+      <section role="navigation"> 
+        <ul role="menubar">
+          <a href="#"><li>Partie 1</li></a>
+          <a href="#"><li>Partie 2</li></a>
+          <a href="#"><li>Partie 3</li></a>
+          <a href="#"><li>Partie 4</li></a>
+          <a href="#"><li>Partie 5</li></a>
+          <a href="#"><li>Partie 6</li></a>
         </ul>
-      </nav>
-
-      <section role="main">
-      <h2>Titre</h2>
-      <p>Corps</p>
+        <span role="search"><input type="text"><button>Rechercher</button></span>
       </section>
-
-      <aside>
-        <section role="note">
-          <h2>Titre</h2>
-          <p>Corps</p>
-        </section>
-        <section role="note">
-          <h2>Titre</h2>
-          <p>Corps</p>
-        </section>
-      </aside>
+      
+    </header>
     
-    </main>
-    <footer id="footer">
-    <nav role="navigation"> // Menu secondaire
+    <nav role="menunav">
+      Menu vertical.
+      <ul>
+        <li><a href=""></a></li>
+        <li><a href="">Element 1 de la liste</a>
+          <ul>
+          <li><a href="">Sous element 1 de la liste 2</a></li>
+          </ul>
+        </li>
+      </ul>
     </nav>
+    
+    <main> <!-- OU <section role="main"> -->
+    
+      <!-- NB: Une seule balise H1 par page web (245 characters maximum): -->  
+      <h1>Titre de la page</h1>
+      
+      <p>Corps main</p>
+      
+      <!-- NB: section vraiment independante (avec du contenu statique capable de s'afficher de facon optimale depuis n'importe où). Ne pas utiliser dans le doute:
+      <article> 
+        <!-- NB: les <strong> remplacent desormais les <b>: -->
+        Corps statique de l'<strong>article</strong>. 
+      </article>
+      
+    </main>
+
+    <aside>
+    
+      <!-- NB: Il peut y avoir un maximum de 5 titres-sections imbriquées (h2 à h6): -->
+      <h2>Titre aside</h2>
+      
+      <section role="note">
+        <h3>Titre note</h3>
+        <p>Corps note</p>
+      </section>
+      
+    </aside>
+    
+    <footer id="footer" role="banner">
+    
+      <p><a href="#">Mentions legales :: Plan du site :: Contact</a></p>
+      
+      <p>Copyleft</p>
+      
     </footer>
+    
   </body>
 </html>
 ------------------------------------------------------------
-Squelette CSS (à copier-coller dans les nouveaux fichiers)
+Squelette CSS en Grid layout (à copier-coller dans les nouveaux fichiers)
 ------------------------------------------------------------
-  // Pour définir des variables
-  :root 
-  {
-    --<nom_variable>: <valeur>;
-  }
+/* Pour définir des variables */
+:root 
+{
+  --<nom_variable>: <valeur>;
+  /* Couleurs des Bordures */
+  --borderColor: <valeur>;
+  /* Couleurs des Fonds */
+  --bgMain: <valeur>;
+  --bgBright: <valeur>;
+  --bgDark: <valeur>;
+  /* Couleurs des Polices */
+  --darkFont: #000000;
+  --brightFont: <valeur>;
+  /* Type des Polices */
+  --fontFamily: "<police_préférée>", "<police_alternative>", sans-serif;
+  --itemsFontType: all-petite-caps;
+  --textFontType: normal;
+}
+
+*
+{ 
+  box-sizing: border-box; 
+}
+
+/* Concernera tous les elements present dans les pages html utilisant ce style */
+* {
+/* Permet de définir les tailles en incluant les bordures (indispensable pour que tous les navigateurs affichent les memes proportions). */
+  box-sizing: border-box; 
+}
+
+body {
+  /* Du fait d'un vieil accident du html: par défaut, le body a une marge. */
+  margin: 0;
+  /* Du fait d'un vieil accident du html: le body peut etre inférieur à la hauteur de la fenetre. */
+  min-height: 100%;
+  /* De préférence: "Arial", "Helvetica", sans-serif */
+  font-family: var(--fontFamily);
+  font-variant: var(--textFontType);
+  display: grid;
+  grid-template-rows: ;
+  grid-template-columns: ;
+  grid-template-areas: ""
+                       ""
+                       "";
+}
+
+body 
+{
+  grid-template-rows: 15vh 77vh 8vh;
+  grid-template-columns: 15vw 1fr;
+  grid-template-areas:  "H H H"
+                        "N M A"
+                        "F F F";
+}
+
+header {
+  grid-area: H;
+  background-color: var(--bgMain);
+  cursor: default;
+  display: grid;
+  grid-template-rows: 75% 25%;
+  grid-template-columns: justify;
+  grid-template-areas: ""
+                       "";
+}
+
+[role="slider"] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+h1, .h1, [role="slider"] {
+  font-size: 25pt;
+  grid-area: L;
+}
+
+a {
+  text-decoration: none;
+  color: var(--brightFont);
+}
+
+header, aside>h2, footer {
+  font-variant: var(--itemsFontType);
+}
+
+h1, h2 {
+  font-weight: 100;
+}
+
+section[role="navigation"] {
+  display: flex;
+  justify-content: space-evenly;
+  border-top: solid var(--borderColor) 1px;
+  border-bottom: solid var(--borderColor) 1px;
+  background-color: var(--bgBright);
+  grid-area: N;
+}
+
+ul[role="menubar"],
+ul[role="menubar"] * {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 85%;
+  height: 100%;
+  border-right: solid var(--borderColor) 1px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1 100%;
+  list-style-type: none;
+}
+
+span[role="search"],
+span[role="search"] * {
+  display: flex;
+  flex-flow: nowrap;
+  padding: 0;
+}
+
+span[role="search"] button {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+input[type="text"] {
   
-  // Concernera tous les elements present dans les pages html utilisant ce style
-  *
-  { 
-    box-sizing: border-box; // Permet de définir les tailles en incluant les bordures (indispensable pour que tous les navigateurs affichent les memes proportions).
-  }
-  
-    // Agencement intuitif de page en responsive (html5 seulement) : 
-    body 
-    {
-      margin: 0; // Du fait d'un vieil accident du html: par défaut, le body a une marge. 
-      min-height: 100%; // Du fait d'un vieil accident du html: le body peut etre inférieur à la hauteur de la fenetre.
-      font-family: police_préférée, police_alternative; // De préférence: "Arial", "Helvetica", sans-serif
-      <propriété>: var(--<nom_variable>);
-    
-      display: grid;
-      grid-template-rows: 60px auto ou taille_relative 60px;
-      grid-template-columns: 150px auto 150px;
-      grid-template-areas:  "H H H"
-                            "N M A"
-                            "F F F";
-    }
-    header {
-      grid-area: H;
-    }
-    nav {
-      grid-area: N;
-    }
-    main {
-      border: solid #333 1px;
-      grid-area: M;
-      display: flex;
-      min-height: 100vh;
-      min-width: 100vw;
-    }
-    aside {
-      grid-area: A;
-    }
-    footer {
-      grid-area: F;
-    }
-    
-    // Mesures relatives : 
-    • 1%, 1fr, 1vw/vh, 
-    • calc() // permet d'affecter le resultat d'un calcul), 
-    • attr(<propriété>) // (permet d'affecter la valeur d'une propriété css existante).
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bgMain);
+  cursor: default;
+  padding-left: 30px;
+  font-size: 13pt;
+  grid-area: M;
+}
+
+aside {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  cursor: default;
+  background-color: var(--bgMain);
+  grid-area: A;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  cursor: default;
+  justify-content: space-evenly;
+  border: solid var(--borderColor) 1px;
+  background-color: var(--bgDark);
+  grid-area: F;
+}
+
+section[role="note"] {
+  border: solid var(--borderColor) 1px;
+  margin: 5px;
+  padding: 10px;
+  background-color: var(--bgBright);
+  font-stretch: semi-condensed;
+}
+
+p,
+h2,
+h3 {
+  text-align: justify;
+  text-indent: 15px;
+}
+
+main {
+  border: solid #333 1px;
+  grid-area: M;
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+    [ OU ]
+
+<conteneur> {
+  display: grid;
+  width: 50%;
+  grid-template-columns: 41% 59%;
+  grid-column-gap: 0;
+  grid-row-gap: 1px;
+}
+
+element {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+ 
+element {
+  display: block;
+  grid-column: 1;
+  width: 100%;
+}
+
+element {
+  display: block;
+  grid-column: 2;
+  width: 100%;
+}
+
+element {
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+}
+
+// Mesures relatives : 
+• 1%, 1fr, 1vw/vh, 
+• calc() // permet d'affecter le resultat d'un calcul), 
+• attr(<propriété>) // (permet d'affecter la valeur d'une propriété css existante).
     
 ------------------------------------------------------------
-NBs
-- Certaines fonctions ne fonctionneront que sile serveur WAMP est demarré, et que les pages web sont lancées depuis "http://localhost/rbaretto/www" dans le navigateur. (Les url commencant par "/", refferent à la racine du serveur WAMP, seront cassés dans les pages lancées  localement.)
+A rédiger dans ma FAQ 
 ------------------------------------------------------------
-Rediger ces trucs dans ma FAQ
-------------------------------------------------------------
-• <strong></strong> remplace <b></b>
-• <section></section> remplace <div>
-• Couleurs en hexadecimal 
+
+• HTML: Couleurs en hexadecimal 
   - Du plus foncé (0) au plus clair (F): #RVB
   - Du plus foncé (00) au plus clair (FF): #RRVVBB
-• NB: écrire les CSS dans des fichiers externes pour que le navigateur les chargent qu'une fois, indépendament des pages web (fichiers html, php, asp, etc.). 
 
 • JS: foreach { <instruction>; } devient for (<variable_en_declaration> of <tableau>) { <instruction>; }
-• const <variable> // est readonly
-• let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}
-• var <variable> // a une portée limitée à la fonction dans lesquelle elle se trouve
+• JS: const <variable> // est readonly
+• JS: let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}
+• JS: var <variable> // a une portée limitée à la fonction dans lesquelle elle se trouve
 
-• document.querySelector("#id") <=> document.getElementById("id")
-• document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
-• var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")
-• Syntax avancée : 
+• JS: document.querySelector("#id") <=> document.getElementById("id")
+• JS: document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
+• JS: var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")
+• DOM: Syntax avancée : 
   <dom_element>.querySelector (
   "#identifiant" OU ".<classe>" OU "<balise>" OU <balise>[<propriété>='<valeur>'] OU "<element> <element_enfant>" );
   Exemple: Affichera en marron tous les passage en italique dans les paragraphes: 
@@ -146,7 +355,9 @@ Rediger ces trucs dans ma FAQ
 • CSS: element {
   display: flex;
   justify-content: center; Centre verticalement son contenu (si display=flex)
-  align-items: center;Centre horizontalement son contenu (si display=flex)
+  align-items: center; Centre horizontalement son contenu (si display=flex)
+  font-variant: small-caps;
+  font-variant: all-petite-caps;
   }
   
 • DOM acess (in css and querySelector and etc.) : 
@@ -157,61 +368,10 @@ Rediger ces trucs dans ma FAQ
   element[champs]
   element[champs='valeur_du_champs']
   
-• placeholder = <TAG valeur_par_defaut_souhaitée="valeur affichée comme background dans le champs seulement quand il est vide"></TAG>
+• HTML: placeholder = <TAG valeur_par_defaut_souhaitée="valeur affichée comme background dans le champs seulement quand il est vide"></TAG>
 
-• console.log("Hello") = alert("Hello") qui ne bloque pas l'execution du code et s'affiche  dans les outils de developpement de Google Chrome.
+• JS: console.log("Hello") = alert("Hello") qui ne bloque pas l'execution du code et s'affiche  dans les outils de developpement de Google Chrome.
 
-• <script type="./fichier.json">
+• HTML: <script type="./fichier.json">
   écriture de la structure du json
   </script>
-  
-• Balises HTML5: Normes pour le Référencement
-<!DOCTYPE html>
-  <html lang="fr"> 
-  <head>
-    Indispensable
-    <meta charset="utf-8"> La reconnaissance de caractères en utf-8 comprend tous les languages existants 
-    Nécessaire
-    <title>Titre du site web</title>
-    <link rel="icon" href="icone.ico">
-    Préférable
-    <link href="./css/fixed.css" rel="stylesheet">
-    <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
-    <meta name="keywords" content="mot-clé de la page web, mot clé 2">
-    <meta name="description" content="Description de la page web">
-  </head>
-  <body>
-    <header> -> Doit être placé directement après BODY.
-      <a href="/"><img src="Logo" alt="Texte nécessaire qui sera lu par les logiciels pour aveugles. S'affichera si l'image ne le peut."></a>
-      <h1>Titre de la page</h1> -> Une seule balise H1 par page web. (245 characters maximum.)
-      <input type="text"> Barre de recherche.
-    </header>
-    <nav>
-      Menu horizontal ou vertical.
-      <ul>
-        <li><a href=""></a></li>
-        <li><a href="">Element 1 de la liste</a>
-          <ul>
-          <li><a href="">Sous element 1 de la liste 2</a></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <main>
-      <h2>Titre de la section</h2> -> Il peut y avoir un maximum de 5 titres section imbriquées (h2 à h6).
-      <section>
-        Replacement de la balise DIV.
-      </section>
-      <article> 
-        Section vraiment independante. 
-        (Avec du contenu statique capable de s'afficher de facon optimale depuis n'importe où.)
-        Ne pas utiliser dans le doute. 
-      </article>
-    </main>
-    <footer>
-      Liens utiles (Mentions legales, Plan du site, Coordonnées de contact)
-      Copyright
-    </footer>
-  </body>
-</html>
--->
