@@ -104,34 +104,33 @@
 ------------------------------------------------------------
 Squelette CSS en Grid layout (à copier-coller dans les nouveaux fichiers)
 ------------------------------------------------------------
+/* ELEMENTS DE LA PAGE ENTIERE */
+
 /* Pour définir des variables */
-:root 
-{
+:root {
   --<nom_variable>: <valeur>;
   /* Couleurs des Bordures */
-  --borderColor: <valeur>;
+  --borderColor: #beec47ff;
+  --borderDarkColor: #55cc22ff;
   /* Couleurs des Fonds */
   --bgMain: <valeur>;
   --bgBright: <valeur>;
   --bgDark: <valeur>;
-  /* Couleurs des Polices */
-  --darkFont: #000000;
-  --brightFont: <valeur>;
+  /* Couleurs de Police du texte */
+  --fontDark: #386130ff;
+  --fontBright: #ffffffff;
+  /* Couleurs de Police des liens */
+  --linkFontDark: #62700aff;
+  --linkFontBright: #acf248ff;
   /* Type des Polices */
   --fontFamily: "<police_préférée>", "<police_alternative>", sans-serif;
   --itemsFontType: all-petite-caps;
   --textFontType: normal;
 }
 
-*
-{ 
-  box-sizing: border-box; 
-}
-
-/* Concernera tous les elements present dans les pages html utilisant ce style */
+/* Pour que les marges de tous types soient calculées intelligemment (indispensable pour que tous les navigateurs affichent les memes proportions): */
 * {
-/* Permet de définir les tailles en incluant les bordures (indispensable pour que tous les navigateurs affichent les memes proportions). */
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 body {
@@ -142,60 +141,37 @@ body {
   /* De préférence: "Arial", "Helvetica", sans-serif */
   font-family: var(--fontFamily);
   font-variant: var(--textFontType);
+  background-color: var(--bgMain);
   display: grid;
-  grid-template-rows: ;
-  grid-template-columns: ;
-  grid-template-areas: ""
-                       ""
-                       "";
-}
-
-body 
-{
   grid-template-rows: 15vh 77vh 8vh;
   grid-template-columns: 15vw 1fr;
-  grid-template-areas:  "H H H"
-                        "N M A"
-                        "F F F";
+  grid-template-areas:  "H H"
+                        "M A"
+                        "F F";
 }
 
+/* ELEMENTS DU HEADER */
 header {
   grid-area: H;
-  background-color: var(--bgMain);
   cursor: default;
+  background-color: inherit;
   display: grid;
   grid-template-rows: 75% 25%;
   grid-template-columns: justify;
-  grid-template-areas: ""
-                       "";
+  grid-template-areas:  "S"
+                        "N";
 }
 
+/* a[role="slider"] */
 [role="slider"] {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  grid-area: S;
 }
 
-h1, .h1, [role="slider"] {
-  font-size: 25pt;
-  grid-area: L;
-}
-
-a {
-  text-decoration: none;
-  color: var(--brightFont);
-}
-
-header, aside>h2, footer {
-  font-variant: var(--itemsFontType);
-}
-
-h1, h2 {
-  font-weight: 100;
-}
-
-section[role="navigation"] {
+nav {
   display: flex;
   justify-content: space-evenly;
   border-top: solid var(--borderColor) 1px;
@@ -225,34 +201,61 @@ span[role="search"] * {
   padding: 0;
 }
 
+span[role="search"] input[type="text"] {
+  background-color: #ffffff99;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 11pt;
+  border: solid var(--borderDarkColor) 1px;
+}
+
 span[role="search"] button {
   padding-left: 5px;
   padding-right: 5px;
+  background-color: var(--bgBright);
+  border: none;
 }
 
-input[type="text"] {
-  
-}
 
+
+
+/* ELEMENTS DU MAIN */
 main {
   display: flex;
   flex-direction: column;
-  background-color: var(--bgMain);
+  background-color: inherit;
   cursor: default;
   padding-left: 30px;
   font-size: 13pt;
   grid-area: M;
 }
 
+
+
+
+/* ELEMENTS DU ASIDE */
 aside {
   padding: 10px;
   display: flex;
   flex-direction: column;
   cursor: default;
-  background-color: var(--bgMain);
+  background-color: inherit;
   grid-area: A;
 }
 
+section[role="note"] {
+  border: solid var(--borderColor) 1px;
+  margin: 5px;
+  margin-top: 0;
+  padding: 6px;
+  background-color: var(--bgBright);
+  font-stretch: semi-condensed;
+}
+
+
+
+
+/* ELEMENTS DU FOOTER */
 footer {
   display: flex;
   flex-direction: row;
@@ -264,12 +267,32 @@ footer {
   grid-area: F;
 }
 
-section[role="note"] {
-  border: solid var(--borderColor) 1px;
-  margin: 5px;
-  padding: 10px;
-  background-color: var(--bgBright);
-  font-stretch: semi-condensed;
+footer a {
+  text-decoration: none;
+  color: var(--linkFontBright);
+}
+
+/* ELEMENTS COMMUNS */
+header,
+aside > h2,
+footer {
+  font-variant: var(--itemsFontType);
+}
+
+a {
+  text-decoration: none;
+  color: var(--linkFontDark);
+}
+
+h1,
+.h1,
+a[role="slider"] {
+  font-size: 25pt;
+}
+
+h1,
+h2 {
+  font-weight: 100;
 }
 
 p,
@@ -279,99 +302,12 @@ h3 {
   text-indent: 15px;
 }
 
-main {
-  border: solid #333 1px;
-  grid-area: M;
-  display: flex;
-  min-height: 100vh;
-  min-width: 100vw;
+ul[role="menubar"] li,
+span[role="search"] button,
+[role="note"],
+[role="note"] h1,
+[role="note"] p,
+footer
+{
+  color: var(--fontBright);
 }
-
-    [ OU ]
-
-<conteneur> {
-  display: grid;
-  width: 50%;
-  grid-template-columns: 41% 59%;
-  grid-column-gap: 0;
-  grid-row-gap: 1px;
-}
-
-element {
-  display: block;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  width: 100%;
-}
- 
-element {
-  display: block;
-  grid-column: 1;
-  width: 100%;
-}
-
-element {
-  display: block;
-  grid-column: 2;
-  width: 100%;
-}
-
-element {
-  display: block;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  width: 100%;
-}
-
-// Mesures relatives : 
-• 1%, 1fr, 1vw/vh, 
-• calc() // permet d'affecter le resultat d'un calcul), 
-• attr(<propriété>) // (permet d'affecter la valeur d'une propriété css existante).
-    
-------------------------------------------------------------
-A rédiger dans ma FAQ 
-------------------------------------------------------------
-
-• HTML: Couleurs en hexadecimal 
-  - Du plus foncé (0) au plus clair (F): #RVB
-  - Du plus foncé (00) au plus clair (FF): #RRVVBB
-
-• JS: foreach { <instruction>; } devient for (<variable_en_declaration> of <tableau>) { <instruction>; }
-• JS: const <variable> // est readonly
-• JS: let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}
-• JS: var <variable> // a une portée limitée à la fonction dans lesquelle elle se trouve
-
-• JS: document.querySelector("#id") <=> document.getElementById("id")
-• JS: document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
-• JS: var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")
-• DOM: Syntax avancée : 
-  <dom_element>.querySelector (
-  "#identifiant" OU ".<classe>" OU "<balise>" OU <balise>[<propriété>='<valeur>'] OU "<element> <element_enfant>" );
-  Exemple: Affichera en marron tous les passage en italique dans les paragraphes: 
-  var mon_element = document.querySelector("p");
-  mon_element.querySelector("i").color="brown");
-  
-• CSS: Priorité des styles en cas de conflit : #element > .element > tag
-• CSS: element {
-  display: flex;
-  justify-content: center; Centre verticalement son contenu (si display=flex)
-  align-items: center; Centre horizontalement son contenu (si display=flex)
-  font-variant: small-caps;
-  font-variant: all-petite-caps;
-  }
-  
-• DOM acess (in css and querySelector and etc.) : 
-  element + element
-  element > premier_enfant_seulement
-  element enfant1 + enfant2
-  element enfant1 enfant_de_enfant1
-  element[champs]
-  element[champs='valeur_du_champs']
-  
-• HTML: placeholder = <TAG valeur_par_defaut_souhaitée="valeur affichée comme background dans le champs seulement quand il est vide"></TAG>
-
-• JS: console.log("Hello") = alert("Hello") qui ne bloque pas l'execution du code et s'affiche  dans les outils de developpement de Google Chrome.
-
-• HTML: <script type="./fichier.json">
-  écriture de la structure du json
-  </script>

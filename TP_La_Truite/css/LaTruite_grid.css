@@ -1,13 +1,19 @@
+/* ELEMENTS DE LA PAGE ENTIERE */
+
 :root {
   /* Couleurs des Bordures */
-  --borderColor: #3a8caa;
+  --borderColor: #beec47ff;
+  --borderDarkColor: #55cc22ff;
   /* Couleurs des Fonds */
-  --bgMain: #6fbbdc;
-  --bgBright: skyblue;
-  --bgDark: #3a8caa;
-  /* Couleurs des Polices */
-  --darkFont: #000000;
-  --brightFont: rgba(98, 178, 218, 0.486);
+  --bgMain: #7dcd45ff;
+  --bgBright: #50ad3dff;
+  --bgDark: #479214ff;
+  /* Couleurs de Police du texte */
+  --fontDark: #386130ff;
+  --fontBright: #ffffffff;
+  /* Couleurs de Police des liens */
+  --linkFontDark: #62700aff;
+  --linkFontBright: #acf248ff;
   /* Type des Polices */
   --fontFamily: "Arial", "Helvetica", sans-serif;
   --itemsFontType: all-petite-caps;
@@ -23,51 +29,39 @@ body {
   min-height: 100%;
   font-family: var(--fontFamily);
   font-variant: var(--textFontType);
+  background-color: var(--bgMain);
+  color: var(--fontDark);
   display: grid;
   grid-template-rows: 15vh 77vh 8vh;
   grid-template-columns: 1fr 15vw;
-  grid-template-areas: "H H"
-                       "M A"
-                       "F F";
+  grid-template-areas:  "H H"
+                        "M A"
+                        "F F";
 }
+
+/* ELEMENTS DU HEADER */
 
 header {
   grid-area: H;
-  background-color: var(--bgMain);
   cursor: default;
+  background-color: inherit;
   display: grid;
   grid-template-rows: 75% 25%;
   grid-template-columns: justify;
-  grid-template-areas: "L"
-                       "N";
+  grid-template-areas:  "S"
+                        "N";
 }
 
+/* a[role="slider"] */
 [role="slider"] {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  grid-area: S;
 }
 
-h1, .h1, [role="slider"] {
-  font-size: 25pt;
-  grid-area: L;
-}
-
-a {
-  text-decoration: none;
-  color: var(--darkFont);
-}
-
-header, aside>h2, footer {
-  font-variant: var(--itemsFontType);
-}
-
-h1, h2 {
-  font-weight: 100;
-}
-
-section[role="navigation"] {
+nav {
   display: flex;
   justify-content: space-evenly;
   border-top: solid var(--borderColor) 1px;
@@ -97,33 +91,54 @@ span[role="search"] * {
   padding: 0;
 }
 
+span[role="search"] input[type="text"] {
+  background-color: #ffffff99;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 11pt;
+  border: solid var(--borderDarkColor) 1px;
+}
+
 span[role="search"] button {
   padding-left: 5px;
   padding-right: 5px;
+  background-color: var(--bgBright);
+  border: none;
 }
 
-input[type="text"] {
-  
-}
+/* ELEMENTS DU MAIN */
 
 main {
   display: flex;
   flex-direction: column;
-  background-color: var(--bgMain);
+  background-color: inherit;
   cursor: default;
   padding-left: 30px;
   font-size: 13pt;
   grid-area: M;
 }
 
+/* ELEMENTS DU ASIDE */
+
 aside {
   padding: 10px;
   display: flex;
   flex-direction: column;
   cursor: default;
-  background-color: var(--bgMain);
+  background-color: inherit;
   grid-area: A;
 }
+
+section[role="note"] {
+  border: solid var(--borderColor) 1px;
+  margin: 5px;
+  margin-top: 0;
+  padding: 6px;
+  background-color: var(--bgBright);
+  font-stretch: semi-condensed;
+}
+
+/* ELEMENTS DU FOOTER */
 
 footer {
   display: flex;
@@ -136,12 +151,45 @@ footer {
   grid-area: F;
 }
 
-section[role="note"] {
-  border: solid var(--borderColor) 1px;
-  margin: 5px;
-  padding: 10px;
-  background-color: var(--bgBright);
-  font-stretch: semi-condensed;
+footer a {
+  text-decoration: none;
+  color: var(--linkFontBright);
+}
+
+footer li {
+  list-style: none;
+  list-color: black;
+}
+footer li:before, footer li:after {
+  content: "::";
+  color: inherit;
+  width: 1em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+/* ELEMENTS COMMUNS */
+
+header,
+aside > h2,
+footer {
+  font-variant: var(--itemsFontType);
+}
+
+a {
+  text-decoration: none;
+  color: var(--linkFontDark);
+}
+
+h1,
+.h1,
+a[role="slider"] {
+  font-size: 25pt;
+}
+
+h1,
+h2 {
+  font-weight: 100;
 }
 
 p,
@@ -149,4 +197,14 @@ h2,
 h3 {
   text-align: justify;
   text-indent: 15px;
+}
+
+ul[role="menubar"] li,
+span[role="search"] button,
+[role="note"],
+[role="note"] h1,
+[role="note"] p,
+footer
+{
+  color: var(--fontBright);
 }
