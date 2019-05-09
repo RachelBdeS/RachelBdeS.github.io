@@ -2,12 +2,12 @@
 
 :root {
   /* Couleurs des Bordures */
-  --borderColor: chartreuse;
+  --borderColor: #beec47ff;
   --borderDarkColor: #55cc22ff;
   /* Couleurs des Fonds */
   --bgMain: #7dcd45ff;
-  --bgBright: darkgreen;
-  --bgDark: #2d2f22ff;
+  --bgBright: #177800ff;
+  --bgDark: #479214ff;
   /* Couleurs de Police du texte */
   --fontDark: #386130ff;
   --fontBright: #ffffffff;
@@ -34,9 +34,9 @@ body {
   display: grid;
   grid-template-rows: 15vh 77vh 8vh;
   grid-template-columns: 1fr 15vw;
-  grid-template-areas:  "H H H"
-                        "Nv M A"
-                        "F F F";
+  grid-template-areas:  "H H"
+                        "M A"
+                        "F F";
 }
 
 /* ELEMENTS DU HEADER */
@@ -49,7 +49,7 @@ header {
   grid-template-rows: 80% 20%;
   grid-template-columns: justify;
   grid-template-areas:  "S"
-                        "Nh";
+                        "N";
 }
 
 /* a[role="slider"] */
@@ -72,8 +72,8 @@ nav {
   grid-area: N;
 }
 
-ul[role="navigation"],
-ul[role="navigation"] * {
+ul[role="menubar"],
+ul[role="menubar"] * {
   display: flex;
   margin: 0;
   padding: 0;
@@ -91,12 +91,12 @@ ul[role="navigation"] * {
 }
 
 
-ul[role="navigation"] {
+ul[role="menubar"] {
   --menuItemLeft: attr(data-width px, 50px);
   --menuItemTop: 300px;
 }
 
-ul[role="navigation"] a {
+ul[role="menubar"] a {
   text-decoration: none;
   color: var(--linkFontBright);
   font-size: 12pt;
@@ -240,7 +240,7 @@ h3 {
   text-indent: 15px;
 }
 
-ul[role="navigation"] li,
+ul[role="menubar"] li,
 span[role="search"] button,
 [role="note"],
 [role="note"] h1,
@@ -255,6 +255,6 @@ li {
   padding-right: 4px;
 }
 
-ul[role="navigation"] li:hover {
+ul[role="menubar"] li:hover {
   background-color: #50ad3dff;
 }
