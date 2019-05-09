@@ -1,81 +1,159 @@
 <style>
 
-#menu ul {
+:root {
+  /* Couleurs des Bordures */
+  --borderColor: chartreuse;
+  --borderDarkColor: #55cc22ff;
+  /* Couleurs des Fonds */
+  --bgMain: #7dcd45ff;
+  --bgBright: limegreen;
+  --bgDark: darkgreen;
+  /* Couleurs de Police du texte */
+  --fontDark: #386130ff;
+  --fontBright: #ffffffff;
+  /* Couleurs de Police des liens */
+  --linkFontDark: #62700aff;
+  --linkFontBright: #acf248ff;
+  /* Type des Polices */
+  --fontFamily: "Arial", "Helvetica", sans-serif;
+  --itemsFontType: all-petite-caps;
+  --textFontType: normal;
+}
+
+* {
+  box-sizing: border-box;
+  list-style: none;
   margin: 0;
+}
+
+/* SEPARATION */
+
+nav {
   padding: 0;
-  list-style-type: none;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  font-variant: all-petite-caps;
+  font-size: 14pt;
+  white-space: nowrap;
+  background-color: var(--bgBright);
+}
+
+nav > li {
   text-align: center;
 }
-
-#menu li {
-  float: left;
-  margin: auto;
-  padding: 0;
-  background-color: black;
+  
+nav li {
+  border-left: solid 1px var(--borderColor);
+  border-right: solid 1px var(--borderColor);
+  background-color: var(--bgDark);
 }
 
-#menu li a {
+nav li:hover {
   display: block;
-  width: 100px;
-  color: white;
+  background-color: var(--bgBright);
+}
+
+nav li:hover ul {
+  display: block;
+}
+
+nav li:hover ul li ul  {
+  display: none;
+}
+
+nav li:hover ul li:hover ul  {
+  display: inline;
+  margin-left: 57px;
+}
+
+nav ul {
+  position: absolute;
+  padding: 0;
+  display: none;
+  text-align: left;
+  width: inherit;
+}
+  
+/* SEPARATION */
+
+nav li {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+nav a {
   text-decoration: none;
-  padding: 5px;
+  color: white;
 }
 
-#menu li a:hover {
-  color: #FFD700;
+nav a:active {
+  color: lime;
 }
 
-#menu ul li ul {
-  display:none;
-}
-
-#menu ul li:hover ul {
- display:block;
-}
-#menu li:hover ul li {
- float:none;
-}
-  
-#menu li ul {
- position:absolute;
-}
-  
-#menu {
- height:50px;
-}
-  
 </style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="menu">
-<ul>
-  <li><a href="#">A</a></li>
-  <li><a href="#">B</a>
-    <ul>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-    </ul>
-  </li>
-  <li><a href="#">C</a></li>
-</ul>
-</div>
+<nav>
+    <li>
+      <a href="#">Présentation</a>
+      <ul>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a>
+          <ul>
+            <li><a href="#"></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    
+    <li>
+      <a href="#">Rivières et Lacs</a>
+      <ul>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a>
+          <ul>
+            <li><a href="#"></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    
+    <li>
+      <a href="#">Méthode de Pêche</a>
+      <ul>
+        <li><a href="#">A la Mouche</a></li>
+        <li>
+          <a href="#">Au Leurre</a>
+          <ul>
+            <li><a href="#">Leurre plastique</a></li>
+            <li><a href="#">Mort Manié</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Les Cuillères</a></li>
+      </ul>
+    </li>
+    
+    <li>
+      <a href="#">Les Appats Choix</a>
+      <ul>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a>
+          <ul>
+            <li><a href="#"></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    
+    <li>
+      <a href="#">Méthode sur Lac</a>
+      <ul>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a>
+          <ul>
+            <li><a href="#"></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+</nav>
