@@ -8,16 +8,17 @@
   --bgMain: #cbd888ff;
   --bgBright: #54ae35ff;
   --bgDark: #048520ff;
-  /* Couleurs de Police du texte */
+  /* Couleurs de Police */
   --fontDark: #000000ff;    /* NOIR */
+  --linkFontDark: #b25c5cbb;
   --fontBright: #cbd888ff;  /* VERT CACA D'OIE */
-  /* Couleurs de Police des liens */
-  --linkFontDark: red;
   --linkFontBright: #cbd888ff;  /* VERT CACA D'OIE */
   /* Type des Polices */
-  --fontFamily: "Arial", "Helvetica", sans-serif;
-  --itemsFontType: normal;
-  --textFontType: normal;
+  --titleFontSize: 24pt;
+  --fontSize: 14pt;
+  --fontType: "Verdana", sans-serif;
+  --itemFontSize: 10pt;
+  --itemFontType: "Arial", "Helvetica", sans-serif;
 }
 
 * {
@@ -34,14 +35,11 @@ body {
   background-image: url(../ressources/motifBG.jpg);
   min-height: 100%;
   width: 96vw;
-  font-size: 9pt;
-  font-family: var(--fontFamily);
-  font-variant: var(--textFontType);
-  background-color: var(--bgMain);
+  font-family: var(--itemFontType);
   color: var(--fontDark);
   display: grid;
   grid-template-rows: 20vh auto 7vh;
-  grid-template-columns: 15vw 1fr 18vw;
+  grid-template-columns: 12vw 1fr 13vw;
   grid-template-areas:  "H  H  H"
                         "Nv M  A"
                         "F  F  F";
@@ -52,7 +50,7 @@ body {
 header {
   grid-area: H;
   cursor: default;
-  background-color: inherit;
+  background-color: var(--bgMain);
   display: grid;
   grid-template-rows: 92% 8%;
   grid-template-columns: 100%;
@@ -79,10 +77,10 @@ nav[role="menubar"] {
   flex-flow: row;
   justify-content: center;
   font-variant: all-petite-caps;
-  font-size: 9pt;
+  font-size: var(--itemFontSize);
   white-space: nowrap;
   background-color: var(--bgBright);
-  font-family: "Arial", sans-serif;
+  font-family: var(--fontType);
   font-weight: bold;
   grid-area: Nh;
 }
@@ -99,7 +97,8 @@ nav[role="menubar"] li {
 }
 nav[role="menubar"] li ul {
   position: absolute;
-  padding: 0;
+  padding: 0px;
+  margin-left: -7px;
   display: none;
   text-align: left;
 }
@@ -115,10 +114,10 @@ nav[role="menubar"] li:hover ul li ul  {
 }
 nav[role="menubar"] li:hover ul li:hover ul  {
   display: inline;
-  margin-left: 39px;
+  margin-left: 52px;
 }
 nav[role="menubar"] ul {
-  width: 95px;
+  width: 115px;
 }
 nav[role="menubar"] a {
   text-decoration: none;
@@ -132,16 +131,35 @@ nav[role="menubar"] a:active {
 /* ELEMENTS DU MENU VERTICAL */
 
 nav[role="navigation"] {
+  font-size: var(--fontSize);
   background-color: #000000ff;
   color: var(--linkFontDark);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:  "Mv"
+                        "F";
 }
- 
+nav[role="navigation"] section {
+  padding: 10%;
+  grid-area: Mv;
+}
+
+nav[role="navigation"] section.contrepoint {
+  background-color: #2d2f22ff;
+  grid-area: F;
+}
+
+nav[role="navigation"] section a {
+  display: block;
+  color: var(--linkFontDark);
+  margin-bottom: 10px;
+}
+
 /* ELEMENTS DU MAIN */
 
 main {
-  display: flex;
-  flex-direction: column;
-  background-color: inherit;
+  font-size: var(--fontSize);
+  background-color: var(--bgMain);
   cursor: default;
   padding: 15px;
   grid-area: M;
@@ -150,13 +168,14 @@ main {
 
 main p img {
   float: left;
-  margin-right: 10px;
   width: 50%;
+  margin-right: 10px;
 }
 
 /* ELEMENTS DU ASIDE */
 
 aside {
+  font-size: var(--fontSize);
   background-color: var(--bgMain);
   grid-area: A;
 }
@@ -164,8 +183,7 @@ aside {
 aside section {
   cursor: default;
   margin-top: 3px;
-  padding: 10px;
-  padding-bottom: 10px;
+  padding: 25px;
   margin-bottom: 3px;
   background-color: black;
   border: none;
@@ -193,7 +211,7 @@ aside section a {
 
 footer {
   padding: 10px;
-  font-size: 10pt;
+  font-size: var(--fontSize);
   cursor: default;
   border: solid #c9d58cff 1px;
   background-color: #048520ff;
@@ -208,7 +226,7 @@ footer a {
 
 footer p {
   text-align: center;
-  color: black;
+  color: #00000088;
 }
 
 /* ELEMENTS COMMUNS */
@@ -226,7 +244,7 @@ a {
 h1,
 .h1,
 a[role="slider"] {
-  font-size: 20pt;
+  font-size: var(--titleFontSize);
   margin-bottom: 0.4em;
   font-weight: 800;
 }
