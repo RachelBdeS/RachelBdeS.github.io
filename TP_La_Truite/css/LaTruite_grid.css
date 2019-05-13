@@ -2,17 +2,20 @@
 
 :root {
   /* Couleurs des Bordures */
-  --borderColor: chartreuse;
+  --borderColor: #54ae35ff;
+  /* Selon le modèle: #7FFF00 */
   --borderDarkColor: #048520ff;
   /* Couleurs des Fonds */
   --bgMain: #cbd888ff;
   --bgBright: #54ae35ff;
   --bgDark: #048520ff;
   /* Couleurs de Police */
-  --fontDark: #000000ff;    /* NOIR */
-  --linkFontDark: #b25c5cbb;
-  --fontBright: #cbd888ff;  /* VERT CACA D'OIE */
-  --linkFontBright: #cbd888ff;  /* VERT CACA D'OIE */
+  --fontDark: #000000ff; /* NOIR */
+  --fontDark2: #00000099; /* NOIR PALE */
+  --linkFontDark: #b25c5cbb; /* ROUGE*/
+  --fontBright: #ffffffff; /* BLANC */
+  --linkFontBright1: #ffffffdd; /* BLANC PALE */
+  --linkFontBright2: #ffffffbb; /* BLANC PALE PALE */
   /* Taille des Polices */
   --titleFontSize: 2em;
   --fontSize: 1em;
@@ -33,21 +36,21 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  background-image: url(../ressources/motifBG.jpg);
+  background-color: #000;
   min-height: 100%;
   min-width: 20%;
   max-width: 100%;
   width: 1100px;
   font-family: var(--itemFontType);
-  color: var(--fontDark);
+  color: var(--fontDark2);
   font-size: var(--fontSize);
   display: grid;
   grid-template-rows: 250px auto 80px;
   grid-template-columns: 1fr 6fr 1fr;
   /*12% 1fr 18%;*/
-  grid-template-areas:  "H  H  H"
-                        "Nv M  A"
-                        "F  F  F";
+  grid-template-areas: "H  H  H"
+    "Nv M  A"
+    "F  F  F";
 }
 
 /* ELEMENTS DU HEADER */
@@ -56,41 +59,51 @@ header {
   cursor: default;
   min-width: 100%;
   max-width: 100%;
-  background-color: var(--borderDarkColor);
+  background-color: var(--bgBright);
+  border-bottom: solid var(--borderDarkColor) 1px;
   white-space: nowrap;
   grid-area: H;
   display: grid;
-  grid-template-rows: 8fr 15px;
-  grid-template-columns: 2fr 6fr;
-  grid-column-gap: 12px;
-  grid-row-gap: 3px;
-  justify-content: space-around;
-  grid-template-areas:  "Ia Ib"
+  grid-template-columns: 2fr 5fr;
+  grid-template-rows: 94% 20px;
+  grid-template-areas: "Ia Ib"
                         "Nh Nh";
 }
-header .logo {
-  margin-top: 6px;
-  margin-left: 6px;
-  height: 96%;
-  width: 100%;
+
+/* Images */
+header a.logo {
+  height: 100%;
   grid-area: Ia;
 }
-header .image {
-  margin-top: 6px;
-  margin-right: 6px;
-  height: 89%;
-  width: 100%;
+header a.image {
+  height: 100%;
   grid-area: Ib;
+}
+header img.logo {
+  border: solid var(--borderDarkColor);
+  height: 100%;
+  width: 100%;
+  border-width: 6px 3px 6px 6px;
+}
+header img.image {
+  border: solid var(--borderDarkColor);
+  height: 100%;
+  width: 100%;
+  border-width: 6px 6px 6px 3px;
 }
 
 /* Menu Horizontal */
 nav[role="menubar"] {
+  position: relative;
+  top: -5px;
+  height: 100%;
   padding: 0;
+  padding-left: 7.9vw;
+  padding-right: 10.9vw;
   display: flex;
   flex-flow: row;
   justify-content: center;
   white-space: nowrap;
-  height: 100%;
   font-variant: all-petite-caps;
   font-size: var(--itemFontSize);
   background-color: var(--bgBright);
@@ -99,21 +112,18 @@ nav[role="menubar"] {
   grid-area: Nh;
 }
 nav[role="menubar"] > li {
-  vertical-align: baseline;
-  display: inline-block;
   text-align: center;
-  line-height: 0.7em;
-  position: relative;
-  baseline-shift: -10px; /* ooo */
   margin-left: -1px;
 }
 nav[role="menubar"] li {
   border-left: solid 1px var(--borderColor);
   border-right: solid 1px var(--borderColor);
+  border-bottom: solid 1px var(--borderDarkColor);
   background-color: var(--bgDark);
   padding-left: 6px;
   padding-right: 6px;
-  width: 160px;
+  padding-bottom: 2px;
+  min-width: 160px;
 }
 nav[role="menubar"] li ul {
   position: absolute;
@@ -134,14 +144,17 @@ nav[role="menubar"] li:hover ul li ul {
 }
 nav[role="menubar"] li:hover ul li:hover ul {
   display: inline;
-  margin-left: 55px; /* BIDOUILLAGE */
+  position: absolute;
+  left: 100%;
+  margin-left: 0px;
+  /* BIDOUILLAGE */
 }
 nav[role="menubar"] a {
   text-decoration: none;
   display: inline-block;
   color: var(--linkFontBright);
 }
-nav[role="menubar"] a:active {
+nav[role="menubar"] a:hover {
   color: lime;
 }
 
@@ -151,14 +164,15 @@ nav[role="navigation"] {
   font-size: var(--fontSize);
   background-color: #000000ff;
   color: var(--linkFontDark);
+  border-left: solid var(--bgMain) 1px;
+  border-top: solid var(--bgMain) 1px;
   display: grid;
   grid-area: Nv;
   grid-template-rows: auto 1fr;
-  grid-template-areas:  "S"
-                        "W";
+  grid-template-areas: "S" "W";
 }
 nav[role="navigation"] section {
-  padding: 10%;
+  padding: 24px;
   grid-area: S;
 }
 nav[role="navigation"] section.wallpaper {
@@ -194,11 +208,12 @@ aside {
 }
 aside section {
   cursor: default;
-  margin-top: 3px;
-  padding: 25px;
+  margin-top: 1px;
+  padding: 17px;
   margin-bottom: 3px;
   background-color: black;
   border: none;
+  border-right: solid var(--bgMain) 1px;
 }
 aside section li {
   white-space: nowrap;
@@ -211,7 +226,7 @@ aside section .hr {
   text-indent: 0;
   margin-top: 5px;
   margin-bottom: 5px;
-  border-top: solid var(--linkFontBright) 1px;
+  border-top: solid var(--linkFontBright1) 1px;
   width: 100%;
   height: 1px;
 }
@@ -222,7 +237,6 @@ footer {
   padding: 10px;
   font-size: var(--fontSize);
   cursor: default;
-  border: solid #c9d58cff 1px;
   background-color: #048520ff;
   grid-area: F;
 }
@@ -244,7 +258,7 @@ footer {
   font-variant: var(--itemsFontType);
 }
 
-a {
+a, img {
   text-decoration: none;
 }
 
@@ -252,6 +266,7 @@ h1,
 .h1,
 a[role="slider"] {
   font-size: var(--titleFontSize);
+  color: var(--fontDark);
   margin-bottom: 0.4em;
   font-weight: 800;
 }
@@ -262,10 +277,17 @@ h3 {
   text-align: justify;
 }
 
+[role="menubar"] li a {
+  color: var(--linkFontBright1);
+}
+
+aside section a,
+footer a {
+  color: var(--linkFontBright2);
+}
+
 [role="menubar"] li,
-span[role="search"] button,
 aside section,
-footer
-{
+footer {
   color: var(--fontBright);
 }
