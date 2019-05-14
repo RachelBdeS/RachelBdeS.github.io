@@ -1,3 +1,8 @@
+<!-- 
+  AFAIRE : 
+  - controls sur le champs email 
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -25,92 +30,93 @@
 
 <script>
   // DECLARATIONS
-  var toast;
+  var toast='';
 
   // HANDLERS
   
   // Verification des Champs (éléments de la dom avec comme class: "requis")
-  for (i=0; i<document.querySelectorAll("input").length; i++) 
+  for (i=0; i<document.querySelectorAll('input').length; i++) 
   {
-    console.log('Check1!'); //DEBUG
-    
-    let e= document.querySelectorAll("input")[i];
-    let estRequis;
 
-    e.onblur=function() 
+    let element= document.querySelectorAll('input')[i];
+
+    element.onblur=function() 
     {
-      if (e.className.includes("requis")) 
-      {
-        estRequis= true;
-      }
-      else {
-        estRequis= false;
-      }
+      filler(element);
+    }
 
-      console.log('Check2!'); //DEBUG
-      if (champsValide(e, estRequis)) 
+    element.onchange=function()
+    {
+      if (element.className.includes('nombre'))
       {
-        document.querySelector('button.submit').disabled= false;
-      } 
-      else {
-        document.querySelector('button.submit').disabled= true;
+        filler(element);
       }
     }
   }
-  
+
   // FONCTIONS APPELLEES
   
   function champsValide(champs, estObligatoire) {
-    
-    console.log('Check3!'); //DEBUG
 
     // Initialisations
+    var res=true;
     champs.value= champs.value.trim();
     // Si le champs est un nombre
     if (champs.className.includes('nombre')) 
     {
       let previous_value= '';
+        // Si c'est bien un nombre,
       if (! isNaN(champs.value) && champs.value!='') 
       {
-        console.log('C est un nombre !'); //DEBUG
         previous_value= champs.value;
       } 
-      else  
+      else if (isNaN(champs.value)) 
       {
-      console.log('C est plus un nombre !'); //DEBUG
         champs.value= previous_value;
-        document.querySelector('p').innerHTML=`Le champs ${champs.placeholder} n admet que des chiffres`;
-      }
-
-      champs.onchange=function() 
-      {
-        if (isNaN(champs.value)) 
-        {
-        console.log('C est plus un nombre !'); //DEBUG
-          champs.value= previous_value;
-          document.querySelector('p').innerHTML=`Le champs ${champs.placeholder} n admet que des chiffres`;
-        } else {
-          previous_value= champs.value;
-        }
+        toast=`Le champs ${champs.placeholder} n\'admet que des chiffres`;
+        document.querySelector('p.alert').innerHTML= toast;
       }
     }
+
     // Si le champs est vide
     if (estObligatoire && champs.value=="") 
     {
       champs.style.borderColor='red';
       toast= `Le champs ${champs.placeholder} est obligatoire`;
       document.querySelector('p.alert').innerHTML= toast;
-      return false;
+      res= false;
     }
-    else
+    else if (champs.value!="")
     {
       champs.style.borderColor='#ccc';
-      toast= ``;
+      toast='';
       document.querySelector('p.alert').innerHTML= toast;
-      return true;
+      res= true;
+    }
+
+    return res;
+  }
+
+  function filler(e)
+  {
+    let estRequis;
+    if (e.className.includes('requis')) 
+    {
+      estRequis= true;
+    }
+    else {
+      estRequis= false;
+    }
+
+    if (champsValide(e, estRequis)) 
+    {
+      document.querySelector('button.submit').disabled= false;
+    }
+    else {
+      document.querySelector('button.submit').disabled= true;
     }
   }
-  
+
 </script>
 
 </html>
