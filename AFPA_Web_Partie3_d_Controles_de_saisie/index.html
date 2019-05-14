@@ -5,6 +5,9 @@
   <meta charset="utf-8">
   <link href="./css/AFPA_Web_Partie3_d.css" rel="stylesheet">
   <title>Controles de saisie</title>
+
+  <script type="text/javascript" src="chemin/mon fichier.js"></script>
+
 </head>
 
 <body role="main">
@@ -17,26 +20,35 @@
     <label>Ville : </label><input type="text" placeholder="ville" tabindex="5">
     <label>CP : </label><input type="number" placeholder="code postal" tabindex="6" min="10000" max="99999">
     <label>Email : </label><input type="text" placeholder="mel" tabindex="7">
-    <label>Téléphone : </label><input type="text" placeholder="telephone" tabindex="8">
+    <label>Téléphone : </label><input type="number" placeholder="telephone" tabindex="8" min="1000000000" max="9999999999">
     <button tabindex="9">Validation</button>
     <p class="alert"></p>
   </section>
 </body>
 
 <script>
+  document.querySelector('input').onclick=function() {
+    alert();
+    console.log(`1 • nombre de champs: ${document.querySelectorAll('input').length}`);
+    console.log(`2 • index: ${i}`);
+    console.log(`3 • id: ${id}`);
+    console.log(`3 • document.querySelectorAll(${id})[${i}]: ${document.querySelectorAll(id)[0]}`);
+    console.log(`4 • element: ${element}`);
+  }
+  
   // Handlers
-  for (i=0; i<document.querySelectorAll('input').length; i++) {
-    
+  for (i=0; i<document.querySelectorAll('input').length; i++) 
+  {
     id = document.querySelectorAll('input')[i].placeholder;
     id = `input[placeholder="${id}"]`;
     var element = document.querySelectorAll(id)[0];
-    
-    /*DEBUG*/console.log(`1 • nombre de champs: ${document.querySelectorAll('input').length}`);
-    /*DEBUG*/console.log(`2 • index: ${i}`);
-    /*DEBUG*/console.log(`3 • id: ${id}`);
-    /*DEBUG*/console.log(`3 • document.querySelectorAll(${id})[${i}]: ${document.querySelectorAll(id)[0]}`);
-    /*DEBUG*/console.log(`4 • element: ${element}`);
-    
+
+    console.log(`1 • nombre de champs: ${document.querySelectorAll('input').length}`);
+    console.log(`2 • index: ${i}`);
+    console.log(`3 • id: ${id}`);
+    console.log(`3 • document.querySelectorAll(${id})[${i}]: ${document.querySelectorAll(id)[0]}`);
+    console.log(`4 • element: ${element}`);
+
     element.onblur = function() 
     {
       /*DEBUG*/console.log(`5 • Blur occured!`);
@@ -44,6 +56,7 @@
       /*DEBUG*/console.log(`6 • element.className: ${element.className}`);
       champsValide(this, requis);
     }
+
   }
 
   // Fonction appelée
@@ -52,6 +65,8 @@
     champs.value = champs.value.trim();
     if (requis && champs.value=="") 
     {
+      champs.style.borderColor='red';
+      champs.style.borderColor='red';
       champs.style.borderColor='red';
       document.querySelector('p').innerHTML=`Le ${champs.placeholder} est obligatoire`;
       return false;

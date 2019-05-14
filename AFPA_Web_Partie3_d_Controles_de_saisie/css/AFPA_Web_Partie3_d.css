@@ -14,37 +14,11 @@
   font-variant: all-petite-caps;
 }
 
-body {
-  margin: 0;
-  min-height: 100%;
-  font-size: 14pt;
-  font-size-adjust: auto;
-}
-
 body,
 input {
   color: var(--c1);
   background-color: var(--c2);
   font-family: var(--p2);
-}
-
-button {
-  color: var(--c3);
-  background-color: #ffffffaa;
-  font-family: var(--p2);
-  font-size: 0.8em;
-  border-radius: 0  0 8px 8px;
-}
-
-section {
-  margin-left: auto;
-  margin-right: auto;
-  display: grid;
-  width: 50%;
-  white-space: nowrap;
-  grid-template-columns: 41% 59%;
-  grid-column-gap: 0;
-  grid-row-gap: 1px;
 }
 
 h1,
@@ -57,6 +31,24 @@ button {
   text-align: center;
   margin-top: 10px;
   cursor: default;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-size: 14pt;
+  font-size-adjust: auto;
+}
+
+section {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  width: 50%;
+  white-space: nowrap;
+  grid-template-columns: 41% 59%;
+  grid-column-gap: 0;
+  grid-row-gap: 1px;
 }
 
 label {
@@ -74,6 +66,14 @@ input {
   border: dotted var(--c4);
   padding-left: 5px;
   border-width: 0 0 1px 0;
+}
+
+button {
+  color: var(--c3);
+  background-color: #ffffffaa;
+  font-family: var(--p2);
+  font-size: 1em;
+  border-radius: 0  0 8px 8px;
 }
 
 p.alert {
