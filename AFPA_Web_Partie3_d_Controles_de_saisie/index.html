@@ -5,76 +5,108 @@
   <meta charset="utf-8">
   <link href="./css/AFPA_Web_Partie3_d.css" rel="stylesheet">
   <title>Controles de saisie</title>
-
-  <script type="text/javascript" src="chemin/mon fichier.js"></script>
-
 </head>
 
 <body role="main">
   <section>
     <h1>Controles de saisie</h1>
     <label>Nom :* </label><input type="text" placeholder="nom" class="requis" tabindex="1">
-    <label>Prénom :* </label><input type="text" placeholder="prenom" tabindex="2">
-    <label>Numéro :* </label><input type="number" placeholder="numero membre" tabindex="3">
-    <label>Rue : </label><input type="text" placeholder="numero et nom de rue" tabindex="4">
+    <label>Prénom :* </label><input type="text" placeholder="prenom" class="requis" tabindex="2">
+    <label>Numéro : </label><input type="text" placeholder="numero membre" class="nombre" tabindex="3" maxlength="8">
+    <label>Rue :* </label><input type="text" placeholder="numero et nom de rue" class="requis" tabindex="4">
     <label>Ville : </label><input type="text" placeholder="ville" tabindex="5">
-    <label>CP : </label><input type="number" placeholder="code postal" tabindex="6" min="10000" max="99999">
+    <label>CP : </label><input type="text" placeholder="code postal" class="nombre" tabindex="6" maxlength="5">
     <label>Email : </label><input type="text" placeholder="mel" tabindex="7">
-    <label>Téléphone : </label><input type="number" placeholder="telephone" tabindex="8" min="1000000000" max="9999999999">
-    <button tabindex="9">Validation</button>
+    <label>Téléphone : </label><input type="text" placeholder="telephone" class="nombre" tabindex="8" maxlength="10">
+    <button tabindex="9" class="submit" disabled>Validation</button>
     <p class="alert"></p>
   </section>
 </body>
 
 <script>
-  document.querySelector('input').onclick=function() {
-    alert();
-    console.log(`1 • nombre de champs: ${document.querySelectorAll('input').length}`);
-    console.log(`2 • index: ${i}`);
-    console.log(`3 • id: ${id}`);
-    console.log(`3 • document.querySelectorAll(${id})[${i}]: ${document.querySelectorAll(id)[0]}`);
-    console.log(`4 • element: ${element}`);
+  // DECLARATIONS
+  var toast;
+
+  // HANDLERS
+  
+  // Verification des Champs (éléments de la dom avec comme class: "requis")
+  for (i=0; i<document.querySelectorAll("input").length; i++) 
+  {
+    console.log('Check1!'); //DEBUG
+    
+    let e= document.querySelectorAll("input")[i];
+    let estRequis;
+
+    e.onblur=function() 
+    {
+      if (e.className.includes("requis")) 
+      {
+        estRequis= true;
+      }
+      else {
+        estRequis= false;
+      }
+
+      console.log('Check2!'); //DEBUG
+      if (champsValide(e, estRequis)) 
+      {
+        document.querySelector('button.submit').disabled= false;
+      } 
+      else {
+        document.querySelector('button.submit').disabled= true;
+      }
+    }
   }
   
-  // Handlers
-  for (i=0; i<document.querySelectorAll('input').length; i++) 
-  {
-    id = document.querySelectorAll('input')[i].placeholder;
-    id = `input[placeholder="${id}"]`;
-    var element = document.querySelectorAll(id)[0];
-
-    console.log(`1 • nombre de champs: ${document.querySelectorAll('input').length}`);
-    console.log(`2 • index: ${i}`);
-    console.log(`3 • id: ${id}`);
-    console.log(`3 • document.querySelectorAll(${id})[${i}]: ${document.querySelectorAll(id)[0]}`);
-    console.log(`4 • element: ${element}`);
-
-    element.onblur = function() 
-    {
-      /*DEBUG*/console.log(`5 • Blur occured!`);
-      element.className=='requis'? requis=true: requis=false;
-      /*DEBUG*/console.log(`6 • element.className: ${element.className}`);
-      champsValide(this, requis);
-    }
-
-  }
-
-  // Fonction appelée
-  function champsValide(champs, requis) {
+  // FONCTIONS APPELLEES
+  
+  function champsValide(champs, estObligatoire) {
     
-    champs.value = champs.value.trim();
-    if (requis && champs.value=="") 
+    console.log('Check3!'); //DEBUG
+
+    // Initialisations
+    champs.value= champs.value.trim();
+    // Si le champs est un nombre
+    if (champs.className.includes('nombre')) 
+    {
+      let previous_value= '';
+      if (! isNaN(champs.value) && champs.value!='') 
+      {
+        console.log('C est un nombre !'); //DEBUG
+        previous_value= champs.value;
+      } 
+      else  
+      {
+      console.log('C est plus un nombre !'); //DEBUG
+        champs.value= previous_value;
+        document.querySelector('p').innerHTML=`Le champs ${champs.placeholder} n admet que des chiffres`;
+      }
+
+      champs.onchange=function() 
+      {
+        if (isNaN(champs.value)) 
+        {
+        console.log('C est plus un nombre !'); //DEBUG
+          champs.value= previous_value;
+          document.querySelector('p').innerHTML=`Le champs ${champs.placeholder} n admet que des chiffres`;
+        } else {
+          previous_value= champs.value;
+        }
+      }
+    }
+    // Si le champs est vide
+    if (estObligatoire && champs.value=="") 
     {
       champs.style.borderColor='red';
-      champs.style.borderColor='red';
-      champs.style.borderColor='red';
-      document.querySelector('p').innerHTML=`Le ${champs.placeholder} est obligatoire`;
+      toast= `Le champs ${champs.placeholder} est obligatoire`;
+      document.querySelector('p.alert').innerHTML= toast;
       return false;
     }
-    else if (champs.value!="")
+    else
     {
       champs.style.borderColor='#ccc';
-      document.querySelector('p').innerHTML="";
+      toast= ``;
+      document.querySelector('p.alert').innerHTML= toast;
       return true;
     }
   }
