@@ -1,159 +1,278 @@
-<!-- AFAIRE : 
-  TOUT ;___;
+<!-- A FAIRE 
+  • Page à appeler via le formulaire
 -->
-
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <link href="./css/AFPA_Web_Partie3_d.css" rel="stylesheet">
+    <title>Controles de saisie</title>
+  </head>
+  <body role="main">
+    <form action="" method="GET" name="user">
 
-<head>
-  <meta charset="utf-8">
-  <link href="./css/AFPA_Web_Partie3_d.css" rel="stylesheet">
-  <title>Controles de saisie</title>
-</head>
+      <h1>Controles de saisie</h1>
 
-<body role="main">
-  <section>
+      <label>Nom : </label>
+      <input type="text" name="nom" value="" placeholder="nom *" tabindex="1" required>
 
-    <h1>Controles de saisie</h1>
+      <label>Prénom : </label>
+      <input type="text" name="prenom" value="" placeholder="prénom *" tabindex="2" required>
 
-    <label>Nom :* </label>
-    <input type="text" placeholder="nom" tabindex="1" required>
+      <label>Numéro : </label>
+      <input type="number" name="numero" value="" placeholder="numéro membre" class="nombre" tabindex="3" maxlength="8">
 
-    <label>Prénom :* </label>
-    <input type="text" placeholder="prenom" tabindex="2" required>
+      <label>Rue : </label>
+      <input type="text" name="rue" value="" placeholder="numéro et nom de rue *" tabindex="4" required>
 
-    <label>Numéro : </label>
-    <input type="number" placeholder="numero membre" class="nombre" tabindex="3" maxlength="8">
+      <label>Ville : </label>
+      <input type="text" name="ville" value="" placeholder="ville" tabindex="5">
+      
+      <label>CP : </label>
+      <input type="number" name="cp" value="" placeholder="code postal" class="nombre" tabindex="6" maxlength="5">
 
-    <label>Rue :* </label>
-    <input type="text" placeholder="numero et nom de rue" tabindex="4" required>
+      <label>Email : </label>
+      <input type="text" name="mel" value="" placeholder="mél" tabindex="7">
 
-    <label>Ville : </label>
-    <input type="text" placeholder="ville" tabindex="5">
+      <label>Téléphone : </label>
+      <input type="number" name="tel" value="" placeholder="numéro de téléphone" class="nombre" tabindex="8" maxlength="10">
 
-    <label>CP : </label>
-    <input type="number" placeholder="code postal" class="nombre" tabindex="6" maxlength="5">
+      <button type="submit" tabindex="9" disabled="true">Validation</button>
 
-    <label>Email : </label>
-    <input type="text" placeholder="mel" tabindex="7">
+      <p class="alert"></p>
 
-    <label>Téléphone : </label>
-    <input type="number" placeholder="telephone" class="nombre" tabindex="8" maxlength="10">
+    </form>
+    <script>
+      //#region -[ DECLARATIONS PUBLIQUES ]
+      var toast=``;
+      //#endregion
 
-    <button type="submit" tabindex="9" disabled>Validation</button>
+      //#region -[ LISTERNERS sur les champs du formulaire ]
+        with (document.forms.user.nom) 
+        {
+          // Si le champs nom perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 2, 99);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
 
-    <p class="alert"></p>
+          // Si une touche est pressée dans le champs nom,
+          onkeyup=function()
+          {
+            verifChamp(this, this.required, 2, 99);
+          }
+        }
+        with (document.forms.user.prenom) 
+        {
+          // Si le champs prénom perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 2, 99);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
 
-  </section>
-</body>
+          // Si une touche est pressée dans le champs prénom,
+          onkeyup=function() 
+          {
+            verifChamp(this, this.required, 2, 99);
+          }
+        }
+        with (document.forms.user.numero) 
+        {
+          // Si le champs numéro de client perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 8, 8);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
+          // Si une touche est pressée dans le champs numéro de client,
+          onkeyup=function() 
+          {
+            verifChamp(this, this.required, 8, 8);
+          }
+        }
+        with (document.forms.user.rue) 
+        {
+          // Si le champs rue perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 3, 99);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
+          
+          // Si une touche est pressée dans le champs rue,
+          onkeyup=function() 
+          {
+            verifChamp(this, this.required, 3, 99);
+          }
+        }
+        with (document.forms.user.ville) 
+        {
+          // Si le champs ville perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 2, 99);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
 
-<script>
+          // Si une touche est pressée dans le champs ville,
+          onkeyup=function() 
+          {
+            verifChamp(this, this.required, 2, 99);
+          }
+        }
+        with (document.forms.user.cp) 
+        {
+          // Si le champs cp perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 5, 5);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
 
-  //#region -[ DECLARATIONS PUBLIQUES ]
-  var toast=``;
-  //#endregion
+          // Si une touche est pressée dans le cp,
+          onkeyup=function() 
+          {
+            verifChamp(this, this.required, 5, 5);
+          }
+        }
+        with (document.forms.user.mel) 
+        {
+          var eMailRules=/[a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3}/;
 
-  //#region -[ LISTERNERS sur les champs 'input' ]
-  with (document.querySelector('input[placeholder="nom"]')) 
-  {
-    // Si le nom perd le focus,
-    onblur=function() 
-    {
-      let cible= document.querySelector('[type="submit"]');
-      actualizeBouton(verifChamp(this), cible);
-    }
+          // Si le champs mél perd le focus,
+          onblur=function() 
+          {
+            // Déclarations et initialisations
+            if (this.value) {this.value.style.fontVariant='none'}
 
-    // Si une touche est pressée dans le champs nom,
-    e.onkeyup=function()
-    {
-      let cible= document.querySelector('[type="submit"]');
-      verifChamp(this);
-    }
-  }
-  //#endregion
+            // Si la semantique du mél renseigné est valide,
+            if (eMailRules.test(this.value))
+            {
+              document.querySelector('p.alert').innerHTML=``;
+              champs.style.borderColor='#ccccccff';
+            }
+            // Si la semantique du mél renseigné est incorrecte,
+            else
+            {
+              toast=`Le ${champs.placeholder} doit être sous la forme: "nom1@nom2.nom3". <br>"${this.value}" n'est pas conforme.`;
+              toast+=`<br>"${this.value}" n'est pas conforme.`;
+              document.querySelector('p.alert').innerHTML= toast;
+              champs.value='';
+            }
 
-  //#region -[ FONCTIONS APPELLEES ]
-  function verifChamp(e) {
+            if (this.value) {this.value.style.fontVariant='all-petite-caps'}
+            
+            let estOk = verifChamp(this, this.required, 6, 99);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
 
-    let estRequis= e.required;
-    let doitEtreUnNombre;
-    e.type=="nombre"? doitEtreUnNombre=true: doitEtreUnNombre=false;
-    
-    // Déclarations & Initialisations
-    let resultat=true;
-    champs.value= champs.value.trim();
+          // Si une touche est pressée dans le champs mél,
+          onkeyup=function() 
+          {
+            if (this.value) {this.value.style.fontVariant='none'}
 
-    // Si le champs en question est requis mais vide (classe "requis"),
-    if (estRequis && champs.value=='') 
-    {
-      champs.style.borderColor='red';
-    }
-    // Si le champs en question est requis et renseigné (classe "requis"),
-    else if (champs.value!='')
-    {
-      champs.style.borderColor='#ccc';
-    }
+            // Si la semantique du mél renseigné est valide,
+            if (eMailRules.test(this.value))
+            {
+              document.querySelector('p.alert').innerHTML=``;
+              champs.style.borderColor='#ccccccff';
+            }
+            // Si la semantique du mél renseigné est incorrecte,
+            else
+            {
+              toast=`Le ${champs.placeholder} doit être sous la forme: "nom1@nom2.nom3". <br>"${this.value}" n'est pas conforme.`;
+              toast+=`<br>"${this.value}" n'est pas conforme.`;
+              document.querySelector('p.alert').innerHTML= toast;
+              champs.value='';
+            }
 
-    // Si le champs en question est celui du mél (placeholder "mel"), //BUG
-    if (champs.placeholder=='mel')
-    {
-      // Declarations et initialisations
-      let melRules= /[a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3}/;
-      let resulat= true;
-      this.value.style.fontVariant='none';
+            if (this.value) {this.value.style.fontVariant='all-petite-caps'}
 
-      // Si la semantique du mél renseigné est correcte,
-      if (melRules.test(this.value))
-      {
-        champs.style.borderColor='#ccccccff';
-        toast=``;
-        document.querySelector('p.alert').innerHTML= toast;
-        resultat= false;
-      }
-      // Si elle est incorrecte,
-      else
-      {
-        champs.style.borderColor='#ff0000ff';
-        toast=`Le ${champs.placeholder} doit être sous la forme: nom1@nom2.nom3`;
-        document.querySelector('p.alert').innerHTML= toast;
-      }
+            verifChamp(this, this.required, 6, 99);
+          }
+        }
+        with (document.forms.user.tel) 
+        {
+          // Si le numéro de client perd le focus,
+          onblur=function() 
+          {
+            let estOk = verifChamp(this, this.required, 10, 10);
+            let cible = document.querySelector('[type="submit"]');
+            actualizeBouton(estOk, cible);
+          }
 
-      this.value.style.fontVariant='all-petite-caps';
-    }
-    
-    // Si le champs doit contenir un nombre (classe "nombre"), //BUG
-    if (doitEtreUnNombre) 
-    {
-      // S'il contient un nombre,
-      if (! isNaN(champs.value) && champs.value!='') 
-      {
-        toast=``;
-        document.querySelector('p.alert').innerHTML= toast;
-      }
-      // S'il contient autre chose qu'un nombre,
-      else if (isNaN(champs.value)) 
-      {
-        this.value.slice(0, -1);
-        toast=`Le champs ${champs.placeholder} n\'admet que des chiffres`;
-        document.querySelector('p.alert').innerHTML= toast;
-      }
-    }
-    
-    return resultat;
-  }
+          // Si une touche est pressée dans le champs numéro de client,
+          onkeyup=function() 
+          {
+            verifChamp(this, this.required, 10, 10);
+          }
+        }
+      //#endregion
 
-  function actualizeBouton(formValide, bouton) {
+      //#region -[ FONCTIONS APPELLEES ]
+        function verifChamp(e, estRequis, minC, maxC) 
+        {
+          //#region Déclarations & Initialisations
+          let bonResultat=true;
+          let ancienneValeur;
+          if (this.value!='') {ancienneValeur=this.value}
+          e.value= e.value.trim();
+          //#endregion
 
-    if (formValide) 
-    {
-      document.querySelector('button.submit').disabled= false;
-    }
-    else {
-      document.querySelector('button.submit').disabled= true;
-    }
-  }
-  //#endregion
+          //#region Si le champs contient un certain nombre de caractères, 
+          if (e.value.length<=maxC && e.value.length>=minC) 
+          {
+            console.log(e.value.length+' respecte min et max');
+            toast=``;
+            document.querySelector('p.alert').innerHTML=toast;
+          }
+          else if (e.value.length>0) 
+          {
+            console.log('nb ne respecte rien');
+            this.value=ancienneValeur;
+            toast=`Le champs ${e.placeholder} doit comporter ${minC} chiffres`;
+            document.querySelector('p.alert').innerHTML= toast;
+            bonResultat=false;
+          }
+          
+          if (estRequis && !bonResultat || e.value=='') 
+          {
+            bonResultat=false;
+          }
 
-</script>
-
+          return bonResultat;
+          //#endregion
+        }
+        function actualizeBouton(formValide, bouton) 
+        {
+          if (formValide) 
+          {
+            bouton.disabled=false;
+          }
+          else {
+            bouton.disabled=true;
+            document.forms.user.action='writePage()';
+          }
+        }
+        
+        function writePage() 
+        {
+          let contenu='';
+          contenu+='HELLO'; //ooo
+          let compte = window.open('', "_self");
+          compte.title='Mon compte';
+          compte.document.write(contenu);
+        }
+      //#endregion
+    </script>
+  </body>
 </html>

@@ -4,7 +4,7 @@
   --c1: #ffffffdd;
   --c2: #444444ff;
   --c3: #555555ff;
-  --c4: rgba(93, 110, 161, 0.5);
+  --c4: #5d6ea180;
   --p1: "Arial" "Helvetica" sans-serif;
   --p2: "Dosis";
 }
@@ -19,6 +19,15 @@ input {
   color: var(--c1);
   background-color: var(--c2);
   font-family: var(--p2);
+}
+
+body {
+  font-size: 2em;
+}
+
+input,
+button {
+  font-size: 1em;
 }
 
 h1,
@@ -36,11 +45,10 @@ button {
 body {
   margin: 0;
   min-height: 100%;
-  font-size: 14pt;
   font-size-adjust: auto;
 }
 
-section {
+form {
   margin-left: auto;
   margin-right: auto;
   display: grid;
@@ -55,7 +63,7 @@ label {
   display: block;
   grid-column: 1;
   width: 100%;
-  border: solid transparent 1px;
+  border: solid #99999900 1px;
   padding-left: 5px;
 }
 
@@ -72,12 +80,11 @@ button {
   color: var(--c3);
   background-color: #ffffffaa;
   font-family: var(--p2);
-  font-size: 1em;
   border-radius: 0  0 8px 8px;
 }
 
 p.alert {
-  color: red;
+  color:#8b0000ff;
   display: block;
   grid-column-start: 1;
   grid-column-end: 3;
