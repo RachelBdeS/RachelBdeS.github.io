@@ -14,111 +14,152 @@
 
 <body role="main">
   <section>
+
     <h1>Controles de saisie</h1>
-    <label>Nom :* </label><input type="text" placeholder="nom" class="requis" tabindex="1">
-    <label>Prénom :* </label><input type="text" placeholder="prenom" class="requis" tabindex="2">
-    <label>Numéro : </label><input type="text" placeholder="numero membre" class="nombre" tabindex="3" maxlength="8">
-    <label>Rue :* </label><input type="text" placeholder="numero et nom de rue" class="requis" tabindex="4">
+
+    <label>Nom :* </label>
+    <input type="text" placeholder="nom" class="requis" tabindex="1">
+
+    <label>Prénom :* </label>
+    <input type="text" placeholder="prenom" class="requis" tabindex="2">
+
+    <label>Numéro : </label>
+    <input type="text" placeholder="numero membre" class="nombre" tabindex="3" maxlength="8">
+
+    <label>Rue :* </label>
+    <input type="text" placeholder="numero et nom de rue" class="requis" tabindex="4">
+
     <label>Ville : </label><input type="text" placeholder="ville" tabindex="5">
+
     <label>CP : </label><input type="text" placeholder="code postal" class="nombre" tabindex="6" maxlength="5">
-    <label>Email : </label><input type="text" placeholder="mel" tabindex="7">
-    <label>Téléphone : </label><input type="text" placeholder="telephone" class="nombre" tabindex="8" maxlength="10">
+
+    <label>Email : </label>
+    <input type="text" placeholder="mel" tabindex="7">
+
+    <label>Téléphone : </label>
+    <input type="text" placeholder="telephone" class="nombre" tabindex="8" maxlength="10">
+
     <button tabindex="9" class="submit" disabled>Validation</button>
+
     <p class="alert"></p>
+
   </section>
 </body>
 
 <script>
-  //#region DECLARATIONS
-  var toast='';
+
+  //#region -[ DECLARATIONS PUBLIQUES ]
+  var toast=``;
   //#endregion
 
-document.querySelector('input[placeholder="mel"]').onblur=function() {
+  //#region -[ LISTERNERS sur les champs 'input' ]
+  for (i=0; i<document.querySelectorAll('input').length; i++) {
 
-  // Test de la semantique de l'email
-  let melRules= /[a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3}/;
-  if (melRules.test(this.value)) 
-  {
-    alert('Email ok.');
-  }
-}
-  //#region HANDLERS
-  
-  // Verification des Champs (éléments de la dom avec comme class: "requis")
-  for (i=0; i<document.querySelectorAll('input').length; i++) 
-  {
+    // Déclarations
+    let e=document.querySelectorAll('input')[i];
+    let estRequis;
 
-    let element= document.querySelectorAll('input')[i];
-
-    element.onblur=function() 
+    // Si un champs perd le focus,
+    e.onblur=function() 
     {
-      filler(element);
+      e.className.includes('requis')? estRequis=true: estRequis= false;
+
+      if (champsValide(e, estRequis)) {
+        actualizeBouton(resultat, document.querySelector('button.submit'));
+      }
     }
 
-    element.onchange=function()
+    // Si un champs est modifié,
+    e.onchange=function()
     {
-      if (element.className.includes('nombre'))
+      if (e.className.includes('nombre'))
       {
-        filler(element);
+        e.className.includes('requis')? estRequis=true: estRequis= false;
+        
+        if (champsValide(e, estRequis)) {
+          actualizeBouton(resultat, document.querySelector('button.submit'));
+        }
       }
     }
   }
   //#endregion
 
-  //#region FONCTIONS APPELLEES
+  //#region -[FONCTIONS APPELLEES ]
   function champsValide(champs, estObligatoire) {
 
-    // Initialisations
-    var res=true;
+    // Déclarations & Initialisations
+    let resultat=true;
     champs.value= champs.value.trim();
-    // Si le champs est un nombre
+
+    // Si le champs en quesiton est un nombre (classe "nombre"),
     if (champs.className.includes('nombre')) 
     {
-      let previous_value= '';
-        // Si c'est bien un nombre,
+      // Si le nombre est reconnu,
       if (! isNaN(champs.value) && champs.value!='') 
       {
-        previous_value= champs.value;
+        champs.style.borderColor='#ccccccff';
+        resultat= false;
       } 
+      // S'il n'est pas reconnu,
       else if (isNaN(champs.value)) 
       {
-        champs.value= previous_value;
+        champs.style.borderColor='#ff0000ff';
         toast=`Le champs ${champs.placeholder} n\'admet que des chiffres`;
         document.querySelector('p.alert').innerHTML= toast;
+        resultat= true;
       }
     }
 
-    // Si le champs est vide
-    if (estObligatoire && champs.value=="") 
+    // Si le champs en question est requis mais vide (classe "requis"),
+    if (estObligatoire && champs.value=='') 
     {
       champs.style.borderColor='red';
       toast= `Le champs ${champs.placeholder} est obligatoire`;
       document.querySelector('p.alert').innerHTML= toast;
-      res= false;
+      resultat= false;
     }
-    else if (champs.value!="")
+    // S'il est requis et renseigné,
+    else if (champs.value!='')
     {
       champs.style.borderColor='#ccc';
       toast='';
       document.querySelector('p.alert').innerHTML= toast;
-      res= true;
+      resultat= true;
     }
 
-    return res;
+    // Si le champs en question est celui du mél (placeholder "mel"),
+    if (champs.placeholder=='mel')
+    {
+      // Declarations et initialisations
+      let melRules= /[a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3}/;
+      let resulat= true;
+      this.value.style.fontVariant='none';
+
+      // Si la semantique du mél renseigné est correcte,
+      if (melRules.test(this.value))
+      {
+        champs.style.borderColor='#ccccccff';
+        toast=``;
+        document.querySelector('p.alert').innerHTML= toast;
+        resultat= false;
+      }
+      // Si elle est incorrecte,
+      else
+      {
+        champs.style.borderColor='#ff0000ff';
+        toast=`Le ${champs.placeholder} doit être sous la forme: nom1@nom2.nom3`;
+        document.querySelector('p.alert').innerHTML= toast;
+      }
+
+      this.value.style.fontVariant='all-petite-caps';
+    }
+
+    return resultat;
   }
 
-  function filler(e)
-  {
-    let estRequis;
-    if (e.className.includes('requis')) 
-    {
-      estRequis= true;
-    }
-    else {
-      estRequis= false;
-    }
+  function actualizeBouton(formValide, bouton) {
 
-    if (champsValide(e, estRequis)) 
+    if (formValide) 
     {
       document.querySelector('button.submit').disabled= false;
     }
@@ -127,6 +168,7 @@ document.querySelector('input[placeholder="mel"]').onblur=function() {
     }
   }
   //#endregion
+
 </script>
 
 </html>
