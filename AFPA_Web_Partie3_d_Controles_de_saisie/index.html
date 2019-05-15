@@ -29,10 +29,20 @@
 </body>
 
 <script>
-  // DECLARATIONS
+  //#region DECLARATIONS
   var toast='';
+  //#endregion
 
-  // HANDLERS
+document.querySelector('input[placeholder="mel"]').onblur=function() {
+
+  // Test de la semantique de l'email
+  let melRules= /[a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3}/;
+  if (melRules.test(this.value)) 
+  {
+    alert('Email ok.');
+  }
+}
+  //#region HANDLERS
   
   // Verification des Champs (éléments de la dom avec comme class: "requis")
   for (i=0; i<document.querySelectorAll('input').length; i++) 
@@ -53,9 +63,9 @@
       }
     }
   }
+  //#endregion
 
-  // FONCTIONS APPELLEES
-  
+  //#region FONCTIONS APPELLEES
   function champsValide(champs, estObligatoire) {
 
     // Initialisations
@@ -116,7 +126,7 @@
       document.querySelector('button.submit').disabled= true;
     }
   }
-
+  //#endregion
 </script>
 
 </html>
