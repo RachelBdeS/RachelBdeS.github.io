@@ -11,7 +11,6 @@
 
 * {
   box-sizing: border-box;
-  font-variant: all-petite-caps;
 }
 
 body,
@@ -30,6 +29,10 @@ button {
   font-size: 1em;
 }
 
+p.toast {
+  font-size: 0.7em;
+}
+
 h1,
 button {
   white-space: normal;
@@ -40,6 +43,11 @@ button {
   text-align: center;
   margin-top: 10px;
   cursor: default;
+}
+
+p.toast, 
+input:invalid  {
+  color:#bd0000ff;
 }
 
 body {
@@ -83,8 +91,15 @@ button {
   border-radius: 0  0 8px 8px;
 }
 
-p.alert {
-  color:#8b0000ff;
+button:hover {
+  box-shadow: 4px 4px 4px #ffffff44;
+}
+
+button:active {
+  box-shadow: 0;
+}
+
+p.toast {
   display: block;
   grid-column-start: 1;
   grid-column-end: 3;
