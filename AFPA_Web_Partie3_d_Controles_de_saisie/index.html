@@ -14,32 +14,111 @@
       <h1>Controles de saisie</h1>
 
       <label>Nom : </label>
-      <input type="text" name="nom" value="Toto" placeholder="nom *" tabindex="1" title="Deux caractères minuimum sont attendus" pattern="^(.{2,})$" required autofocus>
+      <input 
+      type="text" 
+      tabindex="1" 
+      name="nom" 
+      placeholder="nom *" 
+      title="Deux caractères minuimum sont attendus" 
+      pattern="^(.{2,})$" 
+      value="Toto" 
+      required autofocus
+      >
 
       <label>Prénom : </label>
-      <input type="text" name="prenom" value="Dupont" placeholder="prénom *" tabindex="2" title="2 caractères minuimum sont attendus" pattern="^(.{2,})$" required>
+      <input 
+      type="text" 
+      tabindex="2" 
+      name="prenom" 
+      placeholder="prénom *" 
+      title="2 caractères minuimum sont attendus" 
+      pattern="^(.{2,})$"
+      value="Dupont"  
+      required
+      >
 
       <label>Numéro : </label>
-      <input type="number" name="numero" value="" placeholder="numéro membre" class="nombre" tabindex="3" maxlength="8" title="8 chiffres sont attendus" pattern="^[0-9]{8}$">
+      <input 
+      type="number" 
+      tabindex="3" 
+      name="numero" 
+      placeholder="numéro membre" 
+      title="8 chiffres sont attendus" 
+      pattern="^[0-9]{8}$"
+      value="" 
+      >
 
       <label>Rue : </label>
-      <input type="text" name="rue" value="22 rue Machin" placeholder="numéro et nom de rue *" tabindex="4" title="Exemple: ''12 boulevard Machin'''" pattern="^([0-9]{1,4} {1}[a-zA-Z]{1,} {1}[a-zA-Z]{1,})$" required>
+      <input 
+      type="text" 
+      tabindex="4"
+      name="rue" 
+      placeholder="numéro et nom de rue *"  
+      title="Exemple: ''12 boulevard Machin'''" 
+      pattern="^([0-9]{1,4} {1}[a-zA-Z]{1,} {1}[a-zA-Z]{1,})$" 
+      value="22 rue Machin" 
+      required
+      >
 
       <label>Ville : </label>
-      <input type="text" name="ville" value="" placeholder="ville" tabindex="5" title="2 caractères minuimum sont attendus" pattern=".{2,}">
+      <input 
+      type="text" 
+      tabindex="5" 
+      name="ville" 
+      placeholder="ville" 
+      title="2 caractères minuimum sont attendus" 
+      pattern=".{2,}"
+      value="" 
+      >
       
       <label>CP : </label>
-      <input type="number" name="cp" value="" placeholder="code postal" class="nombre" tabindex="6" maxlength="5" title="5 chiffres sont attendus. Exemple: ''68200''" pattern="^([0-9]{6})$">
+      <input 
+      type="number" 
+      tabindex="6" 
+      name="cp" 
+      placeholder="code postal" 
+      title="5 chiffres sont attendus. Exemple: ''68200''" 
+      pattern="^([0-9]{6})$"
+      value="" 
+      >
 
       <label>Email : </label>
-      <input type="text" name="mel" value="" placeholder="mél" tabindex="7" title="Exemple: ''pseudo@domain.fr'''" pattern="^([a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3})$">
+      <input 
+      type="text" 
+      tabindex="7" 
+      name="mel" 
+      placeholder="mél" 
+      title="Exemple: ''pseudo@domain.fr'''" 
+      pattern="^([a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3})$"
+      value="" 
+      >
 
       <label>Téléphone : </label>
-      <input type="number" name="tel" value="" placeholder="numéro de téléphone" class="nombre" tabindex="8" title="10 chiffres sans espaces sont attendus. Exemple: ''0668123456'''" pattern="^[0-9]{10}$">
+      <input 
+      type="number" 
+      tabindex="8" 
+      name="tel" 
+      placeholder="numéro de téléphone" 
+      title="10 chiffres sans espaces sont attendus. Exemple: ''0668123456'''" 
+      pattern="^[0-9]{10}$"
+      value="" 
+      >
 
-      <button type="submit" tabindex="9">Validation</button>
+      <input 
+      type="submit" 
+      tabindex="9" 
+      name="valider" 
+      value="Validation" 
+      disabled
+      >
 
-      <p class="toast"></p>
+      <input 
+      type="text"  
+      tabindex="999" 
+      name="toast" 
+      value=""
+      readonly
+      >
 
     </form>
     <script>
@@ -48,25 +127,63 @@
       //#endregion
 
       //#region -[ LISTERNERS sur les champs du formulaire ]
-        document.forms.inscription.onmouseover=function() 
-        {
-          let element;
-          for (i=(document.forms.inscription.querySelectorAll('input').length-1); i>=0; i--) 
-          {
-            element=document.forms.inscription.querySelectorAll('input')[i];
-            checkField(element);
-            if (element.type=='number') {checkNumber(element)}
-            console.log(i);
-            console.log(element);
-          }
-        }
+      document.forms.inscription.toast.onclick=function() 
+      {
+        this.blur();
+      }
+ 
+      document.body.onload=function() 
+      {
+        document.forms.inscription.valider.disabled=true;
+      }
 
-        document.forms.inscription.onsubmit=function() 
+      document.forms.inscription.nom.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.prenom.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.numero.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.rue.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.ville.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.cp.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.mel.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+      document.forms.inscription.tel.onchange=function() 
+      {
+        checkField(this);
+        checkPattern(this);
+      }
+
+      document.forms.inscription.onsubmit=function() 
         {
           document.forms.inscription.checkValidity()? 1==1: writePage();
         }
-      //#endregion
-      
+//#endregion
+
       //#region [ FONCTIONS APPELLEES ]
         function checkField(e)
         {
@@ -81,7 +198,7 @@
           }
         }
 
-        function checkNumber(e) 
+        function checkPattern(e) 
         {
           if (e.value=='' || /e.pattern/.test(e.value))
           {
@@ -89,12 +206,11 @@
           }
           else if (e.required)
           {
-            toast=`Pour le <u>${e.name}</u>, ${e.title}.`;
+            toast=`Pour le ${e.name}, ${e.title}.`;
           }
-
-          document.querySelector('p.toast').innerHTML=toast;
+          document.forms.inscription.toast.value=toast;
         }
-
+        
         function writePage() 
         {
           let contenu='';

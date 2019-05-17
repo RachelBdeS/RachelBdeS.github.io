@@ -13,47 +13,11 @@
   box-sizing: border-box;
 }
 
-body,
-input {
-  color: var(--c1);
-  background-color: var(--c2);
-  font-family: var(--p2);
-}
-
-body {
-  font-size: 2em;
-}
-
-input,
-button {
-  font-size: 1em;
-}
-
-p.toast {
-  font-size: 0.7em;
-}
-
-h1,
-button {
-  white-space: normal;
-  display: block;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  width: 100%;
-  text-align: center;
-  margin-top: 10px;
-  cursor: default;
-}
-
-p.toast, 
-input:invalid  {
-  color:#bd0000ff;
-}
-
 body {
   margin: 0;
   min-height: 100%;
   font-size-adjust: auto;
+  font-size: 2em;
 }
 
 form {
@@ -71,11 +35,35 @@ label {
   display: block;
   grid-column: 1;
   width: 100%;
-  border: solid #99999900 1px;
+  border: solid #ffffff00 1px;
   padding-left: 5px;
 }
 
-input {
+h1
+{
+  white-space: normal;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  cursor: default;
+}
+
+body,
+input[type="text"]:not([name="toast"]), 
+input[type="number"] 
+{
+  color: var(--c1);
+  background-color: var(--c2);
+  font-family: var(--p2);
+}
+
+input[type="text"]:not([name="toast"]), 
+input[type="number"] 
+{
+  font-size: 1em;
   display: block;
   grid-column: 2;
   width: 100%;
@@ -84,22 +72,13 @@ input {
   border-width: 0 0 1px 0;
 }
 
-button {
+input[type="submit"] 
+{
   color: var(--c3);
   background-color: #ffffffaa;
   font-family: var(--p2);
   border-radius: 0  0 8px 8px;
-}
-
-button:hover {
-  box-shadow: 4px 4px 4px #ffffff44;
-}
-
-button:active {
-  box-shadow: 0;
-}
-
-p.toast {
+  white-space: normal;
   display: block;
   grid-column-start: 1;
   grid-column-end: 3;
@@ -107,4 +86,35 @@ p.toast {
   text-align: center;
   margin-top: 10px;
   cursor: default;
+}
+
+input[type="submit"]:hover 
+{
+  box-shadow: 4px 4px 4px #ffffff44;
+}
+
+input[type="submit"]:active 
+{
+  box-shadow: 0;
+}
+
+input[type="text"]:invalid 
+input[type="number"]:invalid 
+{
+  border-color:#bd0000ff;
+}
+
+input[name="toast"] 
+{
+  font-size: 0.7em;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: default;
+  color:#bd0000ff;
 }
