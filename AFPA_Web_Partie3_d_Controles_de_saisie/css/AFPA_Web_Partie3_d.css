@@ -90,7 +90,7 @@ input[type="submit"]
 
 input[type="submit"]:hover 
 {
-  box-shadow: 4px 4px 4px #ffffff44;
+  box-shadow: 2px 2px 2px #ffffff44;
 }
 
 input[type="submit"]:active 

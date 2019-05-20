@@ -127,9 +127,9 @@
       //#endregion
 
       //#region -[ LISTERNERS sur les champs du formulaire ]
-      document.forms.inscription.toast.onclick=function() 
+      document.forms.inscription.toast.onmousedown=function(event) 
       {
-        this.blur();
+        event.preventDefault();
       }
  
       document.body.onload=function() 
@@ -180,7 +180,10 @@
 
       document.forms.inscription.onsubmit=function() 
         {
-          document.forms.inscription.checkValidity()? 1==1: writePage();
+          if (document.forms.inscription.checkValidity()) 
+          {
+            writePage();
+          } 
         }
 //#endregion
 
