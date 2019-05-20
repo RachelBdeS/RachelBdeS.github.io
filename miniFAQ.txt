@@ -64,7 +64,7 @@
       </ul>
     </nav>
     
-    <main> <!-- OU <section role="main"> -->
+    <section role="main"> <!-- <main> directement eput cuaser des problemes en css avec un layout grid -->
     
       <!-- NB: Une seule balise H1 par page web (245 characters maximum): -->  
       <h1>Titre de la page</h1>
@@ -383,6 +383,7 @@ A rédiger dans ma FAQ
   - Du plus foncé (0) au plus clair (F): #RVB
   - Du plus foncé (00) au plus clair (FF): #RRVVBB
  
+• Expression regulière : 
 • JS: foreach { <instruction>; } devient for (<variable_en_declaration> of <tableau>) { <instruction>; }
 • JS: const <variable> // est readonly
 • JS: let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}

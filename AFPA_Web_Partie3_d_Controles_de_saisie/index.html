@@ -109,121 +109,85 @@
       tabindex="9" 
       name="valider" 
       value="Validation" 
-      disabled
       >
 
-      <input 
-      type="text"  
-      tabindex="999" 
-      name="toast" 
-      value=""
-      readonly
-      >
+      <label tabindex="999" id="toast" value=""></label>
 
     </form>
     <script>
-      //#region -[ DECLARATIONS PUBLIQUES ]
-        var toast='';
-      //#endregion
+    // DECLARATION PUBLIQUE
+    var toast='';
+    //#endregion
 
-      //#region -[ LISTERNERS sur les champs du formulaire ]
-      document.forms.inscription.toast.onmousedown=function(event) 
-      {
-        event.preventDefault();
-      }
- 
-      document.body.onload=function() 
-      {
-        document.forms.inscription.valider.disabled=true;
-      }
+    // LISTERNER sur un champs de formulaire
+    document.forms.inscription.onsubmit=function(event) 
+    {
+      event.preventDefault();
+      
+      // Déclarations et initialisations
+      
+      let nb= eval(document.querySelectorAll('input[type="text"]').length);
+      nb+= eval(document.querySelectorAll('input[type="number"]').length);
+      
+      let contenu='<table>';
+      contenu+=  '<tr>';
+      contenu+=   '<th>Champs</th>';
+      contenu+=   '<th>Valeur</th>';
+      contenu+=  '</tr>';
 
-      document.forms.inscription.nom.onchange=function() 
+      var e, estValide;
+      
+      // Traitement 
+      
+      for (i=0; i<nb; i++)
       {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.prenom.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.numero.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.rue.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.ville.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.cp.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.mel.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-      document.forms.inscription.tel.onchange=function() 
-      {
-        checkField(this);
-        checkPattern(this);
-      }
-
-      document.forms.inscription.onsubmit=function() 
+        e=document.querySelectorAll('input')[i];
+        e.value=e.value.trim();
+        
+        /* Pour ma FAQ: On verfie que "element.value.match(pattern)" Et non que "patern.test(element.value)" car la fonction test ne peut tester une expression reguliere contenue dans une variable. */
+        
+        if (e.value.match(e.pattern) || (!e.required && (e.value.length<1 || e.value===undefined))) 
         {
-          if (document.forms.inscription.checkValidity()) 
-          {
-            writePage();
-          } 
+          let champs=document.querySelectorAll('input')[i].placeholder;
+          let valeur=document.querySelectorAll('input')[i].value;
+          contenu+=  '<tr>';
+          contenu+=   `<td> ${champs}</td>`;
+          contenu+=   `<td> ${valeur}</td>`;
+          contenu+=  '</tr>';
+          estValide=true;
         }
-//#endregion
-
-      //#region [ FONCTIONS APPELLEES ]
-        function checkField(e)
+      
+        else if (e.required)
         {
-          e.value=e.value.trim();
-          if (!e.value===undefined || !e.value=='') 
-          {
-            e.setAttribute('required', 'required');
-          }
-          else 
-          {
-            e.removeAttribute('required');
-          }
-        }
-
-        function checkPattern(e) 
-        {
-          if (e.value=='' || /e.pattern/.test(e.value))
-          {
-            toast='';
-          }
-          else if (e.required)
-          {
-            toast=`Pour le ${e.name}, ${e.title}.`;
-          }
-          document.forms.inscription.toast.value=toast;
+          estValide=false;
         }
         
-        function writePage() 
-        {
-          let contenu='';
-          contenu+='HELLO'; //ooo
-          let compte = window.open('', "_self");
-          compte.title='Mon compte';
-          compte.document.write(contenu);
-        }
-      //#endregion
-
+        alert(e.placeholder+' = '+e.pattern+' is '+estValide); //DEBUG
+        
+      }
+      contenu+= '</table>';
+      
+      if (estValide) 
+      {
+        toast='';
+        document.getElementById('toast').innerHTML=toast;
+        
+        let mon_compte = window.open('', '_self');
+        mon_compte.title='Mon compte';
+        mon_compte.document.write(contenu);
+        
+        return true;
+      }
+      
+      else 
+      {
+        toast=`Pour le ${e.name}, ${e.title}.`;
+        document.getElementById('toast').innerHTML=toast;
+        
+        return false;
+      }
+      
+    }
     </script>
   </body>
 </html>

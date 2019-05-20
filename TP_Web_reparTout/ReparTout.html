@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="./ressources/icone.png">
+  <meta name="author" content="Rachel BARETTO">
+  <meta name="description" content="Un site de services autour des voitures et des réparations.">
+  <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
+  <link href="./css/grid.css" rel="stylesheet">
+  <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
+</head>
+<body class="monBody monTexte">
+  
+  <header>
+    <img src="./ressources/logo.svg" alt="ReparTout Logo">
+  </header>
+
+  <nav>
+    <h3><a href="#">Menu</a></h3>
+    <ul class="navMenu">
+      <li><a href="#">Catégories</a></li>
+      <li><a href="#">Catalogue</a></li>
+      <li><a href="#">Clients</a></li>
+      <li><a href="#">Commandes</a></li>
+    </ul>
+  </nav>
+
+  <section role="main">
+
+    <h2 id="welcome">Bienvenue</h2>
+
+    <p>Bienvenue sur votre site de gestion de catalogue.</p>
+
+    <h3>Dernières catégories ajoutées</h3>
+    <table cellspacing="5">
+      <tr>
+        <th>Nom</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>pneus</td>
+        <td>Pneus pour voiture, motos et poids-lourds</td>
+      </tr>
+    </table>
+
+    <h3>Ajouter une catégorie</h3>
+
+    <form action="" method="GET" name="ajout">
+      
+      <label for="nom">Nom</label>
+      <input 
+        type="text" 
+        id="nom" 
+        name="nom" 
+        value="" 
+        placeholder="Nom de la catégorie"
+        title="Doit contenir 2 à 8 caractères"
+        pattern="[a-zA-Z0-9\s]+"
+      >
+      <br>
+      
+      <label for="desc">Description</label>
+      <input 
+        type="text" 
+        id="catDescription" 
+        name="desc" 
+        value=""
+        placeholder="Description de la catégorie"
+        pattern="[a-zA-Z]+"
+      >
+      <br>
+      
+			<input 
+        type="submit"
+      >
+      
+    </form>
+
+  </section>
+
+  <aside>
+    <h3>Commandes en cours</h3>
+    <ul class="asideMenu">
+      <li>Aucune commande.</li>
+    </ul>
+  </aside>
+
+  <footer id="footer">
+    &copy; 2019 Repar'Tout
+  </footer>
+</body>
+  
+  <script>
+    
+    // FONCTIONS APPELLEES
+    function ajouterCategorie(nom, description)
+    {
+      let s='';
+      s+='<tr>'
+      s+= '<td>'+nom+'</td>';
+      s+= '<td>'+description+'</td>';
+      s+='</tr>';
+      document.querySelector('table').innerHTML+=s;
+      return true;
+      //ooo rajoutera le contenu du form dans le tableau
+    }
+    
+    // FONCTIONS ECOUTEURS
+    document.forms.ajout.onsubmit=function(event)
+    {
+      event.preventDefault();
+      var nom=document.forms.ajout.nom;
+      var desc=document.forms.ajout.desc;
+      
+      if (nom.value.match(nom.pattern))
+      {
+        ajouterCategorie(nom.value, desc.value);
+        return true;
+      }
+      
+      return false;
+    };
+    
+  </script>
+</html>

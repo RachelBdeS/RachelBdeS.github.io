@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+/*******************************/
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#EEEE00;
+  background-color:#9D0D0F;
+  display: grid;
+  grid-template-rows: 100px 1fr 50px;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-areas: "H H H" 
+                       "N M A"
+                       "F F F";
+}
+
+a:link, a:visited {
+  color: #EE0;
+  text-decoration:none;
+}
+
+a:hover {
+  color: #FFF;
+}
+
+a:active {
+  color: #0F0;
+}
+
+/*******************************/
+
+header {
+  grid-area: H;
+  /*background: #0f9D0d url('../img/slide.jpg') left top no-repeat;*/
+  background-color: #0f9D0d;
+  background-image: url('../ressources/slide.jpg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  padding: 10px 5px 15px;
+  border-bottom: 2px solid #fff;
+}
+
+header > img {
+  height:100%;
+}
+
+h2, h3 {
+  border-bottom: 2px solid #EE0;
+}
+
+h3 {
+  padding-top: 8px;
+}
+
+nav, section, aside {
+  /*display:flex;*/
+  min-height: 150vh;
+  padding: 10px;
+}
+
+nav {
+  grid-area: N;
+}
+
+ul {
+  padding-left:0;
+}
+
+li {
+  list-style:none;
+}
+
+.navMenu a {
+  display: block;
+  border: 1px solid #FFF;
+  border-radius: 10px;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.navMenu a:hover {
+  color: #9D0D0F;
+  background-color: #EE0;
+
+}
+
+section {
+  grid-area: M;
+  background-color: #111111ff;
+}
+
+aside {
+  grid-area: A;
+}
+
+.asideMenu {
+  color: #FFF;
+}
+
+footer {
+  padding:10px;
+  grid-area: F;
+  background: url('../ressources/banner.jpg') no-repeat left top;
+  background-size:cover;
+  background-position-y: -75px; 
+  text-align:center;
+  color:#FFFF00;
+  border-top: 2px solid #FFFFFF;
+}
+
+table {
+  width: 100%;
+  /* border: 1px solid #EE0; */
+  text-align: justify;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  /* border: 1px solid #FFF; */
+  padding:5px;
+  color: #FFF;
+  font-size: 1.2em;
+}
+
+td {
+  text-align: left;
+  /* border: 1px solid #FFF; */
+  padding:5px;
+  color: default #CCC;
+}
+
+/*******************************/
+/* FORMS */
+
+label {
+  display: inline-block;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="submit"] {
+  background-color: #333;
+  color: #FF0;
+  border: 1px solid #FF0;
+  padding: 5px;
+  border-radius: 1px;
+  transition: all ease 0.8s;
+  width: 200px;
+}
+
+input[type="submit"]:hover
+{
+  cursor:pointer;
+  box-shadow: 2px 2px 10px 1px #FFF;
+
+}
