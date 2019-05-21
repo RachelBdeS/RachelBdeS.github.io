@@ -383,12 +383,12 @@ A rédiger dans ma FAQ
   - Du plus foncé (0) au plus clair (F): #RVB
   - Du plus foncé (00) au plus clair (FF): #RRVVBB
  
-• Expression regulière : 
 • JS: foreach { <instruction>; } devient for (<variable_en_declaration> of <tableau>) { <instruction>; }
 • JS: const <variable> // est readonly
 • JS: let <variable> // a une portée limitée aux { dans lesquelles elle se trouve}
 • JS: var <variable> // a une portée limitée à la fonction dans lesquelle elle se trouve
- 
+• JS Regex: On teste une expression regulière avec "element.value.match(regex_in_a_variable)" et non "regex_in_a_variable.test(element.value)" car la fonction javascript test() ne reconnais pas les regex contenues dans des variables. */
+        
 • JS: document.querySelector("#id") <=> document.getElementById("id")
 • JS: document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
 • JS: var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")

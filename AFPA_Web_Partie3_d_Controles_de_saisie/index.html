@@ -78,7 +78,7 @@
       name="cp" 
       placeholder="code postal" 
       title="5 chiffres sont attendus. Exemple: ''68200''" 
-      pattern="^([0-9]{6})$"
+      pattern="^([0-9]{5})$"
       value="" 
       >
 
@@ -150,10 +150,10 @@
         {
           let champs=document.querySelectorAll('input')[i].placeholder;
           let valeur=document.querySelectorAll('input')[i].value;
-          contenu+=  '<tr>';
-          contenu+=   `<td> ${champs}</td>`;
-          contenu+=   `<td> ${valeur}</td>`;
-          contenu+=  '</tr>';
+          contenu+='<tr>';
+          contenu+= `<td> ${champs}</td>`;
+          contenu+= `<td> ${valeur}</td>`;
+          contenu+='</tr>';
           estValide=true;
         }
       
