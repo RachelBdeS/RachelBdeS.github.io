@@ -20,7 +20,7 @@
       name="nom" 
       placeholder="nom *" 
       title="Deux caractères minuimum sont attendus" 
-      pattern="^(.{2,})$" 
+      pattern="^.{2,}$" 
       value="Toto" 
       required autofocus
       >
@@ -29,10 +29,10 @@
       <input 
       type="text" 
       tabindex="2" 
-      name="prenom" 
+      name="prenom" d
       placeholder="prénom *" 
       title="2 caractères minuimum sont attendus" 
-      pattern="^(.{2,})$"
+      pattern="^.{2,}$" 
       value="Dupont"  
       required
       >
@@ -43,8 +43,10 @@
       tabindex="3" 
       name="numero" 
       placeholder="numéro membre" 
-      title="8 chiffres sont attendus" 
-      pattern="^[0-9]{8}$"
+      title="8 chiffres sont attendus"  
+      min="10000000" 
+      max="99999999" 
+      maxlength="8" 
       value="" 
       >
 
@@ -55,7 +57,7 @@
       name="rue" 
       placeholder="numéro et nom de rue *"  
       title="Exemple: ''12 boulevard Machin'''" 
-      pattern="^([0-9]{1,4} {1}[a-zA-Z]{1,} {1}[a-zA-Z]{1,})$" 
+      pattern="[0-9]{1,4} {1}[a-zA-Z]{1,} {1}[a-zA-Z]{1,}" 
       value="22 rue Machin" 
       required
       >
@@ -73,23 +75,23 @@
       
       <label>CP : </label>
       <input 
-      type="number" 
+      type="text" 
       tabindex="6" 
       name="cp" 
       placeholder="code postal" 
       title="5 chiffres sont attendus. Exemple: ''68200''" 
-      pattern="^([0-9]{5})$"
+      pattern="[0-9]{5}"
       value="" 
       >
 
       <label>Email : </label>
       <input 
-      type="text" 
+      type="email" 
       tabindex="7" 
       name="mel" 
       placeholder="mél" 
       title="Exemple: ''pseudo@domain.fr'''" 
-      pattern="^([a-z]{1}[a-z0-9\_\-\.]*\@[a-z0-9\_\-\.]*\.[a-z]{2,3})$"
+      pattern="[a-z]{1,}[a-z0-9_\-\.]{1,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}"
       value="" 
       >
 
@@ -100,7 +102,9 @@
       name="tel" 
       placeholder="numéro de téléphone" 
       title="10 chiffres sans espaces sont attendus. Exemple: ''0668123456'''" 
-      pattern="^[0-9]{10}$"
+      min="1000000000"
+      max="9999999999"
+      maxlength="10"
       value="" 
       >
 
@@ -115,9 +119,6 @@
 
     </form>
     <script>
-    // DECLARATION PUBLIQUE
-    var toast='';
-    //#endregion
 
     // LISTERNER sur un champs de formulaire
     document.forms.inscription.onsubmit=function(event) 
@@ -126,67 +127,86 @@
       
       // Déclarations et initialisations
       
-      let nb= eval(document.querySelectorAll('input[type="text"]').length);
-      nb+= eval(document.querySelectorAll('input[type="number"]').length);
-      
-      let contenu='<table>';
-      contenu+=  '<tr>';
-      contenu+=   '<th>Champs</th>';
-      contenu+=   '<th>Valeur</th>';
-      contenu+=  '</tr>';
+      var e=null; // Element html
+      var eLg=0; // Nombre de caractères se trouvant dans un element html
+      var eOk=0; // Comformité du contenu d'un element html
+      let nbE=0; // Somme des elements du formulaire pouvant être renseignés
+      var str=''; // Texte html à écrire dans la page suivante
+      var toast=''; // Eventuel essage d'erreur à aficher
 
-      var e, estValide;
-      
-      // Traitement 
-      
-      for (i=0; i<nb; i++)
+      // Calcul du combre de champs à vérifier en JS
+      nbE+= eval(document.querySelectorAll('input[type="text"]').length);
+      nbE+= eval(document.querySelectorAll('input[type="number"]').length);
+      nbE+= eval(document.querySelectorAll('input[type="email"]').length);
+
+      // Verifications et ecriture de la page suivante
+      str+='<table>';
+      str+=  '<tr>';
+      str+=   '<th>Champs</th>';
+      str+=   '<th>Valeur</th>';
+      str+=  '</tr>';
+      //
+      for (i=0; i<nbE; i++)
       {
         e=document.querySelectorAll('input')[i];
         e.value=e.value.trim();
-        
-        /* Pour ma FAQ: On verfie que "element.value.match(pattern)" Et non que "patern.test(element.value)" car la fonction test ne peut tester une expression reguliere contenue dans une variable. */
-        
-        if (e.value.match(e.pattern) || (!e.required && (e.value.length<1 || e.value===undefined))) 
+        eLg=e.value.length;
+        let isOk=false;
+
+        if (e.type=='number')
         {
-          let champs=document.querySelectorAll('input')[i].placeholder;
-          let valeur=document.querySelectorAll('input')[i].value;
-          contenu+='<tr>';
-          contenu+= `<td> ${champs}</td>`;
-          contenu+= `<td> ${valeur}</td>`;
-          contenu+='</tr>';
-          estValide=true;
+          if (e.value>=e.min && e.value<=e.max) 
+          {
+            isOk=true;
+          }
+          else if (!e.required)
+          {
+            if (e.value===undefined || e.value.length<1) 
+            {
+              isOk=true;
+            }
+          }
         }
-      
-        else if (e.required)
+        else if (e.type=='text' || e.type=='email')
         {
-          estValide=false;
+          if (e.value.match(e.pattern)) 
+          {
+            isOk=true;
+          }
+          else if (!e.required)
+          {
+            if (e.value===undefined || e.value.length<1) 
+            {
+              isOk=true;
+            }
+          }
         }
-        
-        alert(e.placeholder+' = '+e.pattern+' is '+estValide); //DEBUG
-        
+
+        if (isOk) 
+        {
+          eOk++;
+          str+='<tr>';
+          str+= `<td> ${e.placeholder}</td>`;
+          str+= `<td> ${e.value}</td>`;
+          str+='</tr>';
+        } 
+        else {
+          toast=`Pour le ${e.name}, ${e.title}.`;
+          document.getElementById('toast').innerHTML=toast;
+        }
       }
-      contenu+= '</table>';
+      //
+      str+= '</table>';
       
-      if (estValide) 
+      // Si tous les champs sont validés,
+      if (eOk==nbE)
       {
-        toast='';
-        document.getElementById('toast').innerHTML=toast;
-        
+        // Afficher le resultat
+        document.getElementById('toast').innerHTML='';
         let mon_compte = window.open('', '_self');
         mon_compte.title='Mon compte';
-        mon_compte.document.write(contenu);
-        
-        return true;
+        mon_compte.document.write(str);
       }
-      
-      else 
-      {
-        toast=`Pour le ${e.name}, ${e.title}.`;
-        document.getElementById('toast').innerHTML=toast;
-        
-        return false;
-      }
-      
     }
     </script>
   </body>

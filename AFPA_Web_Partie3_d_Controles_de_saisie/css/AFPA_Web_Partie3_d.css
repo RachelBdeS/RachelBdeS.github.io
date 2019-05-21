@@ -53,7 +53,8 @@ h1
 
 body,
 input[type="text"]:not(#toast), 
-input[type="number"] 
+input[type="number"], 
+input[type="email"] 
 {
   color: var(--c1);
   background-color: var(--c2);
@@ -61,7 +62,8 @@ input[type="number"]
 }
 
 input[type="text"]:not(#toast), 
-input[type="number"] 
+input[type="number"], 
+input[type="email"] 
 {
   font-size: 1em;
   display: block;
@@ -100,6 +102,7 @@ input[type="submit"]:active
 
 input[type="text"]:invalid 
 input[type="number"]:invalid 
+input[type="email"]:invalid 
 {
   border-color:#bd0000ff;
 }
