@@ -20,7 +20,7 @@
       name="nom" 
       placeholder="nom *" 
       title="Deux caractères minuimum sont attendus" 
-      pattern="^.{2,}$" 
+      pattern=".{2,}" 
       value="Toto" 
       required autofocus
       >
@@ -29,10 +29,10 @@
       <input 
       type="text" 
       tabindex="2" 
-      name="prenom" d
+      name="prenom" 
       placeholder="prénom *" 
       title="2 caractères minuimum sont attendus" 
-      pattern="^.{2,}$" 
+      pattern=".{2,}" 
       value="Dupont"  
       required
       >
@@ -46,7 +46,6 @@
       title="8 chiffres sont attendus"  
       min="10000000" 
       max="99999999" 
-      maxlength="8" 
       value="" 
       >
 
@@ -81,6 +80,7 @@
       placeholder="code postal" 
       title="5 chiffres sont attendus. Exemple: ''68200''" 
       pattern="[0-9]{5}"
+      maxlength="5"
       value="" 
       >
 
@@ -104,7 +104,6 @@
       title="10 chiffres sans espaces sont attendus. Exemple: ''0668123456'''" 
       min="1000000000"
       max="9999999999"
-      maxlength="10"
       value="" 
       >
 
@@ -121,6 +120,39 @@
     <script>
 
     // LISTERNER sur un champs de formulaire
+    document.body.onloadend=funvtion()
+    {
+      // Réinitialisation des critères de sécurité en JS, sur le champs
+      // Nom
+      document.forms.inscription.nom.pattern=/.{2,}/;
+      document.forms.inscription.nom.required='required';
+
+      // Prenom
+      document.forms.inscription.prenom.pattern=/.{2,}/;
+      document.forms.inscription.prenom.required='required';
+
+      // numero
+      document.forms.inscription.numero.min=10000000;
+      document.forms.inscription.numero.max=99999999;
+
+      // rue ("adresse")
+      document.forms.inscription.rue.pattern=/[0-9]{1,4} {1}[a-zA-Z]{1,} {1}[a-zA-Z]{1,}/;
+      document.forms.inscription.rue.required='required';
+      
+      // Ville
+      document.forms.inscription.ville.pattern=/.{2,}/;
+
+      // Code Postal
+      document.forms.inscription.cp.pattern=/[0-9]{5}/;
+      document.forms.inscription.cp.maxlength=5;
+
+      // pattern
+      document.forms.inscription.mel.pattern=/[a-z]{1,}[a-z0-9_\-\.]{1,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}/;
+
+      // tel
+      document.forms.inscription.tel.min=1000000000;
+      document.forms.inscription.tel.max=9999999999;
+    }
     document.forms.inscription.onsubmit=function(event) 
     {
       event.preventDefault();
