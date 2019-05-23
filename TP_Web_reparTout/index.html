@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/rbaretto/TP_Web_reparTout/assets/icone.png">
+  <link rel="icon" href="./assets/icone.png">
   <meta name="author" content="Rachel BARETTO">
   <meta name="description" content="Un site de services autour des voitures et des réparations.">
   <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
-  <link href="/rbaretto/TP_Web_reparTout/css/grid.css" rel="stylesheet">
-  <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
+  <link href="./css/grid.css" rel="stylesheet">
+  <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/grid.css -->
 </head>
 <body class="monBody monTexte">
   
   <header>
-    <img src="/rbaretto/TP_Web_reparTout/assets/logo.svg" alt="ReparTout Logo">
+    <img src="./assets/logo.svg" alt="ReparTout Logo">
   </header>
 
   <nav>
@@ -22,7 +22,7 @@
     </ul>
   </nav>
 
-  <section role="main">
+  <section role="main" id="main">
 
     <h2 id="welcome">Bienvenue</h2>
     <p>Bienvenue sur votre site de gestion de catalogue.</p>
@@ -76,10 +76,10 @@
     &copy; 2019 Repar'Tout
   </footer>
   
-  <script src="/rbaretto/TP_Web_reparTout/js/nav.js"></script>
   <script>
     
     // FONCTIONS APPELLEES
+
     function ajouterCategorie(nom, description)
     {
       let s='';
@@ -93,6 +93,7 @@
     }
     
     // FONCTIONS ECOUTEURS
+    
     document.forms.ajout.onsubmit=function(event)
     {
       event.preventDefault();
@@ -110,5 +111,9 @@
     
   </script>
   
+  <!-- ECRITURE DES MENUS LATERAUX -->
+  
+  <script src="./js/nav.js"></script>
+
 </body>
 </html>

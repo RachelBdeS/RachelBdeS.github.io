@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/rbaretto/TP_Web_reparTout/assets/icone.png">
+  <link rel="icon" href="../assets/icone.png">
   <meta name="author" content="Rachel BARETTO">
   <meta name="description" content="Un site de services autour des voitures et des réparations.">
   <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
-  <link href="/rbaretto/TP_Web_reparTout/css/grid.css" rel="stylesheet">
+  <link href="../css/grid.css" rel="stylesheet">
   <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
 </head>
 <body class="monBody monTexte">
   
   <header>
-    <img src="/rbaretto/TP_Web_reparTout/assets/logo.svg" alt="ReparTout Logo">
+    <img src="../assets/logo.svg" alt="ReparTout Logo">
   </header>
 
   <nav>
@@ -22,126 +22,130 @@
     </ul>
   </nav>
 
-  <section role="main">
+  <section role="main" id="main">
 
-    <h2 id="welcome">Pneus</h2>
+    <h2 id="welcome">Pneus<button class="edit" onclick="showSpan('editForm');">-</button></h2>
     <p>Voici les pneus.</p>
+
+    <span id="editForm">
+      <h3>Ajouter un pneu</h3>
+      <form action="" method="GET" name="ajout">
+        <label for="nom">Marque</label>
+        <input 
+          type="text" 
+          id="nom" 
+          name="nom" 
+          value="" 
+          placeholder="Marque"
+          title=""
+          pattern="[a-zA-Z0-9\s]+"
+        ><br>
+        <label for="nom">Nom</label>
+        <input 
+          type="text" 
+          id="nom" 
+          name="nom" 
+          value="" 
+          placeholder="Nom"
+          title=""
+          pattern="[a-zA-Z0-9\s]+"
+        ><br>
+        <label for="desc">Diamètre</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Diamètre"
+          title=""
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Structure</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Structure"
+          title=""
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Largeur</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Largeur"
+          title=""
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Usage</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Usage"
+          title=""
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Indice de charge</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Indice de charge"
+          title=""
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Indice de vitesse</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Indice de vitesse"
+          title=""
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Prix d'achat HT</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Prix d'achat HT"
+          pattern="[a-zA-Z]+"
+        ><br>
+        <label for="desc">Prix de vente HT</label>
+        <input 
+          type="text" 
+          id="catDescription" 
+          name="desc" 
+          value=""
+          placeholder="Prix de vente HT"
+          title="" 
+          pattern="[a-zA-Z]+"
+        ><br>
+        <input type="submit">
+      </form>
+    </span>
+
+    <h3>Derniers pneus ajoutées</h3>
     <table cellspacing="5">
       <tr>
-        <th>Champs</th>
-        <th>Valeur</th>
-      </tr>
-    </table>
-
-    <h3>Ajouter un pneu</h3>
-    <form action="" method="GET" name="ajout">
-      <label for="nom">Marque</label>
-      <input 
-        type="text" 
-        id="nom" 
-        name="nom" 
-        value="" 
-        placeholder="Marque"
-        title=""
-        pattern="[a-zA-Z0-9\s]+"
-      ><br>
-      <label for="nom">Nom</label>
-      <input 
-        type="text" 
-        id="nom" 
-        name="nom" 
-        value="" 
-        placeholder="Nom"
-        title=""
-        pattern="[a-zA-Z0-9\s]+"
-      ><br>
-      <label for="desc">Diamètre</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Diamètre"
-        title=""
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Structure</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Structure"
-        title=""
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Largeur</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Largeur"
-        title=""
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Usage</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Usage"
-        title=""
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Indice de charge</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Indice de charge"
-        title=""
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Indice de vitesse</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Indice de vitesse"
-        title=""
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Prix d'achat HT</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Prix d'achat HT"
-        pattern="[a-zA-Z]+"
-      ><br>
-      <label for="desc">Prix de vente HT</label>
-      <input 
-        type="text" 
-        id="catDescription" 
-        name="desc" 
-        value=""
-        placeholder="Prix de vente HT"
-        title="" 
-        pattern="[a-zA-Z]+"
-      ><br>
-			<input type="submit">
-    </form>
-
-    <h3>Derniers penus ajoutées</h3>
-    <table cellspacing="5">
-      <tr>
-        <th>Champs</th>
-        <th>Valeur</th>
+          <th>Marque</th>
+          <th>Nom</th>
+          <th>Diamètre</th>
+          <th>Structure</th>
+          <th>Largeur</th>
+          <th>Usage</th>
+          <th>Charge</th>
+          <th>Vitesse</th>
+          <th>Achat HT</th>
+          <th>Vente HT</th>
       </tr>
     </table>
 
@@ -158,10 +162,24 @@
     &copy; 2019 Repar'Tout
   </footer>
   
-  <script src="/rbaretto/TP_Web_reparTout/js/nav.js"></script>
   <script>
     
     // FONCTIONS APPELLEES
+
+    function showSpan(id) 
+    {
+      let e=document.getElementById(id);
+      if (e.style.display=='none') 
+      {
+        e.style.display='inline';
+        document.querySelector('button.edit').innerHTML='-';
+      }
+      else {
+        e.style.display='none';
+        document.querySelector('button.edit').innerHTML='+';
+      }
+    }
+
     function ajouterCategorie(nom, description)
     {
       let s='';
@@ -175,6 +193,7 @@
     }
     
     // FONCTIONS ECOUTEURS
+
     document.forms.ajout.onsubmit=function(event)
     {
       event.preventDefault();
@@ -191,6 +210,10 @@
     };
     
   </script>
+
+  <!-- ECRITURE DES MENUS LATERAUX -->
+  
+  <script src="../js/nav.js"></script>
 
 </body>
 </html>

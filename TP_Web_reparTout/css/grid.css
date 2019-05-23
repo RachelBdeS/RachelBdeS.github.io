@@ -1,3 +1,12 @@
+:root {
+  --couleur0: #111111FF;
+  --couleur1: #9D0D0FFF;
+  --couleur2: #EEEE00FF;
+  --couleur3: #FFFFFFFF;
+  --couleur4: #0f9D0DFF;
+  --couleur5: #00FF00FF;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,8 +16,8 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  color:#EEEE00;
-  background-color:#9D0D0F;
+  color: var(--couleur2);
+  background-color: var(--couleur1);
   display: grid;
   grid-template-rows: 100px 1fr 50px;
   grid-template-columns: 1fr 5fr 1fr;
@@ -17,53 +26,19 @@ body {
                        "F F F";
 }
 
+/*******************************/
+
 a:link, a:visited {
-  color: #EE0;
+  color: var(--couleur2);
   text-decoration:none;
 }
 
 a:hover {
-  color: #FFF;
+  color: var(--couleur3);
 }
 
 a:active {
-  color: #0F0;
-}
-
-/*******************************/
-
-header {
-  grid-area: H;
-  /*background: #0f9D0d url('../img/slide.jpg') left top no-repeat;*/
-  background-color: #0f9D0d;
-  background-image: url('../assets/slide.jpg');
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-size: cover;
-  padding: 10px 5px 15px;
-  border-bottom: 2px solid #fff;
-}
-
-header > img {
-  height:100%;
-}
-
-h2, h3 {
-  border-bottom: 2px solid #EE0;
-}
-
-h3 {
-  padding-top: 8px;
-}
-
-nav, section, aside {
-  /*display:flex;*/
-  min-height: 150vh;
-  padding: 10px;
-}
-
-nav {
-  grid-area: N;
+  color: var(--couleur5);
 }
 
 ul {
@@ -74,32 +49,78 @@ li {
   list-style:none;
 }
 
+/*******************************/
+
+header {
+  grid-area: H;
+  /*background: var (--couleur4); url('../img/slide.jpg') left top no-repeat;*/
+  background-color: var(--couleur4);
+  background-image: url('../assets/slide.jpg');
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: cover;
+  padding: 10px 5px 15px;
+  border-bottom: 2px solid var(--couleur1);
+}
+
+header > img {
+  height:100%;
+}
+
+h2, h3 {
+  border-bottom: 2px solid var(--couleur2);
+}
+
+h3 {
+  padding-top: 8px;
+}
+
+/*******************************/
+
+nav, #main, aside {
+  /*display:flex;*/
+  min-height: 150vh;
+  padding: 10px;
+}
+
+/*******************************/
+
+nav {
+  grid-area: N;
+}
+
 .navMenu a {
   display: block;
-  border: 1px solid #FFF;
+  border: 1px solid var(--couleur3);
   border-radius: 10px;
   padding: 2px;
   margin-bottom: 10px;
 }
 
 .navMenu a:hover {
-  color: #9D0D0F;
-  background-color: #EE0;
+  color: var(--couleur1);
+  background-color: var(--couleur2);
 
 }
 
-section {
+/*******************************/
+
+#main {
   grid-area: M;
-  background-color: #111111ff;
+  background-color: var(--couleur0);
 }
+
+/*******************************/
 
 aside {
   grid-area: A;
 }
 
 .asideMenu {
-  color: #FFF;
+  color: var(--couleur3);
 }
+
+/*******************************/
 
 footer {
   padding:10px;
@@ -108,30 +129,33 @@ footer {
   background-size:cover;
   background-position-y: -75px; 
   text-align:center;
-  color:#FFFF00;
-  border-top: 2px solid #FFFFFF;
+  color:var(--couleur2);
+  border-top: 2px solid var(--couleur3);
 }
+
+/*******************************/
+/* TABLES */
 
 table {
   width: 100%;
-  /* border: 1px solid #EE0; */
+  /* border: 1px solid var (--couleur2); */
   text-align: justify;
   border-collapse: collapse;
 }
 
 th {
   text-align: left;
-  /* border: 1px solid #FFF; */
+  /* border: 1px solid var (--couleur3); */
   padding:5px;
-  color: #FFF;
+  color: var(--couleur3);
   font-size: 1.2em;
 }
 
 td {
   text-align: left;
-  /* border: 1px solid #FFF; */
+  /* border: 1px solid var (--couleur3); */
   padding:5px;
-  color: default #CCC;
+  color: default var(--couleur3);
 }
 
 /*******************************/
@@ -143,10 +167,10 @@ label {
   margin-bottom: 20px;
 }
 
-input[type="text"], input[type="submit"] {
-  background-color: #333;
-  color: #FF0;
-  border: 1px solid #FF0;
+input {
+  background-color: #333333FF;
+  color: var(--couleur2);
+  border: 1px solid var(--couleur2);
   padding: 5px;
   border-radius: 1px;
   transition: all ease 0.8s;
@@ -155,7 +179,36 @@ input[type="text"], input[type="submit"] {
 
 input[type="submit"]:hover
 {
-  cursor:pointer;
-  box-shadow: 2px 2px 10px 1px #FFF;
+  cursor: pointer;
+  box-shadow: 2px 2px 10px 1px var(--couleur3);
 
+}
+
+/*******************************/
+.edit 
+{
+  width: 15px;
+  height: 15px;
+  margin-left: 9px;
+  padding: 0;
+  padding-right: 1px;
+  line-height: 0.5em;
+  font-size: 0.8em;
+  text-align: center;
+  border: solid transparent 1px;
+  border-radius: 5px;
+  color: var(--couleur2);
+  background-color: transparent;
+}
+
+.edit:hover
+{
+  border: solid var(--couleur2) 1px;
+  color: var(--couleur0);
+  background-color: var(--couleur2);
+}
+
+#editForm 
+{
+  display: inline;
 }

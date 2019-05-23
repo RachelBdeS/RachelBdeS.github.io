@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="/rbaretto/TP_Web_reparTout/assets/icone.png">
+  <link rel="icon" href="../assets/icone.png">
   <meta name="author" content="Rachel BARETTO">
   <meta name="description" content="Un site de services autour des voitures et des réparations.">
   <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
-  <link href="/rbaretto/TP_Web_reparTout/css/grid.css" rel="stylesheet">
-  <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
+  <link href="../css/grid.css" rel="stylesheet">
+  <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/grid.css -->
 </head>
 <body class="monBody monTexte">
   
   <header>
-    <img src="/rbaretto/TP_Web_reparTout/assets/logo.svg" alt="ReparTout Logo">
+    <img src="../assets/logo.svg" alt="ReparTout Logo">
   </header>
 
   <nav>
@@ -22,67 +22,73 @@
     </ul>
   </nav>
 
-  <section role="main">
+  <section role="main" id="main">
 
-    <h2 id="welcome">Clients</h2>
+    <h2 id="welcome">Clients<button class="edit" onclick="showSpan('editForm');">-</button></h2>
     <p>Voici les clients.</p>
-    <table cellspacing="5">
-      <tr>
-        <th>Champs</th>
-        <th>Valeur</th>
-      </tr>
-    </table>
 
-    <h3>Ajouter un client</h3>
-    <form action="" method="GET" name="ajout">
-      <label for="nom">Nom</label>
-      <input 
-        type="text" 
-        id="nom" 
-        name="nom" 
-        placeholder="Nom"
-        title="Doit contenir "
-        pattern="[\d\s]{2,}"
-        value="" 
-      ><br>
-      <label for="desc">Prénom</label>
-      <input 
-        type="text" 
-        id="prenom" 
-        name="prenom" 
-        placeholder="Prénom"
-        title="Doit contenir "
-        pattern="[\d\s]{2,}"
-        value=""
-      ><br>
-      <label for="nom">Adresse</label>
-      <input 
-        type="text" 
-        id="adresse" 
-        name="adresse" 
-        placeholder="Adresse"
-        title="Doit contenir "
-        pattern="[\d\s]{2,}"
-        value="" 
-      ><br>
-      <label for="nom">Téléphone</label>
-      <input 
-        type="text" 
-        id="tel" 
-        name="tel" 
-        placeholder="Téléphone"
-        title="Doit contenir "
-        pattern="[0-9]{10,15}"
-        value="" 
-      ><br>
-			<input type="submit">
-    </form>
+    <span id="editForm">
+      <h3>Ajouter un client</h3>
+      <form action="" method="GET" name="ajout">
+          <input
+            type="hidden" 
+            id="numero" 
+            name="numero" 
+            value="" 
+            pattern="[0-9]+"
+            readonly
+          ><br>
+        <label for="nom">Nom</label>
+        <input 
+          type="text" 
+          id="nom" 
+          name="nom" 
+          placeholder="Nom"
+          title="Doit contenir au moins deux caractères"
+          pattern="[a-zäâàëêéèïîöôüûÿ\s]i{2,}"
+          value="" 
+        ><br>
+        <label for="prenom">Prénom</label>
+        <input 
+          type="text" 
+          id="prenom" 
+          name="prenom" 
+          placeholder="Prénom"
+          title="Doit contenir au moins deux caractères"
+          pattern="[a-zäâàëêéèïîöôüûÿ\s]i{2,}"
+          value=""
+        ><br>
+        <label for="adresse">Adresse</label>
+        <input 
+          type="text" 
+          id="adresse" 
+          name="adresse" 
+          placeholder="Adresse"
+          title="Exemple: 1 bd. Chose"
+          pattern="[0-9]{1} {1}[a-zäâàëêéèïîöôüûÿ\s.]{2,} {1}[a-zäâàëêéèïîöôüûÿ\s\.]{2,}"
+          value="" 
+        ><br>
+        <label for="tel">Téléphone</label>
+        <input 
+          type="phone" 
+          id="tel" 
+          name="tel" 
+          placeholder="Téléphone"
+          title="Doit contenir au moins 10 chiffres sans espaces (le signe + est accepté)"
+          pattern="[0-9]{10,15}"
+          value="" 
+        ><br>
+        <input type="submit">
+      </form>
+    </span>
 
     <h3>Dernièrs clients ajoutés</h3>
     <table cellspacing="5">
       <tr>
         <th>Champs</th>
-        <th>Valeur</th>
+        <th>Prénom</th>
+        <th>Adresse</th>
+        <th>Téléphone</th>
       </tr>
     </table>
 
@@ -99,16 +105,32 @@
     &copy; 2019 Repar'Tout
   </footer>
   
-  <script src="/rbaretto/TP_Web_reparTout/js/nav.js"></script>
   <script>
     
     // FONCTIONS APPELLEES
-    function ajouterCategorie(nom, description)
+
+    function showSpan(id) 
+    {
+      let e=document.getElementById(id);
+      if (e.style.display=='none') 
+      {
+        e.style.display='inline';
+        document.querySelector('button.edit').innerHTML='-';
+      }
+      else {
+        e.style.display='none';
+        document.querySelector('button.edit').innerHTML='+';
+      }
+    }
+
+    function ajouterCategorie(nom, prenom, adresse, tel)
     {
       let s='';
       s+='<tr>'
       s+= '<td>'+nom+'</td>';
-      s+= '<td>'+description+'</td>';
+      s+= '<td>'+prenom+'</td>';
+      s+= '<td>'+adresse+'</td>';
+      s+= '<td>'+tel+'</td>';
       s+='</tr>';
       document.querySelector('table').innerHTML+=s;
       return true;
@@ -116,6 +138,7 @@
     }
     
     // FONCTIONS ECOUTEURS
+    
     document.forms.ajout.onsubmit=function(event)
     {
       event.preventDefault();
@@ -132,6 +155,10 @@
     };
     
   </script>
+
+  <!-- ECRITURE DES MENUS LATERAUX -->
+
+  <script src="/rbaretto/TP_Web_reparTout/js/nav.js"></script>
 
 </body>
 </html>
