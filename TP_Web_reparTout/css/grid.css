@@ -36,7 +36,7 @@ header {
   grid-area: H;
   /*background: #0f9D0d url('../img/slide.jpg') left top no-repeat;*/
   background-color: #0f9D0d;
-  background-image: url('../ressources/slide.jpg');
+  background-image: url('../assets/slide.jpg');
   background-repeat: no-repeat;
   background-position: left top;
   background-size: cover;
@@ -104,7 +104,7 @@ aside {
 footer {
   padding:10px;
   grid-area: F;
-  background: url('../ressources/banner.jpg') no-repeat left top;
+  background: url('../assets/banner.jpg') no-repeat left top;
   background-size:cover;
   background-position-y: -75px; 
   text-align:center;

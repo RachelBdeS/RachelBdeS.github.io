@@ -3,33 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="./ressources/icone.png">
+  <link rel="icon" href="/rbaretto/TP_Web_reparTout/assets/icone.png">
   <meta name="author" content="Rachel BARETTO">
   <meta name="description" content="Un site de services autour des voitures et des réparations.">
   <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
-  <link href="./css/grid.css" rel="stylesheet">
+  <link href="/rbaretto/TP_Web_reparTout/css/grid.css" rel="stylesheet">
   <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
 </head>
 <body class="monBody monTexte">
   
   <header>
-    <img src="./ressources/logo.svg" alt="ReparTout Logo">
+    <img src="/rbaretto/TP_Web_reparTout/assets/logo.svg" alt="ReparTout Logo">
   </header>
 
   <nav>
     <h3><a href="#">Menu</a></h3>
-    <ul class="navMenu">
-      <li><a href="#">Catégories</a></li>
-      <li><a href="./catalogue/index.html">Catalogue</a></li>
-      <li><a href="./clients/index.html">Clients</a></li>
-      <li><a href="#">Commandes</a></li>
+    <ul class="navMenu" id="nav">
     </ul>
   </nav>
 
   <section role="main">
 
     <h2 id="welcome">Bienvenue</h2>
-
     <p>Bienvenue sur votre site de gestion de catalogue.</p>
 
     <h3>Ajouter une catégorie</h3>
@@ -80,8 +75,8 @@
   <footer id="footer">
     &copy; 2019 Repar'Tout
   </footer>
-</body>
   
+  <script src="/rbaretto/TP_Web_reparTout/js/nav.js"></script>
   <script>
     
     // FONCTIONS APPELLEES
@@ -114,4 +109,6 @@
     };
     
   </script>
+  
+</body>
 </html>
