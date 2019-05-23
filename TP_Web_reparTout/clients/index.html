@@ -85,7 +85,7 @@
     <h3>Dernièrs clients ajoutés</h3>
     <table cellspacing="5">
       <tr>
-        <th>Champs</th>
+        <th>Numéro</th>
         <th>Prénom</th>
         <th>Adresse</th>
         <th>Téléphone</th>
@@ -106,6 +106,9 @@
   </footer>
   
   <script>
+
+    // DECLRATIONS PUBLIQUES
+    var numero=0;
     
     // FONCTIONS APPELLEES
 
@@ -123,10 +126,12 @@
       }
     }
 
-    function ajouterCategorie(nom, prenom, adresse, tel)
+    function ajouterClient(nom, prenom, adresse, tel)
     {
+      numero++;
       let s='';
       s+='<tr>'
+      s+= '<td>'+numero+'</td>';
       s+= '<td>'+nom+'</td>';
       s+= '<td>'+prenom+'</td>';
       s+= '<td>'+adresse+'</td>';
@@ -143,15 +148,10 @@
     {
       event.preventDefault();
       var nom=document.forms.ajout.nom;
-      var desc=document.forms.ajout.desc;
-      
-      if (nom.value.match(nom.pattern))
-      {
-        ajouterCategorie(nom.value, desc.value);
-        return true;
-      }
-      
-      return false;
+      var nom=document.forms.ajout.prenom;
+      var nom=document.forms.ajout.adresse;
+      var nom=document.forms.ajout.tel;
+      ajouterClient(nom.value, prenom.value, adresse.value, tel.value);
     };
     
   </script>
