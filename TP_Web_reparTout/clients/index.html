@@ -7,64 +7,86 @@
   <meta name="author" content="Rachel BARETTO">
   <meta name="description" content="Un site de services autour des voitures et des réparations.">
   <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
-  <link href="./css/grid.css" rel="stylesheet">
+  <link href="../css/grid.css" rel="stylesheet">
   <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/fixed.css -->
 </head>
 <body class="monBody monTexte">
   
   <header>
-    <img src="./ressources/logo.svg" alt="ReparTout Logo">
+    <img src="../ressources/logo.svg" alt="ReparTout Logo">
   </header>
 
   <nav>
     <h3><a href="#">Menu</a></h3>
     <ul class="navMenu">
-      <li><a href="#">Catégories</a></li>
-      <li><a href="./catalogue/index.html">Catalogue</a></li>
-      <li><a href="./clients/index.html">Clients</a></li>
+      <li><a href="../index.html">Catégories</a></li>
+      <li><a href="../catalogue/index.html">Catalogue</a></li>
+      <li><a href="#">Clients</a></li>
       <li><a href="#">Commandes</a></li>
     </ul>
   </nav>
 
   <section role="main">
 
-    <h2 id="welcome">Bienvenue</h2>
+    <h2 id="welcome">Clients</h2>
+    <p>Voici les clients.</p>
+    <table cellspacing="5">
+      <tr>
+        <th>Champs</th>
+        <th>Valeur</th>
+      </tr>
+    </table>
 
-    <p>Bienvenue sur votre site de gestion de catalogue.</p>
-
-    <h3>Ajouter une catégorie</h3>
+    <h3>Ajouter un client</h3>
     <form action="" method="GET" name="ajout">
       <label for="nom">Nom</label>
       <input 
         type="text" 
         id="nom" 
         name="nom" 
+        placeholder="Nom"
+        title="Doit contenir "
+        pattern="[\d\s]{2,}"
         value="" 
-        placeholder="Nom de la catégorie"
-        title="Doit contenir 2 à 8 caractères"
-        pattern="[a-zA-Z0-9\s]+"
       ><br>
-      <label for="desc">Description</label>
+      <label for="desc">Prénom</label>
       <input 
         type="text" 
-        id="catDescription" 
-        name="desc" 
+        id="prenom" 
+        name="prenom" 
+        placeholder="Prénom"
+        title="Doit contenir "
+        pattern="[\d\s]{2,}"
         value=""
-        placeholder="Description de la catégorie"
-        pattern="[a-zA-Z]+"
+      ><br>
+      <label for="nom">Adresse</label>
+      <input 
+        type="text" 
+        id="adresse" 
+        name="adresse" 
+        placeholder="Adresse"
+        title="Doit contenir "
+        pattern="[\d\s]{2,}"
+        value="" 
+      ><br>
+      <label for="nom">Téléphone</label>
+      <input 
+        type="text" 
+        id="tel" 
+        name="tel" 
+        placeholder="Téléphone"
+        title="Doit contenir "
+        pattern="[0-9]{10,15}"
+        value="" 
       ><br>
 			<input type="submit">
     </form>
-    
-    <h3>Dernières catégories ajoutées</h3>
+
+    <h3>Dernièrs clients ajoutés</h3>
     <table cellspacing="5">
       <tr>
-        <th>Nom</th>
-        <th>Description</th>
-      </tr>
-      <tr>
-        <td>pneus</td>
-        <td>Pneus pour voiture, motos et poids-lourds</td>
+        <th>Champs</th>
+        <th>Valeur</th>
       </tr>
     </table>
 
