@@ -45,7 +45,7 @@
           name="nom" 
           placeholder="Nom"
           title="Doit contenir au moins deux caractères"
-          pattern="[a-zäâàëêéèïîöôüûÿ\s]i{2,}"
+          pattern="[\w\s\-]{2,}"
           value="" 
         ><br>
         <label for="prenom">Prénom</label>
@@ -55,7 +55,7 @@
           name="prenom" 
           placeholder="Prénom"
           title="Doit contenir au moins deux caractères"
-          pattern="[a-zäâàëêéèïîöôüûÿ\s]i{2,}"
+          pattern="[\w\s\-]{2,}"
           value=""
         ><br>
         <label for="adresse">Adresse</label>
@@ -65,7 +65,7 @@
           name="adresse" 
           placeholder="Adresse"
           title="Exemple: 1 bd. Chose"
-          pattern="[0-9]{1} {1}[a-zäâàëêéèïîöôüûÿ\s.]{2,} {1}[a-zäâàëêéèïîöôüûÿ\s\.]{2,}"
+          pattern="\d{1} {1}[\w\s\-\.]{2,} {1}[\w\s\-\.]{2,}"
           value="" 
         ><br>
         <label for="tel">Téléphone</label>
