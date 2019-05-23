@@ -24,7 +24,7 @@
 
   <section role="main" id="main">
 
-    <h2 id="welcome">Pneus<button class="edit" onclick="showSpan('editForm');">-</button></h2>
+    <h2 id="welcome">Pneus<button class="edit" onclick="showSpan('editForm');"" title="">-</button></h2>
     <p>Voici les pneus.</p>
 
     <span id="editForm">
@@ -35,26 +35,26 @@
           type="text" 
           id="nom" 
           name="nom" 
-          value="" 
-          placeholder="Marque"
+          placeholder="Nom"
           title=""
           pattern="[a-zA-Z0-9\s]+"
+          value="" 
         ><br>
         <label for="nom">Nom</label>
         <input 
           type="text" 
-          id="nom" 
-          name="nom" 
-          value="" 
-          placeholder="Nom"
+          id="marque" 
+          name="marque" 
+          placeholder="Marque"
           title=""
           pattern="[a-zA-Z0-9\s]+"
+          value="" 
         ><br>
         <label for="desc">Diamètre</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="diametre" 
+          name="diametre" 
           value=""
           placeholder="Diamètre"
           title=""
@@ -63,8 +63,8 @@
         <label for="desc">Structure</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="structure" 
+          name="structure" 
           value=""
           placeholder="Structure"
           title=""
@@ -73,8 +73,8 @@
         <label for="desc">Largeur</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="largeur" 
+          name="largeur" 
           value=""
           placeholder="Largeur"
           title=""
@@ -83,8 +83,8 @@
         <label for="desc">Usage</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="usage" 
+          name="usage" 
           value=""
           placeholder="Usage"
           title=""
@@ -93,8 +93,8 @@
         <label for="desc">Indice de charge</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="charge" 
+          name="charge" 
           value=""
           placeholder="Indice de charge"
           title=""
@@ -103,8 +103,8 @@
         <label for="desc">Indice de vitesse</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="vitesse" 
+          name="vitesse" 
           value=""
           placeholder="Indice de vitesse"
           title=""
@@ -113,8 +113,8 @@
         <label for="desc">Prix d'achat HT</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="pxAchatHT" 
+          name="pxAchatHT" 
           value=""
           placeholder="Prix d'achat HT"
           pattern="[a-zA-Z]+"
@@ -122,14 +122,14 @@
         <label for="desc">Prix de vente HT</label>
         <input 
           type="text" 
-          id="catDescription" 
-          name="desc" 
+          id="pxVenteHT" 
+          name="pxVenteHT" 
           value=""
           placeholder="Prix de vente HT"
           title="" 
           pattern="[a-zA-Z]+"
         ><br>
-        <input type="submit">
+        <label></label><input type="submit">
       </form>
     </span>
 
@@ -164,6 +164,10 @@
   
   <script>
     
+    // DECLRATIONS PUBLIQUES
+    
+    var numero=0; //TEMP
+    
     // FONCTIONS APPELLEES
 
     function showSpan(id) 
@@ -173,19 +177,29 @@
       {
         e.style.display='inline';
         document.querySelector('button.edit').innerHTML='-';
+        document.querySelector('button.edit').title='Modifier';
       }
       else {
         e.style.display='none';
         document.querySelector('button.edit').innerHTML='+';
+        document.querySelector('button.edit').title='Reduire';
       }
     }
 
-    function ajouterCategorie(nom, description)
+    function ajouterCategorie(nom, marque, diametre, structure, largeur, usage, iCharge, iVitesse, pxAchatHT, pxVenteHT)
     {
       let s='';
       s+='<tr>'
       s+= '<td>'+nom+'</td>';
-      s+= '<td>'+description+'</td>';
+      s+= '<td>'+marque+'</td>';
+      s+= '<td>'+diametre+'</td>';
+      s+= '<td>'+structure+'</td>';
+      s+= '<td>'+largeur+'</td>';
+      s+= '<td>'+usage+'</td>';
+      s+= '<td>'+iCharge+'</td>';
+      s+= '<td>'+iVitesse+'</td>';
+      s+= '<td>'+pxAchatHT+'</td>';
+      s+= '<td>'+pxVenteHT+'</td>';
       s+='</tr>';
       document.querySelector('table').innerHTML+=s;
       return true;
@@ -198,11 +212,11 @@
     {
       event.preventDefault();
       var nom=document.forms.ajout.nom;
-      var desc=document.forms.ajout.desc;
+      var marque=document.forms.ajout.marque;
       
       if (nom.value.match(nom.pattern))
       {
-        ajouterCategorie(nom.value, desc.value);
+        ajouterCategorie(nom.value, marque.value);
         return true;
       }
       
