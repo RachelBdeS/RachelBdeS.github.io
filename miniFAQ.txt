@@ -1,4 +1,4 @@
-<!-- 
+﻿<!-- 
 ------------------------------------------------------------
 • Normes pour le Référencement + nouveautés HTML5
   Squelette HTML (à copier-coller dans les nouveaux fichiers vierges)
@@ -423,3 +423,21 @@ A rédiger dans ma FAQ
 • HTML: <script type="./fichier.json">
   écriture de la structure du json
   </script>
+
+• SQL: Syntax dans un fichier .sql :
+
+INSERT INTO `<table_mysql>` /* OU [<table_sqlserver>] OU <nom_de_table_non_reservés_par_la_bdd> */
+(
+  `champs_sous_mysql`, 
+  `champs_sous_mysql` 
+  /* OU [champs_sous_sqlserver] OU nom_de_champs_non_reservés_par_la_bdd */
+)
+VALUES 
+('<valeur>', '<valeur>'),
+('<valeur>','<valeur>');
+
+INSERT INTO <table>
+(<champs>, <champs>)
+VALUES 
+('<valeur>', '<valeur>'),
+('<valeur>','<valeur>');

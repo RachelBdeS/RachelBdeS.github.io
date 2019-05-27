@@ -11,7 +11,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO clients (nom_client, prenom_client, adresse_client, tel_client) VALUES ("& nom &", "& prenom &", "& adresse &", "& tel &")";
+$sql = "ooo";
 
 
 if (mysqli_query($conn, $sql)) {
