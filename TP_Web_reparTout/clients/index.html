@@ -13,7 +13,7 @@
 <body class="monBody monTexte">
   
   <header>
-    <a href="/"><img src="./assets/logo.svg" alt="Logo de ReparTout"></a>
+    <a href="/"><img src="../assets/logo.svg" alt="Logo de ReparTout"></a>
   </header>
 
   <nav>
@@ -109,11 +109,9 @@
   <script>
 
     // DECLRATIONS PUBLIQUES
-
     var numero=0; //TEMP
 
-    // FONCTIONS APPELEES
-    
+    // FONCTIONS APPELEES  
     function ajouterClient(nom, prenom, adresse, tel)
     {
       numero++; //TEMP
@@ -131,7 +129,6 @@
     }
     
     // FONCTIONS ECOUTEURS
-    
     document.forms.ajout.onsubmit=function(event)
     {
       event.preventDefault();
@@ -145,10 +142,10 @@
   </script>
 
   <!-- ECRITURE DES MENUS LATERAUX -->
-  <script src="./js/nav.js"></script>
+  <script src="../js/nav.js"></script>
   
   <!-- FONCTIONS GLOBALES -->
-  <script src="./js/fonctions.js"></script>
+  <script src="../js/fonctions.js"></script>
 
 </body>
 </html>
