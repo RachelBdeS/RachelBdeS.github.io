@@ -63,8 +63,8 @@ header {
   border-bottom: 2px solid var(--couleur1);
 }
 
-header > img {
-  height:100%;
+img[alt="Logo de ReparTout"] {
+  height: 100%;
 }
 
 h2, h3 {

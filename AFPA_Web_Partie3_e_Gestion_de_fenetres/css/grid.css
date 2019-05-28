@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:600&amp;subset=latin-ext");
+
+:root {
+  --c1: #ffffffdd;
+  --c2: #444444ff;
+  --c3: #555555ff;
+  --c4: #5d6ea180;
+  --p1: "Arial" "Helvetica" sans-serif;
+  --p2: "Dosis";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-size-adjust: auto;
+  font-size: 2em;
+}
+
+form {
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  width: 50%;
+  white-space: nowrap;
+  grid-template-columns: 41% 59%;
+  grid-column-gap: 0;
+  grid-row-gap: 1px;
+}
+
+label {
+  display: block;
+  grid-column: 1;
+  width: 100%;
+  border: solid #ffffff00 1px;
+  padding-left: 5px;
+}
+
+h1
+{
+  white-space: normal;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  cursor: default;
+}
+
+body,
+input[type="text"]:not(#toast), 
+input[type="number"], 
+input[type="email"] 
+{
+  color: var(--c1);
+  background-color: var(--c2);
+  font-family: var(--p2);
+}
+
+input[type="text"]:not(#toast), 
+input[type="number"], 
+input[type="email"] 
+{
+  font-size: 1em;
+  display: block;
+  grid-column: 2;
+  width: 100%;
+  border: dotted var(--c4);
+  padding-left: 5px;
+  border-width: 0 0 1px 0;
+}
+
+input[type="submit"] 
+{
+  color: var(--c3);
+  background-color: #ffffffaa;
+  font-family: var(--p2);
+  border-radius: 0  0 8px 8px;
+  white-space: normal;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  cursor: default;
+}
+
+input[type="submit"]:hover 
+{
+  box-shadow: 2px 2px 2px #ffffff44;
+}
+
+input[type="submit"]:active 
+{
+  box-shadow: 0;
+}
+
+input[type="text"]:invalid 
+input[type="number"]:invalid 
+input[type="email"]:invalid 
+{
+  border-color:#bd0000ff;
+}
+
+#toast 
+{
+  font-size: 0.7em;
+  display: block;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: default;
+  color:#bd0000ff;
+}

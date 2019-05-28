@@ -1,0 +1,54 @@
+<!-- A FAIRE 
+  • Page à appeler via le formulaire
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <link href="./css/grid.css" rel="stylesheet"> -->
+    <title>Ouverture de fenêtres</title>
+    <style>
+      button 
+      {
+        display: block;
+        margin-bottom: 15px;
+      }
+      img
+      {
+        width: 70px;
+        display: block;
+        margin-bottom: 50px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  
+  <body role="main">
+
+    <!--#region HTML -->
+    <h4>Cliquez sur l'image pour ouvrir une nouvelle fenêtre</h4>
+    <img id="image" src="./img/panneau.png" alt="Panneau d'avertissement">
+    <p>Cliquez sur le bouton pour fermer la nouvelle fenetre</p>
+    <button id="btnFermer" onmouseup="popup.close()">Fermer la nouvelle fenêtre</button>
+    <button id="btnDeplacer">Déplacer</button>
+    <button id="btnReduire">Réduit</button>
+    <!--#endregion -->
+    <script>
+    // LISTERNER sur un champs de formulaire
+    var popup;
+    
+    document.getElementById('image').onmouseup=function()
+    {
+      fen = window.open("","nom_popup","menubar=no, status=no, scrollbars=no, menubar=no, width=250, height=150");
+      var contenu='';
+      contenu+='<body style="color: green">';
+      contenu+='Je suis la nouvelle fenêtre<br>';
+      contenu+='<button onmouseup="opener.close()">Fermer la fenêtre parent</button>'; //BUG
+      contenu+='<p><button onmouseup="self.close()">Fermer moi</button></p>';
+      contenu+='</body>';
+      fen.document.write(contenu);
+    }
+
+    </script>
+  </body>
+</html>
