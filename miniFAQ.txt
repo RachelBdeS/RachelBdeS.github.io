@@ -424,20 +424,36 @@ A rédiger dans ma FAQ
   écriture de la structure du json
   </script>
 
-• SQL: Syntax dans un fichier .sql :
 
-INSERT INTO `<table_mysql>` /* OU [<table_sqlserver>] OU <nom_de_table_non_reservés_par_la_bdd> */
+• SQL: Syntax dans un fichier .sql
+
+-- Commentaire
+/* Commentaire */
+
+-- Un seul enregistrement à la fois: 
+INSERT INTO `<table_mysql>` 
+            -- OU [<table_sqlserver>] 
+            -- OU <nom_de_table_non_reservés_par_la_bdd>
 (
-  `champs_sous_mysql`, 
-  `champs_sous_mysql` 
-  /* OU [champs_sous_sqlserver] OU nom_de_champs_non_reservés_par_la_bdd */
+  `<champs_sous_mysql>`
+  -- OU [<champs_sous_sqlserver>] 
+  -- OU <nom_de_champs_non_reservés_par_la_bdd>
 )
 VALUES 
-('<valeur>', '<valeur>'),
-('<valeur>','<valeur>');
+(
+  '<valeur>'
+)
 
+-- Plusieurs enregistrements en même temps: 
 INSERT INTO <table>
 (<champs>, <champs>)
 VALUES 
+// Ligne 1:
 ('<valeur>', '<valeur>'),
+// Ligne 2:
 ('<valeur>','<valeur>');
+-- Autre syntaxe:
+INSERT INTO <table> (<champs>, <champs>) VALUES ('<valeur>', '<valeur>'), ('<valeur>', '<valeur>');
+-- Autre syntaxe:
+INSERT INTO <table> (<champs>, <champs>) 
+VALUES ('<valeur>', '<valeur>'), ('<valeur>', '<valeur>');
