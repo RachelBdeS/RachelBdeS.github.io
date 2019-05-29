@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <!-- <link href="./css/grid.css" rel="stylesheet"> -->
     <title>Ouverture de fenêtres</title>
+    <link rel="icon" href="./img/icone.ico">
     <style>
       button 
       {
@@ -30,23 +31,26 @@
     <img id="image" src="./img/panneau.png" alt="Panneau d'avertissement">
     <p>Cliquez sur le bouton pour fermer la nouvelle fenetre</p>
     <button id="btnFermer" onmouseup="popup.close()">Fermer la nouvelle fenêtre</button>
-    <button id="btnDeplacer">Déplacer</button>
-    <button id="btnReduire">Réduit</button>
+    <button id="btnDeplacer" onmouseup="popup.moveBy(50,0)">Déplacer</button> <!-- ooo -->
+    <button id="btnReduire" onmouseup="popup.minimize()">Réduit</button> <!-- ooo -->
     <!--#endregion -->
     <script>
-    // LISTERNER sur un champs de formulaire
+
+    // DECLARATIONS
     var popup;
-    
+
+    // LISTERNER sur un champs de formulaire
     document.getElementById('image').onmouseup=function()
     {
-      fen = window.open("","nom_popup","menubar=no, status=no, scrollbars=no, menubar=no, width=250, height=150");
-      var contenu='';
-      contenu+='<body style="color: green">';
+      let contenu;
+      popup=window.open('','','menubar=no, status=no, scrollbars=no, top=300, left=500, menubar=no, width=250, height=150');
+      popup.title='Nouvelle fenêtre';
+      contenu='<body style="color: green">';
       contenu+='Je suis la nouvelle fenêtre<br>';
       contenu+='<button onmouseup="opener.close()">Fermer la fenêtre parent</button>'; //BUG
       contenu+='<p><button onmouseup="self.close()">Fermer moi</button></p>';
       contenu+='</body>';
-      fen.document.write(contenu);
+      popup.document.write(contenu);
     }
 
     </script>
