@@ -1,3 +1,12 @@
+USE repartout
+
+SET FOREIGN_KEY_CHECKS
+/* Désactive le control des relations entre les tables. Permet de modifier des tables sans respecter les critères d'ordre de creation ou de suppression imposés par leurs relations. */
+
+--Vide, puis crée la table fournisseurs:
+
+DELETE FROM fournisseurs /* Pour PHP my ADMIN : empeche l'option "verification des clées étrangères" de la section INSERESION ds=des BDD de PHPmyAdmin d'outrepasser la commande SET GLOBAL FOREIGN_KEY_CHECKS*/
+TRUNCATE TABLE fournisseurs
 INSERT INTO fournisseurs 
 (
   nom_fournisseur, 
@@ -8,8 +17,17 @@ VALUES (
   'Pneus pour tous', 
   '03.89.89.89.87', 
   '11 rue de Mulhouse 68400 Riedisheim'
+),
+(
+  '',
+  '',
+  ''
 );
 
+--Vide, puis crée la table pneus:
+
+DELETE FROM pneus /* Pour PHP my ADMIN */
+TRUNCATE TABLE pneus
 INSERT INTO pneus 
 (
   nom_pneu, 
