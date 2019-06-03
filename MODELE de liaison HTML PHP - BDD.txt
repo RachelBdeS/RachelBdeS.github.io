@@ -1,0 +1,119 @@
+<?php
+/* MODELE de liaison HTML PHP - BDD */
+
+$host="localhost";
+$port=3306;
+$socket="";
+$user="root";
+$password="";
+$dbname="repartout";
+
+$con = new mysqli($host, $user, $password, $dbname, $port, $socket)
+	or die ('Could not connect to the database server' . mysqli_connect_error());
+
+//$con->close();
+
+$query = "
+
+/*
+SQL's Data Definition Language (DDL) defines the database schema:
+
+CREATE – is used to create the database or its objects (like table, index, function, views, store procedure and triggers).
+DROP – is used to delete objects from the database.
+ALTER-is used to alter the structure of the database.
+TRUNCATE réinitialize toutes les lignes y compris les données readonly, les auto-incréments, et les espaces de remplissage des champts à taille fixe
+COMMENT –is used to add comments to the data dictionary.
+RENAME –is used to rename an object existing in the database.
+
+SQL's Data Manipulation Language (DML) manipulates data: 
+
+SELECT – is used to retrieve data from the a database.
+INSERT – is used to insert data into a table.
+UPDATE – is used to update existing data within a table.
+DELETE réinitialize les champs modifiables des lignes
+
+SQL's Data Control Language (DCL) controls permissions and rights:
+
+GRANT-gives user’s access privileges to database.
+REVOKE-withdraw user’s access privileges given by using the GRANT command.
+
+SQL's Transaction Control Language (TCL) deals with internal transactions:
+
+COMMIT– commits a Transaction.
+ROLLBACK– rollbacks a transaction in case of any error occurs.
+SAVEPOINT
+SET TRANSACTION
+
+RegEx:
+
+- WHERE <champs> LIKE '...'
+- One character: _ 
+- Any number of characters: % 
+- Everything: *
+- Commence par un caractère compris entre a et d: "[a-d]%"
+
+Fonctions: 
+
+- AVG() 
+- MIN() 
+- MAX() 
+- SUM() 
+- COUNT()
+
+*/
+
+
+USE repartout;  
+
+SET FOREIGN_KEY_CHECKS=0; 
+/* Désactive le control des relations entre les tables. Permet de modifier des tables sans respecter les critères d'ordre de creation ou de suppression imposés par leurs relations. 
+
+TRUNCATE TABLE fournisseurs;  
+
+INSERT INTO fournisseurs (   
+nom_fournisseur,    
+tel_fournisseur,    
+adresse_fournisseur )  
+VALUES  ('Pneus pour tous', '03.89.89.89.87', '11 rue de Mulhouse 68400 Riedisheim');  
+
+TRUNCATE TABLE pneus;  
+
+INSERT INTO pneus  (   
+nom_pneu,    
+marque_pneu,    
+diametre_pneu,    
+structure_pneu,    
+largeur_pneu,    
+usage_pneu,    
+indice_charge_pneu,    
+indice_vitesse_pneu,    
+prix_achat_ht,    
+prix_vente_ht,    
+id_fournisseur ) 
+VALUES  ('RX25', 'michelin', '15', 'radial', '185', '4 saisons', '3500', '240', '19', '99','1'), 
+('RX28', 'michelin', '15', 'radial', '185', '4 saisons', '3500', '240', '19', '99','1'), 
+('RX21', 'michelin', '15', 'radial', '185', '4 saisons', '3500', '240', '19', '99','1'), 
+('RX29', 'michelin', '15', 'radial', '185', '4 saisons', '3500', '240', '19', '99','1'); 
+ 
+UPDATE pneus SET  
+diametre_pneu='16',  prix_vente_ht='175.54'  
+WHERE nom_pneu LIKE '%8';  
+
+UPDATE pneus SET  
+diametre_pneu='16',  prix_vente_ht='175.54' 
+WHERE diametre_pneu IN('15', '16', '17')
+
+";
+
+
+if ($stmt = $con->prepare($query)) 
+{
+    $stmt->execute();
+    $stmt->bind_result($field1, $field2);
+    while ($stmt->fetch()) {
+        //printf("%s, %s\n", $field1, $field2);
+    }
+    $stmt->close();
+}
+
+?>
