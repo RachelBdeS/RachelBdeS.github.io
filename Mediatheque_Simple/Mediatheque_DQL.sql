@@ -42,7 +42,7 @@ FROM acteurs AS a
 JOIN roles AS r ON a.id_acteur = r.id_acteur
 JOIN films AS f ON  r.id_film = f.id_film
 WHERE f.titre = 'Bienvenue à Gattaca';
-
+ 
 -- Afficher tous les acteurs(nom et prenom), les films dans lesquels ils jouent et leur personnage
 SELECT a.prenom, a.nom, f.titre, r.personnage 
 FROM acteurs AS a, films AS f, roles AS r
@@ -55,15 +55,21 @@ FROM acteurs AS a
 JOIN roles AS r ON a.id_acteur = r.id_acteur
 JOIN films AS f ON r.id_film = f.id_film;
 
--- A debogger : 
-SELECT acteurs.id_acteur, COUNT(roles.personnage),
-    CASE 
-        WHEN COUNT(roles.personnage) = 2 THEN 
-            SELECT acteurs.prenom, acteurs.nom, films.titre, roles.personnage, films.titre, roles.personnage
-        ELSE 
-            SELECT acteurs.prenom, acteurs.nom, films.titre, roles.personnage
-    END
-FROM acteurs
-JOIN roles ON acteurs.id_acteur = roles.id_acteur 
-JOIN films ON roles.id_film = films.id_film
+
+
+-- Pas au point -- 
+SELECT acteurs.id_acteur AS ceci, acteurs.prenom, acteurs.nom, COUNT(roles.personnage) AS nb, films.titre, 
+CASE 
+    WHEN (COUNT(roles.personnage)>1) AND roles.personnage IN(
+        SELECT roles.personnage
+        FROM acteurs, roles
+        WHERE acteurs.id_acteur = roles.id_acteur
+        AND acteurs.id_acteur = ceci
+        ORDER BY roles.personnage DESC 
+    ) THEN films.titre
+    ELSE ''
+END AS ''
+FROM acteurs, roles, films
+WHERE acteurs.id_acteur = roles.id_acteur
+AND roles.id_film = films.id_film
 GROUP BY acteurs.id_acteur;
