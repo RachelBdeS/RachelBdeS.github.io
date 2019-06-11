@@ -425,7 +425,7 @@ A rédiger dans ma FAQ
   </script>
 
 ------------------------------------------------------------
-SQL
+====== SQL ======
 ------------------------------------------------------------
 
 • SQL: 
@@ -565,7 +565,11 @@ ROLLBACK– rollbacks a transaction in case of any error occurs.
 SAVEPOINT
 SET TRANSACTION
 
-• MODELE de liaison HTML PHP - BDD :
+------------------------------------------------------------
+====== PHP ======
+------------------------------------------------------------
+
+• MODELE de liaison HTML/PHP - BDD :
 
 <?php
 $host="localhost";
@@ -600,3 +604,21 @@ if ($stmt = $con->prepare($query))
     $stmt->close();
 }
 ?>
+
+• Exemple  de recupération des données passées en GET : 
+
+<code html>
+<?php
+  $saisie = "toi";
+  echo '<h3>Salut, '.$saisie.' !</h3>'; // Est interprété plus rapidement.
+  echo "<h3>Salut, $saisie !</h3>"; // Est plus sécurité. Si le texte est écrit entre "...", les variables incluses dedans sont reconnues et interprétées.
+  // Si: http://localhost/<chemin>.php?nom=Dupont&age=53
+  $nom = $_GET['nom'];
+  $age = $_GET['age'];
+  echo "Bienvenue, $nom. Vous avez $age ans. ";
+?>
+
+• Convertir un string en entier : intval(<string>)
+NB: Si la valeur n'est pas convertible, 0 sera renvoyé.
+
+• NB: Toutes les variables commencant par une "_" sont en lecture seule.
