@@ -1,0 +1,14 @@
+Acces à la BDD MySQL sous Wamp en CLI : 
+(Pour modifier plus rapidement une BDD qu'on le pourrait en démarrant un logiciel)
+
+"cd c:/wamp64/bin/mysql/mysql15.7.19/bin"
+"mysql -u <identifiant> -p"
+"<mot de passe maitenant>"
+
+"show databases;" Affiche les bases
+"use <base choisir>"
+"show tables;" Affiche les tables
+"<requête sql>" Affichera les resultats de la requête
+
+"quit" Pour clore la session par sécurité et pour libérer la base de données afin qu'elle puisse être ouverte depuis un autre 
+terminal
