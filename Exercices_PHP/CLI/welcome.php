@@ -8,30 +8,58 @@
 
 /* PHP en CLI • SCRIPT MODELE POUR MA FAQ */
 
+// Déclarations publiques
+$input;
+
+// Fonction appelée
+function isValidDigit($maxChars)
+{
+  $digit=false;
+  do
+  {
+    $input = trim(fgets(STDIN));
+    if (!is_numeric ($input))
+    {
+      echo "(Invalid. Digits only, remember?) Please confirm: ";
+    }
+    else if (!$maxChars='' && strlen ($input) > $maxChars)
+    {
+      echo "(Invalid. $maxChars digits max, remember?) Please confirm: ";
+    }
+    else {
+      $digit=true;
+    }
+  }
+  while (!$digit);
+  return $input;
+}
+
+// Fonction principale 
+
 // Menu (liste des options) en CLI
-echo "CHOOSE A PROGRAM";
-echo PHP_EOL.PHP_EOL;
-echo '[1] Display your chosen name';
-echo PHP_EOL.PHP_EOL;
-echo "[2] Calaculate the sum of two chosen numbers";
-echo PHP_EOL.PHP_EOL;
-echo "[3] Calculate age from a chosen date of birth";
-echo PHP_EOL.PHP_EOL;
+echo "----------------".PHP_EOL;
+echo "CHOOSE A PROGRAM".PHP_EOL;
+echo "----------------".PHP_EOL;
+echo "[1] Display your chosen name".PHP_EOL;
+echo "[2] Calaculate the sum of two chosen numbers".PHP_EOL;
+echo "[3] Calculate age from a chosen date of birth".PHP_EOL;
 echo "[4] Display files of a chosen repertory";
-echo PHP_EOL.PHP_EOL;
+
 do 
 {
+  echo PHP_EOL.PHP_EOL;
   // Récupère la saisie de l'utilisateur
   echo "YOU CHOICE: ";
-  $saisie = trim(fgets(STDIN)); /* Il est nécessaire de trimer le retour chariot pour qu'il ne soit pas pris en compte */
-  
-  echo chr(27).chr(91).'H'.chr(27).chr(91).'J';
+  $saisie = trim(fgets(STDIN)); /* Il est nécessaire de trimer le retour chariot pour qu'il ne soit pas pris en compte */;
 
   // Selon la saisie utilisateur,
   switch ($saisie)
   {
-    case "1": echo "PROGRAM 1";
-      echo "\n\n";
+    case "1": 
+      echo PHP_EOL;
+      echo "---------".PHP_EOL;
+      echo "PROGRAM 1".PHP_EOL;
+      echo "---------".PHP_EOL;
       // Si un paramètre est saisi a la fin de la ligne de commande d'execution de ce script, 
       if ($argc>1) 
       {
@@ -44,38 +72,59 @@ do
         echo "Type your family name: ";
         $name = trim(fgets(STDIN));
       }
+      echo PHP_EOL;
       echo "Welcome, $surname $name!";
+      echo PHP_EOL;
+      echo "---------";
       break;
-    case "2": echo "PROGRAM 2";
-      echo "\n\n";
+    case "2": 
+      echo PHP_EOL;
+      echo "---------".PHP_EOL;
+      echo "PROGRAM 2".PHP_EOL;
+      echo "---------".PHP_EOL;
       echo "Type the first number: ";
-      $nb1 = trim(fgets(STDIN));
+      $nb1 = isValidDigit('');
       echo "Type the second number: ";
-      $nb2 = trim(fgets(STDIN));
-      $sum = $nb1+$nb2;
+      $nb2 = isValidDigit('');
+      $sum = intval($nb1+$nb2);
+      echo PHP_EOL;
       echo "$nb1+$nb2=$sum";
+      echo PHP_EOL;
+      echo "---------";
       break;
-    case "3": echo "PROGRAM 3";
-      echo "\n\n";
-      echo "Type a day of birth (use two digits): ";
-      $DD = trim(fgets(STDIN));
-      echo "Type a month of birth (use two digits): ";
-      $MM = trim(fgets(STDIN));
+    case "3": 
+      echo PHP_EOL;
+      echo "---------".PHP_EOL;
+      echo "PROGRAM 3".PHP_EOL;
+      echo "---------".PHP_EOL;
+      $today = date("Y-m-D H:i:s");
+      echo "Type a day of birth (use one digit if possible): ";
+      $d=isValidDigit('2');
+      echo "Type a month of birth (use one digit if possible): ";
+      $m=isValidDigit('2');
       echo "Type a year of birth (use four digits): ";
-      $YYYY = trim(fgets(STDIN));
-      $age = "$DD/$MM/$YYYY";
-      echo "This person is $age.";
-      echo "Well, they would be if you played by the rules...";
+      $Y=isValidDigit('4');
+      $birthday = date("$Y-$m-$d 0:0:0");
+      $age = intval($today-$birthday);
+      echo PHP_EOL;
+      echo "This person would be $age.";
+      echo PHP_EOL;
+      echo "---------";
       break;
-    case "4": echo "PROGRAM 4";
-      echo "\n\n";
+    case "4": 
+    echo PHP_EOL;
+      echo "---------".PHP_EOL;
+      echo "PROGRAM 4".PHP_EOL;
+      echo "---------".PHP_EOL;
       echo "Work in progress. ooo";
       break;
-    case "exit": echo "Good bye !";
-      break;
     default: echo "(This choice is not avaliable.)";    
-    echo "\n\n";
+    echo PHP_EOL.PHP_EOL;
   }
 }
 while ($saisie!="exit");
+echo PHP_EOL;
+echo "---------".PHP_EOL;
+echo "GOOD BYE!".PHP_EOL;
+echo "---------".PHP_EOL;
 ?>
