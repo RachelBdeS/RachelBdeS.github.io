@@ -1,4 +1,4 @@
-<h1>Bonjour</h1>
+﻿<h1>Bonjour</h1>
 
 <?php
 
@@ -23,6 +23,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
+
 $sql = "ooo";
 $result = $conn->query($sql);
 if ($result->num_rows>0) {
