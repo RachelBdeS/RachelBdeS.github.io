@@ -20,19 +20,32 @@
   <nav>
     <h3><a href="#">Menu</a></h3>
     <ul class="navMenu" id="nav">
+      <li><a href="index.php?page=categories">Catégories</a></li>
+      <li><a href="index.php?page=catalogue">Catalogue</a></li>
+      <li><a href="index.php?page=clients">Clients</a></li>
+      <li><a href="index.php?page=commandes">Commandes</a></li>
     </ul>
   </nav>
 
   <section role="main" id="main">
     <?php
-    $file = 'categories.php';
-    if(file_exists($file))
+
+    if(!empty($_GET['page']) && $_GET['page']!='index')
     {
-      require_once($file);
+      $filename = $_GET['page'].'.php';
+
+      if(file_exists($filename))
+      {
+        require $filename;
+      }
+      else {
+        echo "<br><center>La page demandée n'a pas été trouvée.";
+      }
     }
     else {
-      echo 'La page demandée n\'a pas été trouvée.';
+      echo "<br><center>La page demandée n'a pas été trouvée.";
     }
+    
     ?>
   </section>
 
@@ -81,10 +94,10 @@
   </script>
   
   <!-- ECRITURE DES MENUS LATERAUX -->
-  <script src="./js/nav.js"></script>
+  <script src="./nav.js"></script>
   
   <!-- FONCTIONS GLOBALES -->
-  <script src="./js/fonctions.js"></script>
+  <script src="./fonctions.js"></script>
 
 </body>
 </html>

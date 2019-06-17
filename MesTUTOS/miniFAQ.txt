@@ -609,7 +609,7 @@ if ($stmt = $con->prepare($query))
 
 <code html>
 <?php
-  $saisie = "toi";
+  $saisie = "Alan";
   echo '<h3>Salut, '.$saisie.' !</h3>'; // Est interprété plus rapidement.
   echo "<h3>Salut, $saisie !</h3>"; // Est plus sécurité. Si le texte est écrit entre "...", les variables incluses dedans sont reconnues et interprétées.
   // Si: http://localhost/<chemin>.php?nom=Dupont&age=53
