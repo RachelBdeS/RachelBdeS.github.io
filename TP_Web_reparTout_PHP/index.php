@@ -25,7 +25,14 @@
 
   <section role="main" id="main">
     <?php
-      include('catalogue.php');
+    $file = 'categories.php';
+    if(file_exists($file))
+    {
+      require_once($file);
+    }
+    else {
+      echo 'La page demandée n\'a pas été trouvée.';
+    }
     ?>
   </section>
 
