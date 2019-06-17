@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../assets/icone.png">
+  <meta name="author" content="Rachel BARETTO">
+  <meta name="description" content="Un site de services autour des voitures et des réparations.">
+  <meta name="keywords" content="repare, repar'tout, reparer, reparation, voiture, auto, vehicule, roue, html, css, site, website">
+  <link href="../css/grid.css" rel="stylesheet">
+  <!-- Chemin absolu par http://localhost/ avec WAMP): /rbaretto/TPs_Web_reparTout/css/grid.css -->
+</head>
+<body class="monBody monTexte">
+  
+  <header>
+    <a href="/"><img src="../assets/logo.svg" alt="Logo de ReparTout"></a>
+  </header>
+
+  <nav>
+    <h3><a href="#">Menu</a></h3>
+    <ul class="navMenu" id="nav">
+    </ul>
+  </nav>
+
+  <section role="main" id="main">
+
+    <h2 id="welcome">Clients<button class="edit" onclick="showSpan('editForm');" title="">-</button></h2>
+    <p>Voici les clients.</p>
+
+    <span id="editForm">
+      <h3>Ajouter un client</h3>
+      <form action="" method="GET" name="ajout">
+          <input
+            type="hidden" 
+            id="numero" 
+            name="numero" 
+            value="" 
+            pattern="[0-9]+"
+            readonly
+          ><br>
+        <label for="nom">Nom</label>
+        <input 
+          type="text" 
+          id="nom" 
+          name="nom" 
+          placeholder="Nom"
+          title="Doit contenir au moins deux caractères"
+          pattern="[\w\s\-]{2,}"
+          value="" 
+        ><br>
+        <label for="prenom">Prénom</label>
+        <input 
+          type="text" 
+          id="prenom" 
+          name="prenom" 
+          placeholder="Prénom"
+          title="Doit contenir au moins deux caractères"
+          pattern="[\w\s\-\]{2,}"
+          value=""
+        ><br>
+        <label for="adresse">Adresse</label>
+        <input 
+          type="text" 
+          id="adresse" 
+          name="adresse" 
+          placeholder="Adresse"
+          title="Exemple: 1 bd. Chose 68000 Ville Pays"
+          pattern="\d{1,}\s{1}([\w\-\.]{2,}\s{1}){1,}\d{5}\s{1}[\w\-\.]{2,}\s{1}[\w\-\.]{2,}"
+          value="" 
+        ><br>
+        <label for="tel">Téléphone</label>
+        <input 
+          type="phone" 
+          id="tel" 
+          name="tel" 
+          placeholder="Téléphone"
+          title="Doit contenir au moins 10 chiffres sans espaces (le signe + est accepté)"
+          pattern="[0-9]{10,15}"
+          value="" 
+        ><br>
+        <label></label><input type="submit">
+      </form>
+    </span>
+
+    <h3>Dernièrs clients ajoutés</h3>
+    <table cellspacing="5">
+      <tr>
+        <th>Numéro</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Adresse</th>
+        <th>Téléphone</th>
+      </tr>
+    </table>
+
+  </section>
+
+  <aside>
+    <h3>Commandes en cours</h3>
+    <ul class="asideMenu">
+      <li>Aucune commande.</li>
+    </ul>
+  </aside>
+
+  <footer id="footer">
+    &copy; 2019 Repar'Tout
+  </footer>
+  
+  <script>
+
+    // DECLRATIONS PUBLIQUES
+    var numero=0; //TEMP
+
+    // FONCTIONS APPELEES  
+    function ajouterClient(nom, prenom, adresse, tel)
+    {
+      numero++; //TEMP
+      let s='';
+      s+='<tr>'
+      s+= '<td><a href="#">'+numero+'</a></td>';
+      s+= '<td><a href="#">'+nom+'</a></td>';
+      s+= '<td><a href="#">'+prenom+'</a></td>';
+      s+= '<td><a href="#">'+adresse+'</a></td>';
+      s+= '<td><a href="#">'+tel+'</a></td>';
+      s+='</tr>';
+      document.querySelector('table').innerHTML+=s;
+      return true;
+      //ooo rajoutera le contenu du form dans le tableau
+    }
+    
+    // FONCTIONS ECOUTEURS
+    document.forms.ajout.onsubmit=function(event)
+    {
+      event.preventDefault();
+      var nom=document.forms.ajout.nom;
+      var prenom=document.forms.ajout.prenom;
+      var adresse=document.forms.ajout.adresse;
+      var tel=document.forms.ajout.tel;
+      ajouterClient(nom.value, prenom.value, adresse.value, tel.value);
+    };
+    
+  </script>
+
+  <!-- ECRITURE DES MENUS LATERAUX -->
+  <script src="../js/nav.js"></script>
+  
+  <!-- FONCTIONS GLOBALES -->
+  <script src="../js/fonctions.js"></script>
+
+</body>
+</html>

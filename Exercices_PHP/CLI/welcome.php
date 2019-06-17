@@ -11,50 +11,64 @@
 // Déclarations publiques
 $input;
 
-// Fonction appelée
-function isValidDigit($maxChars)
+// Fonctions appelées
+function showMenu()
 {
-  $digit=false;
+  echo "----------------".PHP_EOL;
+  echo "CHOOSE A PROGRAM".PHP_EOL;
+  echo "----------------".PHP_EOL;
+  echo "[1] Display your chosen name".PHP_EOL;
+  echo "[2] Calaculate the sum of two chosen numbers".PHP_EOL;
+  echo "[3] Calculate age from a chosen date of birth".PHP_EOL;
+  echo "[4] Display files of a chosen repertory";
+}
+
+function isValidDigit($min, $max)
+{
+  $isDigit=false;
+  $min = floatval($min);
+  $max = floatval($max);
   do
   {
     $input = trim(fgets(STDIN));
-    if (!is_numeric ($input))
+    if (!is_numeric($input))
     {
-      echo "(Invalid. Digits only, remember?) Please confirm: ";
+      echo "Digits only, please: ";
     }
-    else if (!$maxChars='' && strlen ($input) > $maxChars)
+    else 
     {
-      echo "(Invalid. $maxChars digits max, remember?) Please confirm: ";
-    }
-    else {
-      $digit=true;
+      $input = floatval($input);
+      if ($input<$min || $input>$max)
+      {
+        echo "Number beween $min and $max, please: ";
+      } 
+      else {
+        $isDigit=true;
+      }
     }
   }
-  while (!$digit);
+  while (!$isDigit);
   return $input;
 }
 
 // Fonction principale 
 
 // Menu (liste des options) en CLI
-echo "----------------".PHP_EOL;
-echo "CHOOSE A PROGRAM".PHP_EOL;
-echo "----------------".PHP_EOL;
-echo "[1] Display your chosen name".PHP_EOL;
-echo "[2] Calaculate the sum of two chosen numbers".PHP_EOL;
-echo "[3] Calculate age from a chosen date of birth".PHP_EOL;
-echo "[4] Display files of a chosen repertory";
+showMenu();
 
 do 
 {
   echo PHP_EOL.PHP_EOL;
   // Récupère la saisie de l'utilisateur
-  echo "YOU CHOICE: ";
+  echo "YOU CHOICE (Menu: M): ";
   $saisie = trim(fgets(STDIN)); /* Il est nécessaire de trimer le retour chariot pour qu'il ne soit pas pris en compte */;
 
   // Selon la saisie utilisateur,
-  switch ($saisie)
+  switch (strtoupper($saisie))
   {
+    case "M": 
+      showMenu(); 
+      break;
     case "1": 
       echo PHP_EOL;
       echo "---------".PHP_EOL;
@@ -82,11 +96,11 @@ do
       echo "---------".PHP_EOL;
       echo "PROGRAM 2".PHP_EOL;
       echo "---------".PHP_EOL;
-      echo "Type the first number: ";
-      $nb1 = isValidDigit('');
-      echo "Type the second number: ";
-      $nb2 = isValidDigit('');
-      $sum = intval($nb1+$nb2);
+      echo "Type the first number (1M max): ";
+      $nb1 = isValidDigit(0,1000000);
+      echo "Type the second number (1M max): ";
+      $nb2 = isValidDigit(0,1000000);
+      $sum = floatval($nb1+$nb2);
       echo PHP_EOL;
       echo "$nb1+$nb2=$sum";
       echo PHP_EOL;
@@ -98,16 +112,16 @@ do
       echo "PROGRAM 3".PHP_EOL;
       echo "---------".PHP_EOL;
       $today = date("Y-m-D H:i:s");
-      echo "Type a day of birth (use one digit if possible): ";
-      $d=isValidDigit('2');
-      echo "Type a month of birth (use one digit if possible): ";
-      $m=isValidDigit('2');
-      echo "Type a year of birth (use four digits): ";
-      $Y=isValidDigit('4');
+      echo "Type a day of the month for the day of birth: ";
+      $d=isValidDigit(1,31);
+      echo "Type a month number for the month of birth: ";
+      $m=isValidDigit(1,12);
+      echo "Type the four digits of the year of birth: ";
+      $Y=isValidDigit(1900,2016);
       $birthday = date("$Y-$m-$d 0:0:0");
-      $age = intval($today-$birthday);
+      $age = intval($today-$birthday); //ooo ?
       echo PHP_EOL;
-      echo "This person would be $age.";
+      echo "This person would be $age today.";
       echo PHP_EOL;
       echo "---------";
       break;
@@ -116,13 +130,22 @@ do
       echo "---------".PHP_EOL;
       echo "PROGRAM 4".PHP_EOL;
       echo "---------".PHP_EOL;
-      echo "Work in progress. ooo";
+      echo "Type the path of the repertory: ";
+      $rep = trim(fgets(STDIN));
+      $iteration  = new DirectoryIterator($rep);
+      echo 'Contents of '.$rep.PHP_EOL;
+      echo PHP_EOL;
+      foreach($iteration as $document)
+      {
+        echo $document->getFilename().PHP_EOL;
+      }
+      echo "---------";
       break;
-    default: echo "(This choice is not avaliable.)";    
-    echo PHP_EOL.PHP_EOL;
+    default: echo "(This choice is not avaliable.)".PHP_EOL;    
+    echo PHP_EOL;
   }
 }
-while ($saisie!="exit");
+while ($saisie!="EXIT");
 echo PHP_EOL;
 echo "---------".PHP_EOL;
 echo "GOOD BYE!".PHP_EOL;

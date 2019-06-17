@@ -1,0 +1,5 @@
+#!/bin/sh
+php -f ./welcome.php
+
+echo "Appuyer sur Entrée pour continuer..."
+read saisie
