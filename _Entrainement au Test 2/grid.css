@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap&subset=latin-ext');
 * 
 {
   box-sizing: border-box;
@@ -17,7 +18,7 @@ BODY
   grid-template-rows: 100px auto 100px;
   row-gap: 0 0;
   grid-template-areas: "H H" "N M" "F F";
-  font-family: "helvetica", sans-serif;
+  font-family: 'Varela Round', sans-serif;
 }
 /* *********************************** */
 HEADER, NAV, MAIN, FOOTER
@@ -59,18 +60,43 @@ MAIN
   grid-area: M;
 }
 
+ul.collection
+{
+  padding: 0;
+  margin: 0;
+}
+
+.collection p 
+{
+  margin: 0;
+}
+
 .collection li
 {
   /* list-style-image: url('./tasse.png'); */
   list-style: none;
+  margin: 0 20px 20px 20px;
+  padding: 4px;
+  padding-right: 55px;
+  background-color: #ffdddd;
+  border-radius: 15px;
+  text-align: center;
 }
 
 .collection img
 {
-  height: 50px;
   display: inline;
-
+  float: left;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 30px;
 }
+
+h3
+{
+  margin: 0 0 6px 0;
+}
+
 /* *********************************** */
 FOOTER 
 {
