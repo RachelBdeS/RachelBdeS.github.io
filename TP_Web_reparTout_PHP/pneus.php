@@ -1,8 +1,6 @@
-<?php 
-  // header("Location:./fccatalogue");
-?>
-
-<h2 id="welcome">Pneus<button class="edit" onclick="showSpan('editForm');" title="">-</button></h2>
+<h2 id="welcome">Pneus
+  <button class="edit" onclick="showSpan('editForm');" title="">+</button>
+</h2>
 <p>Voici les pneus.</p>
 
 <span id="editForm">
@@ -11,8 +9,7 @@
     <label for="nom">Marque</label>
     <input 
       type="text" 
-      id="nom" 
-      name="nom" 
+      id="nom" name="nom" 
       placeholder="Nom"
       title=""
       pattern="[a-zA-Z0-9\s]+"
@@ -21,8 +18,7 @@
     <label for="nom">Nom</label>
     <input 
       type="text" 
-      id="marque" 
-      name="marque" 
+      id="marque" name="marque" 
       placeholder="Marque"
       title=""
       pattern="[a-zA-Z0-9\s]+"
@@ -30,83 +26,84 @@
     ><br>
     <label for="desc">Diamètre</label>
     <input 
-      type="text" 
-      id="diametre" 
-      name="diametre" 
-      value=""
+      type="number" 
+      id="diametre" name="diametre" 
       placeholder="Diamètre"
       title=""
-      pattern="[a-zA-Z]+"
+      value=""
     ><br>
     <label for="desc">Structure</label>
     <input 
       type="text" 
-      id="structure" 
-      name="structure" 
-      value=""
+      id="structure" name="structure" 
       placeholder="Structure"
       title=""
       pattern="[a-zA-Z]+"
+      value=""
     ><br>
     <label for="desc">Largeur</label>
     <input 
       type="text" 
-      id="largeur" 
-      name="largeur" 
-      value=""
+      id="largeur" name="largeur" 
       placeholder="Largeur"
       title=""
       pattern="[a-zA-Z]+"
+      value=""
     ><br>
     <label for="desc">Usage</label>
     <input 
       type="text" 
-      id="usage" 
-      name="usage" 
-      value=""
+      id="usage" name="usage" 
       placeholder="Usage"
       title=""
       pattern="[a-zA-Z]+"
+      value=""
     ><br>
     <label for="desc">Indice de charge</label>
     <input 
-      type="text" 
-      id="charge" 
-      name="charge" 
-      value=""
+      type="number" 
+      id="charge" name="charge" 
       placeholder="Indice de charge"
       title=""
-      pattern="[a-zA-Z]+"
+      value=""
+      min="" max="" 
+      step="1" 
     ><br>
     <label for="desc">Indice de vitesse</label>
     <input 
-      type="text" 
-      id="vitesse" 
-      name="vitesse" 
-      value=""
+      type="number" 
+      id="vitesse" name="vitesse" 
       placeholder="Indice de vitesse"
       title=""
-      pattern="[a-zA-Z]+"
+      value=""
+      min="" max="" 
+      step="1" 
     ><br>
     <label for="desc">Prix d'achat HT</label>
     <input 
-      type="text" 
-      id="pxAchatHT" 
-      name="pxAchatHT" 
-      value=""
+      type="number" 
+      id="pxAchatHT" name="pxAchatHT" 
       placeholder="Prix d'achat HT"
-      pattern="[a-zA-Z]+"
+      title=""
+      value=""
+      min="" max="" 
+      step="1" 
     ><br>
     <label for="desc">Prix de vente HT</label>
     <input 
-      type="text" 
-      id="pxVenteHT" 
-      name="pxVenteHT" 
-      value=""
+      type="number" 
+      id="pxVenteHT" name="pxVenteHT" 
       placeholder="Prix de vente HT"
       title="" 
-      pattern="[a-zA-Z]+"
+      value=""
+      min="" max="" 
+      step="1" 
     ><br>
+    <label></label>
+    <select id="id_fournisseur">
+      <option value="1">Fournisseur 1</option>
+      <option value="2">Fournisseur 2</option>
+    </select>
     <label></label><input type="submit">
   </form>
 </span>
@@ -124,5 +121,6 @@
       <th>Vitesse</th>
       <th>Achat HT</th>
       <th>Vente HT</th>
+      <th>Fournisseur</th>
   </tr>
 </table>

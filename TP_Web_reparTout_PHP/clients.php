@@ -1,8 +1,6 @@
-<?php 
-  // header("Location:./clients");
-?>
-
-<h2 id="welcome">Clients<button class="edit" onclick="showSpan('editForm');" title="">-</button></h2>
+<h2 id="welcome">Clients
+  <button class="edit" onclick="showSpan('editForm');" title="" tabindex="6">+</button>
+</h2>
 <p>Voici les clients.</p>
 
 <span id="editForm">

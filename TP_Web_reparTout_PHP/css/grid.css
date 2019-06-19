@@ -11,6 +11,13 @@
   box-sizing: border-box;
 }
 
+*[tabindex]:focus
+{
+  outline: 0;
+  color: var(--couleur1);
+  background-color: var(--couleur2);
+}
+
 /*******************************/
 
 body {
@@ -63,8 +70,13 @@ header {
   border-bottom: 2px solid var(--couleur1);
 }
 
-img[alt="Logo de ReparTout"] {
+img#logo {
   height: 100%;
+}
+
+a#logo:focus {
+  outline: 0;
+  border: solid transparent 5px;
 }
 
 h2, h3 {
@@ -97,10 +109,10 @@ nav {
   margin-bottom: 10px;
 }
 
-.navMenu a:hover {
+.navMenu a:hover, .navMenu a:focus {
+  outline: 0;
   color: var(--couleur1);
   background-color: var(--couleur2);
-
 }
 
 /*******************************/
@@ -167,7 +179,7 @@ label {
   margin-bottom: 20px;
 }
 
-input {
+input, textarea, select {
   background-color: #333333FF;
   color: var(--couleur2);
   border: 1px solid var(--couleur2);
@@ -185,6 +197,7 @@ input[type="submit"]:hover
 }
 
 /*******************************/
+
 .edit 
 {
   width: 15px;
@@ -208,7 +221,15 @@ input[type="submit"]:hover
   background-color: var(--couleur2);
 }
 
+.edit:focus 
+{
+  outline: 0;
+  border: solid var(--couleur2) 1px;
+  color: var(--couleur0);
+  background-color: var(--couleur2);
+}
+
 #editForm 
 {
-  display: inline;
+  display: none;
 }
