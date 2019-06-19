@@ -21,10 +21,10 @@
     <!-- <link rel="icon" href="icone.ico"> -->
     
     <!-- Préférable -->
+    <script src="./js/fonctions.js"></script>
     <!-- NB: écrire les CSS dans des fichiers externes pour que le navigateur les chargent qu'une fois, indépendament des pages web (fichiers html, php, asp): -->
-    <!-- <link href="./css/style.css" rel="stylesheet"> -->
-    <!-- NB: OU (avec le chemin absolu commencant par "http://localhost/" avec WAMP): -->
-    <!-- <link href="http://localhost/<path_to_this_folder>/css/<style_sheet_name>.css" rel="stylesheet"> -->
+    <!-- NB: Avec le chemin absolu commencant par "http://localhost/<path_to_this_folder>/" avec WAMP) OU: -->
+    <link href="./css/style.css" rel="stylesheet">
     
     <!-- Facutltatif -->
     <!-- <meta name="description" content=""> -->
@@ -137,17 +137,18 @@ body {
   /* Du fait d'un vieil accident du html: par défaut, le body a une marge. */
   margin: 0;
   /* Du fait d'un vieil accident du html: le body peut etre inférieur à la hauteur de la fenetre. */
-  min-height: 100%;
+  min-height: 100vh;
   /* De préférence: "Arial", "Helvetica", sans-serif */
   font-family: var(--fontFamily);
   font-variant: var(--textFontType);
   background-color: var(--bgMain);
   display: grid;
-  grid-template-rows: 15vh 77vh 8vh;
-  grid-template-columns: 15vw 1fr;
-  grid-template-areas:  "H H"
-                        "M A"
-                        "F F";
+  grid-template-columns: 300px 1fr;
+  /* Largeur de chaque colonne */
+  /* Ici : valeur_fixe largeur_écran-valeur_fixe_citée */
+  /* Sinon: largeur_écran_divisé_par_total_fractions_citées_multiplié_par_ce_nombre_de_fractions largeur_écran_divisé_par_total_fractions_citées_multiplié_par_ce_nombre_de_fractions */
+  grid-template-rows: 100px auto 100px;
+  grid-template-areas: "H H" "M A" "F F";
 }
 
 /* ELEMENTS DU HEADER */
@@ -170,6 +171,14 @@ header {
   align-items: center;
   justify-content: center;
   grid-area: S;
+  
+  /*
+  background-image: url("./banniere.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-origin: content-box;
+  */
 }
 
 nav {
@@ -392,6 +401,8 @@ A rédiger dans ma FAQ
 • JS: document.querySelector("#id") <=> document.getElementById("id")
 • JS: document.querySelector("tag") <=> document.getElementsByTagName("tag")[0]   
 • JS: var tableau_d'éléments = <dom_element>.querySelectorAll("type 1 d'élements, type 2 d'élement, etc.")
+
+• DOM = "Document Objet Model"
 • DOM: Syntax avancée : 
   <dom_element>.querySelector (
   "#identifiant" OU ".<classe>" OU "<balise>" OU <balise>[<propriété>='<valeur>'] OU "<element> <element_enfant>" );

@@ -1,0 +1,81 @@
+* 
+{
+  box-sizing: border-box;
+}
+BODY 
+{
+  background-color: #FFFFFFFF;
+  color: #572C01FF;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr; 
+  /* Largeur de chaque colonne */
+  /* Ici : valeur_fixe largeur_écran-valeur_fixe_citée */
+  /* Sinon: largeur_écran_divisé_par_total_fractions_citées_multiplié_par_ce_nombre_de_fractions largeur_écran_divisé_par_total_fractions_citées_multiplié_par_ce_nombre_de_fractions */
+  grid-template-rows: 100px auto 100px;
+  row-gap: 0 0;
+  grid-template-areas: "H H" "N M" "F F";
+  font-family: "helvetica", sans-serif;
+}
+/* *********************************** */
+HEADER, NAV, MAIN, FOOTER
+{
+  padding: 4px;
+}
+/* *********************************** */
+HEADER 
+{
+  background-color: #EEF;
+  grid-area: H;
+  align-items: center;
+}
+
+H1 
+{
+  position: absolute;
+  margin-left: 4px;
+  margin-top: 55px;
+}
+
+HEADER img.logo 
+{
+  height: 96%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* *********************************** */
+NAV 
+{
+  background-color: #DFD;
+  grid-area: N;
+}
+/* *********************************** */
+MAIN 
+{
+  background-color: #FEE;
+  grid-area: M;
+}
+
+.collection li
+{
+  /* list-style-image: url('./tasse.png'); */
+  list-style: none;
+}
+
+.collection img
+{
+  height: 50px;
+  display: inline;
+
+}
+/* *********************************** */
+FOOTER 
+{
+  background-color: #EEF;
+  grid-area: F;
+  display: flex;
+  justify-content: center;
+}
