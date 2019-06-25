@@ -179,7 +179,7 @@ label {
   margin-bottom: 20px;
 }
 
-input, textarea, select {
+input, textarea, select, {
   background-color: #333333FF;
   color: var(--couleur2);
   border: 1px solid var(--couleur2);

@@ -24,6 +24,7 @@
       pattern="[a-zA-Z0-9\s]+"
       value="" 
     ><br>
+    
     <label for="desc">Diamètre</label>
     <input 
       type="number" 
@@ -32,6 +33,7 @@
       title=""
       value=""
     ><br>
+
     <label for="desc">Structure</label>
     <input 
       type="text" 
@@ -41,6 +43,7 @@
       pattern="[a-zA-Z]+"
       value=""
     ><br>
+
     <label for="desc">Largeur</label>
     <input 
       type="text" 
@@ -50,6 +53,7 @@
       pattern="[a-zA-Z]+"
       value=""
     ><br>
+
     <label for="desc">Usage</label>
     <input 
       type="text" 
@@ -59,6 +63,7 @@
       pattern="[a-zA-Z]+"
       value=""
     ><br>
+
     <label for="desc">Indice de charge</label>
     <input 
       type="number" 
@@ -69,6 +74,7 @@
       min="" max="" 
       step="1" 
     ><br>
+
     <label for="desc">Indice de vitesse</label>
     <input 
       type="number" 
@@ -79,6 +85,7 @@
       min="" max="" 
       step="1" 
     ><br>
+
     <label for="desc">Prix d'achat HT</label>
     <input 
       type="number" 
@@ -89,6 +96,7 @@
       min="" max="" 
       step="1" 
     ><br>
+
     <label for="desc">Prix de vente HT</label>
     <input 
       type="number" 
@@ -99,12 +107,15 @@
       min="" max="" 
       step="1" 
     ><br>
+
     <label></label>
     <select id="id_fournisseur">
       <option value="1">Fournisseur 1</option>
       <option value="2">Fournisseur 2</option>
-    </select>
-    <label></label><input type="submit">
+    </select><br>
+
+    <label></label>
+    <input type="submit" value="Envoyer">
   </form>
 </span>
 

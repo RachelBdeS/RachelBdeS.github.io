@@ -35,7 +35,7 @@
 </span>
 
 <h3>Dernièrs fournisseurs ajoutés</h3>
-<table cellspacing="5">
+<table cellspacing="5" id="tFournisseurs">
   <tr>
     <th>Numéro</th>
     <th>Nom</th>
@@ -44,3 +44,25 @@
   </tr>
 </table>
 
+<div><pre>
+<?php
+
+  $connexion = connexionBDD('repartout', 'Cdi1234');
+
+  // echo var_export($connexion, true);
+  // NULL
+
+  // Si la connexion a réussi et le le formulaire rempli a été récupéré, 
+  if($connexion !== NULL && $_POST)
+  {
+
+  }
+
+  if($_POST)
+  {
+    genererTableau($_POST);
+    //echo var_export($_POST, true);
+  }
+  
+?></pre>
+</div>
