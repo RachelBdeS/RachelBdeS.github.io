@@ -2,45 +2,52 @@
 
 function genererTableau(array $table)
 {
-    // Déclaration du tableau de résultat du formulaire renseigné
-    echo '<table class="tableau">';
-    echo '<tr>';
-    echo '<th>Clé</th>';
-    echo '<th>Valeur</th>';
-    echo '</tr>';
+  // Déclaration du tableau de résultat du formulaire renseigné
+  echo '<table class="tableau">';
+  echo '<tr>';
+  echo '<th>Clé</th>';
+  echo '<th>Valeur</th>';
+  echo '</tr>';
 
-    foreach($table as $key => $value)
-    {
-        echo '<tr>'; // Ouverture d'une ligne de tableau
-        echo '<td>'.$key.'</td>'; // Déclaration de la cellule qui contiendra la clé
-        echo '<td>'.strip_tags($value).'</td>'; // Déclaration de la cellule qui contiendra la valeur
-        echo '</tr>'; // Fermeture de la ligne du tableau
-    }
-    echo '</table>'; // Fermeture du tableau
+  foreach($table as $key => $value)
+  {
+    echo '<tr>'; // Ouverture d'une ligne de tableau
+    echo '<td>'.$key.'</td>'; // Déclaration de la cellule qui contiendra la clé
+    echo '<td>'.strip_tags($value).'</td>'; // Déclaration de la cellule qui contiendra la valeur
+    echo '</tr>'; // Fermeture de la ligne du tableau
+  }
+  echo '</table>'; // Fermeture du tableau
 }
 
-function connextionBDD($utilisateur, $motdepasse)
+function connexionBDD($utilisateur, $motdepasse)
 {
-    try
-    {
-        // création de la chaîne de connexion
-        // on demarre la chaîne par le pilote à utiliser (mysql:, mssql: ...)
-        // 3 paramètres à renseigner :
-        // host (url du serveur, généralement localhost)
-        // port (par défaut, msql = 3306)
-        // charset (par déefaut latin1). Pour UTF-8 on ne met pas le tiret.
-        $dsn = 'mysql:host=localhost;charset=UTF8;port=3306';
+  try
+  {
+    // Déclaration d'une commande de connexion à la BDD
+    // <pilote à utiliser>: 
+    // host=<url du serveur, généralement localhost>;
+    // port=<3306 pour mysql>;
+    // charset=<latin 1 par défaut, prefere le UTF-8 (a écrire UTF8 ici)> 
+    // <dbname>=<ici repartout>
+    $dsn = 'mysql:host=localhost;charset=UTF8;port=3306;dbname=repartout';
 
-        // Création de l'objet de connexion avec la classe PDO (/!\ en majuscule /!\)
-        // 3 paramètres : la chaîne de connexion créer plus haut, le nomdutilisateur et le mot de passe.
-        $pdo = new PDO($dsn, $utilisateur, $motdepasse);
+    $options = [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ];
 
-        return $pdo;
-    }
-    catch(Exception $ex)
-    {
-        
-    }
+                               // QUESTION: pourquoi appeler cette variable "dsn" ?
+    // Déclaration de l'objet de connexion (c'est une instance de la classe php "PDO")
+    // new PDO(<cde de connexion>, <ID du serveur web>, <mdp du serveur web>, <tableau d'options>;
+    $pdo = new PDO($dsn, $utilisateur, $motdepasse, $options);
+
+    // Retourne cet objet comme valeur de cette fonction 
+    return $pdo;
+  }
+  catch(Exception $ex)
+  {
+    
+  }
 }
 
 ?>

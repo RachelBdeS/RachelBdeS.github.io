@@ -1,3 +1,15 @@
+<!--
+  NB pour ma FAQ:
+  // Accès aux objets 
+  // en C# : <objet>.<methode>
+  // en PHPH : <objet> -> <fonction>
+-->
+
+<?php
+  require_once 'functions.php';
+  $connexion = connexionBDD('repartout', 'Cdi1234');
+?>
+
 <!DOCTYPE html>
 <html lang="fr-fr">
 <head>
@@ -32,6 +44,11 @@
   <section role="main" id="main">
     <?php
     
+    // Vérification 
+    // echo var_export($connexion, true);
+
+    // NULL
+
     if(!empty($_GET['page']) && $_GET['page']!='index')
     {
       // basename($_GET["varibale_d'url"]) permet d'empêcher les injections php dans l'url puisque seul le dernier dossier est pris en considération.
@@ -66,18 +83,6 @@
   <script>
     
     // FONCTIONS APPELLEES
-    function ajouterCategorie(nom, description)
-    {
-      let s='';
-      s+='<tr>'
-      s+= '<td>'+nom+'</td>';
-      s+= '<td>'+description+'</td>';
-      s+='</tr>';
-      document.querySelector('table').innerHTML+=s;
-      return true;
-      //ooo rajoutera le contenu du form dans le tableau
-    }
-
     function showSpan(id) 
     {
       let e = document.getElementById(id);
@@ -92,24 +97,7 @@
         document.querySelector('button.edit').innerHTML = '+';
       }
     }
-
-    // FONCTIONS ECOUTEURS   
-    document.forms.ajout.onsubmit=function(event)
-    {
-      event.preventDefault();
-      var nom=document.forms.ajout.nom;
-      var desc=document.forms.ajout.desc;
-      
-      if (nom.value.match(nom.pattern))
-      {
-        ajouterCategorie(nom.value, desc.value);
-        return true;
-      }
-      
-      return false;
-    };
-    
   </script>
-  
+
 </body>
 </html>
