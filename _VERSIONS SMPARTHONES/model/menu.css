@@ -1,0 +1,120 @@
+/* Pour les pages de moins de 600 pixels */
+
+*
+{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+}
+
+.menu, .menu ul
+{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-weight: bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.menu
+{
+  top: 50px;
+  left: -100%;
+  transition: 0.8s;
+}
+.menu ul, .menu li
+{
+  position: relative;
+}
+
+nav
+{
+  position: relative;
+}
+
+.menu ul
+{
+  font-weight: normal;
+}
+
+.menu a, .menu-toggle
+{
+  text-decoration: none;
+  display: block;
+  background-color: #000;
+  color: #fff;
+  padding: 1em;
+}
+
+.menu-active
+{
+  transition: margin-right 2s ease-in-out .5s;
+  left: 0;
+  transition: 0.8s;
+}
+
+.menu a:hover, .menu-toggle:hover
+{
+  background-color: rgb(121, 121, 228);
+  color: rgb(127, 224, 192);
+}
+
+.menu ul
+{
+  padding-left: 15px;
+  background-color: #000;
+  display: none; /* DEBUG */
+}
+
+/* Pour les autres pages (version mobile) */
+
+@media (min-width: 600px)
+{
+  .menu-toggle
+  {
+    display: none;
+  }
+
+  .menu
+  {
+  position: relative;
+  left: auto;
+  top: auto;
+  white-space: nowrap;
+  }
+
+  .menu > li
+  {
+  display: inline-block;
+  }
+
+  .menu ul
+  {
+    position: absolute;
+    top: auto;
+    width: auto;
+    display: none;
+  }
+  .menu ul ul
+  {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+  .menu li:hover > ul
+  {
+    display: block;
+  }
+  
+  .menu ul
+  {
+    padding-left: 0;
+    background-color: inherit;
+  }
+  
+}

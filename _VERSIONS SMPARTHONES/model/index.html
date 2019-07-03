@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Menu adaptatif</title>
+    <link rel="stylesheet" href="menu.css">
+  </head>
+  <body>
+    <header>
+
+      <!-- Menu deroulant responsive a réutiliser partout !-->
+      <nav>
+        <a href="#" class="menu-toggle" id="menuTrigger">MENU</a>
+        <ul class="menu" id="menuList">
+          <li><a href="#">ITEM 1</a></li>
+          <li><a href="#">ITEM 2</a></li>
+          <li><a href="#">ITEM 3</a>
+            <ul class="menuSub1">
+                <li><a class="moi" href="#">ITEM 3.1</a>
+                <li><a href="#">ITEM 3.2</a>
+                  <ul class="menuSub2">
+                    <li><a href="#">ITEM 3.2.1</a></li>
+                    <li><a href="#">ITEM 3.2.2</a></li>
+                  </ul>
+                </li>
+            </ul>
+          </li>
+          <li><a href="#">ITEM 4</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- --------------------------------------------- -->
+
+    </header>
+    <script>
+
+      var menuTrigger = document.getElementById('menuTrigger');
+      var menuList = document.getElementById('menuList');
+
+      menuTrigger.addEventListener("click", function()
+      {
+        if (menuList.classList.contains("menu-active")){
+
+          menuList.classList.remove("menu-active");
+          menuTrigger.style.textAlign = 'left';
+          menuTrigger.innerText = 'MENU';
+        }
+        else 
+        {
+          menuList.classList.add("menu-active");
+          menuTrigger.style.textAlign = 'right';
+          menuTrigger.innerText = 'X';
+        }
+      });
+
+      // BUG
+      var subMenu = document.querySelector('.menuSub1');
+      subMenu.click()=function()
+      {
+        alert(this.innerHTML);
+      }
+
+    </script>
+  </body>
+</html>
