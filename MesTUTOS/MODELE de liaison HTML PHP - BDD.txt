@@ -15,54 +15,6 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 $query = "
 
-/*
-SQL's Data Definition Language (DDL) defines the database schema:
-
-CREATE – is used to create the database or its objects (like table, index, function, views, store procedure and triggers).
-DROP – is used to delete objects from the database.
-ALTER-is used to alter the structure of the database.
-TRUNCATE réinitialize toutes les lignes y compris les données readonly, les auto-incréments, et les espaces de remplissage des champts à taille fixe
-COMMENT –is used to add comments to the data dictionary.
-RENAME –is used to rename an object existing in the database.
-
-SQL's Data Manipulation Language (DML) manipulates data: 
-
-SELECT – is used to retrieve data from the a database.
-INSERT – is used to insert data into a table.
-UPDATE – is used to update existing data within a table.
-DELETE réinitialize les champs modifiables des lignes
-
-SQL's Data Control Language (DCL) controls permissions and rights:
-
-GRANT-gives user’s access privileges to database.
-REVOKE-withdraw user’s access privileges given by using the GRANT command.
-
-SQL's Transaction Control Language (TCL) deals with internal transactions:
-
-COMMIT– commits a Transaction.
-ROLLBACK– rollbacks a transaction in case of any error occurs.
-SAVEPOINT
-SET TRANSACTION
-
-RegEx:
-
-- WHERE <champs> LIKE '...'
-- One character: _ 
-- Any number of characters: % 
-- Everything: *
-- Commence par un caractère compris entre a et d: "[a-d]%"
-
-Fonctions: 
-
-- AVG() 
-- MIN() 
-- MAX() 
-- SUM() 
-- COUNT()
-
-*/
-
-
 USE repartout;  
 
 SET FOREIGN_KEY_CHECKS=0; 
