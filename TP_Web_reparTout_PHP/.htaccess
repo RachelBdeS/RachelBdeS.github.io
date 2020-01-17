@@ -1,0 +1,13 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !index.php
+RewriteRule accueil	index.php?page=accueil
+RewriteRule categories	index.php?page=categories
+RewriteRule fournisseurs	index.php?page=fournisseurs
+RewriteRule catalogue	index.php?page=catalogue
+RewriteRule pneus	index.php?page=pneus
+RewriteRule clients	index.php?page=clients
+RewriteRule commandes	index.php?page=commandes 
+
+ErrorDocument 404 "Error 404: <br><center>La page demandée n'a pas été trouvée."
+
+Options -Indexes
